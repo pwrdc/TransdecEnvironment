@@ -145,10 +145,13 @@ MonoBehaviour:
   VectorObservationPlacholderName: vector_observation
   RecurrentInPlaceholderName: recurrent_in
   RecurrentOutPlaceholderName: recurrent_out
-  VisualObservationPlaceholderName: []
+  VisualObservationPlaceholderName:
+  - visual_observation_0
+  - visual_observation_1
+  - visual_observation_2
   ActionPlaceholderName: action
   PreviousActionPlaceholderName: prev_action
-  brain: {fileID: 0}
+  brain: {fileID: 110375181}
 --- !u!1 &110375179
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,10 +193,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 1
+    vectorObservationSize: 0
     numStackedVectorObservations: 1
     vectorActionSize: 01000000
-    cameraResolutions: []
+    cameraResolutions:
+    - width: 1280
+      height: 720
+      blackAndWhite: 0
+    - width: 1280
+      height: 720
+      blackAndWhite: 0
+    - width: 640
+      height: 480
+      blackAndWhite: 0
     vectorActionDescriptions:
     - 
     vectorActionSpaceType: 0
@@ -258,14 +270,14 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0758b374dc7cd26428782454fcfee321, type: 2}
   m_IsPrefabAsset: 0
---- !u!4 &148783993 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4081706051676248, guid: 0758b374dc7cd26428782454fcfee321,
-    type: 2}
-  m_PrefabInternal: {fileID: 148783992}
 --- !u!1 &262483792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1034476831049784, guid: 0758b374dc7cd26428782454fcfee321,
+    type: 2}
+  m_PrefabInternal: {fileID: 148783992}
+--- !u!4 &262483793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4556438655537954, guid: 0758b374dc7cd26428782454fcfee321,
     type: 2}
   m_PrefabInternal: {fileID: 148783992}
 --- !u!1 &265328561
@@ -356,76 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35813a1be64e144f887d7d5f15b963fa, type: 3}
   m_Name: (Clone)
   m_EditorClassIdentifier: 
-  brain: {fileID: 0}
---- !u!1 &710702783
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 710702784}
-  - component: {fileID: 710702785}
-  m_Layer: 0
-  m_Name: surfaceReflectionSceneCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &710702784
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 710702783}
-  m_LocalRotation: {x: 0.0023197664, y: 0.9974534, z: 0.059919395, w: -0.038615044}
-  m_LocalPosition: {x: 7.647469, y: 10.4222355, z: -26.619999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 148783993}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &710702785
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 710702783}
-  m_Enabled: 0
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
-  m_projectionMatrixMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967279
-  m_RenderingPath: 1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
+  brain: {fileID: 110375181}
 --- !u!1 &1051573375
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,13 +561,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32373adcf35423d469d6d7d866516bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 0}
+  brain: {fileID: 110375181}
   agentParameters:
-    agentCameras: []
+    agentCameras:
+    - {fileID: 1227796688}
+    - {fileID: 265328564}
+    - {fileID: 1051573378}
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 0
+    numberOfActionsBetweenDecisions: 1
 --- !u!114 &1220183513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,6 +654,75 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!1 &2042214765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2042214766}
+  - component: {fileID: 2042214767}
+  m_Layer: 0
+  m_Name: surfaceReflectionfront_left_camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2042214766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042214765}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.955, y: 0.13999939, z: -27.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 262483793}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2042214767
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2042214765}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_projectionMatrixMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967279
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3

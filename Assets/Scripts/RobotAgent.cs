@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using MLAgents;
 
 public class RobotAgent : Agent {
+    Rigidbody rbody;
 
-	// Use this for initialization
 	void Start () {
-		
+        rbody = GetComponent<Rigidbody>();
 	}
 }
