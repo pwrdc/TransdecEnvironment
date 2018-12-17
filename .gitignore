@@ -7,6 +7,7 @@ Assets/AssetStoreTools*
 
 # Visual Studio cache directory
 .vs/
+.vscode/
 
 # ML-Agents plugins
 Assets/Standard Assets/ML-Agents/Plugins
