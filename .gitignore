@@ -7,6 +7,7 @@ Assets/AssetStoreTools*
 
 # Visual Studio cache directory
 .vs/
+.vscode/
 
 # ML-Agents plugins
 Assets/Standard Assets/ML-Agents/Plugins
@@ -41,3 +42,4 @@ sysinfo.txt
 
 # ML-agents directory
 Assets/ML-Agents
+Assets/ML-Agents.meta
