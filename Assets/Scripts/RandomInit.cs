@@ -35,7 +35,7 @@ public class RandomInit : MonoBehaviour {
         PutAll();
 	}
 
-    void PutAll() {
+    public void PutAll() {
         System.Random rnd = new System.Random();
         // select one of the quarters
         int quarter = rnd.Next(0, 4);
