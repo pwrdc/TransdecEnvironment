@@ -20,10 +20,9 @@ public class RandomPosition : MonoBehaviour
     public float z_ang_range = 5f;
     public bool random_quarter = false;
 
-    System.Random rnd = new System.Random();
-
     float get_random(float min, float max)
     {
+        System.Random rnd = GameObject.Find("Academy").GetComponent<RandomInit>().rnd;
         float rand = (float)rnd.NextDouble();
         float ret = (max - min) * rand + min;
         return ret;
@@ -57,7 +56,7 @@ public class RandomPosition : MonoBehaviour
     {
         if (random_quarter)
         {
-            this.GetComponent<RandomInit>().PutAll();
+            GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
         }
         get_new_pos();
     }
