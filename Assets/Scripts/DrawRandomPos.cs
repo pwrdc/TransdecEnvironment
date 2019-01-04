@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class RandomCylinderInit : MonoBehaviour {
+public class DrawRandomPos : MonoBehaviour {
 
     [Serializable]
     public class ObjectPosition {
