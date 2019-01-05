@@ -8,6 +8,7 @@ public class WaterOpacity : MonoBehaviour {
     private bool underwater;
     public Color water_color = new Color(0.22f, 0.65f, 0.77f, 0.5f);
     public float water_fog = 0.2f;
+    public bool data_collecting = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,7 @@ public class WaterOpacity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if ((transform.position.y < water_surface.transform.position.y) != underwater)
+        if (((transform.position.y < water_surface.transform.position.y) != underwater) && (!data_collecting))
         {
             underwater = (transform.position.y < water_surface.transform.position.y);
             if (underwater) SetUnderwater();
@@ -26,13 +27,13 @@ public class WaterOpacity : MonoBehaviour {
         }
 	}
 
-    void SetNormal()
+    public void SetNormal()
     {
         RenderSettings.fog = false;
         Debug.Log("Normal");
     }
 
-    void SetUnderwater()
+    public void SetUnderwater()
     {
         RenderSettings.fog = true;
         Debug.Log("Underwater");
