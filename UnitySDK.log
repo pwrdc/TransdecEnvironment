@@ -1,8 +1,12 @@
-05.01.2019 14:28:23
+05.01.2019 17:40:11
  
 Log
 Underwater
 UnityEngine.Debug:Log(Object)
-WaterOpacity:SetUnderwater() (at Assets/Scripts/WaterOpacity.cs:38)
-WaterOpacity:Update() (at Assets/Scripts/WaterOpacity.cs:24)
+WaterOpacity:SetUnderwater() (at Assets/Scripts/WaterOpacity.cs:39)
+RobotAgent:AgentReset() (at Assets/Scripts/RobotAgent.cs:16)
+MLAgents.Agent:_AgentReset() (at Assets/ML-Agents/Scripts/Agent.cs:855)
+MLAgents.Academy:ForcedFullReset() (at Assets/ML-Agents/Scripts/Academy.cs:520)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:563)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
 
