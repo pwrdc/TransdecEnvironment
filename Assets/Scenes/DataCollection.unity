@@ -392,28 +392,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1504943639}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &342853720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342853717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 342853717}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1 &503281217
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,50 +477,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 170153084}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &638040707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638040706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 638040706}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
---- !u!114 &719018296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915542567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 915542567}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1001 &732474622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -679,56 +613,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 732474622}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &783849500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783849499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 783849499}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1 &794252509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 092d0e5cc3d7a85418906a938f2c3b65,
     type: 3}
   m_PrefabInstance: {fileID: 1012441610}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &794252512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794252509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 794252509}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1001 &812159035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,56 +680,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1606919839}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &887348656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887348655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 887348655}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1 &909001245 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: f77262b74c2c8d94a96877c2a82d6167,
     type: 3}
   m_PrefabInstance: {fileID: 812159035}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &909001246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909001245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 909001245}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1 &915542563
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +713,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 915770887}
-  - component: {fileID: 719018296}
   m_Layer: 0
   m_Name: coin_dispenser
   m_TagString: Untagged
@@ -1133,28 +978,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1392065527}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1032399116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032399113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 1032399113}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1 &1051573375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1252,7 @@ MonoBehaviour:
   water_surface: {fileID: 262483792}
   water_color: {r: 0.22, g: 0.65, b: 0.77, a: 0.5}
   water_fog: 0.2
+  data_collecting: 0
 --- !u!114 &1110783363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1455,28 +1279,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1327638697}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1181222960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181222957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 1181222957}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1 &1227796685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,28 +1367,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 757998674}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1275200491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275200488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 1275200488}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1001 &1327638697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1877,7 +1657,6 @@ GameObject:
   - component: {fileID: 1782064271}
   - component: {fileID: 1782064270}
   - component: {fileID: 1782064269}
-  - component: {fileID: 1782064272}
   m_Layer: 0
   m_Name: Robot (1)
   m_TagString: Player
@@ -1957,28 +1736,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782064265}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1782064272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782064265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 1782064265}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1 &1797791977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,28 +1825,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2086874531}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1953216606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953216605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82fde3a5a0fe391448eca0922034963e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 1953216605}
-  target: {fileID: 634119051}
-  min_radius: 0
-  max_radius: 3
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 30
-  y_ang_range: 30
-  z_ang_range: 30
-  random_quarter: 0
 --- !u!1 &2061235919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,6 +1940,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1110783357}
   target: {fileID: 634119051}
+  other_objs:
+  - {fileID: 909001245}
+  - {fileID: 1953216605}
+  - {fileID: 783849499}
+  - {fileID: 887348655}
+  - {fileID: 1275200488}
+  - {fileID: 342853717}
+  - {fileID: 794252509}
+  - {fileID: 1032399113}
+  - {fileID: 638040706}
+  - {fileID: 915542567}
+  - {fileID: 1181222957}
+  - {fileID: 1782064265}
   min_radius: 2.5
   max_radius: 9
   water_level: 11
@@ -2213,6 +1961,12 @@ MonoBehaviour:
   y_ang_range: 20
   z_ang_range: 0
   random_quarter: 1
+  oth_min_radius: 0
+  oth_max_radius: 6
+  oth_max_depth: 8
+  oth_x_ang_range: 90
+  oth_y_ang_range: 90
+  oth_z_ang_range: 90
 --- !u!114 &2061235924
 MonoBehaviour:
   m_ObjectHideFlags: 0
