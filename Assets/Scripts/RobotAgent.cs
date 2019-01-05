@@ -15,7 +15,8 @@ public class RobotAgent : Agent {
     }
 
     public override void CollectObservations() {
-        AddVectorObs(a);
+        float[] coords = GameObject.Find("Academy").GetComponent<TargetAnnotation>().box_coord;
+        AddVectorObs(coords);
     }
     public override void AgentAction(float[] vectorAction, string textAction){
         this.a = vectorAction[0];
