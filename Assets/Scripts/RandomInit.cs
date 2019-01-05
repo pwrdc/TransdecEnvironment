@@ -23,7 +23,7 @@ public class RandomInit : MonoBehaviour {
         [Range(0f, 360f)]
         public float[] allowed_rotations;
     }
-    
+    public System.Random rnd = new System.Random();
     public ObjectPosition[] objects;
 
     void Start () {
@@ -36,7 +36,6 @@ public class RandomInit : MonoBehaviour {
 	}
 
     public void PutAll() {
-        System.Random rnd = new System.Random();
         // select one of the quarters
         int quarter = rnd.Next(0, 4);
         // divide into binary for particular quarter selection
