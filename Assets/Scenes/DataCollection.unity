@@ -1251,7 +1251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   water_surface: {fileID: 262483792}
   water_color: {r: 0.22, g: 0.65, b: 0.77, a: 0.5}
-  water_fog: 0.2
+  water_fog: 0.4
   data_collecting: 0
 --- !u!114 &1110783363
 MonoBehaviour:
@@ -1812,8 +1812,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797791977}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -13.617943, y: 14.054062, z: -28.600082}
+  m_LocalRotation: {x: 0.02940279, y: 0.9366509, z: 0.0811268, w: -0.3394688}
+  m_LocalPosition: {x: 25.050034, y: 4.827446, z: -7.716091}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
