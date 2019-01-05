@@ -1,2 +1,8 @@
-12/19/2018 12:00:23 AM
+05.01.2019 14:05:34
  
+Log
+Underwater
+UnityEngine.Debug:Log(Object)
+WaterOpacity:SetUnderwater() (at Assets/Scripts/WaterOpacity.cs:38)
+WaterOpacity:Update() (at Assets/Scripts/WaterOpacity.cs:24)
+
