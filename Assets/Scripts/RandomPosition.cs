@@ -21,6 +21,7 @@ public class RandomPosition : MonoBehaviour
     public float z_ang_range = 5f;
     public bool random_quarter = false;
     //other objects parameters
+    public bool oth_objects = true;
     [Range(0.0f, 10.0f)]
     public float oth_min_radius = 0.0f;
     [Range(0.0f, 10.0f)]
@@ -89,6 +90,9 @@ public class RandomPosition : MonoBehaviour
             GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
         }
         get_new_pos();
-        foreach (GameObject obj in other_objs) get_oth_new_pos(obj);
+        if(oth_objects)
+        {
+            foreach (GameObject obj in other_objs) get_oth_new_pos(obj);
+        }
     }
 }
