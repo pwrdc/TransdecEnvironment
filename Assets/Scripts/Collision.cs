@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-    public float radius = 10f;
+
     public float dis;
 
     public GameObject main_object;
