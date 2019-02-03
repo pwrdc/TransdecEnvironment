@@ -3,13 +3,7 @@ using UnityEditor;
 using System.Collections;
 using System;
 
-// an Editor method to create a cone primitive (so far no end caps)
-// the top center is placed at (0/0/0)
-// the bottom center is placed at (0/0/length)
-// if either one of the radii is 0, the result will be a cone, otherwise a truncated cone
-// note you will get inevitable breaks in the smooth shading at cone tips
-// note the resulting mesh will be created as an asset in Assets/Editor
-// Author: Wolfram Kresse
+
 public class CreateCone : ScriptableWizard
 {
 
