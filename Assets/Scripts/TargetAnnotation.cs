@@ -13,6 +13,16 @@ public class TargetAnnotation : MonoBehaviour
     private GUIStyle style = null;
     private Vector3[] pts = new Vector3[8];
 
+    Bounds get_bounds(GameObject target) {
+        Renderer[] renderers = target.GetComponentsInChildren<Renderer>();
+        Bounds bounds = renderers[0].bounds;
+        for(int i = 0; i < renderers.Length; i++) {
+            if(renderers[i] != renderers[0]) bounds.Encapsulate(renderers[i].bounds);
+        } 
+
+        return bounds;
+    }
+
     public void OnGUI()
     {
         if (style == null)
@@ -20,7 +30,9 @@ public class TargetAnnotation : MonoBehaviour
             style = new GUIStyle(GUI.skin.box);
             style.normal.background = background;
         }
-        Bounds bounds = target.GetComponent<Renderer>().bounds;
+        Bounds bounds = get_bounds(target);     
+
+
         // obiekt jest niewidoczny
         if (cam.WorldToScreenPoint(bounds.center).z < 0) return;
         // 8 wspolrzednych 

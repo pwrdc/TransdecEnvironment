@@ -6,6 +6,7 @@ public class RandomPosition : MonoBehaviour
     public GameObject agent = null;
     public GameObject target = null;
     public GameObject[] other_objs;
+    public bool enable_camera_rotation = false;
     [Range(0.0f, 10.0f)]
     public float min_radius = 3.0f;
     [Range(0.0f, 10.0f)]
@@ -35,6 +36,16 @@ public class RandomPosition : MonoBehaviour
     [Range(0.0f, 90.0f)]
     public float oth_z_ang_range = 90f;
 
+    Bounds get_bounds(GameObject target) {
+        Renderer[] renderers = target.GetComponentsInChildren<Renderer>();
+        Bounds bounds = renderers[0].bounds;
+        for(int i = 0; i < renderers.Length; i++) {
+            if(renderers[i] != renderers[0]) bounds.Encapsulate(renderers[i].bounds);
+        } 
+
+        return bounds;
+    }
+
     float get_random(float min, float max)
     {
         System.Random rnd = GameObject.Find("Academy").GetComponent<RandomInit>().rnd;
@@ -45,7 +56,9 @@ public class RandomPosition : MonoBehaviour
 
     public void get_new_pos()
     {
-        Vector3 new_pos = target.GetComponent<Renderer>().bounds.center;
+        Bounds bounds = get_bounds(target);
+
+        Vector3 new_pos = bounds.center;
         float x_rot = get_random(-x_ang_range, x_ang_range);
         float y_rot = get_random(-y_ang_range, y_ang_range);
         float z_rot = get_random(-z_ang_range, z_ang_range);
@@ -55,13 +68,15 @@ public class RandomPosition : MonoBehaviour
         new_pos.y = get_random(max_depth, water_level);
         new_pos.z += r * Mathf.Sin(theta);
         agent.transform.position = new_pos;
-        agent.transform.LookAt(target.GetComponent<Renderer>().bounds.center);
-        agent.transform.eulerAngles = new Vector3(x_rot, agent.transform.eulerAngles.y + y_rot, z_rot);
+        agent.transform.LookAt(bounds.center);
+        if(!enable_camera_rotation) agent.transform.eulerAngles = new Vector3(x_rot, agent.transform.eulerAngles.y + y_rot, z_rot);
     }
 
     public void get_oth_new_pos(GameObject obj)
     {
-        Vector3 new_pos = target.GetComponent<Renderer>().bounds.center;
+        Bounds bounds = get_bounds(target);
+
+        Vector3 new_pos = bounds.center;
         float x_rot = get_random(-oth_x_ang_range, oth_x_ang_range);
         float y_rot = get_random(-oth_y_ang_range, oth_y_ang_range);
         float z_rot = get_random(-oth_z_ang_range, oth_z_ang_range);
@@ -71,7 +86,7 @@ public class RandomPosition : MonoBehaviour
         new_pos.y = get_random(oth_max_depth, water_level);
         new_pos.z += r * Mathf.Sin(theta);
         obj.transform.position = new_pos;
-        obj.transform.LookAt(target.GetComponent<Renderer>().bounds.center);
+        obj.transform.LookAt(bounds.center);
         obj.transform.eulerAngles = new Vector3(x_rot, obj.transform.eulerAngles.y + y_rot, z_rot);
     }
 
@@ -95,4 +110,5 @@ public class RandomPosition : MonoBehaviour
             foreach (GameObject obj in other_objs) get_oth_new_pos(obj);
         }
     }
+    
 }
