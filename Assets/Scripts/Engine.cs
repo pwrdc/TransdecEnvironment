@@ -7,21 +7,26 @@ public class Engine : MonoBehaviour {
 	private GameObject ship; 
 
 
-	public float accelerationSpeedForward = 0.1f;
-	public float decelerationSpeedForward = 0.03f;
-	public float maxSpeedForward = 1f;
+	public float accelerationSpeedLongitudinal = 0.1f;
+	public float decelerationSpeedLongitudinal = 0.03f;
+	public float maxSpeedLongitudinal = 1f;
 
-	public float accelerationSpeedUpward = 0.05f;
-	public float decelerationSpeedUpward = 0.02f;
-	public float maxSpeedUpward = 1f;
+    public float accelerationSpeedLateral = 0.1f;
+    public float decelerationSpeedLateral = 0.03f;
+    public float maxSpeedLateral = 1f;
 
-	public float accelerationRotation = 2.5f;
-	public float decelerationRotation = 1.0f;
-	public float maxRotation = 30.0f;
+    public float accelerationSpeedVertical = 0.05f;
+	public float decelerationSpeedVertical = 0.02f;
+	public float maxSpeedVertical = 1f;
 
-	private float movementForward = 0;
-	private float movementUpward = 0;
-	private float movementRotationX = 0;
+	public float accelerationYaw = 2.5f;
+	public float decelerationYaw = 1.0f;
+	public float maxYaw = 30.0f;
+
+	private float movementLongitudinal = 0;
+    private float movementLateral = 0;
+	private float movementVertical = 0;
+	private float movementYaw = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -40,14 +45,15 @@ public class Engine : MonoBehaviour {
 	*/
 	void Move() {
 
-		movementForward = InputMovement(movementForward, "w", "s", accelerationSpeedForward, decelerationSpeedForward, maxSpeedForward);
-		movementUpward = InputMovement(movementUpward, "a", "d", accelerationSpeedUpward, decelerationSpeedUpward, maxSpeedUpward);
+		movementLongitudinal = InputMovement(movementLongitudinal, "w", "s", accelerationSpeedLongitudinal, decelerationSpeedLongitudinal, maxSpeedLongitudinal);
+        movementLateral = InputMovement(movementLateral, "d", "a", accelerationSpeedLateral, decelerationSpeedLateral, maxSpeedLateral);
+		movementVertical = InputMovement(movementVertical, "r", "f", accelerationSpeedVertical, decelerationSpeedVertical, maxSpeedVertical);
 
-		ship.transform.Translate(0f, movementUpward*Time.deltaTime, movementForward*Time.deltaTime);
+		ship.transform.Translate(movementLateral*Time.deltaTime, movementVertical*Time.deltaTime, movementLongitudinal*Time.deltaTime);
 
-		movementRotationX = InputMovement(movementRotationX, "e", "q", accelerationRotation, decelerationRotation, maxRotation);
+		movementYaw = InputMovement(movementYaw, "q", "e", accelerationYaw, decelerationYaw, maxYaw);
 
-		ship.transform.Rotate(Vector3.down * movementRotationX * Time.deltaTime);
+		ship.transform.Rotate(Vector3.down * movementYaw * Time.deltaTime);
 		
 	}
 
