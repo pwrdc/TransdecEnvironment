@@ -1,12 +1,2914 @@
-1/14/2019 2:57:31 PM
+2/19/2019 3:56:20 PM
  
 Log
-Underwater
+1
 UnityEngine.Debug:Log(Object)
-WaterOpacity:SetUnderwater() (at Assets/Scripts/WaterOpacity.cs:39)
-RobotAgent:AgentReset() (at Assets/Scripts/RobotAgent.cs:16)
-MLAgents.Agent:_AgentReset() (at Assets/ML-Agents/Scripts/Agent.cs:855)
-MLAgents.Academy:ForcedFullReset() (at Assets/ML-Agents/Scripts/Academy.cs:520)
-MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:563)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+1
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
+
+Log
+0
+UnityEngine.Debug:Log(Object)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:32)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1014)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:589)
 MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:611)
 

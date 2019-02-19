@@ -15,12 +15,15 @@ MonoBehaviour:
   brainParameters:
     vectorObservationSize: 4
     numStackedVectorObservations: 1
-    vectorActionSize: 01000000
+    vectorActionSize: 04000000
     cameraResolutions:
     - width: 1280
       height: 720
       blackAndWhite: 0
     vectorActionDescriptions:
-    - test
+    - movementLongitudinal
+    - movementLateral
+    - movementVertical
+    - movementYaw
     vectorActionSpaceType: 1
   model: {fileID: 0}
