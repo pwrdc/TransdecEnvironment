@@ -12,12 +12,12 @@ public class RobotAgent : Agent {
 
     public override void AgentReset() {
         GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
-        GameObject.Find("Robot").GetComponent<WaterOpacity>().data_collecting = true;
+        GameObject.Find("Robot").GetComponent<WaterOpacity>().dataCollecting = true;
         GameObject.Find("Robot").GetComponent<WaterOpacity>().SetUnderwater();
     }
 
     public override void CollectObservations() {
-        float[] coords = GameObject.Find("Academy").GetComponent<TargetAnnotation>().box_coord;
+        float[] coords = GameObject.Find("Academy").GetComponent<TargetAnnotation>().boxCoord;
         AddVectorObs(coords);
     }
     public override void AgentAction(float[] vectorAction, string textAction){
