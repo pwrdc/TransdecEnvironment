@@ -2,29 +2,33 @@
 using MLAgents;
 
 public class RobotAgent : Agent {
+    public bool dataCollection = true;
     Rigidbody rbody;
-
-    float a = 0.0f;
 
 	void Start () {
         rbody = GetComponent<Rigidbody>();
 	}
 
     public override void AgentReset() {
-        GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
-        GameObject.Find("Robot").GetComponent<WaterOpacity>().dataCollecting = true;
-        GameObject.Find("Robot").GetComponent<WaterOpacity>().SetUnderwater();
+        if (dataCollection) {
+            GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
+            GameObject.Find("Robot").GetComponent<WaterOpacity>().dataCollecting = true;
+            GameObject.Find("Robot").GetComponent<WaterOpacity>().SetUnderwater();
+        }
+        SetReward(1);
     }
 
     public override void CollectObservations() {
-        float[] coords = GameObject.Find("Academy").GetComponent<TargetAnnotation>().boxCoord;
-        AddVectorObs(coords);
+        if (dataCollection) {
+            float[] coords = GameObject.Find("Academy").GetComponent<TargetAnnotation>().boxCoord;
+            AddVectorObs(coords);
+        }
+        else {
+            float[] a = new float[4];
+            AddVectorObs(a);
+        }
     }
     public override void AgentAction(float[] vectorAction, string textAction){
-        this.a = vectorAction[0];
-        SetReward(-400);
-        if (this.a == -1.0f){
-            Done();
-        }
+        transform.Find("Engine").GetComponent<Engine>().Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
     }
 }
