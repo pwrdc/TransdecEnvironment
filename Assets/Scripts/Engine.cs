@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Engine : MonoBehaviour {
 	private Rigidbody rbody;
 	private GameObject ship; 
 
+	public bool keyboard = false;
 
 	public float accelerationSpeedLongitudinal = 0.1f;
 	public float decelerationSpeedLongitudinal = 0.03f;
@@ -19,8 +21,8 @@ public class Engine : MonoBehaviour {
 	public float decelerationSpeedVertical = 0.02f;
 	public float maxSpeedVertical = 1f;
 
-	public float accelerationYaw = 2.5f;
-	public float decelerationYaw = 1.0f;
+	public float accelerationYaw = 0.05f;
+	public float decelerationYaw = 0.02f;
 	public float maxYaw = 30.0f;
 
 	private float movementLongitudinal = 0;
@@ -36,25 +38,42 @@ public class Engine : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Move();
+		if (keyboard)
+			Move();
 	}
 
 
 	/*
 		Boat steering (Forward, Upward, RotationX) operate on Transform
 	*/
-	void Move() {
+	public void Move() {
 
-		movementLongitudinal = InputMovement(movementLongitudinal, "w", "s", accelerationSpeedLongitudinal, decelerationSpeedLongitudinal, maxSpeedLongitudinal);
-        movementLateral = InputMovement(movementLateral, "d", "a", accelerationSpeedLateral, decelerationSpeedLateral, maxSpeedLateral);
-		movementVertical = InputMovement(movementVertical, "r", "f", accelerationSpeedVertical, decelerationSpeedVertical, maxSpeedVertical);
+		movementLongitudinal = InputMovement(movementLongitudinal, "w", "s", accelerationSpeedLongitudinal, decelerationSpeedLongitudinal);
+        movementLateral = InputMovement(movementLateral, "d", "a", accelerationSpeedLateral, decelerationSpeedLateral);
+		movementVertical = InputMovement(movementVertical, "r", "f", accelerationSpeedVertical, decelerationSpeedVertical);
 
-		ship.transform.Translate(movementLateral*Time.deltaTime, movementVertical*Time.deltaTime, movementLongitudinal*Time.deltaTime);
+		ship.transform.Translate(movementLateral * Time.deltaTime * maxSpeedLongitudinal,
+								 movementVertical * Time.deltaTime * maxSpeedLateral,
+								 movementLongitudinal * Time.deltaTime * maxSpeedVertical);
 
-		movementYaw = InputMovement(movementYaw, "q", "e", accelerationYaw, decelerationYaw, maxYaw);
+		movementYaw = InputMovement(movementYaw, "q", "e", accelerationYaw, decelerationYaw);
 
-		ship.transform.Rotate(Vector3.down * movementYaw * Time.deltaTime);
+		ship.transform.Rotate(Vector3.down * movementYaw * Time.deltaTime * maxYaw);
 		
+	}
+
+	public void Move(float X, float Y, float Z, float Yaw) {
+		movementLongitudinal = InputMovement(movementLongitudinal, X, accelerationSpeedLongitudinal, decelerationSpeedLongitudinal);
+        movementLateral = InputMovement(movementLateral, Y, accelerationSpeedLateral, decelerationSpeedLateral);
+		movementVertical = InputMovement(movementVertical, Z, accelerationSpeedVertical, decelerationSpeedVertical);
+
+		ship.transform.Translate(movementLateral * Time.deltaTime * maxSpeedLongitudinal,
+								 movementVertical * Time.deltaTime * maxSpeedLateral,
+								 movementLongitudinal * Time.deltaTime * maxSpeedVertical);
+
+		movementYaw = InputMovement(movementYaw, Yaw, accelerationYaw, decelerationYaw);
+
+		ship.transform.Rotate(Vector3.down * movementYaw * Time.deltaTime * maxYaw);
 	}
 
 	/*
@@ -65,7 +84,7 @@ public class Engine : MonoBehaviour {
 
 		Return movement
 	*/
-	float InputMovement(float movement, string keyForward, string keyBack, float accelerationSpeed, float decelerationSpeed, float maxSpeed) {
+	float InputMovement(float movement, string keyForward, string keyBack, float accelerationSpeed, float decelerationSpeed) {
 
 		if (Input.GetKey(keyForward)) 
 			movement += accelerationSpeed;
@@ -80,11 +99,33 @@ public class Engine : MonoBehaviour {
 				movement = 0;
 		}
 
-		if (movement > maxSpeed)
-			movement = maxSpeed;
-		else if (movement < -maxSpeed) 
-			movement = -maxSpeed;
+		if (movement > 1.0f)
+			movement = 1.0f;
+		else if (movement < -1.0f) 
+			movement = -1.0f;
 
+		return movement;
+	}
+
+	float InputMovement(float movement, float target, float accelerationSpeed, float decelerationSpeed) {
+		if (target != 0) {
+			if (movement < target)
+				movement += accelerationSpeed;	
+			else if (target < movement)
+				movement -= accelerationSpeed;
+		}
+		else {
+			if (movement > decelerationSpeed)
+				movement -= decelerationSpeed;
+			else if (movement < -decelerationSpeed)
+				movement += decelerationSpeed;
+			else 
+				movement = 0;
+		}
+
+		if (Math.Abs(movement) > Math.Abs(target) & Math.Sign(movement) == Math.Sign(target))
+			movement = target;
+		
 		return movement;
 	}
 }
