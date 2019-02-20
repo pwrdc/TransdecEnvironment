@@ -1,14 +1,2 @@
-2/20/2019 1:58:34 PM
+2/20/2019 8:12:31 PM
  
-Log
-Underwater
-UnityEngine.Debug:Log(Object)
-WaterOpacity:SetUnderwater() (at Assets/Scripts/WaterOpacity.cs:39)
-WaterOpacity:Update() (at Assets/Scripts/WaterOpacity.cs:25)
-
-Log
-Normal
-UnityEngine.Debug:Log(Object)
-WaterOpacity:SetNormal() (at Assets/Scripts/WaterOpacity.cs:33)
-WaterOpacity:Update() (at Assets/Scripts/WaterOpacity.cs:26)
-
