@@ -33,7 +33,7 @@ public class Accelerometer : MonoBehaviour
         Debug.Log(getRotation());
     }
 
-    float[] getAcceleration() {
+    public float[] getAcceleration() {
         /* get value of accelerations: lateral, vertical, longitudinal */
         float[] ret = new float[3];
         ret[0] = acceleration.x;
@@ -42,7 +42,7 @@ public class Accelerometer : MonoBehaviour
         return ret;
     }
 
-    float[] getAngularAcceleration() {
+    public float[] getAngularAcceleration() {
         /* get value of angular accelerations: pitch, yaw, roll */
         float[] ret = new float[3];
         ret[0] = angularAcceleration.x;
@@ -51,7 +51,7 @@ public class Accelerometer : MonoBehaviour
         return ret;
     }
 
-    float[] getRotation() {
+    public float[] getRotation() {
         /* get value of angular positions: pitch, yaw, roll */
         float[] ret = new float[3];
         Vector3 rotation = rbody.rotation.eulerAngles;
