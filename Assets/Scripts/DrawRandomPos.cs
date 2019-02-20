@@ -6,10 +6,10 @@ public class DrawRandomPos : MonoBehaviour {
     [Serializable]
     public class ObjectPosition {
         public GameObject obj; //Robot
-        public CapsuleCollider target_capsule_collider; //Spawn only on edges of collider
-        public GameObject look_at_object; //Robot will look at object
+        public CapsuleCollider targetCapsuleCollider; //Spawn only on edges of collider
+        public GameObject lookAtObject; //Robot will look at object
         [HideInInspector]
-        public Vector3 start_position = new Vector3(0f, 0f, 0f);
+        public Vector3 startPosition = new Vector3(0f, 0f, 0f);
     	[HideInInspector]
         public int direction;
     	[HideInInspector]
@@ -24,24 +24,24 @@ public class DrawRandomPos : MonoBehaviour {
 
     void Start () {
         for (int i = 0; i < this.objects.Length; i++) {
-            objects[i].start_position = objects[i].target_capsule_collider.transform.position;
-            objects[i].direction = objects[i].target_capsule_collider.direction;
+            objects[i].startPosition = objects[i].targetCapsuleCollider.transform.position;
+            objects[i].direction = objects[i].targetCapsuleCollider.direction;
             
-            Debug.Log(objects[i].start_position);
-            Debug.Log(objects[i].target_capsule_collider.bounds.size);
+            Debug.Log(objects[i].startPosition);
+            Debug.Log(objects[i].targetCapsuleCollider.bounds.size);
             
             
             if (objects[i].direction == (int)Direction.X) {
-            	objects[i].height = objects[i].target_capsule_collider.bounds.size.x - objects[i].target_capsule_collider.bounds.size.y;
-            	objects[i].radius = objects[i].target_capsule_collider.bounds.size.y / 2;
+            	objects[i].height = objects[i].targetCapsuleCollider.bounds.size.x - objects[i].targetCapsuleCollider.bounds.size.y;
+            	objects[i].radius = objects[i].targetCapsuleCollider.bounds.size.y / 2;
             }
             else if (objects[i].direction == (int)Direction.Y) {
-            	objects[i].height = objects[i].target_capsule_collider.bounds.size.y - objects[i].target_capsule_collider.bounds.size.z;
-            	objects[i].radius = objects[i].target_capsule_collider.bounds.size.z / 2;
+            	objects[i].height = objects[i].targetCapsuleCollider.bounds.size.y - objects[i].targetCapsuleCollider.bounds.size.z;
+            	objects[i].radius = objects[i].targetCapsuleCollider.bounds.size.z / 2;
             }
             else {
-            	objects[i].height = objects[i].target_capsule_collider.bounds.size.z - objects[i].target_capsule_collider.bounds.size.x;
-            	objects[i].radius = objects[i].target_capsule_collider.bounds.size.x / 2;
+            	objects[i].height = objects[i].targetCapsuleCollider.bounds.size.z - objects[i].targetCapsuleCollider.bounds.size.x;
+            	objects[i].radius = objects[i].targetCapsuleCollider.bounds.size.x / 2;
             }
         	
         }
@@ -64,33 +64,33 @@ public class DrawRandomPos : MonoBehaviour {
 
             Debug.Log("Phi: " + phi);
 
-            objects[i].obj.transform.LookAt(objects[i].look_at_object.transform);
+            objects[i].obj.transform.LookAt(objects[i].lookAtObject.transform);
             objects[i].obj.transform.eulerAngles = new Vector3(0, objects[i].obj.transform.rotation.eulerAngles.y, 0);
         }
     }
 
     void CalculateDirectionX(int index, double phi, float height) {
-    	float z_pos = objects[index].start_position.z + objects[index].radius * (float)(Math.Sin(phi));
-        float y_pos = objects[index].start_position.y + objects[index].radius * (float)(Math.Cos(phi));
-        float x_pos = objects[index].start_position.x + objects[index].height * height;
+    	float zPos = objects[index].startPosition.z + objects[index].radius * (float)(Math.Sin(phi));
+        float yPos = objects[index].startPosition.y + objects[index].radius * (float)(Math.Cos(phi));
+        float xPos = objects[index].startPosition.x + objects[index].height * height;
 
-        objects[index].obj.transform.position = new Vector3(x_pos, y_pos, z_pos);
+        objects[index].obj.transform.position = new Vector3(xPos, yPos, zPos);
     }
 
     void CalculateDirectionY(int index, double phi, float height) {
-    	float x_pos = objects[index].start_position.x + objects[index].radius * (float)(Math.Cos(phi));
-        float z_pos = objects[index].start_position.z + objects[index].radius * (float)(Math.Sin(phi));
-        float y_pos = objects[index].start_position.y + objects[index].height * height;
+    	float xPos = objects[index].startPosition.x + objects[index].radius * (float)(Math.Cos(phi));
+        float zPos = objects[index].startPosition.z + objects[index].radius * (float)(Math.Sin(phi));
+        float yPos = objects[index].startPosition.y + objects[index].height * height;
 
-        objects[index].obj.transform.position = new Vector3(x_pos, y_pos, z_pos);
+        objects[index].obj.transform.position = new Vector3(xPos, yPos, zPos);
     }
 
     void CalculateDirectionZ(int index, double phi, float height) {
-    	float x_pos = objects[index].start_position.x + objects[index].radius * (float)(Math.Cos(phi));
-        float y_pos = objects[index].start_position.y + objects[index].radius * (float)(Math.Sin(phi));
-        float z_pos = objects[index].start_position.z + objects[index].height * height;
+    	float xPos = objects[index].startPosition.x + objects[index].radius * (float)(Math.Cos(phi));
+        float yPos = objects[index].startPosition.y + objects[index].radius * (float)(Math.Sin(phi));
+        float zPos = objects[index].startPosition.z + objects[index].height * height;
 
-        objects[index].obj.transform.position = new Vector3(x_pos, y_pos, z_pos);
+        objects[index].obj.transform.position = new Vector3(xPos, yPos, zPos);
     }
 	
 	void Update () {

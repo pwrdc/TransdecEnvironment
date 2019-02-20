@@ -8,28 +8,28 @@ public class Collision : MonoBehaviour
 
     public float dis;
 
-    public GameObject main_object;
+    public GameObject mainObject;
     List<Collider> colliders = new List<Collider>();
     Collider min;
 
     void Update()
     {
-        float min_dis = 100;
+        float minDis = 100;
    
         if (colliders.Count != 0)
         {
             foreach (Collider element in colliders)
             {
                 
-                float distance = Vector3.Distance(element.transform.position, main_object.transform.position);
+                float distance = Vector3.Distance(element.transform.position, mainObject.transform.position);
                 
              
-               if (distance< min_dis)
+               if (distance< minDis)
                 {
-                    min_dis = distance;
+                    minDis = distance;
                     min = element;
                 }
-                dis = min_dis;
+                dis = minDis;
 
             }
             colliders.Clear();
@@ -45,7 +45,7 @@ public class Collision : MonoBehaviour
         }
     }
 
-    public float get_distance()
+    public float getDistance()
     {
         return dis;
     }

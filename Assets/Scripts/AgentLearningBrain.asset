@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: AgentLearningBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 4
+    vectorObservationSize: 10
     numStackedVectorObservations: 1
-    vectorActionSize: 01000000
+    vectorActionSize: 04000000
     cameraResolutions:
-    - width: 1280
-      height: 720
+    - width: 416
+      height: 416
       blackAndWhite: 0
     vectorActionDescriptions:
-    - test
+    - movementLongitudinal
+    - movementLateral
+    - movementVertical
+    - movementYaw
     vectorActionSpaceType: 1
   model: {fileID: 0}
