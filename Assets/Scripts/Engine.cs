@@ -4,38 +4,33 @@ using UnityEngine;
 
 public class Engine : MonoBehaviour {
 	private Rigidbody rbody;
-	private GameObject ship; 
+	private GameObject robot; 
 
 
-	public float accelerationSpeedLongitudinal = 0.1f;
-	public float decelerationSpeedLongitudinal = 0.03f;
-	public float maxSpeedLongitudinal = 1f;
+	public float drag = 2.0f;
+	public float angularDrag = 2.0f;
+	public float maxForceLongitudinal = 1f;
+	public float maxForceVertical = 1f;
+    public float maxForceLateral = 1f;
+	public float maxTorqueYaw = 1f;
 
-    public float accelerationSpeedLateral = 0.1f;
-    public float decelerationSpeedLateral = 0.03f;
-    public float maxSpeedLateral = 1f;
-
-    public float accelerationSpeedVertical = 0.05f;
-	public float decelerationSpeedVertical = 0.02f;
-	public float maxSpeedVertical = 1f;
-
-	public float accelerationYaw = 2.5f;
-	public float decelerationYaw = 1.0f;
-	public float maxYaw = 30.0f;
-
-	private float movementLongitudinal = 0;
-    private float movementLateral = 0;
-	private float movementVertical = 0;
-	private float movementYaw = 0;
+	private float longitudinal = 0;
+    private float lateral = 0;
+	private float yaw = 0;
+	private float vertical = 0;
 
 	// Use this for initialization
 	void Start () {
-		ship = this.transform.parent.gameObject;
-		rbody = ship.GetComponent<Rigidbody>();
+		robot = this.transform.parent.gameObject;
+		rbody = robot.GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (rbody.drag != drag)
+			rbody.drag = drag;
+		if (rbody.angularDrag != angularDrag)
+			rbody.angularDrag = angularDrag;
 		Move();
 	}
 
@@ -44,17 +39,9 @@ public class Engine : MonoBehaviour {
 		Boat steering (Forward, Upward, RotationX) operate on Transform
 	*/
 	void Move() {
-
-		movementLongitudinal = InputMovement(movementLongitudinal, "w", "s", accelerationSpeedLongitudinal, decelerationSpeedLongitudinal, maxSpeedLongitudinal);
-        movementLateral = InputMovement(movementLateral, "d", "a", accelerationSpeedLateral, decelerationSpeedLateral, maxSpeedLateral);
-		movementVertical = InputMovement(movementVertical, "r", "f", accelerationSpeedVertical, decelerationSpeedVertical, maxSpeedVertical);
-
-		ship.transform.Translate(movementLateral*Time.deltaTime, movementVertical*Time.deltaTime, movementLongitudinal*Time.deltaTime);
-
-		movementYaw = InputMovement(movementYaw, "q", "e", accelerationYaw, decelerationYaw, maxYaw);
-
-		ship.transform.Rotate(Vector3.down * movementYaw * Time.deltaTime);
-		
+		getMovement("d", "a", "r", "f", "w", "s", "e", "q");
+		rbody.AddForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
+		rbody.AddTorque(0, maxTorqueYaw * yaw, 0);
 	}
 
 	/*
@@ -65,6 +52,36 @@ public class Engine : MonoBehaviour {
 
 		Return movement
 	*/
+
+	float[] getMovement(string right, string left, string upward, string downward, string forward, string backward, string turnRight, string turnLeft) {
+		float[] ret = new float[4];
+		if (Input.GetKey(right) == Input.GetKey(left))
+			lateral = 0.0f;
+		else if (Input.GetKey(right))
+			lateral = 1.0f;
+		else if (Input.GetKey(left))
+			lateral = -1.0f;
+		if (Input.GetKey(upward) == Input.GetKey(downward))
+			vertical = 0.0f;
+		else if (Input.GetKey(upward))
+			vertical = 1.0f;
+		else if (Input.GetKey(downward))
+			vertical = -1.0f;
+		if (Input.GetKey(forward) == Input.GetKey(backward))
+			longitudinal = 0.0f;
+		else if (Input.GetKey(forward))
+			longitudinal = 1.0f;
+		else if (Input.GetKey(backward))
+			longitudinal = -1.0f;
+		if (Input.GetKey(turnRight) == Input.GetKey(turnLeft))
+			yaw = 0.0f;
+		else if (Input.GetKey(turnRight))
+			yaw = 1.0f;
+		else if (Input.GetKey(turnLeft))
+			yaw = -1.0f;
+		return ret;
+	}
+
 	float InputMovement(float movement, string keyForward, string keyBack, float accelerationSpeed, float decelerationSpeed, float maxSpeed) {
 
 		if (Input.GetKey(keyForward)) 
