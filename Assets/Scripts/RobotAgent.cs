@@ -5,10 +5,12 @@ public class RobotAgent : Agent {
     public bool dataCollection = true;
     Rigidbody rbody;
     Accelerometer accelerometer;
+    DepthSensor depthSensor;
 
 	void Start () {
         rbody = GetComponent<Rigidbody>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
+        depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
 	}
 
     public override void AgentReset() {
@@ -33,6 +35,7 @@ public class RobotAgent : Agent {
             acceleration.CopyTo(toSend, 0);
             angularAcceleration.CopyTo(toSend, acceleration.Length);
             rotation.CopyTo(toSend, acceleration.Length + angularAcceleration.Length);
+            toSend[toSend.Length - 1] = depthSensor.depth;
             AddVectorObs(toSend);
         }
     }
