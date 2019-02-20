@@ -30,13 +30,11 @@ public class WaterOpacity : MonoBehaviour {
     public void SetNormal()
     {
         RenderSettings.fog = false;
-        Debug.Log("Normal");
     }
 
     public void SetUnderwater()
     {
         RenderSettings.fog = true;
-        Debug.Log("Underwater");
     }
 }
  
