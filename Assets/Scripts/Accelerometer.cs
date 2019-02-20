@@ -28,9 +28,6 @@ public class Accelerometer : MonoBehaviour
         angularAcceleration = (localAngularVelocity - lastAngularVelocity) / Time.fixedDeltaTime;
         lastVelocity = localVelocity;
         lastAngularVelocity = localAngularVelocity;
-        Debug.Log(getAcceleration());
-        Debug.Log(getAngularAcceleration());
-        Debug.Log(getRotation());
     }
 
     public float[] getAcceleration() {
