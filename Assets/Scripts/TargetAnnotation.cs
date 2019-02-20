@@ -8,7 +8,7 @@ public class TargetAnnotation : MonoBehaviour
     public float margin = 10.0f;
     public bool draw = false;
     public Texture2D background;
-    public float[] box_coord = new float[4];
+    public float[] boxCoord = new float[4];
     public Camera cam = null;
     private GUIStyle style = null;
     private Vector3[] pts = new Vector3[8];
@@ -42,10 +42,10 @@ public class TargetAnnotation : MonoBehaviour
             min = Vector3.Min(min, pts[i]);
             max = Vector3.Max(max, pts[i]);
         }
-        box_coord[0] = min.x;
-        box_coord[1] = min.y;
-        box_coord[2] = max.x;
-        box_coord[3] = max.y;
+        boxCoord[0] = min.x;
+        boxCoord[1] = min.y;
+        boxCoord[2] = max.x;
+        boxCoord[3] = max.y;
         // prostokat
         if (draw)
         {

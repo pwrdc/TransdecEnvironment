@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Engine : MonoBehaviour {
 	private Rigidbody rbody;
 	private GameObject robot; 
 
+	public bool keyboard = false;
 
 	public float drag = 2.0f;
 	public float angularDrag = 2.0f;
@@ -38,6 +40,21 @@ public class Engine : MonoBehaviour {
 		getMovement("d", "a", "r", "f", "w", "s", "e", "q");
 		rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
 		rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
+
+	}
+
+	public void Move(float X, float Y, float Z, float Yaw) {
+		movementLongitudinal = InputMovement(movementLongitudinal, X, accelerationSpeedLongitudinal, decelerationSpeedLongitudinal);
+        movementLateral = InputMovement(movementLateral, Y, accelerationSpeedLateral, decelerationSpeedLateral);
+		movementVertical = InputMovement(movementVertical, Z, accelerationSpeedVertical, decelerationSpeedVertical);
+
+		ship.transform.Translate(movementLateral * Time.deltaTime * maxSpeedLongitudinal,
+								 movementVertical * Time.deltaTime * maxSpeedLateral,
+								 movementLongitudinal * Time.deltaTime * maxSpeedVertical);
+
+		movementYaw = InputMovement(movementYaw, Yaw, accelerationYaw, decelerationYaw);
+
+		ship.transform.Rotate(Vector3.down * movementYaw * Time.deltaTime * maxYaw);
 	}
 
 	/*
@@ -48,7 +65,6 @@ public class Engine : MonoBehaviour {
 
 		Return movement
 	*/
-
 	float[] getMovement(string right, string left, string upward, string downward, string forward, string backward, string turnRight, string turnLeft) {
 		float[] ret = new float[4];
 		if (Input.GetKey(right) == Input.GetKey(left))
@@ -93,11 +109,33 @@ public class Engine : MonoBehaviour {
 				movement = 0;
 		}
 
-		if (movement > maxSpeed)
-			movement = maxSpeed;
-		else if (movement < -maxSpeed) 
-			movement = -maxSpeed;
+		if (movement > 1.0f)
+			movement = 1.0f;
+		else if (movement < -1.0f) 
+			movement = -1.0f;
 
+		return movement;
+	}
+
+	float InputMovement(float movement, float target, float accelerationSpeed, float decelerationSpeed) {
+		if (target != 0) {
+			if (movement < target)
+				movement += accelerationSpeed;	
+			else if (target < movement)
+				movement -= accelerationSpeed;
+		}
+		else {
+			if (movement > decelerationSpeed)
+				movement -= decelerationSpeed;
+			else if (movement < -decelerationSpeed)
+				movement += decelerationSpeed;
+			else 
+				movement = 0;
+		}
+
+		if (Math.Abs(movement) > Math.Abs(target) & Math.Sign(movement) == Math.Sign(target))
+			movement = target;
+		
 		return movement;
 	}
 }
