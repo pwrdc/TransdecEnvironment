@@ -33,38 +33,25 @@ public class Engine : MonoBehaviour {
 			rbody.drag = drag;
 		if (rbody.angularDrag != angularDrag)
 			rbody.angularDrag = angularDrag;
-		Move();
+		if (keyboard)
+			Move();
 	}
 
 	void Move() {
 		getMovement("d", "a", "r", "f", "w", "s", "e", "q");
 		rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
 		rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
-
 	}
 
-	public void Move(float X, float Y, float Z, float Yaw) {
-		movementLongitudinal = InputMovement(movementLongitudinal, X, accelerationSpeedLongitudinal, decelerationSpeedLongitudinal);
-        movementLateral = InputMovement(movementLateral, Y, accelerationSpeedLateral, decelerationSpeedLateral);
-		movementVertical = InputMovement(movementVertical, Z, accelerationSpeedVertical, decelerationSpeedVertical);
-
-		ship.transform.Translate(movementLateral * Time.deltaTime * maxSpeedLongitudinal,
-								 movementVertical * Time.deltaTime * maxSpeedLateral,
-								 movementLongitudinal * Time.deltaTime * maxSpeedVertical);
-
-		movementYaw = InputMovement(movementYaw, Yaw, accelerationYaw, decelerationYaw);
-
-		ship.transform.Rotate(Vector3.down * movementYaw * Time.deltaTime * maxYaw);
+	public void Move(float Longitudinal, float Lateral, float Vertical, float Yaw) {
+		lateral = Lateral;
+		longitudinal = Longitudinal;
+		vertical = Vertical;
+		yaw = Yaw;
+		rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
+		rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
 	}
 
-	/*
-		Computing actuall movement speed
-			Speed depends on acceleration and deceleration of an object
-			
-			Deceleration occurs when no input is given
-
-		Return movement
-	*/
 	float[] getMovement(string right, string left, string upward, string downward, string forward, string backward, string turnRight, string turnLeft) {
 		float[] ret = new float[4];
 		if (Input.GetKey(right) == Input.GetKey(left))
@@ -92,50 +79,5 @@ public class Engine : MonoBehaviour {
 		else if (Input.GetKey(turnLeft))
 			yaw = -1.0f;
 		return ret;
-	}
-
-	float InputMovement(float movement, string keyForward, string keyBack, float accelerationSpeed, float decelerationSpeed, float maxSpeed) {
-
-		if (Input.GetKey(keyForward)) 
-			movement += accelerationSpeed;
-		else if (Input.GetKey(keyBack))
-			movement -= accelerationSpeed;
-		else {
-			if (movement > decelerationSpeed)
-				movement -= decelerationSpeed;
-			else if (movement < -decelerationSpeed)
-				movement += decelerationSpeed;
-			else 
-				movement = 0;
-		}
-
-		if (movement > 1.0f)
-			movement = 1.0f;
-		else if (movement < -1.0f) 
-			movement = -1.0f;
-
-		return movement;
-	}
-
-	float InputMovement(float movement, float target, float accelerationSpeed, float decelerationSpeed) {
-		if (target != 0) {
-			if (movement < target)
-				movement += accelerationSpeed;	
-			else if (target < movement)
-				movement -= accelerationSpeed;
-		}
-		else {
-			if (movement > decelerationSpeed)
-				movement -= decelerationSpeed;
-			else if (movement < -decelerationSpeed)
-				movement += decelerationSpeed;
-			else 
-				movement = 0;
-		}
-
-		if (Math.Abs(movement) > Math.Abs(target) & Math.Sign(movement) == Math.Sign(target))
-			movement = target;
-		
-		return movement;
 	}
 }
