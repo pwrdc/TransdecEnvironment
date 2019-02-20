@@ -4,9 +4,11 @@ using MLAgents;
 public class RobotAgent : Agent {
     public bool dataCollection = true;
     Rigidbody rbody;
+    Accelerometer accelerometer;
 
 	void Start () {
         rbody = GetComponent<Rigidbody>();
+        accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
 	}
 
     public override void AgentReset() {
@@ -24,8 +26,14 @@ public class RobotAgent : Agent {
             AddVectorObs(coords);
         }
         else {
-            float[] a = new float[4];
-            AddVectorObs(a);
+            float[] toSend = new float[10];
+            float[] acceleration = accelerometer.getAcceleration();
+            float[] angularAcceleration = accelerometer.getAngularAcceleration();
+            float[] rotation = accelerometer.getRotation();
+            acceleration.CopyTo(toSend, 0);
+            angularAcceleration.CopyTo(toSend, acceleration.Length);
+            rotation.CopyTo(toSend, acceleration.Length + angularAcceleration.Length);
+            AddVectorObs(toSend);
         }
     }
     public override void AgentAction(float[] vectorAction, string textAction){
