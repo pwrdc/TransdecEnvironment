@@ -34,14 +34,10 @@ public class Engine : MonoBehaviour {
 		Move();
 	}
 
-
-	/*
-		Boat steering (Forward, Upward, RotationX) operate on Transform
-	*/
 	void Move() {
 		getMovement("d", "a", "r", "f", "w", "s", "e", "q");
-		rbody.AddForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
-		rbody.AddTorque(0, maxTorqueYaw * yaw, 0);
+		rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
+		rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
 	}
 
 	/*
