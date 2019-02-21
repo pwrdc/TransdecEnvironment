@@ -12,12 +12,14 @@ public class RobotAgent : Agent {
     Accelerometer accelerometer;
     DepthSensor depthSensor;
     Vector3 targetCenter;
+    Quaternion targetRotation;
 
 	void Start () {
         rbody = GetComponent<Rigidbody>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
         targetCenter = getTargetCenter();
+        targetRotation = target.GetComponent<Rigidbody>().rotation;
 	}
 
     public override void AgentReset() {
@@ -57,12 +59,16 @@ public class RobotAgent : Agent {
         {
             bounds.Encapsulate(renderer.bounds);
         }
-        return target.transform.InverseTransformPoint(bounds.center);
+        return bounds.center;
     }
 
     float getReward() {
-        Vector3 relativePos = target.transform.InverseTransformPoint(rbody.position) - targetCenter - targetOffset;
-        Debug.Log(relativePos);
+        // relative position
+        Vector3 distToCenter = target.transform.InverseTransformPoint(targetCenter);
+        Vector3 relativePos = target.transform.InverseTransformPoint(rbody.position) - distToCenter - targetOffset;
+        // relative angles
+        float relativeYaw = (Quaternion.Inverse(targetRotation) * rbody.rotation).eulerAngles.y;
+        Debug.Log(relativeYaw);
         return 1.0f;
     }
 
