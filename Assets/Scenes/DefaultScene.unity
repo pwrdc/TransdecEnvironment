@@ -1472,8 +1472,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120188854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.955, y: 11.139999, z: -27.88}
+  m_LocalRotation: {x: -0.35128754, y: 0.2202674, z: 0.0854082, w: 0.90597177}
+  m_LocalPosition: {x: 5.075175, y: 5.11689, z: -32.88843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2070,8 +2070,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849014630}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 7.6679893, y: 12.819431, z: -24.532084}
+  m_LocalRotation: {x: 0.013029709, y: 0.9729429, z: 0.22360304, w: -0.056693714}
+  m_LocalPosition: {x: 8.7610445, y: 10.751846, z: -25.306528}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2203,12 +2203,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyboard: 1
-  drag: 2
-  angularDrag: 2
+  drag: 5
+  angularDrag: 5
   maxForceLongitudinal: 100
   maxForceVertical: 100
   maxForceLateral: 100
   maxTorqueYaw: 1
+  waterSurface: {fileID: 262483792}
 --- !u!1 &2061235919
 GameObject:
   m_ObjectHideFlags: 0
