@@ -51,6 +51,7 @@ public class RobotAgent : Agent {
             rotation.CopyTo(toSend, acceleration.Length + angularAcceleration.Length);
             toSend[toSend.Length - 1] = depthSensor.depth;
             AddVectorObs(toSend);
+            SetReward(getReward());
         }
     }
     public override void AgentAction(float[] vectorAction, string textAction){
@@ -103,6 +104,5 @@ public class RobotAgent : Agent {
     }
 
     void Update() {
-        getReward();
     }
 }
