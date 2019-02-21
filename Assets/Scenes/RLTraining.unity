@@ -1443,6 +1443,8 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   dataCollection: 0
+  target: {fileID: 235797410}
+  targetOffset: {x: 0, y: 0, z: 0}
 --- !u!54 &1110783364
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2014,8 +2016,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849014630}
-  m_LocalRotation: {x: 0.087172285, y: 0.89959055, z: 0.21045254, w: -0.37262255}
-  m_LocalPosition: {x: 10.608081, y: 7.6414824, z: -24.922504}
+  m_LocalRotation: {x: 0.013029709, y: 0.9729429, z: 0.22360304, w: -0.056693714}
+  m_LocalPosition: {x: 8.7610445, y: 10.751846, z: -25.306528}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2080,6 +2082,7 @@ MonoBehaviour:
   maxForceVertical: 50
   maxForceLateral: 50
   maxTorqueYaw: 0.5
+  waterSurface: {fileID: 262483792}
 --- !u!1 &2021940790
 GameObject:
   m_ObjectHideFlags: 0
