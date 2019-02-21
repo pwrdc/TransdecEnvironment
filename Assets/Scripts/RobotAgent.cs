@@ -66,8 +66,9 @@ public class RobotAgent : Agent {
         // relative position
         Vector3 distToCenter = target.transform.InverseTransformPoint(targetCenter);
         Vector3 relativePos = target.transform.InverseTransformPoint(rbody.position) - distToCenter - targetOffset;
-        // relative angles
+        // relative angle
         float relativeYaw = (Quaternion.Inverse(targetRotation) * rbody.rotation).eulerAngles.y;
+        relativeYaw = (relativeYaw + 180) % 360 - 180;
         Debug.Log(relativeYaw);
         return 1.0f;
     }
