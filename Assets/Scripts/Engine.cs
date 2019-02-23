@@ -21,10 +21,14 @@ public class Engine : MonoBehaviour {
 	private float yaw = 0;
 	private float vertical = 0;
 
+	public GameObject waterSurface;
+	float top;
+
 	// Use this for initialization
 	void Start () {
 		robot = this.transform.parent.gameObject;
 		rbody = robot.GetComponent<Rigidbody>();
+		top = waterSurface.transform.position.y;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +43,10 @@ public class Engine : MonoBehaviour {
 
 	void Move() {
 		getMovement("d", "a", "r", "f", "w", "s", "e", "q");
+		if (rbody.position.y >= top)
+			rbody.useGravity = true;
+		else
+			rbody.useGravity = false;
 		rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
 		rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
 	}
@@ -48,6 +56,8 @@ public class Engine : MonoBehaviour {
 		longitudinal = Longitudinal;
 		vertical = Vertical;
 		yaw = Yaw;
+		if (rbody.position.y >= top)
+			vertical = -1.5f;
 		rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
 		rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
 	}
