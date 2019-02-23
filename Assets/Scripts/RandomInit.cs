@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class RandomInit : MonoBehaviour {
 
+    public bool drawTransdecQuarter = false;
+
     [Serializable]
     public class ObjectPosition {
         public GameObject obj;
@@ -36,11 +38,18 @@ public class RandomInit : MonoBehaviour {
 	}
 
     public void PutAll() {
-        // select one of the quarters
-        int quarter = rnd.Next(0, 4);
-        // divide into binary for particular quarter selection
-        int xCoef = 2 * (quarter % 2) - 1;
-        int zCoef = 2 * (quarter / 2 % 2) - 1;
+        int quarter, xCoef, zCoef;
+        if (drawTransdecQuarter) {
+            // select one of the quarters
+            quarter = rnd.Next(0, 4);
+            // divide into binary for particular quarter selection
+            xCoef = 2 * (quarter % 2) - 1;
+            zCoef = 2 * (quarter / 2 % 2) - 1;
+        }
+        else {
+            xCoef = 1;
+            zCoef = 1;
+        }
         for (int i = 0; i < this.objects.Length; i++)
         {
             // adjust positions according to values stored in the object (or set in inspector); take coefs into consideration
