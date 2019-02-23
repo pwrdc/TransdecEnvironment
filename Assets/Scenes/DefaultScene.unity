@@ -495,6 +495,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1089100945}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &235797411
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235797410}
+  serializedVersion: 2
+  m_Mass: 5
+  m_Drag: 100
+  m_AngularDrag: 100
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &262483792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1034476831049784, guid: 0758b374dc7cd26428782454fcfee321,
@@ -1152,6 +1168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate2
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12
@@ -1223,6 +1243,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
@@ -1350,7 +1374,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110783357}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32373adcf35423d469d6d7d866516bad, type: 3}
   m_Name: 
@@ -1364,6 +1388,8 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   dataCollection: 1
+  target: {fileID: 235797410}
+  targetOffset: {x: 0, y: 0, z: 0}
 --- !u!54 &1110783364
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1446,8 +1472,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120188854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.955, y: 11.139999, z: -27.88}
+  m_LocalRotation: {x: -0.35128754, y: 0.2202674, z: 0.0854082, w: 0.90597177}
+  m_LocalPosition: {x: 5.075175, y: 5.11689, z: -32.88843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1535,6 +1561,26 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1249820796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 24a2fff15f4bf9a498ce48096124a753,
+    type: 3}
+  m_PrefabInstance: {fileID: 1089100945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1249820800
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249820796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300002, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
 --- !u!1001 &1327638697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1847,6 +1893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSurface: {fileID: 262483792}
+  offset: 0
+  depth: 0
 --- !u!4 &1606532121
 Transform:
   m_ObjectHideFlags: 0
@@ -2022,8 +2070,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849014630}
-  m_LocalRotation: {x: 0.025102196, y: 0.9325997, z: 0.06614767, w: -0.35390976}
-  m_LocalPosition: {x: 10.165224, y: 11.339146, z: -20.598812}
+  m_LocalRotation: {x: 0.013029709, y: 0.9729429, z: 0.22360304, w: -0.056693714}
+  m_LocalPosition: {x: 8.7610445, y: 10.751846, z: -25.306528}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2155,12 +2203,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyboard: 1
-  drag: 2
-  angularDrag: 2
+  drag: 5
+  angularDrag: 5
   maxForceLongitudinal: 100
   maxForceVertical: 100
   maxForceLateral: 100
   maxTorqueYaw: 1
+  waterSurface: {fileID: 262483792}
 --- !u!1 &2061235919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,8 +2252,8 @@ MonoBehaviour:
     timeScale: 1
     targetFrameRate: 30
   inferenceConfiguration:
-    width: 1280
-    height: 720
+    width: 0
+    height: 0
     qualityLevel: 5
     timeScale: 1
     targetFrameRate: 30
