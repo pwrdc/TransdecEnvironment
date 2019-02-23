@@ -62,7 +62,7 @@ public class RandomInit : MonoBehaviour {
             float xRot = objects[i].startRotation.x + (2 * (float)rnd.NextDouble() - 1) * objects[i].xAngRange;
             float yRot = objects[i].startRotation.y + (2 * (float)rnd.NextDouble() - 1) * objects[i].yAngRange;
             // if object has several possible y rotations, pick one randomly
-            if (objects[i].allowedRotations.Length != 0) yRot = -xCoef * zCoef * objects[i].allowedRotations[rnd.Next(0, objects[i].allowedRotations.Length)];
+            if (objects[i].allowedRotations.Length != 0) yRot += -xCoef * zCoef * objects[i].allowedRotations[rnd.Next(0, objects[i].allowedRotations.Length)];
             // if on the other side, rotate 180
             if (zCoef == -1) yRot += 180f;
             float zRot = objects[i].startRotation.z + (2 * (float)rnd.NextDouble() - 1) * objects[i].zAngRange;
