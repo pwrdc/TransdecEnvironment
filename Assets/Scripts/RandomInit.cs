@@ -34,7 +34,6 @@ public class RandomInit : MonoBehaviour {
             if (objects[i].obj.transform.position != new Vector3(0f, 0f, 0f)) objects[i].startPosition = objects[i].obj.transform.position;
             if (objects[i].obj.transform.eulerAngles != new Vector3(0f, 0f, 0f)) objects[i].startRotation = objects[i].obj.transform.eulerAngles;
         }
-        PutAll();
 	}
 
     public void PutAll() {
