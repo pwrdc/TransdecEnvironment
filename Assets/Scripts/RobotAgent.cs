@@ -23,17 +23,17 @@ public class RobotAgent : Agent {
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
         targetCenter = getTargetCenter();
         targetRotation = target.GetComponent<Rigidbody>().rotation;
-        startPos = getPosition();
-        startAngle = getAngle();
 	}
 
     public override void AgentReset() {
+        transform.parent.GetComponent<RandomInit>().PutAll();
         if (dataCollection) {
-            GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
             GameObject.Find("Robot").GetComponent<WaterOpacity>().dataCollecting = true;
             GameObject.Find("Robot").GetComponent<WaterOpacity>().SetUnderwater();
         }
-        SetReward(1);
+        startPos = getPosition();
+        startAngle = getAngle();
+        SetReward(0);
     }
 
     public override void CollectObservations() {

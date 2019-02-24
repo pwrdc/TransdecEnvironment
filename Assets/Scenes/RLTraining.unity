@@ -339,7 +339,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -6941,7 +6941,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710431305}
   m_LocalRotation: {x: -0.5873689, y: 0.10365043, z: 0.076193675, w: 0.79903}
-  m_LocalPosition: {x: -29.638655, y: -34.352444, z: -9.793354}
+  m_LocalPosition: {x: -12.550439, y: -140.61906, z: -46.511005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7532,7 +7532,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 3
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -8195,16 +8195,19 @@ MonoBehaviour:
     - {fileID: 11400000, guid: dcc22dc4fb9c1574eb5aab7aa805b788, type: 2}
     _brainsToControl:
     - {fileID: 11400000, guid: dcc22dc4fb9c1574eb5aab7aa805b788, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   maxSteps: 0
   trainingConfiguration:
     width: 416
     height: 416
-    qualityLevel: 5
+    qualityLevel: 1
     timeScale: 1
-    targetFrameRate: 30
+    targetFrameRate: -1
   inferenceConfiguration:
-    width: 0
-    height: 0
+    width: 416
+    height: 416
     qualityLevel: 5
     timeScale: 1
     targetFrameRate: 30
