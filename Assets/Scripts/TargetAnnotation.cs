@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,7 +47,7 @@ public class TargetAnnotation : MonoBehaviour
         // odpowiednie wspolrzedne na ekranie
         for (int i = 0; i < pts.Length; i++) pts[i].y = Screen.height - pts[i].y;
         // maksymalne i minimalne wartosci
-        Vector3 min = pts[0];
+        Vector3 min = pts[0];   
         Vector3 max = pts[0];
         for (int i = 1; i < pts.Length; i++)
         {
