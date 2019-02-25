@@ -10,6 +10,7 @@ public class Accelerometer : MonoBehaviour
     private Vector3 acceleration;
     private Vector3 lastAngularVelocity;
     private Vector3 angularAcceleration;
+    private Vector3 startRotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class Accelerometer : MonoBehaviour
 		rbody = robot.GetComponent<Rigidbody>();
         lastVelocity = transform.InverseTransformDirection(rbody.velocity);
         lastAngularVelocity = transform.InverseTransformDirection(rbody.angularVelocity);
+        startRotation = rbody.rotation.eulerAngles;
     }
 
     // Update is called once per frame
@@ -52,9 +54,17 @@ public class Accelerometer : MonoBehaviour
         /* get value of angular positions: pitch, yaw, roll */
         float[] ret = new float[3];
         Vector3 rotation = rbody.rotation.eulerAngles;
-        ret[0] = rotation.x;
-        ret[1] = rotation.y;
-        ret[2] = rotation.z;
+        ret[0] = normalizeRotation(rotation.x, startRotation.x);
+        ret[1] = normalizeRotation(rotation.y, startRotation.y);
+        ret[2] = normalizeRotation(rotation.z, startRotation.z);
         return ret;
+    }
+
+    private float normalizeRotation(float current, float start){
+        float result = (current - start) % 360;
+        if (result < 0)
+            result += 360;
+        result = (result + 180) % 360 - 180;
+        return result;
     }
 }
