@@ -16,6 +16,7 @@ public class RobotAgent : Agent {
     Quaternion targetRotation;
     Vector3 startPos;
     float startAngle;
+    int collided = 0;
 
 	void Start () {
         rbody = GetComponent<Rigidbody>();
@@ -95,7 +96,8 @@ public class RobotAgent : Agent {
         float reward = (calculateSingleReward(pos.x, startPos.x) + 
                         calculateSingleReward(pos.y, startPos.y) + 
                         calculateSingleReward(pos.z, startPos.z) +
-                        calculateSingleReward(angle, startAngle)) / 4;
+                        calculateSingleReward(angle, startAngle)) / 4 -
+                        collided * 5;
         return reward;
     }
 
@@ -104,5 +106,9 @@ public class RobotAgent : Agent {
     }
 
     void Update() {
+    }
+
+    void OnCollisionEnter() {
+        collided = 1;
     }
 }
