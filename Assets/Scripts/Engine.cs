@@ -26,6 +26,7 @@ public class Engine : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Physics.gravity = new Vector3(0, -2.0f, 0);
 		robot = this.transform.parent.gameObject;
 		rbody = robot.GetComponent<Rigidbody>();
 		top = waterSurface.transform.position.y;
@@ -45,10 +46,11 @@ public class Engine : MonoBehaviour {
 		getMovement("d", "a", "r", "f", "w", "s", "e", "q");
 		if (rbody.position.y >= top)
 			rbody.useGravity = true;
-		else
+		else {
 			rbody.useGravity = false;
-		rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
-		rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
+			rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
+			rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
+		}
 	}
 
 	public void Move(float Longitudinal, float Lateral, float Vertical, float Yaw) {
@@ -57,9 +59,12 @@ public class Engine : MonoBehaviour {
 		vertical = Vertical;
 		yaw = Yaw;
 		if (rbody.position.y >= top)
-			vertical = -1.5f;
-		rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
-		rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
+			rbody.useGravity = true;
+		else {
+			rbody.useGravity = false;
+			rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
+			rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
+		}
 	}
 
 	float[] getMovement(string right, string left, string upward, string downward, string forward, string backward, string turnRight, string turnLeft) {
