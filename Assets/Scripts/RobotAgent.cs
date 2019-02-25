@@ -27,6 +27,8 @@ public class RobotAgent : Agent {
 	}
 
     public override void AgentReset() {
+        this.rbody.angularVelocity = Vector3.zero;
+        this.rbody.velocity = Vector3.zero;
         transform.parent.GetComponent<RandomInit>().PutAll();
         if (dataCollection) {
             GameObject.Find("Robot").GetComponent<WaterOpacity>().dataCollecting = true;
@@ -52,11 +54,13 @@ public class RobotAgent : Agent {
             rotation.CopyTo(toSend, acceleration.Length + angularAcceleration.Length);
             toSend[toSend.Length - 1] = depthSensor.depth;
             AddVectorObs(toSend);
-            SetReward(getReward());
         }
     }
+
     public override void AgentAction(float[] vectorAction, string textAction){
         transform.Find("Engine").GetComponent<Engine>().Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+        float currentReward = getReward();
+        SetReward(currentReward);
     }
 
     Vector3 getTargetCenter() {
@@ -97,7 +101,7 @@ public class RobotAgent : Agent {
                         calculateSingleReward(pos.y, startPos.y) + 
                         calculateSingleReward(pos.z, startPos.z) +
                         calculateSingleReward(angle, startAngle)) / 4 -
-                        collided * 5;
+                        collided * 5;   
         return reward;
     }
 
@@ -105,10 +109,12 @@ public class RobotAgent : Agent {
         return (float)(-Math.Sqrt(1 / start * current) + 1);
     }
 
-    void Update() {
-    }
-
     void OnCollisionEnter() {
         collided = 1;
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "TargetPlane")
+            Done();
     }
 }
