@@ -16,6 +16,7 @@ public class RobotAgent : Agent {
     Quaternion targetRotation;
     Vector3 startPos;
     float startAngle;
+    int collided = 0;
 
 	void Start () {
         rbody = GetComponent<Rigidbody>();
@@ -23,17 +24,19 @@ public class RobotAgent : Agent {
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
         targetCenter = getTargetCenter();
         targetRotation = target.GetComponent<Rigidbody>().rotation;
-        startPos = getPosition();
-        startAngle = getAngle();
 	}
 
     public override void AgentReset() {
+        this.rbody.angularVelocity = Vector3.zero;
+        this.rbody.velocity = Vector3.zero;
+        transform.parent.GetComponent<RandomInit>().PutAll();
         if (dataCollection) {
-            GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
             GameObject.Find("Robot").GetComponent<WaterOpacity>().dataCollecting = true;
             GameObject.Find("Robot").GetComponent<WaterOpacity>().SetUnderwater();
         }
-        SetReward(1);
+        startPos = getPosition();
+        startAngle = getAngle();
+        SetReward(0);
     }
 
     public override void CollectObservations() {
@@ -51,11 +54,13 @@ public class RobotAgent : Agent {
             rotation.CopyTo(toSend, acceleration.Length + angularAcceleration.Length);
             toSend[toSend.Length - 1] = depthSensor.depth;
             AddVectorObs(toSend);
-            SetReward(getReward());
         }
     }
+
     public override void AgentAction(float[] vectorAction, string textAction){
         transform.Find("Engine").GetComponent<Engine>().Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+        float currentReward = getReward();
+        SetReward(currentReward);
     }
 
     Vector3 getTargetCenter() {
@@ -95,7 +100,8 @@ public class RobotAgent : Agent {
         float reward = (calculateSingleReward(pos.x, startPos.x) + 
                         calculateSingleReward(pos.y, startPos.y) + 
                         calculateSingleReward(pos.z, startPos.z) +
-                        calculateSingleReward(angle, startAngle)) / 4;
+                        calculateSingleReward(angle, startAngle)) / 4 -
+                        collided * 5;   
         return reward;
     }
 
@@ -103,6 +109,12 @@ public class RobotAgent : Agent {
         return (float)(-Math.Sqrt(1 / start * current) + 1);
     }
 
-    void Update() {
+    void OnCollisionEnter() {
+        collided = 1;
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "TargetPlane")
+            Done();
     }
 }
