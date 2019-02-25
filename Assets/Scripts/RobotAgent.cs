@@ -10,6 +10,7 @@ public class RobotAgent : Agent {
     public Vector3 targetOffset = Vector3.zero;
 
     Rigidbody rbody;
+    Engine engine;
     Accelerometer accelerometer;
     DepthSensor depthSensor;
     Vector3 targetCenter;
@@ -20,6 +21,7 @@ public class RobotAgent : Agent {
 
 	void Start () {
         rbody = GetComponent<Rigidbody>();
+        engine = transform.Find("Engine").GetComponent<Engine>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
         targetCenter = getTargetCenter();
@@ -58,7 +60,7 @@ public class RobotAgent : Agent {
     }
 
     public override void AgentAction(float[] vectorAction, string textAction){
-        transform.Find("Engine").GetComponent<Engine>().Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+        engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
         float currentReward = getReward();
         SetReward(currentReward);
     }
@@ -101,7 +103,7 @@ public class RobotAgent : Agent {
                         calculateSingleReward(pos.y, startPos.y) + 
                         calculateSingleReward(pos.z, startPos.z) +
                         calculateSingleReward(angle, startAngle)) / 4 -
-                        collided * 5;   
+                        collided - engine.isAboveSurface();   
         return reward;
     }
 
