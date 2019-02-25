@@ -34,12 +34,20 @@ public class Engine : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		selfLevel();
 		if (rbody.drag != drag)
 			rbody.drag = drag;
 		if (rbody.angularDrag != angularDrag)
 			rbody.angularDrag = angularDrag;
 		if (keyboard)
 			Move();
+	}
+
+	public int isAboveSurface() {
+		if (rbody.position.y >= top)
+			return 1;
+		else
+			return 0;
 	}
 
 	void Move() {
@@ -94,5 +102,13 @@ public class Engine : MonoBehaviour {
 		else if (Input.GetKey(turnLeft))
 			yaw = -1.0f;
 		return ret;
+	}
+
+	void selfLevel() {
+		Debug.Log(Math.Sin(rbody.rotation.eulerAngles.x * (Math.PI / 180)));
+		Debug.Log(Math.Sin(rbody.rotation.eulerAngles.z * (Math.PI / 180)));
+		rbody.AddRelativeTorque((float)(-Math.Sin(rbody.rotation.eulerAngles.x * (Math.PI / 180))),
+								0,
+								(float)(-Math.Sin(rbody.rotation.eulerAngles.z * (Math.PI / 180))));
 	}
 }
