@@ -386,12 +386,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &342853717 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 501ea324e9aadbb4282dfa9ee44672fb,
-    type: 3}
-  m_PrefabInstance: {fileID: 1504943639}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &503281217
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,12 +464,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 24a2fff15f4bf9a498ce48096124a753,
     type: 3}
   m_PrefabInstance: {fileID: 1089100945}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &638040706 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c,
-    type: 3}
-  m_PrefabInstance: {fileID: 170153084}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &730576030
 MeshRenderer:
@@ -651,12 +639,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d67c1ad170729124dab7d483cfbb6b52,
     type: 3}
   m_PrefabInstance: {fileID: 757998674}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &794252509 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 092d0e5cc3d7a85418906a938f2c3b65,
-    type: 3}
-  m_PrefabInstance: {fileID: 1012441610}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &810256475
 MeshRenderer:
@@ -1052,12 +1034,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1012441610}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1032399113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: a1bbea9e7ffbb4047aee4b7eed35a36a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1392065527}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1051573375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,10 +1305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ff7b69e6a8e304b84a7f97c6cfe62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  water_surface: {fileID: 262483792}
-  water_color: {r: 0.22, g: 0.65, b: 0.77, a: 0.5}
-  water_fog: 0.4
-  data_collecting: 0
+  waterSurface: {fileID: 262483792}
+  waterColor: {r: 0.22, g: 0.65, b: 0.77, a: 0.5}
+  waterFog: 0.2
+  dataCollecting: 0
 --- !u!114 &1110783363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,12 +1329,9 @@ MonoBehaviour:
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
---- !u!1 &1181222957 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 41460cdb52d51dd48b14f74d60039971,
-    type: 3}
-  m_PrefabInstance: {fileID: 1327638697}
-  m_PrefabAsset: {fileID: 0}
+  dataCollection: 1
+  target: {fileID: 235797410}
+  targetOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1227796685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,12 +1414,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &1275200488 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: d67c1ad170729124dab7d483cfbb6b52,
-    type: 3}
-  m_PrefabInstance: {fileID: 757998674}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1327638697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1949,8 +1916,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797791977}
-  m_LocalRotation: {x: 0.02097793, y: 0.9787623, z: 0.13234156, w: -0.15514524}
-  m_LocalPosition: {x: 31.543133, y: 0.5455837, z: 9.824072}
+  m_LocalRotation: {x: 0.06226311, y: 0.93250716, z: 0.19524866, w: -0.29737476}
+  m_LocalPosition: {x: 30.753376, y: -6.875225, z: 3.3152065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1983,16 +1950,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061235919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87053057090e6284a8c11e04658beb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   broadcastHub:
     broadcastingBrains:
-    - {fileID: 11400000, guid: dcc22dc4fb9c1574eb5aab7aa805b788, type: 2}
-    _brainsToControl:
-    - {fileID: 11400000, guid: dcc22dc4fb9c1574eb5aab7aa805b788, type: 2}
+    - {fileID: 11400000, guid: 01c7077de9fe18d4b95ade741b2406ff, type: 2}
+    _brainsToControl: []
   maxSteps: 0
   trainingConfiguration:
     width: 1280
@@ -2034,29 +2000,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3e2efcca156ed408fd53ec4c516d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drawTransdecQuarter: 0
   objects:
   - obj: {fileID: 1110783357}
-    start_position: {x: 0, y: 0, z: 0}
-    x_pos_range: 2
-    y_pos_range: 2
-    z_pos_range: 2
-    start_rotation: {x: 0, y: 0, z: 0}
-    x_ang_range: 0
-    y_ang_range: 5
-    z_ang_range: 0
-    allowed_rotations:
-    - 0
-    - 90
+    startPosition: {x: 0, y: 0, z: 0}
+    xPosRange: 1
+    minusXPosRange: 1
+    yPosRange: 1
+    minusYPosRange: 1
+    zPosRange: 1
+    minusZPosRange: 1
+    startRotation: {x: 0, y: 0, z: 0}
+    xAngRange: 5
+    yAngRange: 5
+    zAngRange: 5
+    allowedRotations: []
   - obj: {fileID: 235797410}
-    start_position: {x: 0, y: 0, z: 0}
-    x_pos_range: 2
-    y_pos_range: 1
-    z_pos_range: 2
-    start_rotation: {x: 0, y: 0, z: 0}
-    x_ang_range: 0
-    y_ang_range: 5
-    z_ang_range: 0
-    allowed_rotations: []
+    startPosition: {x: 0, y: 0, z: 0}
+    xPosRange: 1
+    minusXPosRange: 1
+    yPosRange: 1
+    minusYPosRange: 1
+    zPosRange: 1
+    minusZPosRange: 1
+    startRotation: {x: 0, y: 0, z: 0}
+    xAngRange: 5
+    yAngRange: 5
+    zAngRange: 5
+    allowedRotations: []
 --- !u!114 &2061235923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,33 +2042,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1110783357}
   target: {fileID: 634119051}
-  other_objs:
-  - {fileID: 812193439}
-  - {fileID: 2086841095}
-  - {fileID: 732506714}
-  - {fileID: 1606819899}
-  - {fileID: 1275200488}
-  - {fileID: 342853717}
-  - {fileID: 794252509}
-  - {fileID: 1032399113}
-  - {fileID: 638040706}
-  - {fileID: 915542567}
-  - {fileID: 1181222957}
-  - {fileID: 1782064265}
-  min_radius: 2.5
-  max_radius: 9
-  water_level: 11
-  max_depth: 9
-  x_ang_range: 0
-  y_ang_range: 20
-  z_ang_range: 0
-  random_quarter: 1
-  oth_min_radius: 0
-  oth_max_radius: 6
-  oth_max_depth: 8
-  oth_x_ang_range: 90
-  oth_y_ang_range: 90
-  oth_z_ang_range: 90
+  otherObjs: []
+  minRadius: 3
+  maxRadius: 10
+  waterLevel: 11
+  maxDepth: 4
+  xAngRange: 5
+  yAngRange: 5
+  zAngRange: 5
+  randomQuarter: 0
+  othObjects: 1
+  othMinRadius: 0
+  othMaxRadius: 4
+  othMaxDepth: 8
+  othXAngRange: 90
+  othYAngRange: 90
+  othZAngRange: 90
 --- !u!114 &2061235924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2114,7 +2074,7 @@ MonoBehaviour:
   margin: 10
   draw: 1
   background: {fileID: 2800000, guid: afbd73b92efd241479a988401368c873, type: 3}
-  box_coord:
+  boxCoord:
   - 0
   - 0
   - 0

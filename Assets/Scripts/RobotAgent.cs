@@ -24,7 +24,7 @@ public class RobotAgent : Agent {
         engine = transform.Find("Engine").GetComponent<Engine>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
-        targetCenter = getTargetCenter();
+        targetCenter = GetTargetCenter();
         targetRotation = target.GetComponent<Rigidbody>().rotation;
 	}
 
@@ -36,8 +36,8 @@ public class RobotAgent : Agent {
             GameObject.Find("Robot").GetComponent<WaterOpacity>().dataCollecting = true;
             GameObject.Find("Robot").GetComponent<WaterOpacity>().SetUnderwater();
         }
-        startPos = getPosition();
-        startAngle = getAngle();
+        startPos = GetPosition();
+        startAngle = GetAngle();
         SetReward(0);
     }
 
@@ -48,9 +48,9 @@ public class RobotAgent : Agent {
         }
         else {
             float[] toSend = new float[10];
-            float[] acceleration = accelerometer.getAcceleration();
-            float[] angularAcceleration = accelerometer.getAngularAcceleration();
-            float[] rotation = accelerometer.getRotation();
+            float[] acceleration = accelerometer.GetAcceleration();
+            float[] angularAcceleration = accelerometer.GetAngularAcceleration();
+            float[] rotation = accelerometer.GetRotation();
             acceleration.CopyTo(toSend, 0);
             angularAcceleration.CopyTo(toSend, acceleration.Length);
             rotation.CopyTo(toSend, acceleration.Length + angularAcceleration.Length);
@@ -61,11 +61,11 @@ public class RobotAgent : Agent {
 
     public override void AgentAction(float[] vectorAction, string textAction){
         engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
-        float currentReward = getReward();
+        float currentReward = CalculateReward();
         SetReward(currentReward);
     }
 
-    Vector3 getTargetCenter() {
+    Vector3 GetTargetCenter() {
         Bounds bounds = new Bounds (target.transform.position, Vector3.zero);
         Renderer[] renderers = target.GetComponentsInChildren<Renderer>();
         foreach(Renderer renderer in renderers)
@@ -75,7 +75,7 @@ public class RobotAgent : Agent {
         return bounds.center;
     }
 
-    Vector3 getPosition() {
+    Vector3 GetPosition() {
         // relative position
         Vector3 distToCenter = target.transform.InverseTransformPoint(targetCenter);
         Vector3 relativePos = target.transform.InverseTransformPoint(rbody.position) - distToCenter - targetOffset;
@@ -85,29 +85,29 @@ public class RobotAgent : Agent {
         return relativePos;
     }
 
-    float getAngle() {
+    float GetAngle() {
         // relative angle
         float relativeYaw = (Quaternion.Inverse(targetRotation) * rbody.rotation).eulerAngles.y;
         relativeYaw = Math.Abs((relativeYaw + 180) % 360 - 180);
         return relativeYaw;
     }
 
-    float getReward() {
+    float CalculateReward() {
         /*  reward function, which is a normalized sum of expressions:
                 -sqrt(-a_0 * a) + 1 
             calculated for each essential value
         */
-        Vector3 pos = getPosition();
-        float angle = getAngle();
-        float reward = (calculateSingleReward(pos.x, startPos.x) + 
-                        calculateSingleReward(pos.y, startPos.y) + 
-                        calculateSingleReward(pos.z, startPos.z) +
-                        calculateSingleReward(angle, startAngle)) / 4 -
+        Vector3 pos = GetPosition();
+        float angle = GetAngle();
+        float reward = (CalculateSingleReward(pos.x, startPos.x) + 
+                        CalculateSingleReward(pos.y, startPos.y) + 
+                        CalculateSingleReward(pos.z, startPos.z) +
+                        CalculateSingleReward(angle, startAngle)) / 4 -
                         collided - engine.isAboveSurface();   
         return reward;
     }
 
-    float calculateSingleReward(float current, float start) {
+    float CalculateSingleReward(float current, float start) {
         return (float)(-Math.Sqrt(1 / start * current) + 1);
     }
 
