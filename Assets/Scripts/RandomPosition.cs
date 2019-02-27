@@ -35,7 +35,7 @@ public class RandomPosition : MonoBehaviour
     [Range(0.0f, 90.0f)]
     public float othZAngRange = 90f;
 
-    float getRandom(float min, float max)
+    float GetRandom(float min, float max)
     {
         System.Random rnd = GameObject.Find("Academy").GetComponent<RandomInit>().rnd;
         float rand = (float)rnd.NextDouble();
@@ -43,56 +43,48 @@ public class RandomPosition : MonoBehaviour
         return ret;
     }
 
-    public void getNewPos()
+    public void GetNewPos()
     {
         Vector3 newPos = target.GetComponent<Renderer>().bounds.center;
-        float xRot = getRandom(-xAngRange, xAngRange);
-        float yRot = getRandom(-yAngRange, yAngRange);
-        float zRot = getRandom(-zAngRange, zAngRange);
-        float r = getRandom(minRadius, maxRadius);
-        float theta = getRandom(0, 2 * Mathf.PI);
+        float xRot = GetRandom(-xAngRange, xAngRange);
+        float yRot = GetRandom(-yAngRange, yAngRange);
+        float zRot = GetRandom(-zAngRange, zAngRange);
+        float r = GetRandom(minRadius, maxRadius);
+        float theta = GetRandom(0, 2 * Mathf.PI);
         newPos.x += r * Mathf.Cos(theta);
-        newPos.y = getRandom(maxDepth, waterLevel);
+        newPos.y = GetRandom(maxDepth, waterLevel);
         newPos.z += r * Mathf.Sin(theta);
         agent.transform.position = newPos;
         agent.transform.LookAt(target.GetComponent<Renderer>().bounds.center);
         agent.transform.eulerAngles = new Vector3(xRot, agent.transform.eulerAngles.y + yRot, zRot);
     }
 
-    public void getOthNewPos(GameObject obj)
+    public void GetOthNewPos(GameObject obj)
     {
         Vector3 newPos = target.GetComponent<Renderer>().bounds.center;
-        float xRot = getRandom(-othXAngRange, othXAngRange);
-        float yRot = getRandom(-othYAngRange, othYAngRange);
-        float zRot = getRandom(-othZAngRange, othZAngRange);
-        float r = getRandom(othMinRadius, othMaxRadius);
-        float theta = getRandom(0, 2 * Mathf.PI);
+        float xRot = GetRandom(-othXAngRange, othXAngRange);
+        float yRot = GetRandom(-othYAngRange, othYAngRange);
+        float zRot = GetRandom(-othZAngRange, othZAngRange);
+        float r = GetRandom(othMinRadius, othMaxRadius);
+        float theta = GetRandom(0, 2 * Mathf.PI);
         newPos.x += r * Mathf.Cos(theta);
-        newPos.y = getRandom(othMaxDepth, waterLevel);
+        newPos.y = GetRandom(othMaxDepth, waterLevel);
         newPos.z += r * Mathf.Sin(theta);
         obj.transform.position = newPos;
         obj.transform.LookAt(target.GetComponent<Renderer>().bounds.center);
         obj.transform.eulerAngles = new Vector3(xRot, obj.transform.eulerAngles.y + yRot, zRot);
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    public void DrawPosition()
     {
         if (randomQuarter)
         {
             GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
         }
-        getNewPos();
-        if(othObjects)
+        GetNewPos();
+        if (othObjects)
         {
-            foreach (GameObject obj in otherObjs) getOthNewPos(obj);
+            foreach (GameObject obj in otherObjs) GetOthNewPos(obj);
         }
     }
 }
