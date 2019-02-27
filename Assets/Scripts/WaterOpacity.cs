@@ -25,6 +25,10 @@ public class WaterOpacity : MonoBehaviour {
             if (underwater) SetUnderwater();
             else SetNormal();
         }
+        if (waterFog != RenderSettings.fogDensity)
+            RenderSettings.fogDensity = waterFog;
+        if (waterColor != RenderSettings.fogColor)
+            RenderSettings.fogColor = waterColor;
 	}
 
     public void SetNormal()
