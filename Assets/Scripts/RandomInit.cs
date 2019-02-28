@@ -5,8 +5,7 @@ public class RandomInit : MonoBehaviour {
 
     public bool drawTransdecQuarter = false;
 
-    [HideInInspector]
-    public System.Random rnd;
+    System.Random rnd;
 
     [Serializable]
     public class ObjectPosition {
@@ -36,7 +35,12 @@ public class RandomInit : MonoBehaviour {
     }
     public ObjectPosition[] objects;
 
+    public System.Random GetRandomizer() {
+        return rnd;
+    }
+
     void Start () {
+        rnd = new System.Random();
         for (int i = 0; i < this.objects.Length; i++) {
             // if object position and rotation are not default save them for randomizer
             if (objects[i].obj.transform.position != new Vector3(0f, 0f, 0f)) objects[i].startPosition = objects[i].obj.transform.position;
