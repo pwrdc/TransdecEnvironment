@@ -112,6 +112,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &14633635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 14633637}
+  - component: {fileID: 14633636}
+  m_Layer: 0
+  m_Name: SurfaceReflectionSceneCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!20 &14633636
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14633635}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_projectionMatrixMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967279
+  m_RenderingPath: 1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &14633637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14633635}
+  m_LocalRotation: {x: -0.023843203, y: 0.9748258, z: 0.18041162, w: 0.12883274}
+  m_LocalPosition: {x: 11.430944, y: 9.646847, z: -20.014275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &65393471
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &90179285
 Transform:
   m_ObjectHideFlags: 0
@@ -190,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dis: 0
-  mainObject: {fileID: 0}
+  mainObject: {fileID: 1110783357}
 --- !u!64 &90179287
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -575,7 +648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &265328562
 Transform:
   m_ObjectHideFlags: 0
@@ -732,79 +805,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318517414}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &583850074
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 583850076}
-  - component: {fileID: 583850075}
-  m_Layer: 0
-  m_Name: SurfaceReflectionSceneCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!20 &583850075
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583850074}
-  m_Enabled: 0
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
-  m_projectionMatrixMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967279
-  m_RenderingPath: 1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &583850076
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583850074}
-  m_LocalRotation: {x: -0.028362866, y: 0.56875086, z: 0.019629695, w: 0.82178634}
-  m_LocalPosition: {x: 4.5886817, y: 13.162048, z: -28.496311}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &715748964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,7 +1262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1051573376
 Transform:
   m_ObjectHideFlags: 0
@@ -1564,7 +1564,6 @@ MonoBehaviour:
   waterSurface: {fileID: 262483792}
   waterColor: {r: 0.22, g: 0.65, b: 0.77, a: 0.5}
   waterFog: 0.2
-  dataCollecting: 0
 --- !u!114 &1110783363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1577,7 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32373adcf35423d469d6d7d866516bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: dcc22dc4fb9c1574eb5aab7aa805b788, type: 2}
+  brain: {fileID: 0}
   agentParameters:
     agentCameras:
     - {fileID: 1227796688}
@@ -1585,7 +1584,6 @@ MonoBehaviour:
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 10
-  dataCollection: 0
   target: {fileID: 235797410}
   targetOffset: {x: 0, y: 0, z: 0}
 --- !u!54 &1110783364
@@ -2278,7 +2276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8539a16a53ef1844a776afbfb888534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyboard: 0
   drag: 2
   angularDrag: 2
   maxForceLongitudinal: 50
@@ -2297,7 +2294,7 @@ GameObject:
   - component: {fileID: 1920472906}
   - component: {fileID: 1920472905}
   m_Layer: 0
-  m_Name: Agent1
+  m_Name: "Agent\x13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2320,8 +2317,11 @@ MonoBehaviour:
   - obj: {fileID: 1110783357}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
+    minusXPosRange: 1
     yPosRange: 1
+    minusYPosRange: 1
     zPosRange: 1
+    minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 5
     yAngRange: 5
@@ -2332,8 +2332,11 @@ MonoBehaviour:
   - obj: {fileID: 235797410}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
+    minusXPosRange: 1
     yPosRange: 1
+    minusYPosRange: 1
     zPosRange: 1
+    minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 5
     yAngRange: 5
@@ -2342,8 +2345,11 @@ MonoBehaviour:
   - obj: {fileID: 1623013163}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
+    minusXPosRange: 1
     yPosRange: 1
+    minusYPosRange: 1
     zPosRange: 1
+    minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 5
     yAngRange: 5
@@ -2352,8 +2358,11 @@ MonoBehaviour:
   - obj: {fileID: 2087275535}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
+    minusXPosRange: 1
     yPosRange: 1
+    minusYPosRange: 1
     zPosRange: 1
+    minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 5
     yAngRange: 5
@@ -2362,8 +2371,11 @@ MonoBehaviour:
   - obj: {fileID: 1207225993}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
+    minusXPosRange: 1
     yPosRange: 1
+    minusYPosRange: 1
     zPosRange: 1
+    minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 5
     yAngRange: 5
@@ -2372,8 +2384,11 @@ MonoBehaviour:
   - obj: {fileID: 915542567}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
+    minusXPosRange: 1
     yPosRange: 1
+    minusYPosRange: 1
     zPosRange: 1
+    minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 5
     yAngRange: 5
@@ -2382,8 +2397,11 @@ MonoBehaviour:
   - obj: {fileID: 1730384155}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
+    minusXPosRange: 1
     yPosRange: 1
+    minusYPosRange: 1
     zPosRange: 1
+    minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 5
     yAngRange: 5
@@ -2392,8 +2410,11 @@ MonoBehaviour:
   - obj: {fileID: 1550337883}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
+    minusXPosRange: 1
     yPosRange: 1
+    minusYPosRange: 1
     zPosRange: 1
+    minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 0
     yAngRange: 5
@@ -2466,7 +2487,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterSurface: {fileID: 262483792}
   offset: 0
-  depth: 0
 --- !u!4 &2053268681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: d911f57916f66a74ab8e32e171acf69c,
@@ -2503,18 +2523,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   broadcastHub:
-    broadcastingBrains:
-    - {fileID: 11400000, guid: dcc22dc4fb9c1574eb5aab7aa805b788, type: 2}
+    broadcastingBrains: []
     _brainsToControl:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 11400000, guid: dcc22dc4fb9c1574eb5aab7aa805b788, type: 2}
+    - {fileID: 0}
+    - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   maxSteps: 0
   trainingConfiguration:
     width: 416
     height: 416
-    qualityLevel: 1
+    qualityLevel: 5
     timeScale: 1
     targetFrameRate: -1
   inferenceConfiguration:
@@ -2525,6 +2545,9 @@ MonoBehaviour:
     targetFrameRate: 30
   resetParameters:
     resetParameters: []
+  control: 1
+  learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+  playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
 --- !u!4 &2061235921
 Transform:
   m_ObjectHideFlags: 0
