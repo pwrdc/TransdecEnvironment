@@ -3,29 +3,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Control {
-    learning, player
+public enum RobotControl {
+    player, python
+}
+
+public enum DataCollection {
+    gate, path
 }
 
 public class RobotAcademy : Academy { 
 
     [Header("Controller settings")]
-    public Control control;
+    public RobotControl control;
     public Brain learningBrain;
     public Brain playerBrain;
 
+    [Header("Data collection settings")]
+    public DataCollection mode;
+    public GameObject gateTargetObject;
+    public GameObject pathTargetObject;
+
     RobotAgent robot;
 
-    public override void InitializeAcademy() {
-        robot = GameObject.Find("Robot").GetComponent<RobotAgent>();
-        if (control == Control.learning) {
+    void OnValidate() {
+        if (control == RobotControl.player) {
+            robot = GameObject.Find("Robot").GetComponent<RobotAgent>();
+            robot.GiveBrain(playerBrain);
+            broadcastHub.broadcastingBrains.Clear();
+            broadcastHub.broadcastingBrains.Add(playerBrain);
+            
+        }
+        else {
             robot.GiveBrain(learningBrain);
+            broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(learningBrain);
             broadcastHub.SetControlled(learningBrain, true);
         }
-        else {
-            robot.GiveBrain(playerBrain);
-            broadcastHub.broadcastingBrains.Add(playerBrain);
+    }
+
+    public override void InitializeAcademy() {
+        if (control == RobotControl.player) {
+            robot.agentParameters.maxStep = 0;
         }
     }
 }
