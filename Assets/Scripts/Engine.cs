@@ -9,12 +9,12 @@ public class Engine : MonoBehaviour {
 
 	public bool keyboard = false;
 
-	public float drag = 2.0f;
-	public float angularDrag = 2.0f;
-	public float maxForceLongitudinal = 50f;
-	public float maxForceVertical = 50f;
-    public float maxForceLateral = 50f;
-	public float maxTorqueYaw = 0.5f;
+	public float drag = 5.0f;
+	public float angularDrag = 5.0f;
+	public float maxForceLongitudinal = 100f;
+	public float maxForceVertical = 100f;
+    public float maxForceLateral = 100f;
+	public float maxTorqueYaw = 1f;
 
 	private float longitudinal = 0;
     private float lateral = 0;
