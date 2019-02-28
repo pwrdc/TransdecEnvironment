@@ -6,10 +6,11 @@ public class TargetAnnotation : MonoBehaviour
 {
     public GameObject target;
     public float margin = 10.0f;
-    public bool draw = false;
+    public bool drawBox = false;
     public Texture2D background;
-    public float[] boxCoord = new float[4];
     public Camera cam = null;
+
+    private float[] boxCoord = new float[4];
     private GUIStyle style = null;
     private Vector3[] pts = new Vector3[8];
 
@@ -47,7 +48,7 @@ public class TargetAnnotation : MonoBehaviour
         boxCoord[2] = max.x;
         boxCoord[3] = max.y;
         // prostokat
-        if (draw)
+        if (drawBox)
         {
             Rect r = Rect.MinMaxRect(min.x, min.y, max.x, max.y);
             r.xMin -= margin;
@@ -57,5 +58,9 @@ public class TargetAnnotation : MonoBehaviour
             // 'box'
             GUI.Box(r, "", style);
         }
+    }
+
+    public float[] GetBoundingBox() {
+        return boxCoord;
     }
 }
