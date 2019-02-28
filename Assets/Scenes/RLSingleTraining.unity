@@ -179,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14633635}
   m_LocalRotation: {x: -0.023843203, y: 0.9748258, z: 0.18041162, w: 0.12883274}
-  m_LocalPosition: {x: 11.430944, y: 9.646847, z: -20.014275}
+  m_LocalPosition: {x: 8.2705555, y: 4.9841747, z: -8.266405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32373adcf35423d469d6d7d866516bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 0}
+  brain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   agentParameters:
     agentCameras:
     - {fileID: 1227796688}
@@ -2523,7 +2523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   broadcastHub:
-    broadcastingBrains: []
+    broadcastingBrains:
+    - {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
     _brainsToControl:
     - {fileID: 0}
     - {fileID: 0}
@@ -2532,22 +2533,31 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   maxSteps: 0
   trainingConfiguration:
-    width: 416
-    height: 416
+    width: 1280
+    height: 720
     qualityLevel: 5
     timeScale: 1
     targetFrameRate: -1
   inferenceConfiguration:
-    width: 416
-    height: 416
+    width: 1280
+    height: 720
     qualityLevel: 5
     timeScale: 1
     targetFrameRate: 30
   resetParameters:
-    resetParameters: []
-  control: 1
+    resetParameters:
+    - key: CollectData
+      value: 0
+    - key: TaskToCollect
+      value: 0
+    - key: EnableNoise
+      value: 0
+  control: 0
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
+  mode: 0
+  gateTargetObject: {fileID: 235797410}
+  pathTargetObject: {fileID: 1623013163}
 --- !u!4 &2061235921
 Transform:
   m_ObjectHideFlags: 0
