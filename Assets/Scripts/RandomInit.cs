@@ -83,8 +83,4 @@ public class RandomInit : MonoBehaviour {
             objects[i].obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
         }
     }
-	
-	void Update () {
-		
-	}
 }
