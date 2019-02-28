@@ -37,7 +37,7 @@ public class RandomPosition : MonoBehaviour
 
     float GetRandom(float min, float max)
     {
-        System.Random rnd = GameObject.Find("Academy").GetComponent<RandomInit>().rnd;
+        System.Random rnd = GameObject.Find("Academy").GetComponent<RandomInit>().GetRandomizer();
         float rand = (float)rnd.NextDouble();
         float ret = (max - min) * rand + min;
         return ret;
@@ -52,7 +52,7 @@ public class RandomPosition : MonoBehaviour
         float r = GetRandom(minRadius, maxRadius);
         float theta = GetRandom(0, 2 * Mathf.PI);
         newPos.x += r * Mathf.Cos(theta);
-        newPos.y = GetRandom(maxDepth, waterLevel);
+        newPos.y = GetRandom(maxDepth, waterLevel - 0.2f);
         newPos.z += r * Mathf.Sin(theta);
         agent.transform.position = newPos;
         agent.transform.LookAt(target.GetComponent<Renderer>().bounds.center);
@@ -68,15 +68,14 @@ public class RandomPosition : MonoBehaviour
         float r = GetRandom(othMinRadius, othMaxRadius);
         float theta = GetRandom(0, 2 * Mathf.PI);
         newPos.x += r * Mathf.Cos(theta);
-        newPos.y = GetRandom(othMaxDepth, waterLevel);
+        newPos.y = GetRandom(othMaxDepth, waterLevel - 0.2f);
         newPos.z += r * Mathf.Sin(theta);
         obj.transform.position = newPos;
         obj.transform.LookAt(target.GetComponent<Renderer>().bounds.center);
         obj.transform.eulerAngles = new Vector3(xRot, obj.transform.eulerAngles.y + yRot, zRot);
     }
 
-    public void DrawPosition()
-    {
+    public void DrawPositions() {
         if (randomQuarter)
         {
             GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
