@@ -43,7 +43,7 @@ public class RobotAgent : Agent {
 
     public override void CollectObservations() {
         if (dataCollection) {
-            float[] coords = GameObject.Find("Academy").GetComponent<TargetAnnotation>().boxCoord;
+            float[] coords = GameObject.Find("Academy").GetComponent<TargetAnnotation>().GetBoundingBox();
             AddVectorObs(coords);
         }
         else {
