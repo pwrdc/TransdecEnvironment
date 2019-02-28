@@ -54,7 +54,7 @@ public class RobotAgent : Agent {
             acceleration.CopyTo(toSend, 0);
             angularAcceleration.CopyTo(toSend, acceleration.Length);
             rotation.CopyTo(toSend, acceleration.Length + angularAcceleration.Length);
-            toSend[toSend.Length - 1] = depthSensor.depth;
+            toSend[toSend.Length - 1] = depthSensor.GetDepth();
             AddVectorObs(toSend);
         }
     }
