@@ -33,6 +33,10 @@ public class Engine : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		selfLevel();
+		if (rbody.position.y >= top)
+			rbody.useGravity = true;
+		else
+			rbody.useGravity = false;
 		if (rbody.drag != drag)
 			rbody.drag = drag;
 		if (rbody.angularDrag != angularDrag)
@@ -51,10 +55,7 @@ public class Engine : MonoBehaviour {
 		longitudinal = Longitudinal;
 		vertical = Vertical;
 		yaw = Yaw;
-		if (rbody.position.y >= top)
-			rbody.useGravity = true;
-		else {
-			rbody.useGravity = false;
+		if (!rbody.useGravity) {
 			rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
 			rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
 		}
