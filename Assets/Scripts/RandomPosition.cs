@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class RandomPosition : MonoBehaviour
 {
     public GameObject agent = null;
     public GameObject target = null;
-    public GameObject[] otherObjs;
+    public List<GameObject> otherObjs = new List<GameObject>();
     [Range(0.0f, 10.0f)]
     public float minRadius = 3.0f;
     [Range(0.0f, 10.0f)]
@@ -21,7 +22,6 @@ public class RandomPosition : MonoBehaviour
     public float zAngRange = 5f;
     public bool randomQuarter = false;
     //other objects parameters
-    public bool othObjects = true;
     [Range(0.0f, 10.0f)]
     public float othMinRadius = 0.0f;
     [Range(0.0f, 10.0f)]
@@ -35,9 +35,17 @@ public class RandomPosition : MonoBehaviour
     [Range(0.0f, 90.0f)]
     public float othZAngRange = 90f;
 
+    void OnValidate() {
+        otherObjs.Clear();
+        foreach (Transform child in transform) {
+            if (child.gameObject != target && child.gameObject != agent)
+                otherObjs.Add(child.gameObject);
+        }
+    }
+
     float GetRandom(float min, float max)
     {
-        System.Random rnd = GameObject.Find("Academy").GetComponent<RandomInit>().GetRandomizer();
+        System.Random rnd = transform.gameObject.GetComponent<RandomInit>().GetRandomizer();
         float rand = (float)rnd.NextDouble();
         float ret = (max - min) * rand + min;
         return ret;
@@ -45,7 +53,8 @@ public class RandomPosition : MonoBehaviour
 
     public void GetNewPos()
     {
-        Vector3 newPos = target.GetComponent<Renderer>().bounds.center;
+        Bounds bounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(target);
+        Vector3 newPos = bounds.center;
         float xRot = GetRandom(-xAngRange, xAngRange);
         float yRot = GetRandom(-yAngRange, yAngRange);
         float zRot = GetRandom(-zAngRange, zAngRange);
@@ -55,13 +64,14 @@ public class RandomPosition : MonoBehaviour
         newPos.y = GetRandom(maxDepth, waterLevel - 0.2f);
         newPos.z += r * Mathf.Sin(theta);
         agent.transform.position = newPos;
-        agent.transform.LookAt(target.GetComponent<Renderer>().bounds.center);
-        agent.transform.eulerAngles = new Vector3(xRot, agent.transform.eulerAngles.y + yRot, zRot);
+        agent.transform.LookAt(bounds.center);
+        agent.transform.eulerAngles = new Vector3(agent.transform.eulerAngles.x + xRot, agent.transform.eulerAngles.y + yRot, agent.transform.eulerAngles.z + zRot);
     }
 
     public void GetOthNewPos(GameObject obj)
     {
-        Vector3 newPos = target.GetComponent<Renderer>().bounds.center;
+        Bounds bounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(target);
+        Vector3 newPos = bounds.center;
         float xRot = GetRandom(-othXAngRange, othXAngRange);
         float yRot = GetRandom(-othYAngRange, othYAngRange);
         float zRot = GetRandom(-othZAngRange, othZAngRange);
@@ -71,17 +81,16 @@ public class RandomPosition : MonoBehaviour
         newPos.y = GetRandom(othMaxDepth, waterLevel - 0.2f);
         newPos.z += r * Mathf.Sin(theta);
         obj.transform.position = newPos;
-        obj.transform.LookAt(target.GetComponent<Renderer>().bounds.center);
-        obj.transform.eulerAngles = new Vector3(xRot, obj.transform.eulerAngles.y + yRot, zRot);
+        obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
     }
 
-    public void DrawPositions() {
+    public void DrawPositions(bool addNoise) {
         if (randomQuarter)
         {
             GameObject.Find("Academy").GetComponent<RandomInit>().PutAll();
         }
         GetNewPos();
-        if (othObjects)
+        if (addNoise)
         {
             foreach (GameObject obj in otherObjs) GetOthNewPos(obj);
         }
