@@ -3,11 +3,19 @@ using MLAgents;
 using System;
 
 public class RobotAgent : Agent {
-    public bool dataCollection = true;
 
     [Header("Reward function settings")]
     public GameObject target;
     public Vector3 targetOffset = Vector3.zero;
+
+    [Header("Additional settings")]
+    public bool sendRelativeData = false;
+    public bool dataCollection = false;
+    public bool addNoise = false;
+    public bool playerSteering = false;
+    public RobotAcademy.DataCollection mode;
+    public GameObject gateTargetObject;
+    public GameObject pathTargetObject;
 
     Rigidbody rbody;
     Engine engine;
@@ -19,60 +27,100 @@ public class RobotAgent : Agent {
     float startAngle;
     int collided = 0;
 
+    float angle;
+    Vector3 pos;
+
+    TargetAnnotation annotations;
+    RandomInit initializer;
+    RandomPosition positionDrawer;
+
+    void OnValidate() {
+        GameObject agent = transform.parent.gameObject;
+        annotations = agent.GetComponent<TargetAnnotation>();
+        initializer = agent.GetComponent<RandomInit>();
+        positionDrawer = agent.GetComponent<RandomPosition>();
+        positionDrawer.agent = transform.gameObject;
+        if (mode == RobotAcademy.DataCollection.gate){
+            annotations.target = gateTargetObject;
+            positionDrawer.target = gateTargetObject;
+        }
+        else if (mode == RobotAcademy.DataCollection.path){
+            annotations.target = pathTargetObject;
+            positionDrawer.target = pathTargetObject;
+        }
+    }
+
 	void Start () {
         rbody = GetComponent<Rigidbody>();
         engine = transform.Find("Engine").GetComponent<Engine>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
-        targetCenter = GetTargetCenter();
-        targetRotation = target.GetComponent<Rigidbody>().rotation;
+        if (dataCollection)
+            annotations.activate = true;
 	}
 
     public override void AgentReset() {
         this.rbody.angularVelocity = Vector3.zero;
         this.rbody.velocity = Vector3.zero;
-        transform.parent.GetComponent<RandomInit>().PutAll();
-        if (dataCollection) {
-            GameObject.Find("Robot").GetComponent<WaterOpacity>().dataCollecting = true;
-            GameObject.Find("Robot").GetComponent<WaterOpacity>().SetUnderwater();
-        }
+        initializer.PutAll();
+        targetCenter = GetComplexBounds(target).center;
+        targetRotation = target.GetComponent<Rigidbody>().rotation;
         startPos = GetPosition();
         startAngle = GetAngle();
         SetReward(0);
     }
 
     public override void CollectObservations() {
-        if (dataCollection) {
-            float[] coords = GameObject.Find("Academy").GetComponent<TargetAnnotation>().GetBoundingBox();
-            AddVectorObs(coords);
+        float[] toSend = new float[19];
+        float[] acceleration = accelerometer.GetAcceleration();
+        float[] angularAcceleration = accelerometer.GetAngularAcceleration();
+        float[] rotation = accelerometer.GetRotation();
+        // acceleration data
+        int toSendCell = 0;
+        acceleration.CopyTo(toSend, toSendCell);
+        // angular acceleration data
+        toSendCell += acceleration.Length;
+        angularAcceleration.CopyTo(toSend, toSendCell);
+        // rotation data
+        toSendCell += angularAcceleration.Length;
+        rotation.CopyTo(toSend, toSendCell);
+        // depth data
+        toSendCell += rotation.Length;
+        toSend[toSendCell] = depthSensor.GetDepth();
+        // bounding box
+        toSendCell += 1;
+        if (dataCollection)
+            annotations.GetBoundingBox().CopyTo(toSend, toSendCell);
+        // relative position data
+        toSendCell += 4;
+        if (sendRelativeData){
+            toSend[toSendCell + 1] = pos.x;
+            toSend[toSendCell + 2] = pos.y;
+            toSend[toSendCell + 3] = pos.z;
+            toSend[toSendCell + 4] = angle;
         }
-        else {
-            float[] toSend = new float[10];
-            float[] acceleration = accelerometer.GetAcceleration();
-            float[] angularAcceleration = accelerometer.GetAngularAcceleration();
-            float[] rotation = accelerometer.GetRotation();
-            acceleration.CopyTo(toSend, 0);
-            angularAcceleration.CopyTo(toSend, acceleration.Length);
-            rotation.CopyTo(toSend, acceleration.Length + angularAcceleration.Length);
-            toSend[toSend.Length - 1] = depthSensor.GetDepth();
-            AddVectorObs(toSend);
-        }
+        AddVectorObs(toSend);
     }
 
     public override void AgentAction(float[] vectorAction, string textAction){
-        engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+        if (dataCollection)
+            positionDrawer.DrawPositions(addNoise);
+        else
+            engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+        pos = GetPosition();
+        angle = GetAngle();
         float currentReward = CalculateReward();
         SetReward(currentReward);
     }
 
-    Vector3 GetTargetCenter() {
-        Bounds bounds = new Bounds (target.transform.position, Vector3.zero);
-        Renderer[] renderers = target.GetComponentsInChildren<Renderer>();
+    public Bounds GetComplexBounds(GameObject obj) {
+        Bounds bounds = new Bounds (obj.transform.position, Vector3.zero);
+        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
         foreach(Renderer renderer in renderers)
         {
             bounds.Encapsulate(renderer.bounds);
         }
-        return bounds.center;
+        return bounds;
     }
 
     Vector3 GetPosition() {
@@ -94,11 +142,9 @@ public class RobotAgent : Agent {
 
     float CalculateReward() {
         /*  reward function, which is a normalized sum of expressions:
-                -sqrt(-a_0 * a) + 1 
+                -sqrt(1 / a_0 * a) + 1 
             calculated for each essential value
         */
-        Vector3 pos = GetPosition();
-        float angle = GetAngle();
         float reward = (CalculateSingleReward(pos.x, startPos.x) + 
                         CalculateSingleReward(pos.y, startPos.y) + 
                         CalculateSingleReward(pos.z, startPos.z) +
@@ -116,7 +162,7 @@ public class RobotAgent : Agent {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.name == "TargetPlane")
+        if (other.gameObject.name == "TargetPlane" && !playerSteering)
             Done();
     }
 }
