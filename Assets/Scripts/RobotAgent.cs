@@ -56,14 +56,6 @@ public class RobotAgent : Agent {
         engine = transform.Find("Engine").GetComponent<Engine>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
-        if (dataCollection) {
-            annotations.activate = true;
-            agentParameters.numberOfActionsBetweenDecisions = 1;
-        }
-        if (positiveExamples)
-            target.SetActive(true);
-        else
-            target.SetActive(false);
     }
 
     public override void AgentReset() {
@@ -75,10 +67,18 @@ public class RobotAgent : Agent {
         startPos = GetPosition();
         startAngle = GetAngle();
         SetReward(0);
+        if (dataCollection) {
+            annotations.activate = true;
+            agentParameters.numberOfActionsBetweenDecisions = 1;
+        }
+        if (positiveExamples)
+            target.SetActive(true);
+        else
+            target.SetActive(false);
     }
 
     public override void CollectObservations() {
-        float[] toSend = new float[20];
+        float[] toSend = new float[19];
         float[] acceleration = accelerometer.GetAcceleration();
         float[] angularAcceleration = accelerometer.GetAngularAcceleration();
         float[] rotation = accelerometer.GetRotation();
@@ -105,7 +105,6 @@ public class RobotAgent : Agent {
         else
             toSend[toSendCell] = 0.0f;
         // relative position data
-        toSendCell += 1;
         if (sendRelativeData){
             toSend[toSendCell + 1] = pos.x;
             toSend[toSendCell + 2] = pos.y;
