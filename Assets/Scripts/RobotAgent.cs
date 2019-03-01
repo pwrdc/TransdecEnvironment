@@ -94,7 +94,7 @@ public class RobotAgent : Agent {
         toSend[toSendCell] = depthSensor.GetDepth();
         // bounding box
         toSendCell += 1;
-        if (dataCollection)
+        if (dataCollection && positiveExamples)
             annotations.GetBoundingBox().CopyTo(toSend, toSendCell);
         // positive/negative example
         toSendCell += 4;
