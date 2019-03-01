@@ -62,6 +62,30 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = true;
     }
 
+    public override void AcademyReset() {
+        if (resetParameters["CollectData"] == 1 || forceDataCollection)
+        {
+            robot.sendRelativeData = true;
+            robot.dataCollection = true;
+            robot.mode = mode;
+            robot.gateTargetObject = gateTargetObject;
+            robot.pathTargetObject = pathTargetObject;
+            if (resetParameters["EnableNoise"] == 1 || forceNoise)
+                robot.addNoise = true;
+            else
+                robot.addNoise = false;
+        }
+        else
+        {
+            robot.sendRelativeData = false;
+            robot.dataCollection = false;
+        }
+        if (resetParameters["Positive"] == 0 || forceNegativeExamples)
+            robot.positiveExamples = false;
+        else
+            robot.positiveExamples = true;
+    }
+
     public override void InitializeAcademy() {
         if (control == RobotControl.player) {
             robot.agentParameters.maxStep = 0;
