@@ -56,8 +56,10 @@ public class RobotAgent : Agent {
         engine = transform.Find("Engine").GetComponent<Engine>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
-        if (dataCollection)
+        if (dataCollection) {
             annotations.activate = true;
+            agentParameters.numberOfActionsBetweenDecisions = 1;
+        }
         if (positiveExamples)
             target.SetActive(true);
         else
