@@ -6,8 +6,8 @@ public class WaterOpacity : MonoBehaviour {
 
     public GameObject waterSurface;
     private bool underwater;
-    public Color waterColor = new Color(0.22f, 0.65f, 0.77f, 0.5f);
-    public float waterFog = 0.2f;
+    public Color waterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
+    public float waterFog = 0.3f;
 
 	void Start () {
         RenderSettings.fogMode = FogMode.Exponential;

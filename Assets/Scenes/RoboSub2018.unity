@@ -1538,8 +1538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSurface: {fileID: 262483792}
-  waterColor: {r: 0.22, g: 0.65, b: 0.77, a: 0.5}
-  waterFog: 0.2
+  waterColor: {r: 0.22, g: 0.65, b: 0.6509804, a: 0.5}
+  waterFog: 0.3
 --- !u!114 &1110783363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,8 +1562,8 @@ MonoBehaviour:
     numberOfActionsBetweenDecisions: 10
   target: {fileID: 235797410}
   targetOffset: {x: 0, y: 0, z: 0}
-  sendRelativeData: 0
-  dataCollection: 0
+  sendRelativeData: 1
+  dataCollection: 1
   addNoise: 0
   positiveExamples: 1
   playerSteering: 1
@@ -1652,8 +1652,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181653307}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 7.4204164, y: -33.22364, z: -29.548058}
+  m_LocalRotation: {x: -0.4383862, y: 0.30885318, z: 0.16351004, w: 0.8280651}
+  m_LocalPosition: {x: -8.777748, y: -25.61277, z: -48.24167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2527,9 +2527,9 @@ MonoBehaviour:
   maxRadius: 9
   waterLevel: 11
   maxDepth: 7.4
-  xAngRange: 15
-  yAngRange: 15
-  zAngRange: 15
+  xAngRange: 20
+  yAngRange: 20
+  zAngRange: 20
   randomQuarter: 1
   othMinRadius: 0
   othMaxRadius: 4
@@ -2674,7 +2674,7 @@ MonoBehaviour:
   mode: 0
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
-  forceDataCollection: 0
+  forceDataCollection: 1
   forceNoise: 0
   forceNegativeExamples: 0
 --- !u!4 &2061235921
