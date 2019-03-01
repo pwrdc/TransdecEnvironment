@@ -179,8 +179,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14633635}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 7.0258894, y: 11.122403, z: -27.36952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.955, y: 11.139999, z: -27.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1310,6 +1310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
       propertyPath: m_Name
       value: Gate1
@@ -1324,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.3
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 24a2fff15f4bf9a498ce48096124a753, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1561,6 +1565,7 @@ MonoBehaviour:
   sendRelativeData: 0
   dataCollection: 0
   addNoise: 0
+  positiveExamples: 1
   playerSteering: 1
   mode: 0
   gateTargetObject: {fileID: 235797410}
@@ -1581,6 +1586,79 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1181653307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1181653309}
+  - component: {fileID: 1181653308}
+  m_Layer: 0
+  m_Name: SurfaceReflectionFrontLeftCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!20 &1181653308
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181653307}
+  m_Enabled: 0
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
+  m_projectionMatrixMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967279
+  m_RenderingPath: 1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1181653309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181653307}
+  m_LocalRotation: {x: -0.009860803, y: -0.79300886, z: 0.0128402505, w: -0.60899496}
+  m_LocalPosition: {x: 3.877348, y: 11.401097, z: -20.322557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207225993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,8 +2382,8 @@ MonoBehaviour:
     zPosRange: 1
     minusZPosRange: 1
     startRotation: {x: 0, y: 0, z: 0}
-    xAngRange: 5
-    yAngRange: 5
+    xAngRange: 0
+    yAngRange: 0
     zAngRange: 5
     allowedRotations:
     - 0
@@ -2313,11 +2391,11 @@ MonoBehaviour:
   - obj: {fileID: 235797410}
     startPosition: {x: 0, y: 0, z: 0}
     xPosRange: 1
-    minusXPosRange: 1
+    minusXPosRange: -1
     yPosRange: 1
-    minusYPosRange: 1
+    minusYPosRange: -1
     zPosRange: 1
-    minusZPosRange: 1
+    minusZPosRange: -1
     startRotation: {x: 0, y: 0, z: 0}
     xAngRange: 5
     yAngRange: 5
@@ -2585,6 +2663,8 @@ MonoBehaviour:
       value: 0
     - key: EnableNoise
       value: 0
+    - key: Positive
+      value: 1
   control: 0
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
@@ -2592,7 +2672,8 @@ MonoBehaviour:
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
   forceDataCollection: 0
-  forceNoise: 1
+  forceNoise: 0
+  forceNegativeExamples: 0
 --- !u!4 &2061235921
 Transform:
   m_ObjectHideFlags: 0
