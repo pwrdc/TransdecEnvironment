@@ -12,6 +12,7 @@ public class RobotAgent : Agent {
     public bool sendRelativeData = false;
     public bool dataCollection = false;
     public bool addNoise = false;
+    public bool positiveExamples = true;
     public bool playerSteering = false;
     public RobotAcademy.DataCollection mode;
     public GameObject gateTargetObject;
@@ -57,7 +58,11 @@ public class RobotAgent : Agent {
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
         if (dataCollection)
             annotations.activate = true;
-	}
+        if (positiveExamples)
+            target.SetActive(true);
+        else
+            target.SetActive(false);
+    }
 
     public override void AgentReset() {
         this.rbody.angularVelocity = Vector3.zero;
@@ -71,7 +76,7 @@ public class RobotAgent : Agent {
     }
 
     public override void CollectObservations() {
-        float[] toSend = new float[19];
+        float[] toSend = new float[20];
         float[] acceleration = accelerometer.GetAcceleration();
         float[] angularAcceleration = accelerometer.GetAngularAcceleration();
         float[] rotation = accelerometer.GetRotation();
@@ -91,8 +96,14 @@ public class RobotAgent : Agent {
         toSendCell += 1;
         if (dataCollection)
             annotations.GetBoundingBox().CopyTo(toSend, toSendCell);
-        // relative position data
+        // positive/negative example
         toSendCell += 4;
+        if (positiveExamples)
+            toSend[toSendCell] = 1.0f;
+        else
+            toSend[toSendCell] = 0.0f;
+        // relative position data
+        toSendCell += 1;
         if (sendRelativeData){
             toSend[toSendCell + 1] = pos.x;
             toSend[toSendCell + 2] = pos.y;

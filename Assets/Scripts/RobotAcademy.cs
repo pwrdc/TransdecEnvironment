@@ -26,6 +26,7 @@ public class RobotAcademy : Academy {
     [Header("Debug settings")]
     public bool forceDataCollection = false;
     public bool forceNoise = false;
+    public bool forceNegativeExamples = false;
 
     RobotAgent robot;
 
@@ -55,6 +56,10 @@ public class RobotAcademy : Academy {
             robot.sendRelativeData = false;
             robot.dataCollection = false;
         }
+        if (resetParameters["Positive"] == 0 || forceNegativeExamples)
+            robot.positiveExamples = false;
+        else
+            robot.positiveExamples = true;
     }
 
     public override void InitializeAcademy() {
