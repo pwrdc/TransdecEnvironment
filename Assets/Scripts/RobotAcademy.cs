@@ -23,7 +23,7 @@ public class RobotAcademy : Academy {
     public GameObject gateTargetObject;
     public GameObject pathTargetObject;
 
-    [Header("Debug settings")]
+    [Header("Debug settings - use carefully!")]
     public bool forceDataCollection = false;
     public bool forceNoise = false;
     public bool forceNegativeExamples = false;
