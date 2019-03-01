@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AgentPlayerBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 20
+    vectorObservationSize: 19
     numStackedVectorObservations: 1
     vectorActionSize: 04000000
     cameraResolutions:
