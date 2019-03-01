@@ -13,16 +13,16 @@ public class RandomInit : MonoBehaviour {
         public Vector3 startPosition = new Vector3(0f, 0f, 0f);
         [Range(0f, 10f)]
         public float xPosRange = 1f;
-        [Range(0f, 10f)]
-        public float minusXPosRange = 1f;
+        [Range(-10f, 0f)]
+        public float minusXPosRange = -1f;
         [Range(0f, 10f)]
         public float yPosRange = 1f;
-        [Range(0f, 10f)]
-        public float minusYPosRange = 1f;
+        [Range(-10f, 0f)]
+        public float minusYPosRange = -1f;
         [Range(0f, 10f)]
         public float zPosRange = 1f;
-        [Range(0f, 10f)]
-        public float minusZPosRange = 1f;
+        [Range(-10f, 0f)]
+        public float minusZPosRange = -1f;
         public Vector3 startRotation = new Vector3(0f, 0f, 0f);
         [Range(0f, 30f)]
         public float xAngRange = 5f;
