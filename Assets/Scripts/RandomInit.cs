@@ -35,6 +35,8 @@ public class RandomInit : MonoBehaviour {
     }
     public ObjectPosition[] objects;
 
+    public GameObject waterSurface;
+
     public System.Random GetRandomizer() {
         return rnd;
     }
@@ -69,13 +71,6 @@ public class RandomInit : MonoBehaviour {
         }
         for (int i = 0; i < this.objects.Length; i++)
         {
-            // adjust positions according to values stored in the object (or set in inspector); take coefs into consideration
-            float xPos = xCoef * objects[i].startPosition.x + getRandom(objects[i].minusXPosRange, objects[i].xPosRange);
-            float yPos = objects[i].startPosition.y + getRandom(objects[i].minusYPosRange, objects[i].yPosRange);
-            float zPos = zCoef * objects[i].startPosition.z + getRandom(objects[i].minusZPosRange, objects[i].zPosRange);
-            // transform position
-            objects[i].obj.transform.position = new Vector3(xPos, yPos, zPos);
-            // adjust rotations according to values stored in object (or set in inspector)
             float xRot = objects[i].startRotation.x + getRandom(-objects[i].xAngRange, objects[i].xAngRange);
             float yRot = objects[i].startRotation.y + getRandom(-objects[i].yAngRange, objects[i].yAngRange);
             // if object has several possible y rotations, pick one randomly
@@ -85,6 +80,15 @@ public class RandomInit : MonoBehaviour {
             float zRot = objects[i].startRotation.z + getRandom(-objects[i].zAngRange, objects[i].zAngRange);
             // transform rotation
             objects[i].obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
+            Bounds bounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(objects[i].obj);
+            // adjust positions according to values stored in the object (or set in inspector); take coefs into consideration
+            float xPos = xCoef * objects[i].startPosition.x + getRandom(objects[i].minusXPosRange, objects[i].xPosRange);
+            float yPos = Math.Min(objects[i].startPosition.y + getRandom(objects[i].minusYPosRange, objects[i].yPosRange), waterSurface.transform.position.y - bounds.size.y);
+            float zPos = zCoef * objects[i].startPosition.z + getRandom(objects[i].minusZPosRange, objects[i].zPosRange);
+            // transform position
+            objects[i].obj.transform.position = new Vector3(xPos, yPos, zPos);
+            // adjust rotations according to values stored in object (or set in inspector)
+            
         }
     }
 }
