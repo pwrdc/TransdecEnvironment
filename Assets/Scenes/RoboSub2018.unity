@@ -1539,7 +1539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterSurface: {fileID: 262483792}
   waterColor: {r: 0.22, g: 0.65, b: 0.6509804, a: 0.5}
-  waterFog: 0.3
+  waterFog: 0.25
 --- !u!114 &1110783363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,8 +1562,8 @@ MonoBehaviour:
     numberOfActionsBetweenDecisions: 10
   target: {fileID: 235797410}
   targetOffset: {x: 0, y: 0, z: 0}
-  sendRelativeData: 1
-  dataCollection: 1
+  sendRelativeData: 0
+  dataCollection: 0
   addNoise: 0
   positiveExamples: 1
   playerSteering: 1
@@ -2674,7 +2674,7 @@ MonoBehaviour:
   mode: 0
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
-  forceDataCollection: 1
+  forceDataCollection: 0
   forceNoise: 0
   forceNegativeExamples: 0
 --- !u!4 &2061235921

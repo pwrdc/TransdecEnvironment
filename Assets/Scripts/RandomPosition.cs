@@ -87,7 +87,7 @@ public class RandomPosition : MonoBehaviour
 
     public void DrawPositions(bool addNoise) {
         WaterOpacity water = transform.Find("Robot").GetComponent<WaterOpacity>();
-        water.waterFog = GetRandom(0.2f, 0.4f);
+        water.waterFog = GetRandom(0.15f, 0.35f);
         water.waterColor = new Color(0.22f, 0.65f, GetRandom(0.5f, 0.8f), 0.5f);
         if (randomQuarter)
         {
