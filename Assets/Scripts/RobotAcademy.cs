@@ -42,15 +42,19 @@ public class RobotAcademy : Academy {
             robot.GiveBrain(playerBrain);
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(playerBrain);
-            robot.playerSteering = true;
+            robot.targetReset = true;
         }
         else {
             robot.GiveBrain(learningBrain);
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(learningBrain);
             broadcastHub.SetControlled(learningBrain, true);
-            robot.playerSteering = false;
+            robot.targetReset = false;
         }
+        if (resetParameters["AgentMaxSteps"] > 0)
+            robot.targetReset = true;
+        else
+            robot.targetReset = false;
         if (resetParameters["CollectData"] == 1 || forceDataCollection) {
             robot.sendRelativeData = true;
             robot.dataCollection = true;
