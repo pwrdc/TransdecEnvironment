@@ -1566,7 +1566,7 @@ MonoBehaviour:
   dataCollection: 0
   addNoise: 0
   positiveExamples: 1
-  playerSteering: 1
+  targetReset: 0
   mode: 0
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
