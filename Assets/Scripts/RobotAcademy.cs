@@ -96,9 +96,7 @@ public class RobotAcademy : Academy {
     }
 
     public override void InitializeAcademy() {
-        if (control == RobotControl.player) {
-            robot.agentParameters.maxStep = 0;
-        }
+        robot.agentParameters.maxStep = (int)(resetParameters["AgentMaxSteps"]);
         if (resetParameters["CollectData"] == 1 || forceDataCollection) {
             if (resetParameters["EnableNoise"] == 1 || forceNoise)
                 robot.addNoise = true;
