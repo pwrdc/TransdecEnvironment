@@ -17,6 +17,9 @@ public class RobotAgent : Agent {
     public RobotAcademy.DataCollection mode;
     public GameObject gateTargetObject;
     public GameObject pathTargetObject;
+    public bool randomQuarter = true;
+    public bool randomPosition = true;
+    public bool randomOrientation = true;
 
     Rigidbody rbody;
     Engine engine;
@@ -61,7 +64,7 @@ public class RobotAgent : Agent {
     public override void AgentReset() {
         this.rbody.angularVelocity = Vector3.zero;
         this.rbody.velocity = Vector3.zero;
-        initializer.PutAll();
+        initializer.PutAll(randomQuarter, randomPosition, randomOrientation);
         targetCenter = GetComplexBounds(target).center;
         targetRotation = target.GetComponent<Rigidbody>().rotation;
         startPos = GetPosition();
@@ -71,10 +74,7 @@ public class RobotAgent : Agent {
             annotations.activate = true;
             agentParameters.numberOfActionsBetweenDecisions = 1;
         }
-        if (positiveExamples)
-            target.SetActive(true);
-        else
-            target.SetActive(false);
+        target.SetActive(positiveExamples);
     }
 
     public override void CollectObservations() {
@@ -116,7 +116,7 @@ public class RobotAgent : Agent {
 
     public override void AgentAction(float[] vectorAction, string textAction){
         if (dataCollection)
-            positionDrawer.DrawPositions(addNoise);
+            positionDrawer.DrawPositions(addNoise, randomQuarter, randomPosition);
         else
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
         pos = GetPosition();
