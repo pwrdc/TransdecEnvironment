@@ -13,7 +13,7 @@ public class RobotAgent : Agent {
     public bool dataCollection = false;
     public bool addNoise = false;
     public bool positiveExamples = true;
-    public bool playerSteering = false;
+    public bool targetReset = false;
     public RobotAcademy.DataCollection mode;
     public GameObject gateTargetObject;
     public GameObject pathTargetObject;
@@ -174,7 +174,7 @@ public class RobotAgent : Agent {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.name == "TargetPlane" && !playerSteering)
+        if (other.gameObject.name == "TargetPlane" && targetReset)
             Done();
     }
 }
