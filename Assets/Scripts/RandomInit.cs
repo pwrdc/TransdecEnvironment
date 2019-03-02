@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class RandomInit : MonoBehaviour {
 
-    public bool drawTransdecQuarter = false;
-
     System.Random rnd;
 
     [Serializable]
@@ -56,9 +54,9 @@ public class RandomInit : MonoBehaviour {
         return ret;
     }
 
-    public void PutAll() {
+    public void PutAll(bool randomQuarter, bool randomPosition, bool randomOrientation) {
         int quarter, xCoef, zCoef;
-        if (drawTransdecQuarter) {
+        if (randomQuarter) {
             // select one of the quarters
             quarter = rnd.Next(0, 4);
             // divide into binary for particular quarter selection
@@ -71,24 +69,35 @@ public class RandomInit : MonoBehaviour {
         }
         for (int i = 0; i < this.objects.Length; i++)
         {
-            float xRot = objects[i].startRotation.x + getRandom(-objects[i].xAngRange, objects[i].xAngRange);
-            float yRot = objects[i].startRotation.y + getRandom(-objects[i].yAngRange, objects[i].yAngRange);
-            // if object has several possible y rotations, pick one randomly
-            if (objects[i].allowedRotations.Length != 0) yRot += -xCoef * zCoef * objects[i].allowedRotations[rnd.Next(0, objects[i].allowedRotations.Length)];
+            float xRot = objects[i].startRotation.x;
+            float yRot = objects[i].startRotation.y;
+            float zRot = objects[i].startRotation.z;
+            float xPos = xCoef * objects[i].startPosition.x;
+            float yPos = objects[i].startPosition.y;
+            float zPos = zCoef * objects[i].startPosition.z;
             // if on the other side, rotate 180
             if (zCoef == -1) yRot += 180f;
-            float zRot = objects[i].startRotation.z + getRandom(-objects[i].zAngRange, objects[i].zAngRange);
-            // transform rotation
-            objects[i].obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
-            Bounds bounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(objects[i].obj);
-            // adjust positions according to values stored in the object (or set in inspector); take coefs into consideration
-            float xPos = xCoef * objects[i].startPosition.x + getRandom(objects[i].minusXPosRange, objects[i].xPosRange);
-            float yPos = Math.Min(objects[i].startPosition.y + getRandom(objects[i].minusYPosRange, objects[i].yPosRange), waterSurface.transform.position.y - bounds.size.y);
-            float zPos = zCoef * objects[i].startPosition.z + getRandom(objects[i].minusZPosRange, objects[i].zPosRange);
+            if (randomPosition)
+            {
+                // adjust rotations according to values stored in object (or set in inspector)
+                xRot += getRandom(-objects[i].xAngRange, objects[i].xAngRange);
+                yRot += getRandom(-objects[i].yAngRange, objects[i].yAngRange);
+                zRot += getRandom(-objects[i].zAngRange, objects[i].zAngRange);
+                Bounds bounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(objects[i].obj);
+                // adjust positions according to values stored in the object (or set in inspector); take coefs into consideration
+                xPos += getRandom(objects[i].minusXPosRange, objects[i].xPosRange);
+                yPos = Math.Min(yPos + getRandom(objects[i].minusYPosRange, objects[i].yPosRange), waterSurface.transform.position.y - bounds.size.y);
+                zPos += getRandom(objects[i].minusZPosRange, objects[i].zPosRange);
+            }
+            if (randomOrientation)
+            {
+                // if object has several possible y rotations, pick one randomly
+                if (objects[i].allowedRotations.Length != 0) yRot += -xCoef * zCoef * objects[i].allowedRotations[rnd.Next(0, objects[i].allowedRotations.Length)];
+            }
             // transform position
             objects[i].obj.transform.position = new Vector3(xPos, yPos, zPos);
-            // adjust rotations according to values stored in object (or set in inspector)
-            
+            // transform rotation
+            objects[i].obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
         }
     }
 }

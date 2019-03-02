@@ -382,7 +382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4892457488799222, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4632382326539050, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1552,7 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32373adcf35423d469d6d7d866516bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+  brain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   agentParameters:
     agentCameras:
     - {fileID: 1227796688}
@@ -1566,10 +1566,13 @@ MonoBehaviour:
   dataCollection: 0
   addNoise: 0
   positiveExamples: 1
-  playerSteering: 0
+  playerSteering: 1
   mode: 0
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
+  randomQuarter: 1
+  randomPosition: 1
+  randomOrientation: 1
 --- !u!54 &1110783364
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2371,7 +2374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3e2efcca156ed408fd53ec4c516d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawTransdecQuarter: 1
   objects:
   - obj: {fileID: 1110783357}
     startPosition: {x: 0, y: 0, z: 0}
@@ -2530,7 +2532,6 @@ MonoBehaviour:
   xAngRange: 20
   yAngRange: 20
   zAngRange: 20
-  randomQuarter: 1
   othMinRadius: 0
   othMaxRadius: 4
   othMaxDepth: 8
@@ -2640,7 +2641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broadcastHub:
     broadcastingBrains:
-    - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+    - {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
     _brainsToControl:
     - {fileID: 0}
     - {fileID: 0}
@@ -2668,9 +2669,12 @@ MonoBehaviour:
       value: 0
     - key: Positive
       value: 1
-  control: 1
+  control: 0
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
+  randomQuarter: 1
+  randomPosition: 1
+  randomOrientation: 1
   mode: 0
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
@@ -2689,7 +2693,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087275535
 GameObject:

@@ -20,7 +20,6 @@ public class RandomPosition : MonoBehaviour
     public float yAngRange = 15f;
     [Range(0.0f, 30.0f)]
     public float zAngRange = 15f;
-    public bool randomQuarter = false;
     //other objects parameters
     [Range(0.0f, 10.0f)]
     public float othMinRadius = 0.0f;
@@ -85,14 +84,11 @@ public class RandomPosition : MonoBehaviour
         obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
     }
 
-    public void DrawPositions(bool addNoise) {
+    public void DrawPositions(bool addNoise, bool randomQuarter, bool randomPosition) {
         WaterOpacity water = transform.Find("Robot").GetComponent<WaterOpacity>();
         water.waterFog = GetRandom(0.15f, 0.35f);
         water.waterColor = new Color(0.22f, 0.65f, GetRandom(0.5f, 0.8f), 0.5f);
-        if (randomQuarter)
-        {
-            transform.GetComponent<RandomInit>().PutAll();
-        }
+        transform.GetComponent<RandomInit>().PutAll(randomQuarter, randomPosition, false);
         targetBounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(target);
         GetNewPos();
         if (addNoise)

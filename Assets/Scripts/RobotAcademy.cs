@@ -18,6 +18,12 @@ public class RobotAcademy : Academy {
     public Brain learningBrain;
     public Brain playerBrain;
 
+    [Header("Start position settings")]
+    public bool randomQuarter = true;
+    public bool randomPosition = true;
+    public bool randomOrientation = true;
+
+
     [Header("Data collection settings")]
     public DataCollection mode;
     public GameObject gateTargetObject;
@@ -60,6 +66,9 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = false;
         else
             robot.positiveExamples = true;
+        robot.randomQuarter = randomQuarter;
+        robot.randomPosition = randomPosition;
+        robot.randomOrientation = randomOrientation;
     }
 
     public override void AcademyReset() {
