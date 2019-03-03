@@ -90,7 +90,7 @@ You can then pull latest changes from `master` branch by executing:
 
 ```git pull```
 
-In case you want to reapply changes you an execute
+In case you want to reapply changes you can execute
 
 ```git stash pop```
 
