@@ -10,7 +10,7 @@ The project is maintained by PWr Diving Crew software team members (Unity3D sect
 
 [KN Robocik website](http://www.robocik.pwr.edu.pl/)
 
-Should any issues be noticed, please submit a **New issue** on github or notify the author via mail: <piotr_zielinski@g.pl>.
+Should any issues be noticed, please submit a **New issue** on Github.
 
 ## Installation
 
