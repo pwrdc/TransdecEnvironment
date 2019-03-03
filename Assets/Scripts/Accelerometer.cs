@@ -32,7 +32,7 @@ public class Accelerometer : MonoBehaviour
         lastAngularVelocity = localAngularVelocity;
     }
 
-    public float[] getAcceleration() {
+    public float[] GetAcceleration() {
         /* get value of accelerations: lateral, vertical, longitudinal */
         float[] ret = new float[3];
         ret[0] = acceleration.x;
@@ -41,7 +41,7 @@ public class Accelerometer : MonoBehaviour
         return ret;
     }
 
-    public float[] getAngularAcceleration() {
+    public float[] GetAngularAcceleration() {
         /* get value of angular accelerations: pitch, yaw, roll */
         float[] ret = new float[3];
         ret[0] = angularAcceleration.x;
@@ -50,17 +50,17 @@ public class Accelerometer : MonoBehaviour
         return ret;
     }
 
-    public float[] getRotation() {
+    public float[] GetRotation() {
         /* get value of angular positions: pitch, yaw, roll */
         float[] ret = new float[3];
         Vector3 rotation = rbody.rotation.eulerAngles;
-        ret[0] = normalizeRotation(rotation.x, startRotation.x);
-        ret[1] = normalizeRotation(rotation.y, startRotation.y);
-        ret[2] = normalizeRotation(rotation.z, startRotation.z);
+        ret[0] = NormalizeRotation(rotation.x, startRotation.x);
+        ret[1] = NormalizeRotation(rotation.y, startRotation.y);
+        ret[2] = NormalizeRotation(rotation.z, startRotation.z);
         return ret;
     }
 
-    private float normalizeRotation(float current, float start){
+    private float NormalizeRotation(float current, float start){
         float result = (current - start) % 360;
         if (result < 0)
             result += 360;
