@@ -40,7 +40,3 @@ UnitySDK.log
 # Builds
 *.apk
 *.unitypackage
-
-# ML-agents directory
-Assets/ML-Agents
-Assets/ML-Agents.meta
