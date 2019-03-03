@@ -64,7 +64,11 @@ Click it to show its properties in the Inspector:
     * `AgentMaxSteps` - how many steps the agent can take before resetting the environment (defaults to `0` - indefinite steps)
     
   * **Controller Settings**:
-    * `Control` - agent steering method (`Player` for keyboard steering, `Python` for Python API controller)
+    * `Control` - agent steering method (`Player` for keyboard steering, `Python` for Python API controller); if `Control == Player` use keyboard for steering:
+      * `W` - `S`: longitudinal movement (front-backward)
+      * `A` - `D`: lateral movement (left-right)
+      * `R` - `F`: vertical movement (upward-downward)
+      * `Q` - `E`: yaw rotation (turn left-turn right)
     * `Learning Brain`, `Player Brain` - ML-Agents Brain objects (correctly set by default)
     
   * **Start position settings** - starting position drawing settings:
