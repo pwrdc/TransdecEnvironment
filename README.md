@@ -50,3 +50,13 @@ Having done all of the above steps, double-click `RoboSub2018` scene in `Assets/
 
 Everything is set up, you may now start using **TransdecEnvironment**!
 
+## Usage
+
+**TransdecEnvironment** configuration is held by **Academy** object:
+
+![image](https://user-images.githubusercontent.com/23311513/53694612-9207c800-3db1-11e9-99b7-70c264d01e26.png)
+
+Click it to show its properties in the Inspector:
+![image](https://user-images.githubusercontent.com/23311513/53694634-ddba7180-3db1-11e9-97d6-8bfb218bc361.png)
+
+
