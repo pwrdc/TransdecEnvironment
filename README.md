@@ -81,3 +81,21 @@ Click it to show its properties in the Inspector:
     * `Force Noise` - execute noised data collection
     * `Force Negative Examples` - execute negative examples data collection
     
+## Updating
+In order to update TransdecEnvironment you need to reset your changes by executing:
+
+```git stash```
+
+You can then pull latest changes from `master` branch by executing:
+
+```git pull```
+
+In case you want to reapply changes you an execute
+
+```git stash pop```
+
+but this is not guaranteed to be working. If you do not need your changes execute
+
+``` git stash drop```
+
+Please **do not** push your changes to `master` branch. If you find your changes useful please create another branch and create a **Pull Request**
