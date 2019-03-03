@@ -57,6 +57,39 @@ Everything is set up, you may now start using **TransdecEnvironment**!
 ![image](https://user-images.githubusercontent.com/23311513/53694612-9207c800-3db1-11e9-99b7-70c264d01e26.png)
 
 Click it to show its properties in the Inspector:
+
 ![image](https://user-images.githubusercontent.com/23311513/53694634-ddba7180-3db1-11e9-97d6-8bfb218bc361.png)
 
-
+### Essential Academy parameters:
+  * **Training Configuration** - visual observations' settings used when *training mode* is selected in Python API
+  * **Inference Configuration** - visual observations' settings used when *training mode* is **not** selected in Python API
+    * `Width` - camera image width
+    * `Height` - camera image height (both affect performance)
+    * `Quality Level` - image compression setting (`1` - lowest quality, `5` - highest quality)
+    * `Time Scale` - indicates how many frames are dropped during communication (ie. how "fast" the environment behave)
+    * `Target Frame Rate` - how many frames per secodn should the environment return (`-1` for maximum available)
+    
+  * **Reset Parameters** - parameters that can be set using Python API on environment reset (better not to modify unless you know what you are doing)
+    * `CollectData` - set environment in data collection mode (`0` - standard mode, `1` - data collection mode)
+    * `EnableNoise` - only used when `CollectData == 1`; enable random positioning of other objects (so that they create "noise")
+    * `Positive` - only used when `CollectData == 1`; collect positive examples (`0` - negative examples, target invisible, `1` - positive examples, target visible)
+    * `AgentMaxSteps` - how many steps the agent can take before resetting the environment (defaults to `0` - indefinite steps)
+    
+  * **Controller Settings**:
+    * `Control` - agent steering method (`Player` for keyboard steering, `Python` for Python API controller)
+    * `Learning Brain`, `Player Brain` - ML-Agents Brain objects (correctly set by default)
+    
+  * **Start position settings** - starting position drawing settings:
+    * `Random Quarter` - randomly select one of 4 TRANSDEC quarters (if `false` default quarter is chosen)
+    * `Random Position` - randomly move all objects on reset (if `false` objects stay in their default position)
+    * `Random Orientation` - enable random rotation of the agent (at an angle of 90° or 180° to the gate)
+    
+  * **Data collection settings** - used when `resetParameters["CollectData"] == 1`
+    * `Mode` - target whose images are collected
+    * `Gate Target Object`, `Path Target Object`, ... - target objects from the environment
+    
+  * **Debug settings** (you shouldn't reallly touch them)
+    * `Force Data Collection` - execute data collection regardless of controller mode
+    * `Force Noise` - execute noised data collection
+    * `Force Negative Examples` - execute negative examples data collection
+    
