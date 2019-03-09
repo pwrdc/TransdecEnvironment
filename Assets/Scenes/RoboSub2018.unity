@@ -448,6 +448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlatBed
       objectReference: {fileID: 0}
+    - target: {fileID: 1552131525744304, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1732504751661978, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -708,7 +712,7 @@ Camera:
   field of view: 61.927517
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1284,7 +1288,7 @@ Camera:
   field of view: 61.927517
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1562,6 +1566,8 @@ MonoBehaviour:
     numberOfActionsBetweenDecisions: 10
   target: {fileID: 235797410}
   targetOffset: {x: 0, y: 0, z: 0}
+  frontCamera: {fileID: 1227796688}
+  bottomCamera: {fileID: 1051573378}
   sendRelativeData: 0
   dataCollection: 0
   addNoise: 0
@@ -2353,6 +2359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1920472906}
   - component: {fileID: 1920472905}
+  - component: {fileID: 1920472909}
   - component: {fileID: 1920472908}
   - component: {fileID: 1920472907}
   m_Layer: 0
@@ -2518,26 +2525,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1110783357}
   target: {fileID: 235797410}
-  otherObjs:
-  - {fileID: 1623013163}
-  - {fileID: 2087275535}
-  - {fileID: 1207225993}
-  - {fileID: 915542567}
-  - {fileID: 1730384155}
-  - {fileID: 1550337883}
-  minRadius: 3
-  maxRadius: 9
-  waterLevel: 11
-  maxDepth: 7.4
-  xAngRange: 20
-  yAngRange: 20
-  zAngRange: 20
-  othMinRadius: 0
-  othMaxRadius: 4
-  othMaxDepth: 8
-  othXAngRange: 90
-  othYAngRange: 90
-  othZAngRange: 90
+  gate:
+    otherObjs:
+    - {fileID: 1623013163}
+    - {fileID: 2087275535}
+    - {fileID: 1207225993}
+    - {fileID: 915542567}
+    - {fileID: 1730384155}
+    - {fileID: 1550337883}
+    minRadius: 3
+    maxRadius: 10
+    waterLevel: 11
+    maxDepth: 4
+    xAngRange: 15
+    yAngRange: 15
+    zAngRange: 15
+    othMinRadius: 0
+    othMaxRadius: 4
+    othMaxDepth: 8
+    othXAngRange: 90
+    othYAngRange: 90
+    othZAngRange: 90
+  path:
+    otherObjs:
+    - {fileID: 235797410}
+    - {fileID: 2087275535}
+    - {fileID: 915542567}
+    - {fileID: 1730384155}
+    - {fileID: 1550337883}
+    cameraFov: 50
+    waterLevel: 11
+    maxDepth: 9
+    xAngRange: 5
+    yAngRange: 5
+    zAngRange: 5
+    othMinRadius: 0
+    othMaxRadius: 4
+    othMaxDepth: 6
+    othXAngRange: 90
+    othYAngRange: 90
+    othZAngRange: 90
   targetBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -2559,6 +2586,22 @@ MonoBehaviour:
   background: {fileID: 2800000, guid: afbd73b92efd241479a988401368c873, type: 3}
   cam: {fileID: 1227796688}
   activate: 0
+--- !u!114 &1920472909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920472904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec62eb245bbb22d40bc88a979bdb5446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 2137560978}
+  target: {fileID: 1623013163}
+  rotation_min: 130
+  rotation_max: 140
 --- !u!1 &2021940790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,9 +2707,9 @@ MonoBehaviour:
   resetParameters:
     resetParameters:
     - key: CollectData
-      value: 0
+      value: 1
     - key: EnableNoise
-      value: 0
+      value: 1
     - key: Positive
       value: 1
     - key: AgentMaxSteps
@@ -2731,3 +2774,9 @@ Transform:
   m_Father: {fileID: 1920472906}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2137560978 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23857906521181628, guid: 0758b374dc7cd26428782454fcfee321,
+    type: 3}
+  m_PrefabInstance: {fileID: 148783992}
+  m_PrefabAsset: {fileID: 0}

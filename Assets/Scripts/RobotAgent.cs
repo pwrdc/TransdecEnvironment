@@ -8,6 +8,10 @@ public class RobotAgent : Agent {
     public GameObject target;
     public Vector3 targetOffset = Vector3.zero;
 
+    [Header("Camera settings")]
+    public Camera frontCamera = null;
+    public Camera bottomCamera = null;
+
     [Header("Additional settings")]
     public bool sendRelativeData = false;
     public bool dataCollection = false;
@@ -47,10 +51,20 @@ public class RobotAgent : Agent {
         if (mode == RobotAcademy.DataCollection.gate){
             annotations.target = gateTargetObject;
             positionDrawer.target = gateTargetObject;
+            positionDrawer.mode = positionDrawer.gate;
+            agentParameters.agentCameras[0] = frontCamera;
+            annotations.cam = frontCamera;
+            agentParameters.agentCameras[0].targetDisplay = 0;
+            bottomCamera.targetDisplay = 2;
         }
         else if (mode == RobotAcademy.DataCollection.path){
             annotations.target = pathTargetObject;
             positionDrawer.target = pathTargetObject;
+            positionDrawer.mode = positionDrawer.path;
+            agentParameters.agentCameras[0] = bottomCamera;
+            annotations.cam = agentParameters.agentCameras[0];
+            agentParameters.agentCameras[0].targetDisplay = 0;
+            frontCamera.targetDisplay = 2;
         }
     }
 
@@ -132,6 +146,7 @@ public class RobotAgent : Agent {
         {
             bounds.Encapsulate(renderer.bounds);
         }
+        
         return bounds;
     }
 
