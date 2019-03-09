@@ -179,8 +179,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14633635}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.955, y: 11.139999, z: -27.88}
+  m_LocalRotation: {x: -0.058518536, y: 0.94130886, z: 0.24418044, w: 0.22558655}
+  m_LocalPosition: {x: 6.736934, y: 10.817173, z: -27.482672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1294,7 +1294,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   brain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   agentParameters:
     agentCameras:
-    - {fileID: 1227796688}
+    - {fileID: 1051573378}
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
@@ -1568,12 +1568,12 @@ MonoBehaviour:
   targetOffset: {x: 0, y: 0, z: 0}
   frontCamera: {fileID: 1227796688}
   bottomCamera: {fileID: 1051573378}
-  sendRelativeData: 0
-  dataCollection: 0
+  sendRelativeData: 1
+  dataCollection: 1
   addNoise: 0
   positiveExamples: 1
   targetReset: 0
-  mode: 0
+  mode: 1
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
   randomQuarter: 1
@@ -1605,6 +1605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1181653309}
   - component: {fileID: 1181653308}
+  - component: {fileID: 1181653310}
   m_Layer: 0
   m_Name: SurfaceReflectionFrontLeftCamera
   m_TagString: Untagged
@@ -1668,6 +1669,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1181653310
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181653307}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &1207225993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1783,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -2524,7 +2534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1110783357}
-  target: {fileID: 235797410}
+  target: {fileID: 1623013163}
   gate:
     otherObjs:
     - {fileID: 1623013163}
@@ -2580,11 +2590,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d1110df7b78e64499f1758c0dc3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 235797410}
+  target: {fileID: 1623013163}
   margin: 10
   drawBox: 1
   background: {fileID: 2800000, guid: afbd73b92efd241479a988401368c873, type: 3}
-  cam: {fileID: 1227796688}
+  cam: {fileID: 1051573378}
   activate: 0
 --- !u!114 &1920472909
 MonoBehaviour:
@@ -2599,7 +2609,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 2137560978}
-  target: {fileID: 1623013163}
   rotation_min: 130
   rotation_max: 140
 --- !u!1 &2021940790
@@ -2720,7 +2729,7 @@ MonoBehaviour:
   randomQuarter: 1
   randomPosition: 1
   randomOrientation: 1
-  mode: 0
+  mode: 1
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
   forceDataCollection: 0

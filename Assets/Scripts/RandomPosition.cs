@@ -144,7 +144,7 @@ public class RandomPosition : MonoBehaviour
         water.waterColor = new Color(0.22f, 0.65f, GetRandom(0.5f, 0.8f), 0.5f);
 
         if(mode.Equals(path)) 
-            transform.GetComponent<RandomInitOnMesh>().PutAll();
+            transform.GetComponent<RandomInitOnMesh>().PutAll(target);
         else 
             transform.GetComponent<RandomInit>().PutAll(randomQuarter, randomPosition, false);
 

@@ -54,6 +54,7 @@ public class RobotAgent : Agent {
             positionDrawer.mode = positionDrawer.gate;
             agentParameters.agentCameras[0] = frontCamera;
             annotations.cam = frontCamera;
+            //Show front camera on Display 1, bottom camera on Display 3 
             agentParameters.agentCameras[0].targetDisplay = 0;
             bottomCamera.targetDisplay = 2;
         }
@@ -62,6 +63,7 @@ public class RobotAgent : Agent {
             positionDrawer.target = pathTargetObject;
             positionDrawer.mode = positionDrawer.path;
             agentParameters.agentCameras[0] = bottomCamera;
+            //Show bottom camera on Display 1, front camera on Display 3
             annotations.cam = agentParameters.agentCameras[0];
             agentParameters.agentCameras[0].targetDisplay = 0;
             frontCamera.targetDisplay = 2;

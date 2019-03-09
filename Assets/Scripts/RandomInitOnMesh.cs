@@ -5,8 +5,8 @@ using UnityEngine;
 public class RandomInitOnMesh : MonoBehaviour
 {
 	public Renderer mesh;
-	public GameObject target;
-
+	
+	private GameObject target;
 	private	RaycastHit hit;
 	private Vector3 position;
 
@@ -52,8 +52,15 @@ public class RandomInitOnMesh : MonoBehaviour
 	}
 
 
-	public void PutAll() {
-		//Rotate path
+	public void PutAll(GameObject Path) {
+		
+		target = Path;
+
+		foreach (Transform child in target.transform) {
+            paths.Add(child.gameObject);
+        }
+
+        //Rotate angle of path
 		float rotation = GetRandom(rotation_min, rotation_max);
     	paths[0].transform.localRotation = Quaternion.Euler(0, rotation, 0);
     	
@@ -61,15 +68,10 @@ public class RandomInitOnMesh : MonoBehaviour
     	position = GetPosition();
 		target.transform.position = position;
 		
+		//Rotate path
         rotation = GetRandom(0, 360);
         target.transform.eulerAngles = new Vector3(0, rotation, 0);
         
     }
 
-    void Awake() {
-    	foreach (Transform child in target.transform)
-        {
-            paths.Add(child.gameObject);
-        }
-    }
 }
