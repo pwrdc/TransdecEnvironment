@@ -13,6 +13,10 @@ public class RobotAcademy : Academy {
         gate, path
     }
 
+    public enum CameraID {
+        frontCamera = 0, bottomCamera = 1
+    }
+
     [Header("Controller settings")]
     public RobotControl control;
     public Brain learningBrain;
@@ -35,6 +39,7 @@ public class RobotAcademy : Academy {
     public bool forceNegativeExamples = false;
 
     RobotAgent robot;
+    DataCollection prevMode;
 
     void OnValidate() {
         robot = GameObject.Find("Robot").GetComponent<RobotAgent>();
@@ -97,6 +102,7 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = false;
         else
             robot.positiveExamples = true;
+
     }
 
     public override void InitializeAcademy() {
@@ -107,5 +113,6 @@ public class RobotAcademy : Academy {
             else
                 robot.addNoise = false;
         }
+        robot.focusedCamera = (int)resetParameters["FocusedCamera"];
     }
 }

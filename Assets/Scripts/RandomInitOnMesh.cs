@@ -43,7 +43,6 @@ public class RandomInitOnMesh : MonoBehaviour
 	}
 
 	Vector3 GetPosition() {
-    	int layerMask = 1 << 10;
 		do {
 			position = GetRandomPosition();
 		} while(!IsCorrectPosition());
@@ -53,7 +52,6 @@ public class RandomInitOnMesh : MonoBehaviour
 
 
 	public void PutAll(GameObject Path) {
-		
 		target = Path;
 
 		foreach (Transform child in target.transform) {
