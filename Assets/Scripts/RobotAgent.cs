@@ -8,6 +8,10 @@ public class RobotAgent : Agent {
     public GameObject target;
     public Vector3 targetOffset = Vector3.zero;
 
+    [Header("Camera settings")]
+    public Camera frontCamera = null;
+    public Camera bottomCamera = null;
+
     [Header("Additional settings")]
     public bool sendRelativeData = false;
     public bool dataCollection = false;
@@ -20,6 +24,7 @@ public class RobotAgent : Agent {
     public bool randomQuarter = true;
     public bool randomPosition = true;
     public bool randomOrientation = true;
+    public int focusedCamera = 0;
 
     Rigidbody rbody;
     Engine engine;
@@ -38,6 +43,8 @@ public class RobotAgent : Agent {
     RandomInit initializer;
     RandomPosition positionDrawer;
 
+    RobotAcademy academy;
+
     void OnValidate() {
         GameObject agent = transform.parent.gameObject;
         annotations = agent.GetComponent<TargetAnnotation>();
@@ -47,10 +54,12 @@ public class RobotAgent : Agent {
         if (mode == RobotAcademy.DataCollection.gate){
             annotations.target = gateTargetObject;
             positionDrawer.target = gateTargetObject;
+            positionDrawer.mode = positionDrawer.gate;
         }
         else if (mode == RobotAcademy.DataCollection.path){
             annotations.target = pathTargetObject;
             positionDrawer.target = pathTargetObject;
+            positionDrawer.mode = positionDrawer.path;
         }
     }
 
@@ -59,6 +68,8 @@ public class RobotAgent : Agent {
         engine = transform.Find("Engine").GetComponent<Engine>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
+        academy = GameObject.Find("Academy").GetComponent<RobotAcademy>();
+        SetCamera();
     }
 
     public override void AgentReset() {
@@ -132,7 +143,28 @@ public class RobotAgent : Agent {
         {
             bounds.Encapsulate(renderer.bounds);
         }
+        
         return bounds;
+    }
+
+    void SetCamera() {
+        //Show focused camera on Display 1 and set as agentCamera
+        if ((int)RobotAcademy.CameraID.frontCamera == focusedCamera) {
+            agentParameters.agentCameras[0] = frontCamera;
+            annotations.cam = frontCamera;
+            frontCamera.targetDisplay = 0;
+            bottomCamera.targetDisplay = 2;
+        }
+        else if ((int)RobotAcademy.CameraID.bottomCamera == focusedCamera) {
+            agentParameters.agentCameras[0] = bottomCamera;
+            annotations.cam = bottomCamera;
+            bottomCamera.targetDisplay = 0;
+            frontCamera.targetDisplay = 2;
+        }
+        else {
+            Debug.Log("ERROR");
+            //TO DO: SHOW ERROR ON CHOOSING WRONG CAMERA
+        }
     }
 
     Vector3 GetPosition() {

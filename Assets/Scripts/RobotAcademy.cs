@@ -13,6 +13,10 @@ public class RobotAcademy : Academy {
         gate, path
     }
 
+    public enum CameraID {
+        frontCamera = 0, bottomCamera = 1
+    }
+
     [Header("Controller settings")]
     public RobotControl control;
     public Brain learningBrain;
@@ -61,6 +65,11 @@ public class RobotAcademy : Academy {
             robot.mode = mode;
             robot.gateTargetObject = gateTargetObject;
             robot.pathTargetObject = pathTargetObject;
+            if (robot.mode == DataCollection.path)
+                resetParameters["FocusedCamera"] = 1;
+            else
+                resetParameters["FocusedCamera"] = 0;
+
         }
         else {
             robot.sendRelativeData = false;
@@ -97,6 +106,7 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = false;
         else
             robot.positiveExamples = true;
+
     }
 
     public override void InitializeAcademy() {
@@ -107,5 +117,6 @@ public class RobotAcademy : Academy {
             else
                 robot.addNoise = false;
         }
+        robot.focusedCamera = (int)resetParameters["FocusedCamera"];
     }
 }
