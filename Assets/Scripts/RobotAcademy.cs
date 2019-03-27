@@ -39,7 +39,6 @@ public class RobotAcademy : Academy {
     public bool forceNegativeExamples = false;
 
     RobotAgent robot;
-    DataCollection prevMode;
 
     void OnValidate() {
         robot = GameObject.Find("Robot").GetComponent<RobotAgent>();
@@ -66,6 +65,11 @@ public class RobotAcademy : Academy {
             robot.mode = mode;
             robot.gateTargetObject = gateTargetObject;
             robot.pathTargetObject = pathTargetObject;
+            if (robot.mode == DataCollection.path)
+                resetParameters["FocusedCamera"] = 1;
+            else
+                resetParameters["FocusedCamera"] = 0;
+
         }
         else {
             robot.sendRelativeData = false;

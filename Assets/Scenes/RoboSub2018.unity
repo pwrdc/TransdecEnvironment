@@ -179,8 +179,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14633635}
-  m_LocalRotation: {x: 0.0080761, y: 0.980193, z: 0.19360583, w: -0.040905297}
-  m_LocalPosition: {x: -5.5906425, y: 11.608182, z: -16.908089}
+  m_LocalRotation: {x: 0.72705144, y: 0.03494916, z: 0.037111577, w: -0.684688}
+  m_LocalPosition: {x: -6.651726, y: -49.77478, z: -26.133709}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   addNoise: 0
   positiveExamples: 1
   targetReset: 0
-  mode: 1
+  mode: 0
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
   randomQuarter: 1
@@ -3093,14 +3093,14 @@ MonoBehaviour:
     - key: AgentMaxSteps
       value: 0
     - key: FocusedCamera
-      value: 2
+      value: 0
   control: 0
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   randomQuarter: 1
   randomPosition: 1
   randomOrientation: 1
-  mode: 1
+  mode: 0
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
   forceDataCollection: 0
