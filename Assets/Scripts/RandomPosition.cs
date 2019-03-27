@@ -73,16 +73,6 @@ public class RandomPosition : MonoBehaviour
 
     [HideInInspector]
     public Bounds targetBounds;
-
-    
-    void OnValidate() {
-        /*mode.otherObjs.Clear();
-        foreach (Transform child in transform) {
-            if (child.gameObject != target && child.gameObject != agent)
-                mode.otherObjs.Add(child.gameObject);
-        }*/
-    }
-
     float GetRandom(float min, float max)
     {
         System.Random rnd = transform.gameObject.GetComponent<RandomInit>().GetRandomizer();
