@@ -42,6 +42,9 @@ public class RobotAcademy : Academy {
 
     void OnValidate() {
         robot = GameObject.Find("Robot").GetComponent<RobotAgent>();
+        robot.mode = mode;
+        robot.gateTargetObject = gateTargetObject;
+        robot.pathTargetObject = pathTargetObject;
         if (control == RobotControl.player) {
             robot.GiveBrain(playerBrain);
             broadcastHub.broadcastingBrains.Clear();
@@ -62,14 +65,6 @@ public class RobotAcademy : Academy {
         if (resetParameters["CollectData"] == 1 || forceDataCollection) {
             robot.sendRelativeData = true;
             robot.dataCollection = true;
-            robot.mode = mode;
-            robot.gateTargetObject = gateTargetObject;
-            robot.pathTargetObject = pathTargetObject;
-            if (robot.mode == DataCollection.path)
-                resetParameters["FocusedCamera"] = 1;
-            else
-                resetParameters["FocusedCamera"] = 0;
-
         }
         else {
             robot.sendRelativeData = false;
@@ -79,6 +74,10 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = false;
         else
             robot.positiveExamples = true;
+        if (mode == DataCollection.path)
+            resetParameters["FocusedCamera"] = 1;
+        else
+            resetParameters["FocusedCamera"] = 0;
         robot.randomQuarter = randomQuarter;
         robot.randomPosition = randomPosition;
         robot.randomOrientation = randomOrientation;
