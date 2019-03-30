@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14633635}
   m_LocalRotation: {x: 0.72705144, y: 0.03494916, z: 0.037111577, w: -0.684688}
-  m_LocalPosition: {x: -6.651726, y: -49.77478, z: -26.133709}
+  m_LocalPosition: {x: 7.1000433, y: -41.600044, z: -26.418034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1832,8 +1832,8 @@ MonoBehaviour:
   targetOffset: {x: 0, y: 0, z: 0}
   frontCamera: {fileID: 1227796688}
   bottomCamera: {fileID: 1051573378}
-  sendRelativeData: 1
-  dataCollection: 1
+  sendRelativeData: 0
+  dataCollection: 0
   addNoise: 0
   positiveExamples: 1
   targetReset: 0
@@ -2903,7 +2903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1110783357}
-  target: {fileID: 1623013163}
+  target: {fileID: 235797410}
   gate:
     otherObjs:
     - {fileID: 1623013163}
@@ -2959,7 +2959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d1110df7b78e64499f1758c0dc3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1623013163}
+  target: {fileID: 235797410}
   margin: 10
   drawBox: 1
   background: {fileID: 2800000, guid: afbd73b92efd241479a988401368c873, type: 3}
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   resetParameters:
     resetParameters:
     - key: CollectData
-      value: 1
+      value: 0
     - key: EnableNoise
       value: 1
     - key: Positive
