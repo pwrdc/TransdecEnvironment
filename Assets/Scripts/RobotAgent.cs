@@ -18,6 +18,7 @@ public class RobotAgent : Agent {
     public bool addNoise = false;
     public bool positiveExamples = true;
     public bool targetReset = false;
+    public bool collectObservations = false;
     public RobotAcademy.DataCollection mode;
     public GameObject gateTargetObject;
     public GameObject pathTargetObject;
@@ -89,6 +90,9 @@ public class RobotAgent : Agent {
     }
 
     public override void CollectObservations() {
+        if(!collectObservations)
+            return;
+
         float[] toSend = new float[19];
         float[] acceleration = accelerometer.GetAcceleration();
         float[] angularAcceleration = accelerometer.GetAngularAcceleration();
