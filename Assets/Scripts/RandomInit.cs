@@ -100,4 +100,16 @@ public class RandomInit : MonoBehaviour {
             objects[i].obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
         }
     }
+
+    public void LightInit(Light light, WaterOpacity waterOpacity, int minAngle, int maxAngle, float minIntensivity, float maxIntensivity, float minWaterFog, float maxWaterFog) {
+        float angle = getRandom(minAngle, maxAngle);
+        float intensitivity = getRandom(minIntensivity, maxIntensivity);
+        float percentageIntensitivity = (intensitivity - minIntensivity) / (maxIntensivity - minIntensivity);
+        float waterFog = minWaterFog + (percentageIntensitivity * (maxWaterFog - minWaterFog));
+
+        light.intensity = intensitivity;
+
+        light.transform.rotation = Quaternion.Euler(angle, -90, 0);
+        waterOpacity.waterFog = waterFog;
+    }
 }
