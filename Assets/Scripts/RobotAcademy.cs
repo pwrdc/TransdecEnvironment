@@ -91,7 +91,7 @@ public class RobotAcademy : Academy {
         else
             resetParameters["FocusedCamera"] = 0;
 
-        robot.isCurrentEnabled = (resetParameters["WaterCurrent"] == 1 ? true : false);
+        robot.isCurrentEnabled = (resetParameters["WaterCurrent"] == 0 ? false : true);
         robot.randomQuarter = randomQuarter;
         robot.randomPosition = randomPosition;
         robot.randomOrientation = randomOrientation;
