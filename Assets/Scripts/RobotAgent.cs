@@ -8,6 +8,20 @@ public class RobotAgent : Agent {
     public GameObject target;
     public Vector3 targetOffset = Vector3.zero;
 
+    [Header("Light settings")]
+    public Light light = null;
+    public WaterOpacity waterOpacity = null;
+    public int minAngle = 30;
+    public int maxAngle = 150;
+    [Range(0.0f, 1f)]
+    public float minIntensivity = 0.1f;
+    [Range(0.5f, 1.5f)]
+    public float maxIntensivity = 1f;
+    [Range(0.1f, 0.3f)]
+    public float minWaterFog = 0.2f;
+    [Range(0.3f, 0.5f)]
+    public float maxWaterFog = 0.4f;
+
     [Header("Camera settings")]
     public Camera frontCamera = null;
     public Camera bottomCamera = null;
@@ -25,7 +39,12 @@ public class RobotAgent : Agent {
     public bool randomQuarter = true;
     public bool randomPosition = true;
     public bool randomOrientation = true;
+
+    [HideInInspector]
     public int focusedCamera = 0;
+    public bool isCurrentEnabled = true;
+
+
 
     Rigidbody rbody;
     Engine engine;
@@ -43,6 +62,7 @@ public class RobotAgent : Agent {
     TargetAnnotation annotations;
     RandomInit initializer;
     RandomPosition positionDrawer;
+    WaterCurrent waterCurrent;
 
     RobotAcademy academy;
 
@@ -51,7 +71,9 @@ public class RobotAgent : Agent {
         annotations = agent.GetComponent<TargetAnnotation>();
         initializer = agent.GetComponent<RandomInit>();
         positionDrawer = agent.GetComponent<RandomPosition>();
+        waterCurrent = agent.GetComponent<WaterCurrent>();
         positionDrawer.agent = transform.gameObject;
+        waterCurrent.rbody = transform.gameObject.GetComponent<Rigidbody>();
         if (mode == RobotAcademy.DataCollection.gate){
             annotations.target = gateTargetObject;
             positionDrawer.target = gateTargetObject;
@@ -77,6 +99,7 @@ public class RobotAgent : Agent {
         this.rbody.angularVelocity = Vector3.zero;
         this.rbody.velocity = Vector3.zero;
         initializer.PutAll(randomQuarter, randomPosition, randomOrientation);
+        initializer.LightInit(light, waterOpacity, minAngle, maxAngle, minIntensivity, maxIntensivity, minWaterFog, maxWaterFog);
         targetCenter = GetComplexBounds(target).center;
         targetRotation = target.GetComponent<Rigidbody>().rotation;
         startPos = GetPosition();
@@ -134,6 +157,9 @@ public class RobotAgent : Agent {
             positionDrawer.DrawPositions(addNoise, randomQuarter, randomPosition);
         else
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+        if (isCurrentEnabled)
+            waterCurrent.AddCurrentToBoat();
+
         pos = GetPosition();
         angle = GetAngle();
         float currentReward = CalculateReward();

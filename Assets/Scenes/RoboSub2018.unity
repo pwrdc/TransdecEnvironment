@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4514041, g: 0.5008964, b: 0.57231504, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -179,8 +179,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14633635}
-  m_LocalRotation: {x: 0.72705144, y: 0.03494916, z: 0.037111577, w: -0.684688}
-  m_LocalPosition: {x: 7.1000433, y: -41.600044, z: -26.418034}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -7.20186, y: 12.057045, z: -28.60942}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -620,6 +620,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1129850835667354, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -45.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.6830127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.18301274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6830127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.18301274
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098715334797554, guid: 0758b374dc7cd26428782454fcfee321, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1398,6 +1438,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1327638697}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &1009156529 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108459154770214666, guid: 0758b374dc7cd26428782454fcfee321,
+    type: 3}
+  m_PrefabInstance: {fileID: 148783992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1012441610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1820,7 +1866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32373adcf35423d469d6d7d866516bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+  brain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   agentParameters:
     agentCameras:
     - {fileID: 1051573378}
@@ -1830,12 +1876,20 @@ MonoBehaviour:
     numberOfActionsBetweenDecisions: 10
   target: {fileID: 235797410}
   targetOffset: {x: 0, y: 0, z: 0}
+  light: {fileID: 1009156529}
+  waterOpacity: {fileID: 1110783362}
+  minAngle: 30
+  maxAngle: 150
+  minIntensivity: 0.1
+  maxIntensivity: 1
+  minWaterFog: 0.2
+  maxWaterFog: 0.4
   frontCamera: {fileID: 1227796688}
   bottomCamera: {fileID: 1051573378}
   sendRelativeData: 0
   dataCollection: 0
   addNoise: 0
-  positiveExamples: 0
+  positiveExamples: 1
   targetReset: 0
   collectObservations: 1
   mode: 0
@@ -1845,6 +1899,7 @@ MonoBehaviour:
   randomPosition: 1
   randomOrientation: 1
   focusedCamera: 2
+  isCurrentEnabled: 1
 --- !u!54 &1110783364
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2742,6 +2797,7 @@ GameObject:
   - component: {fileID: 1920472909}
   - component: {fileID: 1920472908}
   - component: {fileID: 1920472907}
+  - component: {fileID: 1920472910}
   m_Layer: 0
   m_Name: "Agent\x13"
   m_TagString: Untagged
@@ -2981,6 +3037,23 @@ MonoBehaviour:
   mesh: {fileID: 2137560978}
   rotation_min: 130
   rotation_max: 140
+--- !u!114 &1920472910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920472904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330edb049d31ea848a42401b9368f9e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minVelocity: 0.001
+  maxVelocity: 0.005
+  maxVelocityChange: 0.0005
+  maxAngleChange: 0.08
+  rbody: {fileID: 1110783364}
 --- !u!1 &2021940790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,7 +3136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broadcastHub:
     broadcastingBrains:
-    - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+    - {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
     _brainsToControl:
     - {fileID: 0}
     - {fileID: 0}
@@ -3096,7 +3169,9 @@ MonoBehaviour:
       value: 0
     - key: FocusedCamera
       value: 0
-  control: 1
+    - key: WaterCurrent
+      value: 1
+  control: 0
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   padBrain: {fileID: 11400000, guid: b3f5647612bcbf74ca03eb93d258be4e, type: 2}
