@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Schooting : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
 
     public float speed = 100f;
