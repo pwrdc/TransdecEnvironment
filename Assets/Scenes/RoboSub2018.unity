@@ -1820,7 +1820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32373adcf35423d469d6d7d866516bad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
+  brain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   agentParameters:
     agentCameras:
     - {fileID: 1051573378}
@@ -1835,8 +1835,9 @@ MonoBehaviour:
   sendRelativeData: 0
   dataCollection: 0
   addNoise: 0
-  positiveExamples: 1
+  positiveExamples: 0
   targetReset: 0
+  collectObservations: 1
   mode: 0
   gateTargetObject: {fileID: 235797410}
   pathTargetObject: {fileID: 1623013163}
@@ -3062,13 +3063,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broadcastHub:
     broadcastingBrains:
-    - {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
+    - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
     _brainsToControl:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+    - {fileID: 11400000, guid: b3f5647612bcbf74ca03eb93d258be4e, type: 2}
   maxSteps: 0
   trainingConfiguration:
     width: 1280
@@ -3094,9 +3096,10 @@ MonoBehaviour:
       value: 0
     - key: FocusedCamera
       value: 0
-  control: 0
+  control: 1
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
+  padBrain: {fileID: 11400000, guid: b3f5647612bcbf74ca03eb93d258be4e, type: 2}
   randomQuarter: 1
   randomPosition: 1
   randomOrientation: 1

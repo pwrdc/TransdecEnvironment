@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class RobotAcademy : Academy { 
     public enum RobotControl {
-        player, python
+        player, python, pad
     }
 
     public enum DataCollection {
@@ -21,6 +21,7 @@ public class RobotAcademy : Academy {
     public RobotControl control;
     public Brain learningBrain;
     public Brain playerBrain;
+    public Brain padBrain;
 
     [Header("Start position settings")]
     public bool randomQuarter = true;
@@ -49,13 +50,23 @@ public class RobotAcademy : Academy {
             robot.GiveBrain(playerBrain);
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(playerBrain);
+            robot.collectObservations = true;
             robot.targetReset = true;
+        }
+        else if (control == RobotControl.pad) {
+            robot.GiveBrain(padBrain);
+            broadcastHub.broadcastingBrains.Clear();
+            broadcastHub.broadcastingBrains.Add(padBrain);
+            broadcastHub.SetControlled(padBrain, true);
+            robot.collectObservations = false;
+            robot.targetReset = false;
         }
         else {
             robot.GiveBrain(learningBrain);
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(learningBrain);
             broadcastHub.SetControlled(learningBrain, true);
+            robot.collectObservations = true;
             robot.targetReset = false;
         }
         if (resetParameters["AgentMaxSteps"] > 0)
@@ -74,6 +85,7 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = false;
         else
             robot.positiveExamples = true;
+
         if (mode == DataCollection.path)
             resetParameters["FocusedCamera"] = 1;
         else
