@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class RobotAcademy : Academy { 
     public enum RobotControl {
-        player, python
+        player, python, pad
     }
 
     public enum DataCollection {
-        gate, path
+        gate, path, buoy_1_side
     }
 
     public enum CameraID {
@@ -21,6 +21,7 @@ public class RobotAcademy : Academy {
     public RobotControl control;
     public Brain learningBrain;
     public Brain playerBrain;
+    public Brain padBrain;
 
     [Header("Start position settings")]
     public bool randomQuarter = true;
@@ -30,8 +31,9 @@ public class RobotAcademy : Academy {
 
     [Header("Data collection settings")]
     public DataCollection mode;
-    public GameObject gateTargetObject;
-    public GameObject pathTargetObject;
+    public GameObject[] gateTargetObject = new GameObject[2];
+    public GameObject[] pathTargetObject = new GameObject[2];
+    public GameObject[] bouy_1_sideTargetObject = new GameObject[2];
 
     [Header("Debug settings - use carefully!")]
     public bool forceDataCollection = false;
@@ -43,19 +45,32 @@ public class RobotAcademy : Academy {
     void OnValidate() {
         robot = GameObject.Find("Robot").GetComponent<RobotAgent>();
         robot.mode = mode;
+        
         robot.gateTargetObject = gateTargetObject;
         robot.pathTargetObject = pathTargetObject;
+        robot.bouy_1_sideTargetObject = bouy_1_sideTargetObject;
+
         if (control == RobotControl.player) {
             robot.GiveBrain(playerBrain);
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(playerBrain);
+            robot.collectObservations = true;
             robot.targetReset = true;
+        }
+        else if (control == RobotControl.pad) {
+            robot.GiveBrain(padBrain);
+            broadcastHub.broadcastingBrains.Clear();
+            broadcastHub.broadcastingBrains.Add(padBrain);
+            broadcastHub.SetControlled(padBrain, true);
+            robot.collectObservations = false;
+            robot.targetReset = false;
         }
         else {
             robot.GiveBrain(learningBrain);
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(learningBrain);
             broadcastHub.SetControlled(learningBrain, true);
+            robot.collectObservations = true;
             robot.targetReset = false;
         }
         if (resetParameters["AgentMaxSteps"] > 0)
@@ -74,10 +89,13 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = false;
         else
             robot.positiveExamples = true;
+
         if (mode == DataCollection.path)
             resetParameters["FocusedCamera"] = 1;
         else
             resetParameters["FocusedCamera"] = 0;
+
+        robot.isCurrentEnabled = (resetParameters["WaterCurrent"] == 1 ? true : false);
         robot.randomQuarter = randomQuarter;
         robot.randomPosition = randomPosition;
         robot.randomOrientation = randomOrientation;
@@ -89,12 +107,16 @@ public class RobotAcademy : Academy {
             robot.sendRelativeData = true;
             robot.dataCollection = true;
             robot.mode = mode;
-            robot.gateTargetObject = gateTargetObject;
-            robot.pathTargetObject = pathTargetObject;
-            if (resetParameters["EnableNoise"] == 1 || forceNoise)
+            //robot.gateTargetObject = gateTargetObject;
+            //robot.pathTargetObject = pathTargetObject;
+            if (resetParameters["EnableNoise"] == 1 || forceNoise) {
                 robot.addNoise = true;
-            else
+                robot.noise.SetActive(true);
+            }
+            else {
                 robot.addNoise = false;
+                robot.noise.SetActive(false);
+            }
         }
         else
         {
@@ -103,7 +125,7 @@ public class RobotAcademy : Academy {
         }
         if (resetParameters["Positive"] == 0 || forceNegativeExamples)
             robot.positiveExamples = false;
-        else
+        else 
             robot.positiveExamples = true;
 
     }
