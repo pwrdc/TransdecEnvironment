@@ -1,13 +1,21 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
 
 public class TargetAnnotation : MonoBehaviour
 {
     public GameObject target;
+    Canvas bck;
+    GameObject backgroudObject;
+    RawImage randomImage;
+    Texture2D planeImage;
+    public int numberofpictures;
     public float margin = 10.0f;
     public bool drawBox = false;
-    public Texture2D background;
+    public bool addPlane = false;
+    public  Texture2D background;
     public Camera cam = null;
 
     public bool activate = false;
@@ -61,7 +69,41 @@ public class TargetAnnotation : MonoBehaviour
                 // 'box'
                 GUI.Box(r, "", style);
             }
+            if(addPlane)
+            {
+
+                var dist = Vector3.Distance(target.transform.position, cam.transform.position);
+                backgroudObject = new GameObject();
+                backgroudObject.AddComponent<Canvas>();
+                backgroudObject.AddComponent<RawImage>();
+
+                bck = backgroudObject.GetComponent<Canvas>();
+                bck.renderMode = RenderMode.ScreenSpaceCamera;
+                bck.worldCamera = cam;
+                bck.planeDistance = dist+1.5f;
+                randomImage = backgroudObject.GetComponent<RawImage>();
+                int randomNumber = (int)Random.Range(0, numberofpictures);
+
+                string path = randomNumber.ToString();
+
+                planeImage = Resources.Load<Texture2D>(path);
+                randomImage.texture = planeImage;
+                
+            
+                randomImage.uvRect = new Rect(0, 0, 1, 1);
+                randomImage.transform.SetParent(bck.transform);
+
+
+               
+            }
+
         }
+        /*WWW www = new WWW("http://gyanendushekhar.com/wp-content/uploads/2017/07/SampleImage.png");
+        while (!www.isDone)
+            yield return null;
+        Debug.Log(www.texture.name);*/
+       
+
     }
 
     public float[] GetBoundingBox() {
