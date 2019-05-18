@@ -98,10 +98,7 @@ public class TargetAnnotation : MonoBehaviour
             }
 
         }
-        /*WWW www = new WWW("http://gyanendushekhar.com/wp-content/uploads/2017/07/SampleImage.png");
-        while (!www.isDone)
-            yield return null;
-        Debug.Log(www.texture.name);*/
+        
        
 
     }
