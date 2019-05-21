@@ -2288,7 +2288,7 @@ MonoBehaviour:
   resetParameters:
     resetParameters:
     - key: CollectData
-      value: 1
+      value: 0
     - key: EnableNoise
       value: 1
     - key: Positive
@@ -3334,10 +3334,12 @@ MonoBehaviour:
   maxIntensivity: 1
   minWaterFog: 0.2
   maxWaterFog: 0.4
+  minWaterColorB: 0.5
+  maxWaterColorB: 0.8
   frontCamera: {fileID: 133001996}
   bottomCamera: {fileID: 940846085}
-  sendRelativeData: 1
-  dataCollection: 1
+  sendRelativeData: 0
+  dataCollection: 0
   addNoise: 0
   positiveExamples: 1
   targetReset: 0
