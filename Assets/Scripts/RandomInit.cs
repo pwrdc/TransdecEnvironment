@@ -101,7 +101,9 @@ public class RandomInit : MonoBehaviour {
         }
     }
 
-    public void LightInit(Light light, WaterOpacity waterOpacity, int minAngle, int maxAngle, float minIntensivity, float maxIntensivity, float minWaterFog, float maxWaterFog) {
+    public void EnvironmentInit(Light light, WaterOpacity waterOpacity, int minAngle, int maxAngle, 
+                        float minIntensivity, float maxIntensivity, float minWaterFog, float maxWaterFog,
+                        float minWaterColorB, float maxWaterColorB) {
         float angle = getRandom(minAngle, maxAngle);
         float intensitivity = getRandom(minIntensivity, maxIntensivity);
         float percentageIntensitivity = (intensitivity - minIntensivity) / (maxIntensivity - minIntensivity);
@@ -111,5 +113,8 @@ public class RandomInit : MonoBehaviour {
 
         light.transform.rotation = Quaternion.Euler(angle, -90, 0);
         waterOpacity.waterFog = waterFog;
+
+        //TO DO FIND BETTER SOLUTION
+        waterOpacity.waterColor = new Color(0.22f, 0.65f, getRandom(minWaterColorB, maxWaterColorB), 0.5f);
     }
 }
