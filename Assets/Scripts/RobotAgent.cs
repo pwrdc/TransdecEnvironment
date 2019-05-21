@@ -21,10 +21,16 @@ public class RobotAgent : Agent {
     public float minIntensivity = 0.1f;
     [Range(0.5f, 1.5f)]
     public float maxIntensivity = 1f;
+
+    [Header("Water settings")]
     [Range(0.0f, 0.3f)]
     public float minWaterFog = 0.2f;
-    [Range(0.1f, 0.5f)]
+    [Range(0.2f, 0.6f)]
     public float maxWaterFog = 0.4f;
+    [Range(0f, 1f)]
+    public float minWaterColorB = 0.5f;
+    [Range(0f, 1f)]
+    public float maxWaterColorB = 0.8f;
 
     [Header("Camera settings")]
     public Camera frontCamera = null;
@@ -173,7 +179,9 @@ public class RobotAgent : Agent {
         this.rbody.angularVelocity = Vector3.zero;
         this.rbody.velocity = Vector3.zero;
         initializer.PutAll(randomQuarter, randomPosition, randomOrientation);
-        initializer.LightInit(light, waterOpacity, minAngle, maxAngle, minIntensivity, maxIntensivity, minWaterFog, maxWaterFog);
+        initializer.EnvironmentInit(light, waterOpacity, minAngle, maxAngle, 
+        					  minIntensivity, maxIntensivity, minWaterFog, maxWaterFog,
+        					  minWaterColorB, maxWaterColorB);
         targetCenter = GetComplexBounds(target).center;
         targetRotation = target.transform.rotation;
         startPos = GetPosition();
@@ -233,8 +241,11 @@ public class RobotAgent : Agent {
     }
 
     public override void AgentAction(float[] vectorAction, string textAction){
-        if (dataCollection)
+        if (dataCollection) {
             positionDrawer.DrawPositions(addNoise, randomQuarter, randomPosition);
+	        initializer.EnvironmentInit(light, waterOpacity, minAngle, maxAngle, 
+	        					  minIntensivity, maxIntensivity, minWaterFog, maxWaterFog,
+	        					  minWaterColorB, maxWaterColorB);        }
         else
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
 
