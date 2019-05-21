@@ -42,6 +42,13 @@ public class RobotAgent : Agent {
     public bool randomPosition = true;
     public bool randomOrientation = true;
 
+    [Header("Background settings")]
+    public bool isBackgroundImage = false;
+    public GameObject frontCameraBackground = null;
+    public GameObject bottomCameraBackground = null;
+    public int frequencyOfImageBackground = 10;
+    int numOfBackgroundImages = 1;
+
 
     [HideInInspector]
     public bool isCurrentEnabled = true;
@@ -69,6 +76,9 @@ public class RobotAgent : Agent {
 
     bool isInitialized = false;
 
+    int numberOfImageToDisplay = 0;
+    int numberOfDisplayedImage = 0;
+
     void OnValidate() {
         SetAgent();
     }
@@ -81,6 +91,8 @@ public class RobotAgent : Agent {
         annotations.target = targetAnnotation;
         positionDrawer.toAnnotate = targetAnnotation;
         positionDrawer.target = target;
+        annotations.activatedMode = targetMode;
+        annotations.activateBackground = isBackgroundImage;
         positionDrawer.ActivateOption(targetIndex);
         SetCamera();
     }
@@ -110,6 +122,16 @@ public class RobotAgent : Agent {
 
         if(dataCollection) {
             ClearEnvironment();
+            if(isBackgroundImage) 
+                ActivateEnvironmentMeshRenderer(false);
+
+            frontCameraBackground.SetActive(isBackgroundImage);
+            bottomCameraBackground.SetActive(isBackgroundImage);
+            annotations.activateBackground = isBackgroundImage;
+            annotations.frontCameraBackground = frontCameraBackground;
+            annotations.bottomCameraBackground = bottomCameraBackground;
+            annotations.activatedMode = targetMode;
+            numOfBackgroundImages = annotations.getNumberOfBackgroundImages();
         }
     }
 
@@ -127,11 +149,24 @@ public class RobotAgent : Agent {
         }
     }
 
+    void ActivateEnvironmentMeshRenderer(bool activate) {
+        GameObject transdec = GameObject.Find("Transdec");
+        MeshRenderer[] meshRenderers = transdec.GetComponentsInChildren<MeshRenderer>();
+        foreach(MeshRenderer mesh in meshRenderers) {
+            mesh.enabled = activate;
+        }
+    }
+
     void OnApplicationQuit() {
         foreach(Transform child in transform.parent) {
             child.gameObject.SetActive(true);
         }
         noise.SetActive(false);
+
+        ActivateEnvironmentMeshRenderer(true);
+
+        frontCameraBackground.SetActive(false);
+        bottomCameraBackground.SetActive(false);
     }
 
     public override void AgentReset() {
@@ -148,8 +183,13 @@ public class RobotAgent : Agent {
             annotations.activate = true;
             agentParameters.numberOfActionsBetweenDecisions = 1;
             ClearEnvironment(); 
+            frontCameraBackground.SetActive(isBackgroundImage);
+            bottomCameraBackground.SetActive(isBackgroundImage);
+            ActivateEnvironmentMeshRenderer(!isBackgroundImage);
         }
         target.SetActive(positiveExamples);
+
+        numberOfImageToDisplay = 0;
     }
 
     public override void CollectObservations() {
@@ -205,6 +245,17 @@ public class RobotAgent : Agent {
         angle = GetAngle();
         float currentReward = CalculateReward();
         SetReward(currentReward);
+
+        if(isBackgroundImage) {
+            numberOfDisplayedImage++;
+            if(numberOfDisplayedImage > frequencyOfImageBackground) {
+                annotations.ChangeImageToDisplay(numberOfImageToDisplay);
+                numberOfImageToDisplay++;
+                numberOfDisplayedImage = 0;
+                if(numberOfImageToDisplay >= numOfBackgroundImages)
+                    numberOfImageToDisplay = 0;
+            }
+        }
     }
 
     public Bounds GetComplexBounds(GameObject obj) {
