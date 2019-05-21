@@ -62,7 +62,12 @@ Click it to show its properties in the Inspector:
     * `EnableNoise` - only used when `CollectData == 1`; enable random positioning of other objects (so that they create "noise")
     * `Positive` - only used when `CollectData == 1`; collect positive examples (`0` - negative examples, target invisible, `1` - positive examples, target visible)
     * `AgentMaxSteps` - how many steps the agent can take before resetting the environment (defaults to `0` - indefinite steps)
-    
+    * `FocusedCamera` - only used when `CollectData == 0`; specify which camera is working (0 - front left camera, 1 - bottom camera)
+    * `WaterCurrent` - only used when `CollectData == 0`; is water current working (`0` - no water current, `1` - water current is enabled
+    * `FocusedObject` - only used when `CollectData == 1`; specify which object is focused on collecting data (input: object number from `Data collection settings`)
+    * `EnableBackgroundImage` - only used when `CollectData == 1`; enable custom background (`0` - transdec as background, `1` - random images as background)
+
+
   * **Controller Settings**:
     * `Control` - agent steering method (`Player` for keyboard steering, `Python` for Python API controller); if `Control == Player` use keyboard for steering:
       * `W` - `S`: longitudinal movement (front-backward)
@@ -77,8 +82,13 @@ Click it to show its properties in the Inspector:
     * `Random Orientation` - enable random rotation of the agent (at an angle of 90° or 180° to the gate)
     
   * **Data collection settings** - used when `resetParameters["CollectData"] == 1`
-    * `Mode` - target whose images are collected
-    * `Gate Target Object`, `Path Target Object`, ... - target objects from the environment
+    * `Add New` - creates new object to generate dataset
+    * `Trigger` - focus on object
+    * `Object` - Entire object which position is randomized across environment
+    * `Annotation` - object which is focused by camera and annotated as `TargetAnnotation`
+    * `FrontCamera` or `BottomCamera` - specify which camera to use while collecting data of this object
+    * `Remove` - remove object from environment
+    ![image](https://user-images.githubusercontent.com/29844618/58134363-e0956780-7c26-11e9-8297-c7ad475db5ba.png)
     
   * **Debug settings** (you shouldn't reallly touch them)
     * `Force Data Collection` - execute data collection regardless of controller mode
