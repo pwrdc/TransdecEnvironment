@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using MLAgents;
 using System;
+using System.Collections.Generic;
 
 public class RobotAgent : Agent {
 
     [Header("Reward function settings")]
     public GameObject target;
+    public GameObject targetAnnotation;
+    public int targetIndex;
+    public RobotAcademy.DataCollection targetMode;
     public Vector3 targetOffset = Vector3.zero;
 
     [Header("Light settings")]
@@ -17,9 +21,9 @@ public class RobotAgent : Agent {
     public float minIntensivity = 0.1f;
     [Range(0.5f, 1.5f)]
     public float maxIntensivity = 1f;
-    [Range(0.1f, 0.3f)]
+    [Range(0.0f, 0.3f)]
     public float minWaterFog = 0.2f;
-    [Range(0.3f, 0.5f)]
+    [Range(0.1f, 0.5f)]
     public float maxWaterFog = 0.4f;
 
     [Header("Camera settings")]
@@ -33,18 +37,14 @@ public class RobotAgent : Agent {
     public bool positiveExamples = true;
     public bool targetReset = false;
     public bool collectObservations = false;
-    public RobotAcademy.DataCollection mode;
-    public GameObject gateTargetObject;
-    public GameObject pathTargetObject;
+    public GameObject noise = null;
     public bool randomQuarter = true;
     public bool randomPosition = true;
     public bool randomOrientation = true;
 
+
     [HideInInspector]
-    public int focusedCamera = 0;
     public bool isCurrentEnabled = true;
-
-
 
     Rigidbody rbody;
     Engine engine;
@@ -65,34 +65,73 @@ public class RobotAgent : Agent {
     WaterCurrent waterCurrent;
 
     RobotAcademy academy;
+    List<GameObject> tasks_objects = new List<GameObject>();
+
+    bool isInitialized = false;
 
     void OnValidate() {
+        SetAgent();
+    }
+
+    public void SetAgent() {
+        Initialization();
+        positionDrawer.agent = transform.gameObject;
+        waterCurrent.rbody = transform.gameObject.GetComponent<Rigidbody>();
+
+        annotations.target = targetAnnotation;
+        positionDrawer.toAnnotate = targetAnnotation;
+        positionDrawer.target = target;
+        positionDrawer.ActivateOption(targetIndex);
+        SetCamera();
+    }
+
+    void Initialization() {
+        if(isInitialized)
+            return;
+
         GameObject agent = transform.parent.gameObject;
         annotations = agent.GetComponent<TargetAnnotation>();
         initializer = agent.GetComponent<RandomInit>();
         positionDrawer = agent.GetComponent<RandomPosition>();
         waterCurrent = agent.GetComponent<WaterCurrent>();
-        positionDrawer.agent = transform.gameObject;
-        waterCurrent.rbody = transform.gameObject.GetComponent<Rigidbody>();
-        if (mode == RobotAcademy.DataCollection.gate){
-            annotations.target = gateTargetObject;
-            positionDrawer.target = gateTargetObject;
-            positionDrawer.mode = positionDrawer.gate;
-        }
-        else if (mode == RobotAcademy.DataCollection.path){
-            annotations.target = pathTargetObject;
-            positionDrawer.target = pathTargetObject;
-            positionDrawer.mode = positionDrawer.path;
-        }
-    }
-
-	void Start () {
         rbody = GetComponent<Rigidbody>();
         engine = transform.Find("Engine").GetComponent<Engine>();
         accelerometer = transform.Find("Accelerometer").GetComponent<Accelerometer>();
         depthSensor = transform.Find("DepthSensor").GetComponent<DepthSensor>();
         academy = GameObject.Find("Academy").GetComponent<RobotAcademy>();
+    }
+
+    void Awake() {
+        Initialization();
+    }
+
+	void Start () {
         SetCamera();
+
+        if(dataCollection) {
+            ClearEnvironment();
+        }
+    }
+
+    void ClearEnvironment() {
+        tasks_objects.Clear();
+        foreach(Transform child in transform.parent) {
+            child.gameObject.SetActive(true);
+        }
+        foreach (Transform child in transform.parent) {
+            if (child.gameObject != target && child.gameObject != this.gameObject)
+                tasks_objects.Add(child.gameObject);
+        }
+        foreach(GameObject obj in tasks_objects) {
+            obj.SetActive(false);
+        }
+    }
+
+    void OnApplicationQuit() {
+        foreach(Transform child in transform.parent) {
+            child.gameObject.SetActive(true);
+        }
+        noise.SetActive(false);
     }
 
     public override void AgentReset() {
@@ -108,6 +147,7 @@ public class RobotAgent : Agent {
         if (dataCollection) {
             annotations.activate = true;
             agentParameters.numberOfActionsBetweenDecisions = 1;
+            ClearEnvironment(); 
         }
         target.SetActive(positiveExamples);
     }
@@ -143,7 +183,7 @@ public class RobotAgent : Agent {
         else
             toSend[toSendCell] = 0.0f;
         // relative position data
-        if (sendRelativeData){
+        if (sendRelativeData) {
             toSend[toSendCell + 1] = pos.x;
             toSend[toSendCell + 2] = pos.y;
             toSend[toSendCell + 3] = pos.z;
@@ -157,6 +197,7 @@ public class RobotAgent : Agent {
             positionDrawer.DrawPositions(addNoise, randomQuarter, randomPosition);
         else
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+
         if (isCurrentEnabled)
             waterCurrent.AddCurrentToBoat();
 
@@ -179,13 +220,13 @@ public class RobotAgent : Agent {
 
     void SetCamera() {
         //Show focused camera on Display 1 and set as agentCamera
-        if ((int)RobotAcademy.CameraID.frontCamera == focusedCamera) {
+        if (RobotAcademy.DataCollection.frontCamera == targetMode) {
             agentParameters.agentCameras[0] = frontCamera;
             annotations.cam = frontCamera;
             frontCamera.targetDisplay = 0;
             bottomCamera.targetDisplay = 2;
         }
-        else if ((int)RobotAcademy.CameraID.bottomCamera == focusedCamera) {
+        else if (RobotAcademy.DataCollection.bottomCamera == targetMode) {
             agentParameters.agentCameras[0] = bottomCamera;
             annotations.cam = bottomCamera;
             bottomCamera.targetDisplay = 0;

@@ -6,14 +6,28 @@ public class RandomPosition : MonoBehaviour
 {
     public GameObject agent = null;
     public GameObject target = null;
+    public GameObject toAnnotate = null;
+    public GameObject noiseFolder = null;
+    public int numberOfNoiseToGenerate = 5;
+    private List<GameObject> otherObjs = new List<GameObject>();
+
+    [SerializeField]
+    public List<Settings> options = new List<Settings>();
+
+    [SerializeField]
+    public int enabledOption;
 
     [System.Serializable]
-    public class Gate {
-        public List<GameObject> otherObjs = new List<GameObject>();
+    public class Settings {
+        public RobotAcademy.DataCollection mode;
+        public float minPhi = -180.0f;
+        public float maxPhi = 180.0f;
         [Range(0.0f, 10.0f)]
         public float minRadius = 3.0f;
         [Range(0.0f, 10.0f)]
         public float maxRadius = 10.0f;
+        [Range(30.0f, 90.0f)]
+        public float cameraFov = 40.0f;
         public float waterLevel = 11.0f;
         [Range(0.0f, 11.0f)]
         public float maxDepth = 4.0f;
@@ -36,43 +50,13 @@ public class RandomPosition : MonoBehaviour
         public float othYAngRange = 90f;
         [Range(0.0f, 90.0f)]
         public float othZAngRange = 90f;
-    }
 
-    [System.Serializable]
-    public class Path {
-        public List<GameObject> otherObjs = new List<GameObject>();
-        [Range(30.0f, 90.0f)]
-        public float cameraFov = 40.0f;
-        public float waterLevel = 11.0f;
-        [Range(0.0f, 11.0f)]
-        public float maxDepth = 9.0f;
-        [Range(0.0f, 30.0f)]
-        public float xAngRange = 5f;
-        [Range(0.0f, 30.0f)]
-        public float yAngRange = 5f;
-        [Range(0.0f, 30.0f)]
-        public float zAngRange = 5f;
-        //other objects parameters
-        [Range(0.0f, 10.0f)]
-        public float othMinRadius = 0.0f;
-        [Range(0.0f, 10.0f)]
-        public float othMaxRadius = 4.0f;
-        [Range(0.0f, 11.0f)]
-        public float othMaxDepth = 6.0f;
-        [Range(0.0f, 90.0f)]
-        public float othXAngRange = 90f;
-        [Range(0.0f, 90.0f)]
-        public float othYAngRange = 90f;
-        [Range(0.0f, 90.0f)]
-        public float othZAngRange = 90f;
+        public Settings(RobotAcademy.DataCollection mode) { this.mode = mode; }
     }
-
-    public Gate gate;
-    public Path path;
-    public dynamic mode;
 
     [HideInInspector]
     public Bounds targetBounds;
+
     float GetRandom(float min, float max)
     {
         System.Random rnd = transform.gameObject.GetComponent<RandomInit>().GetRandomizer();
@@ -81,69 +65,104 @@ public class RandomPosition : MonoBehaviour
         return ret;
     }
 
+    public void Start() {
+    	foreach (Transform child in noiseFolder.transform) {
+    		otherObjs.Add(child.gameObject);
+        }
+    }
+
     public void GetNewPos()
     {
         Vector3 newPos = targetBounds.center;
-        float xRot = GetRandom(-mode.xAngRange, mode.xAngRange);
-        float yRot = GetRandom(-mode.yAngRange, mode.yAngRange);
-        float zRot = GetRandom(-mode.zAngRange, mode.zAngRange);
+        float xRot = GetRandom(-options[enabledOption].xAngRange, options[enabledOption].xAngRange);
+        float yRot = GetRandom(-options[enabledOption].yAngRange, options[enabledOption].yAngRange);
+        float zRot = GetRandom(-options[enabledOption].zAngRange, options[enabledOption].zAngRange);
         float r;
 
-        newPos.y = GetRandom(mode.maxDepth, mode.waterLevel);
+        newPos.y = GetRandom(options[enabledOption].maxDepth, options[enabledOption].waterLevel);
 
 
-        if(mode.Equals(path))
-            r = GetRandom(0, ((newPos.y - targetBounds.center.y) * (mode.cameraFov/100)) );
+        if(options[enabledOption].mode.Equals(RobotAcademy.DataCollection.bottomCamera))
+            r = GetRandom(0, ((newPos.y - targetBounds.center.y) * (options[enabledOption].cameraFov/100)) );
         else
-            r = GetRandom(mode.minRadius, mode.maxRadius);
+            r = GetRandom(options[enabledOption].minRadius, options[enabledOption].maxRadius);
 
-        float theta = GetRandom(0, 2 * Mathf.PI);
+        float theta = GetRandom(options[enabledOption].minPhi, options[enabledOption].maxPhi) - 90;
+        theta = theta * 3.14f / 180; 
 
         newPos.x += r * Mathf.Cos(theta);        
         newPos.z += r * Mathf.Sin(theta);
 
         agent.transform.position = newPos;
-        if(mode.Equals(path)) {
+        if(options[enabledOption].mode.Equals(RobotAcademy.DataCollection.bottomCamera)) {
             agent.transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else {
-            agent.transform.LookAt(transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(target).center);
+            agent.transform.LookAt(transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(toAnnotate).center);
             agent.transform.eulerAngles = new Vector3(agent.transform.eulerAngles.x + xRot, agent.transform.eulerAngles.y + yRot, agent.transform.eulerAngles.z + zRot);
         }
     }
 
     public void GetOthNewPos(GameObject obj)
     {
-        Vector3 newPos = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(target).center;
-        float xRot = GetRandom(-mode.othXAngRange, mode.othXAngRange);
-        float yRot = GetRandom(-mode.othYAngRange, mode.othYAngRange);
-        float zRot = GetRandom(-mode.othZAngRange, mode.othZAngRange);
-        float r = GetRandom(mode.othMinRadius, mode.othMaxRadius);
+        Vector3 newPos = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(toAnnotate).center;
+
+        float xRot = GetRandom(-options[enabledOption].othXAngRange, options[enabledOption].othXAngRange);
+        float yRot = GetRandom(-options[enabledOption].othYAngRange, options[enabledOption].othYAngRange);
+        float zRot = GetRandom(-options[enabledOption].othZAngRange, options[enabledOption].othZAngRange);
+        float r = GetRandom(options[enabledOption].othMinRadius, options[enabledOption].othMaxRadius);
         float theta = GetRandom(0, 2 * Mathf.PI);
         newPos.x += r * Mathf.Cos(theta);
-        newPos.y = GetRandom(mode.othMaxDepth, mode.waterLevel - 0.2f);
+        newPos.y = GetRandom(options[enabledOption].othMaxDepth, options[enabledOption].waterLevel - 0.2f);
         newPos.z += r * Mathf.Sin(theta);
         obj.transform.position = newPos;
         obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
     }
 
+    public List<GameObject> GetRandomObjects(List<GameObject> objects, int amount) {
+    	int rand;
+    	List<GameObject> objToChose = new List<GameObject>();
+    	foreach(GameObject obj in objects) objToChose.Add(obj);
+    	while(objToChose.Count > amount) {
+    		rand = (int)(GetRandom(0, objToChose.Count));
+    		objToChose.RemoveAt(rand);
+		}
+		return objToChose;
+    }
+
     public void DrawPositions(bool addNoise, bool randomQuarter, bool randomPosition) {
         
-        WaterOpacity water = transform.Find("Robot").GetComponent<WaterOpacity>();
-        water.waterFog = GetRandom(0.15f, 0.35f);
-        water.waterColor = new Color(0.22f, 0.65f, GetRandom(0.5f, 0.8f), 0.5f);
-
-        if(mode.Equals(path)) 
+        if(options[enabledOption].mode.Equals(RobotAcademy.DataCollection.bottomCamera))
             transform.GetComponent<RandomInitOnMesh>().PutAll(target);
         else 
             transform.GetComponent<RandomInit>().PutAll(randomQuarter, randomPosition, false);
 
-        targetBounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(target);
+        targetBounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(toAnnotate);
+
         GetNewPos();
         if (addNoise)
         {
-            foreach (GameObject obj in mode.otherObjs) GetOthNewPos(obj);
+        	List<GameObject> objToChose = GetRandomObjects(otherObjs, numberOfNoiseToGenerate);
+            foreach (GameObject obj in objToChose) GetOthNewPos(obj);
+            foreach (GameObject obj in otherObjs) obj.SetActive(false);
+            foreach (GameObject obj in objToChose) obj.SetActive(true);
         }
         
+    }
+
+    public void DeleteObject(int index) {
+    	options.RemoveAt(index);
+    }
+
+    public void SetMode(int index, RobotAcademy.DataCollection mode) {
+    	options[index].mode = mode;
+    }
+
+    public void AddNewObject(RobotAcademy.DataCollection mode) {
+    	options.Add(new Settings(mode));
+    }
+
+    public void ActivateOption(int index) {
+    	enabledOption = index;
     }
 }
