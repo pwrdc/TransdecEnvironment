@@ -1,20 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
 
 public class TargetAnnotation : MonoBehaviour
 {
     public GameObject target;
+    public int numberofpictures;
     public float margin = 10.0f;
     public bool drawBox = false;
     public Texture2D background;
     public Camera cam = null;
+    public GameObject frontCameraBackground = null;
+    public GameObject bottomCameraBackground = null;
 
     public bool activate = false;
+    public bool activateBackground = false;
+    public RobotAcademy.DataCollection activatedMode;
+
 
     private float[] boxCoord = new float[4];
     private GUIStyle style = null;
     private Vector3[] pts = new Vector3[8];
+
+    private int numOfImageToDisplay = 0;
+
+    private string[] fileNames;
 
     public void OnGUI()
     {
@@ -61,7 +74,44 @@ public class TargetAnnotation : MonoBehaviour
                 // 'box'
                 GUI.Box(r, "", style);
             }
+            if(activateBackground)
+            {
+                if(RobotAcademy.DataCollection.frontCamera == activatedMode) {
+                    SetNewMaterial(frontCameraBackground, numOfImageToDisplay);
+                }
+                else if(RobotAcademy.DataCollection.bottomCamera == activatedMode) {
+                    SetNewMaterial(bottomCameraBackground, numOfImageToDisplay);
+                }
+            }
+
         }
+    }
+
+    void SetNewMaterial(GameObject background, int imageNum) {
+        Material material = new Material(Shader.Find("Standard"));
+        Texture2D backgroundImage = Resources.Load("backgroundImages/"+fileNames[imageNum], typeof(Texture2D)) as Texture2D;
+        material.SetTexture("_MainTex", backgroundImage);
+        background.GetComponent<MeshRenderer>().material = material;
+    }
+
+    void Awake() {
+        string path = @"D:\Github\TransdecEnvironment_9\Assets\Resources\backgroundImages";
+        string[] files = System.IO.Directory.GetFiles(path, "*.jpg");
+        fileNames = new string[files.Length];
+
+        for(int i = 0; i < files.Length; i++) {
+            string[] words = files[i].Split('\\');
+            string word = words[words.Length - 1];
+            fileNames[i] = word.Split('.')[0];
+        }
+    }
+
+    public int getNumberOfBackgroundImages() {
+        return fileNames.Length;
+    }
+
+    public void ChangeImageToDisplay(int numberOfImage) {
+        numOfImageToDisplay = numberOfImage;
     }
 
     public float[] GetBoundingBox() {

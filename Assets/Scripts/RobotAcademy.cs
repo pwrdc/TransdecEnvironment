@@ -59,6 +59,11 @@ public class RobotAcademy : Academy {
             robot.sendRelativeData = true;
             robot.dataCollection = true;
             SetFocusedObject((int)resetParameters["FocusedObject"]);
+
+            if(resetParameters["EnableBackgroundImage"] == 0)
+                robot.isBackgroundImage = false;
+            else
+                robot.isBackgroundImage = true;
         }
         else {
             robot.sendRelativeData = false;
@@ -90,6 +95,10 @@ public class RobotAcademy : Academy {
         {
             robot.sendRelativeData = true;
             robot.dataCollection = true;
+            if(resetParameters["EnableBackgroundImage"] == 0)
+                robot.isBackgroundImage = false;
+            else
+                robot.isBackgroundImage = true;
 
             if (resetParameters["EnableNoise"] == 1 || forceNoise) {
                 robot.addNoise = true;
@@ -127,6 +136,11 @@ public class RobotAcademy : Academy {
         robot = GameObject.Find("Robot").GetComponent<RobotAgent>();
         robot.agentParameters.maxStep = (int)(resetParameters["AgentMaxSteps"]);
         if (resetParameters["CollectData"] == 1 || forceDataCollection) {
+            if(resetParameters["EnableBackgroundImage"] == 0)
+                robot.isBackgroundImage = false;
+            else
+                robot.isBackgroundImage = true;
+
             if (resetParameters["EnableNoise"] == 1 || forceNoise)
                 robot.addNoise = true;
             else
