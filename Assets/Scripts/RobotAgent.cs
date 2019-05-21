@@ -101,7 +101,7 @@ public class RobotAgent : Agent {
         initializer.PutAll(randomQuarter, randomPosition, randomOrientation);
         initializer.LightInit(light, waterOpacity, minAngle, maxAngle, minIntensivity, maxIntensivity, minWaterFog, maxWaterFog);
         targetCenter = GetComplexBounds(target).center;
-        targetRotation = target.GetComponent<Rigidbody>().rotation;
+        targetRotation = target.transform.rotation;
         startPos = GetPosition();
         startAngle = GetAngle();
         SetReward(0);
