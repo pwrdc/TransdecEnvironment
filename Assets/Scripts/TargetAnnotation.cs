@@ -95,7 +95,7 @@ public class TargetAnnotation : MonoBehaviour
     }
 
     void Awake() {
-        string path = @"D:\Github\TransdecEnvironment_9\Assets\Resources\backgroundImages";
+        string path = Application.Datapath + "\Resources\backgroundImages";
         string[] files = System.IO.Directory.GetFiles(path, "*.jpg");
         fileNames = new string[files.Length];
 
