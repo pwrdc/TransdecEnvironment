@@ -95,7 +95,7 @@ public class TargetAnnotation : MonoBehaviour
     }
 
     void Awake() {
-        string path = Application.Datapath + "\Resources\backgroundImages";
+        string path = Application.dataPath + @"\Resources\backgroundImages";
         string[] files = System.IO.Directory.GetFiles(path, "*.jpg");
         fileNames = new string[files.Length];
 
