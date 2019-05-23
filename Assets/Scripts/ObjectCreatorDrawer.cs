@@ -30,7 +30,7 @@ public class ObjectCreatorDrawer : PropertyDrawer
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         InitializeObjectCreator(property, label);
-        var numLines = objectCreator.targetObjects.Count + 2;
+        var numLines = objectCreator.targetObjects.Count * 2 + 2;
         return (numLines) * LineHeight + ExtraSpaceBelow;
     }
 
@@ -41,7 +41,7 @@ public class ObjectCreatorDrawer : PropertyDrawer
         objectCreator.targetObjects = new List<GameObject>();
         objectCreator.targetAnnotations = new List<GameObject>();
         objectCreator.targetIsEnabled = new List<bool>();
-        objectCreator.targetModes = new List<RobotAcademy.DataCollection>();
+        objectCreator.targetCameraModes = new List<RobotAcademy.DataCollection>();
     */
         randomPosition = GameObject.Find("Agent").GetComponent<RandomPosition>();
         robotAcademy = GameObject.Find("Academy").GetComponent<RobotAcademy>();
@@ -83,27 +83,32 @@ public class ObjectCreatorDrawer : PropertyDrawer
     private void DrawTargetObjects(Rect position, SerializedProperty property)
     {   
 
-        int widthOfPart = (int)(position.width / 5);
-        int widthObject = (int)(position.width / 5);
+        int widthOfPartRow1 = (int)(position.width / 4);
+        int widthOfPartRow2 = (int)(position.width / 3);
+
+        int heightOfRow = (int)(2 * LineHeight);
 
         Rect targetIndexRect = position;
-        targetIndexRect.width = widthObject / 2;
-        targetIndexRect.x = widthOfPart * 0;
+        targetIndexRect.width = widthOfPartRow1 / 2;
+        targetIndexRect.x = widthOfPartRow1 * 0;
         Rect targetEnableRect = position;
-        targetEnableRect.width = widthObject / 2;
-        targetEnableRect.x = widthOfPart * 0.5f;
+        targetEnableRect.width = widthOfPartRow1 / 2;
+        targetEnableRect.x = widthOfPartRow1 * 0.5f;
         Rect targetObjRect = position;
-        targetObjRect.width = widthObject;
-        targetObjRect.x = widthOfPart * 1;
+        targetObjRect.width = widthOfPartRow1;
+        targetObjRect.x = widthOfPartRow1 * 1;
         Rect targetAnnotRect = position;
-        targetAnnotRect.width = widthObject;
-        targetAnnotRect.x = widthOfPart * 2;
-        Rect modeTypeRect = position;
-        modeTypeRect.width = widthObject;
-        modeTypeRect.x = widthOfPart * 3;
+        targetAnnotRect.width = widthOfPartRow1;
+        targetAnnotRect.x = widthOfPartRow1 * 2;
+        Rect modeCameraTypeRect = position;
+        modeCameraTypeRect.width = widthOfPartRow1;
+        modeCameraTypeRect.x = widthOfPartRow1 * 3;
+        Rect modeObjectTypeRect = position;
+        modeObjectTypeRect.width = widthOfPartRow2;
+        modeObjectTypeRect.x = widthOfPartRow2 * 1;
         Rect removeButtonRect = position;
-        removeButtonRect.width = widthObject;
-        removeButtonRect.x = widthOfPart * 4;
+        removeButtonRect.width = widthOfPartRow2;
+        removeButtonRect.x = widthOfPartRow2 * 2;
 
 
         EditorGUI.LabelField(targetObjRect, "Object");
@@ -112,10 +117,12 @@ public class ObjectCreatorDrawer : PropertyDrawer
         targetEnableRect.y += LineHeight;
         targetObjRect.y += LineHeight;
         targetAnnotRect.y += LineHeight;
-        removeButtonRect.y += LineHeight;
-        modeTypeRect.y += LineHeight;
+        modeCameraTypeRect.y += LineHeight;
 
-        for (var index = 0; index < objectCreator.targetObjects.Count; index++)
+        removeButtonRect.y += LineHeight * 2;
+        modeObjectTypeRect.y += LineHeight * 2;
+
+        for (int index = 0; index < objectCreator.targetObjects.Count; index++)
         {
             //Debug.Log(objectCreator.targetObjects[index]);
             var targetObject = objectCreator.targetObjects[index];
@@ -123,12 +130,10 @@ public class ObjectCreatorDrawer : PropertyDrawer
             var targetIsEnabled = objectCreator.targetIsEnabled[index];
             
             EditorGUI.LabelField(targetIndexRect, index + ":");
-            targetIndexRect.y += LineHeight;
 
             EditorGUI.BeginChangeCheck();
             targetIsEnabled = EditorGUI.Toggle(
                 targetEnableRect, "", targetIsEnabled);
-            targetEnableRect.y += LineHeight;
             if (EditorGUI.EndChangeCheck())
             {
                 robotAcademy.SetFocusedObject(index);
@@ -138,7 +143,6 @@ public class ObjectCreatorDrawer : PropertyDrawer
             var targetObj = EditorGUI.ObjectField(
                 targetObjRect, targetObject, typeof(GameObject), true) as GameObject;
             //Debug.Log(targetObj);
-            targetObjRect.y += LineHeight;
             if (EditorGUI.EndChangeCheck())
             {
                 ChangeTargetObject(index, targetObj);
@@ -148,7 +152,6 @@ public class ObjectCreatorDrawer : PropertyDrawer
             EditorGUI.BeginChangeCheck();
             var targetAnnot = EditorGUI.ObjectField(
                 targetAnnotRect, targetAnnotation, typeof(GameObject), true) as GameObject;
-            targetAnnotRect.y += LineHeight;
             if (EditorGUI.EndChangeCheck())
             {
                 ChangeTargetAnnot(index, targetAnnot);
@@ -156,24 +159,40 @@ public class ObjectCreatorDrawer : PropertyDrawer
             }
 
             EditorGUI.BeginChangeCheck();
-            objectCreator.targetModes[index] = (RobotAcademy.DataCollection)EditorGUI.EnumPopup(
-                modeTypeRect,
+            objectCreator.targetCameraModes[index] = (RobotAcademy.DataCollection)EditorGUI.EnumPopup(
+                modeCameraTypeRect,
                 "",
-                objectCreator.targetModes[index]);
+                objectCreator.targetCameraModes[index]);
             if (EditorGUI.EndChangeCheck())
             {
                 MarkSceneAsDirty();
-                ChangeMode(index, objectCreator.targetModes[index]);
+                ChangeCameraMode(index, objectCreator.targetCameraModes[index]);
             }
-            modeTypeRect.y += LineHeight;
 
+            EditorGUI.BeginChangeCheck();
+            objectCreator.targetObjectModes[index] = (RobotAcademy.ObjectType)EditorGUI.EnumPopup(
+                modeObjectTypeRect,
+                "",
+                objectCreator.targetObjectModes[index]);
+            if (EditorGUI.EndChangeCheck())
+            {
+                MarkSceneAsDirty();
+                ChangeObjectMode(index, objectCreator.targetObjectModes[index]);
+            }
 
             var buttonContent = new GUIContent("Remove");
             if (GUI.Button(removeButtonRect, buttonContent, EditorStyles.miniButton)) {
                 MarkSceneAsDirty();
                 RemoveObject(index);
             }
-            removeButtonRect.y += LineHeight;
+
+            targetEnableRect.y += heightOfRow;
+            targetObjRect.y += heightOfRow;
+            targetAnnotRect.y += heightOfRow;
+            modeCameraTypeRect.y += heightOfRow;
+            modeObjectTypeRect.y += heightOfRow;
+            removeButtonRect.y += heightOfRow;
+            targetIndexRect.y += heightOfRow;
         }
     }
 
@@ -181,7 +200,8 @@ public class ObjectCreatorDrawer : PropertyDrawer
         objectCreator.targetObjects.Add(null);
         objectCreator.targetAnnotations.Add(null);
         objectCreator.targetIsEnabled.Add(false);
-        objectCreator.targetModes.Add(RobotAcademy.DataCollection.frontCamera);
+        objectCreator.targetCameraModes.Add(RobotAcademy.DataCollection.frontCamera);
+        objectCreator.targetObjectModes.Add(RobotAcademy.ObjectType.Small);
         randomPosition.AddNewObject(RobotAcademy.DataCollection.frontCamera);
     }
 
@@ -196,13 +216,18 @@ public class ObjectCreatorDrawer : PropertyDrawer
     private void RemoveObject(int index) {
         objectCreator.targetObjects.RemoveAt(index);
         objectCreator.targetAnnotations.RemoveAt(index);
-        objectCreator.targetModes.RemoveAt(index);
+        objectCreator.targetCameraModes.RemoveAt(index);        
+        objectCreator.targetObjectModes.RemoveAt(index);
         objectCreator.targetIsEnabled.RemoveAt(index);
         randomPosition.DeleteObject(index);
     }
 
-    private void ChangeMode(int index, RobotAcademy.DataCollection mode) {
-        randomPosition.SetMode(index, objectCreator.targetModes[index]);
+    private void ChangeCameraMode(int index, RobotAcademy.DataCollection mode) {
+        randomPosition.SetCameraMode(index, objectCreator.targetCameraModes[index]);
+    }
+
+    private void ChangeObjectMode(int index, RobotAcademy.ObjectType type) {
+        randomPosition.SetObjectMode(index, objectCreator.targetObjectModes[index]);
     }
 
     private void InitializeObjectCreator(SerializedProperty property, GUIContent label)
