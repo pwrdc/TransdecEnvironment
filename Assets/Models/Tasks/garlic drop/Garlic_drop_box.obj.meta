@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fde57b63569b96446baee04bf322ca94
+guid: fef7b8f2ce2fc2c49b2fe1067d3dcbbb
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,8 @@ ModelImporter:
     400000: "Bry\u0142a1"
     400002: //RootNode
     2100000: 245,245,245
-    2100002: "Bry\u0142a1Mat"
+    2100002: 202,209,238
+    2100004: 840EDFE9E54295EC0CCFCC6B8A57544615D92180
     2300000: "Bry\u0142a1"
     3300000: "Bry\u0142a1"
     4300000: "Bry\u0142a1"

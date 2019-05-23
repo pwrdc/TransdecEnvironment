@@ -1,17 +1,23 @@
 fileFormatVersion: 2
-guid: fde57b63569b96446baee04bf322ca94
+guid: bcd624ce19cc3df46818f83f5fb60678
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: "Bry\u0142a1"
-    100002: //RootNode
+    100002: "Bry\u0142a3"
+    100004: //RootNode
     400000: "Bry\u0142a1"
-    400002: //RootNode
+    400002: "Bry\u0142a3"
+    400004: //RootNode
     2100000: 245,245,245
-    2100002: "Bry\u0142a1Mat"
+    2100002: 202,209,238
+    2100004: 52,255,123
     2300000: "Bry\u0142a1"
+    2300002: "Bry\u0142a3"
     3300000: "Bry\u0142a1"
+    3300002: "Bry\u0142a3"
     4300000: "Bry\u0142a1"
+    4300002: "Bry\u0142a3"
   externalObjects: {}
   materials:
     importMaterials: 1
