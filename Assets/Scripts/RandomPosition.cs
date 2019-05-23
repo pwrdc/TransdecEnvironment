@@ -154,12 +154,33 @@ public class RandomPosition : MonoBehaviour
     	options.RemoveAt(index);
     }
 
-    public void SetMode(int index, RobotAcademy.DataCollection mode) {
+    public void SetCameraMode(int index, RobotAcademy.DataCollection mode) {
     	options[index].mode = mode;
     }
 
+    public void SetObjectMode(int index, RobotAcademy.ObjectType mode) {
+        if(mode == RobotAcademy.ObjectType.Big) {
+            options[index].minRadius = 3;
+            options[index].maxRadius = 8;
+            options[index].waterLevel = 11;
+            options[index].maxDepth = 4;
+        }
+        else if(mode == RobotAcademy.ObjectType.Small) {
+            options[index].minRadius = 1.5f;
+            options[index].maxRadius = 3;
+            options[index].waterLevel = 9;
+            options[index].maxDepth = 7.5f;
+        }
+        else if(mode == RobotAcademy.ObjectType.OnBottom) {
+            options[index].minRadius = 1.5f;
+            options[index].maxRadius = 4;
+            options[index].waterLevel = 11;
+            options[index].maxDepth = 9f;
+        }
+    }
+
     public void AddNewObject(RobotAcademy.DataCollection mode) {
-    	options.Add(new Settings(mode));
+    	options.Add(new Settings(mode));            
     }
 
     public void ActivateOption(int index) {
