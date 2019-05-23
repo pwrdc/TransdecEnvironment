@@ -155,7 +155,7 @@ public class RobotAcademy : Academy {
         objectCreator.targetIsEnabled[index] = true;
 
 
-        mode = objectCreator.targetModes[index];
+        mode = objectCreator.targetCameraModes[index];
         targetObject = objectCreator.targetObjects[index];
         targetAnnotation = objectCreator.targetAnnotations[index];
 

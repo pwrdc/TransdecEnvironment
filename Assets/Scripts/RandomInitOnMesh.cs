@@ -6,7 +6,7 @@ public class RandomInitOnMesh : MonoBehaviour
 {
 	public Renderer mesh;
 	
-	private GameObject target;
+	private	GameObject target;
 	private	RaycastHit hit;
 	private Vector3 position;
 
@@ -33,7 +33,7 @@ public class RandomInitOnMesh : MonoBehaviour
 		if (Physics.Raycast(position, -Vector3.up, out hit, Mathf.Infinity, layerMask)) {
 		    y_pos = -hit.distance + 2f;
 		}
-		return new Vector3(randomX, mesh.bounds.max.y, randomZ);
+		return new Vector3(randomX, target.transform.position.y, randomZ);
 	}
 
 	bool IsCorrectPosition(int layerMask = 1 << 10) {
@@ -51,24 +51,24 @@ public class RandomInitOnMesh : MonoBehaviour
 	}
 
 
-	public void PutAll(GameObject Path) {
-		target = Path;
-
+	public void PutAll(GameObject target) {
+		this.target = target;
+		/*
 		foreach (Transform child in target.transform) {
-            paths.Add(child.gameObject);
+            target.Add(child.gameObject);
         }
 
         //Rotate angle of path
 		float rotation = GetRandom(rotation_min, rotation_max);
     	paths[0].transform.localRotation = Quaternion.Euler(0, rotation, 0);
-    	
+    	*/
     	//Get Random position for path
     	position = GetPosition();
 		target.transform.position = position;
 		
 		//Rotate path
-        rotation = GetRandom(0, 360);
-        target.transform.eulerAngles = new Vector3(0, rotation, 0);
+        //rotation = GetRandom(0, 360);
+        //target.transform.eulerAngles = new Vector3(0, rotation, 0);
         
     }
 

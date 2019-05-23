@@ -6,7 +6,9 @@ using System.Collections.Generic;
 public class ObjectCreator
 {
 	[SerializeField] 
-	public List<RobotAcademy.DataCollection> targetModes = new List<RobotAcademy.DataCollection>();
+	public List<RobotAcademy.DataCollection> targetCameraModes = new List<RobotAcademy.DataCollection>();
+	[SerializeField] 
+	public List<RobotAcademy.ObjectType> targetObjectModes = new List<RobotAcademy.ObjectType>();
 	[SerializeField] 
 	public List<GameObject> targetObjects = new List<GameObject>();
 	[SerializeField] 

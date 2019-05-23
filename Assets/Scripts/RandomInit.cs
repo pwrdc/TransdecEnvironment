@@ -16,7 +16,7 @@ public class RandomInit : MonoBehaviour {
         [Range(0f, 10f)]
         public float yPosRange = 1f;
         [Range(-10f, 0f)]
-        public float minusYPosRange = -1f;
+        public float minusYPosRange = 0;
         [Range(0f, 10f)]
         public float zPosRange = 1f;
         [Range(-10f, 0f)]
