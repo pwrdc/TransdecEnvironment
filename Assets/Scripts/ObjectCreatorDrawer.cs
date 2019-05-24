@@ -20,6 +20,7 @@ public class ObjectCreatorDrawer : PropertyDrawer
     private const float ExtraSpaceBelow = 10f;
     // The horizontal size of the Control checkbox
     private const int ControlSize = 80;
+    private int specificId = -1;
 
     /// <summary>
     /// Computes the height of the Drawer depending on the property it is showing
@@ -30,12 +31,13 @@ public class ObjectCreatorDrawer : PropertyDrawer
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         InitializeObjectCreator(property, label);
-        var numLines = objectCreator.targetObjects.Count * 2 + 2;
+        var numLines = objectCreator.targetObjects.Count * 2 + 3;
         return (numLines) * LineHeight + ExtraSpaceBelow;
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
-
+        if(specificId == -1)
+            specificId = objectCreator.targetObjects.Count; 
 
         /*
         objectCreator.targetObjects = new List<GameObject>();
@@ -52,7 +54,7 @@ public class ObjectCreatorDrawer : PropertyDrawer
         DrawAddButton(position, property);
 
         EditorGUI.indentLevel++;
-        position.y += LineHeight;
+        position.y += LineHeight * 2;
         DrawTargetObjects(position, property);
 
         EditorGUI.EndProperty();
@@ -67,11 +69,26 @@ public class ObjectCreatorDrawer : PropertyDrawer
         // This is the rectangle for the Add button
         var addButtonRect = position;
         var buttonContent = new GUIContent(
-            "Add New", "Add a new Brain to the Broadcast Hub");
+            "Add New", "Add new object");
         if (GUI.Button(addButtonRect, buttonContent, EditorStyles.miniButton))
         {
             MarkSceneAsDirty();
             AddNewObject();
+        }
+
+        // This is the rectangle for the Add button
+        EditorGUI.LabelField(new Rect(position.x, position.y + LineHeight, position.width / 4, position.height), "specific id:");
+        var specificIdFieldRect = new Rect(position.x + position.width / 4, position.y + LineHeight, position.width / 4, position.height);
+        
+        specificId = EditorGUI.IntField(specificIdFieldRect, specificId);
+
+        var addSpecificIdButtonRect = new Rect(position.x + position.width / 2, position.y + LineHeight, position.width / 2, position.height);
+        var buttonSpecificIdContent = new GUIContent(
+            "Add with specific id", "Specify id with int on left side");
+        if (GUI.Button(addSpecificIdButtonRect, buttonSpecificIdContent, EditorStyles.miniButton))
+        {
+            MarkSceneAsDirty();
+            InsertNewObject(specificId);
         }
     }
 
@@ -124,13 +141,14 @@ public class ObjectCreatorDrawer : PropertyDrawer
 
         for (int index = 0; index < objectCreator.targetObjects.Count; index++)
         {
-            //Debug.Log(objectCreator.targetObjects[index]);
             var targetObject = objectCreator.targetObjects[index];
             var targetAnnotation = objectCreator.targetAnnotations[index];
             var targetIsEnabled = objectCreator.targetIsEnabled[index];
             
+            //Index of object
             EditorGUI.LabelField(targetIndexRect, index + ":");
 
+            //Toggle of activity object
             EditorGUI.BeginChangeCheck();
             targetIsEnabled = EditorGUI.Toggle(
                 targetEnableRect, "", targetIsEnabled);
@@ -139,16 +157,18 @@ public class ObjectCreatorDrawer : PropertyDrawer
                 robotAcademy.SetFocusedObject(index);
                 MarkSceneAsDirty();
             }
+
+            //TargetObject
             EditorGUI.BeginChangeCheck();
             var targetObj = EditorGUI.ObjectField(
                 targetObjRect, targetObject, typeof(GameObject), true) as GameObject;
-            //Debug.Log(targetObj);
             if (EditorGUI.EndChangeCheck())
             {
                 ChangeTargetObject(index, targetObj);
                 MarkSceneAsDirty();
             }
 
+            //TargetAnnotation
             EditorGUI.BeginChangeCheck();
             var targetAnnot = EditorGUI.ObjectField(
                 targetAnnotRect, targetAnnotation, typeof(GameObject), true) as GameObject;
@@ -158,6 +178,7 @@ public class ObjectCreatorDrawer : PropertyDrawer
                 MarkSceneAsDirty();
             }
 
+            //ObjectCamera Enum
             EditorGUI.BeginChangeCheck();
             objectCreator.targetCameraModes[index] = (RobotAcademy.DataCollection)EditorGUI.EnumPopup(
                 modeCameraTypeRect,
@@ -169,6 +190,7 @@ public class ObjectCreatorDrawer : PropertyDrawer
                 ChangeCameraMode(index, objectCreator.targetCameraModes[index]);
             }
 
+            //ObjectType Enum
             EditorGUI.BeginChangeCheck();
             objectCreator.targetObjectModes[index] = (RobotAcademy.ObjectType)EditorGUI.EnumPopup(
                 modeObjectTypeRect,
@@ -180,6 +202,7 @@ public class ObjectCreatorDrawer : PropertyDrawer
                 ChangeObjectMode(index, objectCreator.targetObjectModes[index]);
             }
 
+            //Remove button
             var buttonContent = new GUIContent("Remove");
             if (GUI.Button(removeButtonRect, buttonContent, EditorStyles.miniButton)) {
                 MarkSceneAsDirty();
@@ -202,7 +225,19 @@ public class ObjectCreatorDrawer : PropertyDrawer
         objectCreator.targetIsEnabled.Add(false);
         objectCreator.targetCameraModes.Add(RobotAcademy.DataCollection.frontCamera);
         objectCreator.targetObjectModes.Add(RobotAcademy.ObjectType.Small);
-        randomPosition.AddNewObject(RobotAcademy.DataCollection.frontCamera);
+        randomPosition.AddNewObject(RobotAcademy.DataCollection.frontCamera, RobotAcademy.ObjectType.Small);
+    }
+
+    private void InsertNewObject(int index) {
+        if(index > objectCreator.targetObjects.Count)
+            index = objectCreator.targetObjects.Count;
+            
+        objectCreator.targetObjects.Insert(index, null);
+        objectCreator.targetAnnotations.Insert(index, null);
+        objectCreator.targetIsEnabled.Insert(index, false);
+        objectCreator.targetCameraModes.Insert(index, RobotAcademy.DataCollection.frontCamera);
+        objectCreator.targetObjectModes.Insert(index, RobotAcademy.ObjectType.Small);
+        randomPosition.InsertNewObject(index, RobotAcademy.DataCollection.frontCamera, RobotAcademy.ObjectType.Small);
     }
 
     private void ChangeTargetObject(int index, GameObject targetObj) {

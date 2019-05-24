@@ -158,20 +158,20 @@ public class RandomPosition : MonoBehaviour
     	options[index].mode = mode;
     }
 
-    public void SetObjectMode(int index, RobotAcademy.ObjectType mode) {
-        if(mode == RobotAcademy.ObjectType.Big) {
+    public void SetObjectMode(int index, RobotAcademy.ObjectType type) {
+        if(type == RobotAcademy.ObjectType.Big) {
             options[index].minRadius = 3;
             options[index].maxRadius = 8;
             options[index].waterLevel = 11;
             options[index].maxDepth = 4;
         }
-        else if(mode == RobotAcademy.ObjectType.Small) {
+        else if(type == RobotAcademy.ObjectType.Small) {
             options[index].minRadius = 1.5f;
             options[index].maxRadius = 3;
             options[index].waterLevel = 9;
             options[index].maxDepth = 7.5f;
         }
-        else if(mode == RobotAcademy.ObjectType.OnBottom) {
+        else if(type == RobotAcademy.ObjectType.OnBottom) {
             options[index].minRadius = 1.5f;
             options[index].maxRadius = 4;
             options[index].waterLevel = 11;
@@ -179,8 +179,14 @@ public class RandomPosition : MonoBehaviour
         }
     }
 
-    public void AddNewObject(RobotAcademy.DataCollection mode) {
-    	options.Add(new Settings(mode));            
+    public void AddNewObject(RobotAcademy.DataCollection mode, RobotAcademy.ObjectType type) {
+    	options.Add(new Settings(mode));     
+        SetObjectMode(options.Count - 1, type);       
+    }
+
+    public void InsertNewObject(int index, RobotAcademy.DataCollection mode, RobotAcademy.ObjectType type) {
+        options.Insert(index, new Settings(mode));     
+        SetObjectMode(index, type);       
     }
 
     public void ActivateOption(int index) {
