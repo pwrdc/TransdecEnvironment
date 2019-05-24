@@ -46,7 +46,7 @@ Everything is set up, you may now start using **TransdecEnvironment**!
 
 Click it to show its properties in the Inspector:
 
-![image](https://user-images.githubusercontent.com/23311513/53694634-ddba7180-3db1-11e9-97d6-8bfb218bc361.png)
+![image](https://user-images.githubusercontent.com/29844618/58339328-a061ff00-7e49-11e9-8f11-544741039b87.png)
 
 ### Essential Academy parameters:
   * **Training Configuration** - visual observations' settings used when *training mode* is selected in Python API
@@ -95,6 +95,45 @@ Click it to show its properties in the Inspector:
     * `Force Noise` - execute noised data collection
     * `Force Negative Examples` - execute negative examples data collection
     
+## Data collection settings
+In order to add new objects to generate dataset from them open Academy.
+In `'Data collection settings'`
+
+![image](https://user-images.githubusercontent.com/29844618/58337422-08164b00-7e46-11e9-96e3-bae4b7ac4076.png)
+
+* **Settings**
+ * `Add New` - creates new object and add to end of list
+ * `Add with specific id` - insert new object with entered id
+ * `Object` - drag here whole object which contain annotated element (look on example)
+ * `Annotation` - drag here element to focus camera and annotate it
+ * `Front Camera` - choose which camera to make picture (`Front Camera` or `Bottom Camera`)
+ * `Big` - choose type of object settings to generate dataset (`Big`, `Small`, `On Bottom` - Use with bottom camera)
+ * `Remove` - removes object
+ 
+**Example**
+ 
+ ![image](https://user-images.githubusercontent.com/29844618/58337894-131dab00-7e47-11e9-9c68-276bd1e7e4a6.png)
+ 
+ * In order to generate dataset of whole triple board object - drag triple_board gameobject to Object and Annotation
+ * In order to generate dataset of Aswang - drag triple_board gameobject to Object and Aswang to Annotation
+ 
+ To personalize settings of data collection go to Agent gameobject
+ 
+ ![image](https://user-images.githubusercontent.com/29844618/58338412-149ba300-7e48-11e9-82c3-2fddb6a52fda.png)
+ 
+Open Agent, then in options select specific Element that corresponds to Id of elements in `Data collection settings`
+
+![image](https://user-images.githubusercontent.com/29844618/58338556-36952580-7e48-11e9-9a64-6fb2da50605d.png)
+
+* **Settings**
+ * Min/Max Phi - Minimum/Maximum angle of camera (in degrees)
+ * Min/Max Radius - Minimum/Maximum radius where camera is allocated
+ * Camera fov - Camera field of view - works only in bottom camera mode
+ * Water Level - Maximum height where camera is allocated (11 - water level of environment)
+ * Max Depth - Minimum height where camera is allocated (7 - flat floor of pool)
+ * Other settings - Don't append on camera location 
+
+
 ## Updating
 In order to update TransdecEnvironment you need to reset your changes by executing:
 
