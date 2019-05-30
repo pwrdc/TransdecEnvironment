@@ -1,17 +1,18 @@
 fileFormatVersion: 2
-guid: 81dbc78717ccf8d438ac61603b6d2b03
+guid: c66af9d8a487ebb4783425acb1a6fd43
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: "Bry\u0142a1"
-    400000: //RootNode
-    400002: "Bry\u0142a1"
-    2100000: 245,245,245
-    2100002: "Bry\u0142a1Mat"
-    2300000: "Bry\u0142a1"
-    3300000: "Bry\u0142a1"
-    4300000: "Bry\u0142a1"
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2100000: tekstura
+    2100002: serce_wampir.png.001
+    2100004: serce
+    2300000: default
+    3300000: default
+    4300000: default
   externalObjects: {}
   materials:
     importMaterials: 1
