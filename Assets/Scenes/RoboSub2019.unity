@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -275,10 +275,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1064979084}
     m_Modifications:
-    - target: {fileID: 100000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
-      propertyPath: m_Name
-      value: board
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.517
@@ -334,6 +330,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
+      propertyPath: m_Name
+      value: board
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10003,6 +10003,12 @@ Transform:
   m_Father: {fileID: 1240187609}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &949367374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 81dbc78717ccf8d438ac61603b6d2b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 14219132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &966903050
 GameObject:
   m_ObjectHideFlags: 0
@@ -10479,7 +10485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broadcastHub:
     broadcastingBrains:
-    - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+    - {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
     _brainsToControl:
     - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   maxSteps: 0
@@ -10510,10 +10516,10 @@ MonoBehaviour:
     - key: WaterCurrent
       value: 0
     - key: FocusedObject
-      value: 20
+      value: 19
     - key: EnableBackgroundImage
       value: 0
-  control: 1
+  control: 0
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   padBrain: {fileID: 11400000, guid: b3f5647612bcbf74ca03eb93d258be4e, type: 2}
@@ -10521,8 +10527,8 @@ MonoBehaviour:
   randomPosition: 1
   randomOrientation: 1
   objectCreator:
-    targetCameraModes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001000000000000000000000001000000000000000000000000000000000000000000000000000000
-    targetObjectModes: 00000000000000000100000001000000010000000000000001000000000000000100000000000000000000000200000002000000000000000100000002000000010000000000000001000000010000000100000001000000
+    targetCameraModes: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000
+    targetObjectModes: 0000000000000000010000000100000001000000000000000100000000000000010000000000000000000000020000000200000002000000000000000100000001000000010000000000000001000000010000000100000001000000
     targetObjects:
     - {fileID: 6482515160584091805}
     - {fileID: 578275701197349635}
@@ -10536,11 +10542,12 @@ MonoBehaviour:
     - {fileID: 578275700769623533}
     - {fileID: 578275700769623533}
     - {fileID: 578275700769623533}
+    - {fileID: 910504962}
     - {fileID: 578275701775983420}
     - {fileID: 578275701039208594}
     - {fileID: 578275701039208594}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 949367374}
+    - {fileID: 949367374}
     - {fileID: 578275701501583644}
     - {fileID: 578275701501583644}
     - {fileID: 578275701501583644}
@@ -10558,18 +10565,19 @@ MonoBehaviour:
     - {fileID: 578275700368284439}
     - {fileID: 578275700769623533}
     - {fileID: 578275701521100115}
-    - {fileID: 0}
+    - {fileID: 578275700767825731}
+    - {fileID: 780111502}
     - {fileID: 578275701775983420}
     - {fileID: 578275701039208594}
     - {fileID: 578275701811489292}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 949367374}
+    - {fileID: 25903609}
     - {fileID: 578275701501583644}
     - {fileID: 1304611189}
     - {fileID: 987906171}
     - {fileID: 578275701092842326}
     - {fileID: 438241406}
-    targetIsEnabled: 00000000000000000000000000000000000000000100
+    targetIsEnabled: 0000000000000000000000000000000000000001000000
   forceDataCollection: 0
   forceNoise: 0
   forceNegativeExamples: 0
@@ -11785,7 +11793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1240187602}
   target: {fileID: 578275701501583644}
-  toAnnotate: {fileID: 578275701092842326}
+  toAnnotate: {fileID: 1304611189}
   noiseFolder: {fileID: 520613246}
   numberOfNoiseToGenerate: 4
   options:
@@ -11877,11 +11885,11 @@ MonoBehaviour:
   - mode: 0
     minPhi: -180
     maxPhi: 180
-    minRadius: 3
-    maxRadius: 8
+    minRadius: 2
+    maxRadius: 5
     cameraFov: 40
     waterLevel: 11
-    maxDepth: 4
+    maxDepth: 7
     xAngRange: 15
     yAngRange: 15
     zAngRange: 15
@@ -11897,8 +11905,8 @@ MonoBehaviour:
     minRadius: 1
     maxRadius: 3
     cameraFov: 40
-    waterLevel: 11
-    maxDepth: 7.5
+    waterLevel: 9
+    maxDepth: 8
     xAngRange: 15
     yAngRange: 15
     zAngRange: 15
@@ -11911,11 +11919,11 @@ MonoBehaviour:
   - mode: 0
     minPhi: -180
     maxPhi: 180
-    minRadius: 3
-    maxRadius: 8
+    minRadius: 2
+    maxRadius: 4
     cameraFov: 40
     waterLevel: 11
-    maxDepth: 4
+    maxDepth: 7
     xAngRange: 15
     yAngRange: 15
     zAngRange: 15
@@ -11931,8 +11939,8 @@ MonoBehaviour:
     minRadius: 1.5
     maxRadius: 3
     cameraFov: 40
-    waterLevel: 9
-    maxDepth: 7.5
+    waterLevel: 10
+    maxDepth: 9
     xAngRange: 15
     yAngRange: 15
     zAngRange: 15
@@ -11945,11 +11953,11 @@ MonoBehaviour:
   - mode: 0
     minPhi: -180
     maxPhi: 180
-    minRadius: 5
-    maxRadius: 10
+    minRadius: 2
+    maxRadius: 5
     cameraFov: 40
     waterLevel: 11
-    maxDepth: 4
+    maxDepth: 7
     xAngRange: 15
     yAngRange: 15
     zAngRange: 15
@@ -11962,11 +11970,11 @@ MonoBehaviour:
   - mode: 0
     minPhi: -180
     maxPhi: 180
-    minRadius: 3
-    maxRadius: 8
+    minRadius: 2
+    maxRadius: 4
     cameraFov: 40
     waterLevel: 11
-    maxDepth: 4
+    maxDepth: 7
     xAngRange: 15
     yAngRange: 15
     zAngRange: 15
@@ -12000,41 +12008,7 @@ MonoBehaviour:
     maxRadius: 4
     cameraFov: 40
     waterLevel: 11
-    maxDepth: 8
-    xAngRange: 15
-    yAngRange: 15
-    zAngRange: 15
-    othMinRadius: 0
-    othMaxRadius: 4
-    othMaxDepth: 8
-    othXAngRange: 90
-    othYAngRange: 90
-    othZAngRange: 90
-  - mode: 0
-    minPhi: -180
-    maxPhi: 180
-    minRadius: 3
-    maxRadius: 8
-    cameraFov: 40
-    waterLevel: 11
-    maxDepth: 4
-    xAngRange: 15
-    yAngRange: 15
-    zAngRange: 15
-    othMinRadius: 0
-    othMaxRadius: 4
-    othMaxDepth: 8
-    othXAngRange: 90
-    othYAngRange: 90
-    othZAngRange: 90
-  - mode: 0
-    minPhi: -30
-    maxPhi: -150
-    minRadius: 2
-    maxRadius: 5
-    cameraFov: 40
-    waterLevel: 11
-    maxDepth: 7
+    maxDepth: 9
     xAngRange: 15
     yAngRange: 15
     zAngRange: 15
@@ -12051,7 +12025,58 @@ MonoBehaviour:
     maxRadius: 4
     cameraFov: 40
     waterLevel: 11
-    maxDepth: 10.5
+    maxDepth: 8
+    xAngRange: 15
+    yAngRange: 15
+    zAngRange: 15
+    othMinRadius: 0
+    othMaxRadius: 4
+    othMaxDepth: 8
+    othXAngRange: 90
+    othYAngRange: 90
+    othZAngRange: 90
+  - mode: 0
+    minPhi: -180
+    maxPhi: 180
+    minRadius: 2
+    maxRadius: 5
+    cameraFov: 40
+    waterLevel: 11
+    maxDepth: 7
+    xAngRange: 15
+    yAngRange: 15
+    zAngRange: 15
+    othMinRadius: 0
+    othMaxRadius: 4
+    othMaxDepth: 8
+    othXAngRange: 90
+    othYAngRange: 90
+    othZAngRange: 90
+  - mode: 0
+    minPhi: -30
+    maxPhi: -150
+    minRadius: 1
+    maxRadius: 3
+    cameraFov: 40
+    waterLevel: 11
+    maxDepth: 7
+    xAngRange: 15
+    yAngRange: 15
+    zAngRange: 15
+    othMinRadius: 0
+    othMaxRadius: 4
+    othMaxDepth: 8
+    othXAngRange: 90
+    othYAngRange: 90
+    othZAngRange: 90
+  - mode: 0
+    minPhi: -180
+    maxPhi: 180
+    minRadius: 1.5
+    maxRadius: 3
+    cameraFov: 40
+    waterLevel: 9
+    maxDepth: 7.5
     xAngRange: 15
     yAngRange: 15
     zAngRange: 15
@@ -12163,7 +12188,7 @@ MonoBehaviour:
     othXAngRange: 90
     othYAngRange: 90
     othZAngRange: 90
-  enabledOption: 20
+  enabledOption: 19
   targetBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -12179,7 +12204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05ff72398206ba4f8f349a4ca7215d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 578275701092842326}
+  target: {fileID: 1304611189}
   numberofpictures: 0
   margin: 10
   drawBox: 1
@@ -12217,22 +12242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3e2efcca156ed408fd53ec4c516d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - obj: {fileID: 1240187602}
-    startPosition: {x: 0, y: 0, z: 0}
-    xPosRange: 1
-    minusXPosRange: -1
-    yPosRange: 1
-    minusYPosRange: -1
-    zPosRange: 1
-    minusZPosRange: -1
-    startRotation: {x: 0, y: 0, z: 0}
-    xAngRange: 0
-    yAngRange: 0
-    zAngRange: 5
-    allowedRotations:
-    - 0
-    - 90
+  objects: []
   waterSurface: {fileID: 1582610936}
 --- !u!4 &1064979084
 Transform:
@@ -14865,7 +14875,7 @@ Rigidbody:
   m_Drag: 2
   m_AngularDrag: 2
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -14881,7 +14891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc93f472fcc5e64a9e092b435a96d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+  brain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   agentParameters:
     agentCameras:
     - {fileID: 133001996}
@@ -14890,8 +14900,8 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   target: {fileID: 578275701501583644}
-  targetAnnotation: {fileID: 578275701092842326}
-  targetIndex: 20
+  targetAnnotation: {fileID: 1304611189}
+  targetIndex: 19
   targetMode: 0
   targetOffset: {x: 0, y: 0, z: 0}
   light: {fileID: 1582610935}
@@ -15961,8 +15971,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360851985}
-  m_LocalRotation: {x: 0.15803269, y: 0.06070237, z: 0.009733756, w: -0.9855182}
-  m_LocalPosition: {x: 29.47284, y: 12.551596, z: -17.96642}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.955, y: 11.139999, z: -27.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18848,6 +18858,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23857906521181628, guid: 0758b374dc7cd26428782454fcfee321,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 23252829017728844, guid: 0758b374dc7cd26428782454fcfee321,
         type: 3}
       propertyPath: m_Enabled
@@ -18879,11 +18894,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23585107373642298, guid: 0758b374dc7cd26428782454fcfee321,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23857906521181628, guid: 0758b374dc7cd26428782454fcfee321,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -23580,6 +23590,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 520613247}
     m_Modifications:
+    - target: {fileID: 100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+      propertyPath: m_Name
+      value: Block1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Name
       value: Block2
@@ -23588,11 +23606,19 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+    - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Name
-      value: Block1
+      value: Block3
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+    - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+      propertyPath: m_Name
+      value: SlotMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
@@ -23631,22 +23657,6 @@ PrefabInstance:
     - target: {fileID: 400006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
-      propertyPath: m_Name
-      value: Block3
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
-      propertyPath: m_Name
-      value: SlotMachine
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
@@ -45461,6 +45471,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ee11384c5ee9e4546b8ec3f5124b44d4, type: 2}
+    - target: {fileID: 6402092299556142534, guid: bc1768b4d7594374e8479208e16d7a1f,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc1768b4d7594374e8479208e16d7a1f, type: 3}
 --- !u!1 &6482515160584091805
