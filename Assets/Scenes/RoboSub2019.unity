@@ -10485,7 +10485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broadcastHub:
     broadcastingBrains:
-    - {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
+    - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
     _brainsToControl:
     - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   maxSteps: 0
@@ -10519,7 +10519,7 @@ MonoBehaviour:
       value: 19
     - key: EnableBackgroundImage
       value: 0
-  control: 0
+  control: 1
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   padBrain: {fileID: 11400000, guid: b3f5647612bcbf74ca03eb93d258be4e, type: 2}
@@ -14891,7 +14891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc93f472fcc5e64a9e092b435a96d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
+  brain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   agentParameters:
     agentCameras:
     - {fileID: 133001996}
