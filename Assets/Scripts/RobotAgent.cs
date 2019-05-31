@@ -243,11 +243,11 @@ public class RobotAgent : Agent {
     public override void AgentAction(float[] vectorAction, string textAction){
         if (dataCollection) {
             positionDrawer.DrawPositions(addNoise, randomQuarter, randomPosition);
-	        /*
+	        
             initializer.EnvironmentInit(light, waterOpacity, minAngle, maxAngle, 
 	        					  minIntensivity, maxIntensivity, minWaterFog, maxWaterFog,
 	        					  minWaterColorB, maxWaterColorB);        
-            */
+            
         }
         else
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
