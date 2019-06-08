@@ -194,8 +194,9 @@ public class RobotAgent : Agent {
             frontCameraBackground.SetActive(isBackgroundImage);
             bottomCameraBackground.SetActive(isBackgroundImage);
             ActivateEnvironmentMeshRenderer(!isBackgroundImage);
+            target.SetActive(positiveExamples);
         }
-        target.SetActive(positiveExamples);
+        
 
         numberOfImageToDisplay = 0;
     }
@@ -247,10 +248,10 @@ public class RobotAgent : Agent {
             initializer.EnvironmentInit(light, waterOpacity, minAngle, maxAngle, 
 	        					  minIntensivity, maxIntensivity, minWaterFog, maxWaterFog,
 	        					  minWaterColorB, maxWaterColorB);        
-            
         }
-        else
+        else {
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+        }
 
         if (isCurrentEnabled)
             waterCurrent.AddCurrentToBoat();
