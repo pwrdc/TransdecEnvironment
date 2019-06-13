@@ -87,6 +87,12 @@ public class RobotAcademy : Academy {
         else
             robot.isCurrentEnabled = true;
 
+        if(resetParameters["SetFocusedObjectInCenter"] == 0)
+        	robot.setFocusedObjectInCenter = false;
+        else
+        	robot.setFocusedObjectInCenter = true;
+
+        Debug.Log(robot.setFocusedObjectInCenter);
 
         robot.randomQuarter = randomQuarter;
         robot.randomPosition = randomPosition;
