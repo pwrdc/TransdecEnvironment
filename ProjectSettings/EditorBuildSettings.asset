@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RoboSub2018.unity
     guid: 7825424804d05a6ada6f7a2e7a8e223c
+  - enabled: 1
+    path: Assets/Scenes/RoboSub2019.unity
+    guid: f2046fe3c9d5aed48b7d857a0c39b2c4
   m_configObjects: {}

@@ -15557,8 +15557,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360851985}
-  m_LocalRotation: {x: -0.1692246, y: 0.529347, z: 0.10868257, w: 0.8242226}
-  m_LocalPosition: {x: 8.275008, y: 11.566981, z: -26.954094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.955, y: 11.139999, z: -27.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22996,11 +22996,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 520613247}
     m_Modifications:
-    - target: {fileID: 100002, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+    - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Name
-      value: Block2
+      value: SlotMachine
       objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+    - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
@@ -23009,6 +23009,22 @@ PrefabInstance:
       value: Block1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+      propertyPath: m_Name
+      value: Block2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
+      propertyPath: m_Name
+      value: Block3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
@@ -23047,22 +23063,6 @@ PrefabInstance:
     - target: {fileID: 400006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
-      propertyPath: m_Name
-      value: Block3
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
-      propertyPath: m_Name
-      value: SlotMachine
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
