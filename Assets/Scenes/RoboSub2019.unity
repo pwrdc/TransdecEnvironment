@@ -8814,8 +8814,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844889249}
-  m_LocalRotation: {x: -0.1692246, y: 0.529347, z: 0.10868257, w: 0.8242226}
-  m_LocalPosition: {x: -10.967539, y: 2.1079407, z: -37.95887}
+  m_LocalRotation: {x: 0.07452751, y: 0.9055767, z: 0.17886369, w: -0.37733838}
+  m_LocalPosition: {x: 8.538776, y: 11.15564, z: -23.906706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10284,6 +10284,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
     _brainsToControl:
     - {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
+    - {fileID: 11400000, guid: b3f5647612bcbf74ca03eb93d258be4e, type: 2}
   maxSteps: 0
   trainingConfiguration:
     width: 1280
@@ -10315,10 +10316,13 @@ MonoBehaviour:
       value: 16
     - key: EnableBackgroundImage
       value: 0
+    - key: SetFocusedObjectInCenter
+      value: 0
   control: 1
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   padBrain: {fileID: 11400000, guid: b3f5647612bcbf74ca03eb93d258be4e, type: 2}
+  padNoImageBrain: {fileID: 11400000, guid: 982f9334e1b5df04eaa0848e22e02adf, type: 2}
   randomQuarter: 1
   randomPosition: 1
   randomOrientation: 1
@@ -11526,6 +11530,7 @@ MonoBehaviour:
   toAnnotate: {fileID: 993753504}
   noiseFolder: {fileID: 520613246}
   numberOfNoiseToGenerate: 4
+  setFocusedObjectInCenter: 0
   options:
   - mode: 0
     minPhi: -180
@@ -14591,6 +14596,7 @@ MonoBehaviour:
   positiveExamples: 1
   targetReset: 0
   collectObservations: 1
+  setFocusedObjectInCenter: 0
   noise: {fileID: 520613246}
   randomQuarter: 1
   randomPosition: 1
@@ -14598,7 +14604,7 @@ MonoBehaviour:
   isBackgroundImage: 0
   frontCameraBackground: {fileID: 1119323032}
   bottomCameraBackground: {fileID: 544230172}
-  frequencyOfImageBackground: 10
+  frequencyOfImageBackground: 1
   isCurrentEnabled: 0
 --- !u!114 &1240187605
 MonoBehaviour:
@@ -15557,8 +15563,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360851985}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.955, y: 11.139999, z: -27.88}
+  m_LocalRotation: {x: 0.07452751, y: 0.9055767, z: 0.17886369, w: -0.37733838}
+  m_LocalPosition: {x: 8.538776, y: 11.15564, z: -23.906706}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
