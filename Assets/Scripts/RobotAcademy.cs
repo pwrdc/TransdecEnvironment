@@ -76,6 +76,11 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = false;
         else
             robot.positiveExamples = true;
+            
+        if (resetParameters["ForceToSaveAsNegative"] == 0)
+            robot.forceToSaveAsNegative = false;
+        else
+            robot.forceToSaveAsNegative = true;
 
         if (mode == DataCollection.bottomCamera)
             resetParameters["FocusedCamera"] = 1;
@@ -128,6 +133,12 @@ public class RobotAcademy : Academy {
             robot.positiveExamples = false;
         else 
             robot.positiveExamples = true;
+
+        if (resetParameters["ForceToSaveAsNegative"] == 0)
+            robot.forceToSaveAsNegative = false;
+        else
+            robot.forceToSaveAsNegative = true;
+
 
         if (mode == DataCollection.bottomCamera)
             resetParameters["FocusedCamera"] = 1;

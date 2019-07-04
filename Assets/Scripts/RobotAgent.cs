@@ -41,6 +41,7 @@ public class RobotAgent : Agent {
     public bool dataCollection = false;
     public bool addNoise = false;
     public bool positiveExamples = true;
+    public bool forceToSaveAsNegative = true;
     public bool targetReset = false;
     public bool collectObservations = false;
     public bool setFocusedObjectInCenter = false;
@@ -197,6 +198,12 @@ public class RobotAgent : Agent {
             bottomCameraBackground.SetActive(isBackgroundImage);
             ActivateEnvironmentMeshRenderer(!isBackgroundImage);
             target.SetActive(positiveExamples);
+
+            annotations.activateBackground = isBackgroundImage;
+            annotations.frontCameraBackground = frontCameraBackground;
+            annotations.bottomCameraBackground = bottomCameraBackground;
+            annotations.activatedMode = targetMode;
+            numOfBackgroundImages = annotations.getNumberOfBackgroundImages();
         }
         
 
@@ -229,7 +236,7 @@ public class RobotAgent : Agent {
             annotations.GetBoundingBox().CopyTo(toSend, toSendCell);
         // positive/negative example
         toSendCell += 4;
-        if (positiveExamples)
+        if (positiveExamples && !forceToSaveAsNegative)
             toSend[toSendCell] = 1.0f;
         else
             toSend[toSendCell] = 0.0f;
@@ -250,9 +257,11 @@ public class RobotAgent : Agent {
             initializer.EnvironmentInit(light, waterOpacity, minAngle, maxAngle, 
 	        					  minIntensivity, maxIntensivity, minWaterFog, maxWaterFog,
 	        					  minWaterColorB, maxWaterColorB);        
+            
         }
         else {
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+            SetCamera((int)vectorAction[4]);
         }
 
         if (isCurrentEnabled)
@@ -265,7 +274,7 @@ public class RobotAgent : Agent {
 
         if(isBackgroundImage) {
             numberOfDisplayedImage++;
-            if(numberOfDisplayedImage > frequencyOfImageBackground) {
+            if(numberOfDisplayedImage >= frequencyOfImageBackground) {
                 annotations.ChangeImageToDisplay(numberOfImageToDisplay);
                 numberOfImageToDisplay++;
                 numberOfDisplayedImage = 0;
@@ -291,6 +300,22 @@ public class RobotAgent : Agent {
         }
         
         return bounds;
+    }
+
+    void SetCamera(int cameraId) {
+        //Show focused camera on Display 1 and set as agentCamera
+        if (cameraId == 0) {
+            agentParameters.agentCameras[0] = frontCamera;
+            annotations.cam = frontCamera;
+            frontCamera.targetDisplay = 0;
+            bottomCamera.targetDisplay = 2;
+        }
+        else if (cameraId == 1) {
+            agentParameters.agentCameras[0] = bottomCamera;
+            annotations.cam = bottomCamera;
+            bottomCamera.targetDisplay = 0;
+            frontCamera.targetDisplay = 2;
+        }
     }
 
     void SetCamera() {
