@@ -11488,7 +11488,6 @@ GameObject:
   - component: {fileID: 1064979083}
   - component: {fileID: 1064979082}
   - component: {fileID: 1064979081}
-  - component: {fileID: 1064979085}
   - component: {fileID: 1064979080}
   - component: {fileID: 1064979079}
   m_Layer: 0
@@ -12041,33 +12040,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1064979085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064979078}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b872f5452c8799444ab0594f1ac248d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  robot: {fileID: 1240187602}
-  target: {fileID: 6482515160584091805}
-  numberofpictures: 0
-  marginMin: 15
-  marginMax: 25
-  minDistance: 3.5
-  chanceToShow: 0.7
-  drawBox: 1
-  background: {fileID: 2800000, guid: afbd73b92efd241479a988401368c873, type: 3}
-  cam: {fileID: 133001996}
-  frontCameraBackground: {fileID: 1119323032}
-  bottomCameraBackground: {fileID: 544230172}
-  activate: 1
-  activateBackground: 0
-  activatedMode: 0
 --- !u!1 &1074100116
 GameObject:
   m_ObjectHideFlags: 0
