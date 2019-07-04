@@ -9,6 +9,7 @@ public class RandomPosition : MonoBehaviour
     public GameObject toAnnotate = null;
     public GameObject noiseFolder = null;
     public int numberOfNoiseToGenerate = 5;
+    public bool setFocusedObjectInCenter = false;
     private List<GameObject> otherObjs = new List<GameObject>();
 
     [SerializeField]
@@ -82,8 +83,12 @@ public class RandomPosition : MonoBehaviour
         newPos.y = GetRandom(options[enabledOption].maxDepth, options[enabledOption].waterLevel);
 
 
-        if(options[enabledOption].mode.Equals(RobotAcademy.DataCollection.bottomCamera))
-            r = GetRandom(0, ((newPos.y - targetBounds.center.y) * (options[enabledOption].cameraFov/100)) );
+        if(options[enabledOption].mode.Equals(RobotAcademy.DataCollection.bottomCamera)) {
+        	if(setFocusedObjectInCenter)
+        		r = 0;
+        	else
+            	r = GetRandom(0, ((newPos.y - targetBounds.center.y) * (options[enabledOption].cameraFov/100)) );
+        }
         else
             r = GetRandom(options[enabledOption].minRadius, options[enabledOption].maxRadius);
 
@@ -95,11 +100,13 @@ public class RandomPosition : MonoBehaviour
 
         agent.transform.position = newPos;
         if(options[enabledOption].mode.Equals(RobotAcademy.DataCollection.bottomCamera)) {
-            agent.transform.eulerAngles = new Vector3(0, 0, 0);
+            agent.transform.eulerAngles = new Vector3(0, GetRandom(0, 360), 0);
         }
         else {
+        	Debug.Log(setFocusedObjectInCenter);
             agent.transform.LookAt(transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(toAnnotate).center);
-            agent.transform.eulerAngles = new Vector3(agent.transform.eulerAngles.x + xRot, agent.transform.eulerAngles.y + yRot, agent.transform.eulerAngles.z + zRot);
+            if(!setFocusedObjectInCenter)
+            	agent.transform.eulerAngles = new Vector3(agent.transform.eulerAngles.x + xRot, agent.transform.eulerAngles.y + yRot, agent.transform.eulerAngles.z + zRot);
         }
     }
 
