@@ -309,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8814,8 +8814,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844889249}
-  m_LocalRotation: {x: 0.07452751, y: 0.9055767, z: 0.17886369, w: -0.37733838}
-  m_LocalPosition: {x: 8.538776, y: 11.15564, z: -23.906706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.565001, y: 12.44, z: -19.349998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10303,7 +10303,7 @@ MonoBehaviour:
     - key: CollectData
       value: 0
     - key: EnableNoise
-      value: 1
+      value: 0
     - key: Positive
       value: 1
     - key: AgentMaxSteps
@@ -10313,17 +10313,18 @@ MonoBehaviour:
     - key: WaterCurrent
       value: 0
     - key: FocusedObject
-      value: 16
+      value: 0
     - key: EnableBackgroundImage
       value: 0
     - key: SetFocusedObjectInCenter
+      value: 1
+    - key: ForceToSaveAsNegative
       value: 0
   control: 1
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   playerBrain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   padBrain: {fileID: 11400000, guid: b3f5647612bcbf74ca03eb93d258be4e, type: 2}
-  padNoImageBrain: {fileID: 11400000, guid: 982f9334e1b5df04eaa0848e22e02adf, type: 2}
-  randomQuarter: 1
+  randomQuarter: 0
   randomPosition: 1
   randomOrientation: 1
   objectCreator:
@@ -10379,7 +10380,7 @@ MonoBehaviour:
     - {fileID: 987906171}
     - {fileID: 578275701092842326}
     - {fileID: 438241406}
-    targetIsEnabled: 000000000000000000000000000000000100000000000000
+    targetIsEnabled: 010000000000000000000000000000000000000000000000
   forceDataCollection: 0
   forceNoise: 0
   forceNegativeExamples: 0
@@ -11487,6 +11488,7 @@ GameObject:
   - component: {fileID: 1064979083}
   - component: {fileID: 1064979082}
   - component: {fileID: 1064979081}
+  - component: {fileID: 1064979085}
   - component: {fileID: 1064979080}
   - component: {fileID: 1064979079}
   m_Layer: 0
@@ -11526,11 +11528,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1240187602}
-  target: {fileID: 426352744}
-  toAnnotate: {fileID: 993753504}
+  target: {fileID: 6482515160584091805}
+  toAnnotate: {fileID: 6482515160584091805}
   noiseFolder: {fileID: 520613246}
   numberOfNoiseToGenerate: 4
-  setFocusedObjectInCenter: 0
+  setFocusedObjectInCenter: 1
   options:
   - mode: 0
     minPhi: -180
@@ -11940,7 +11942,7 @@ MonoBehaviour:
     othXAngRange: 90
     othYAngRange: 90
     othZAngRange: 90
-  enabledOption: 16
+  enabledOption: 0
   targetBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -11956,7 +11958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05ff72398206ba4f8f349a4ca7215d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 993753504}
+  target: {fileID: 6482515160584091805}
   numberofpictures: 0
   margin: 10
   drawBox: 1
@@ -11994,7 +11996,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3e2efcca156ed408fd53ec4c516d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: []
+  objects:
+  - obj: {fileID: 1240187602}
+    startPosition: {x: 0, y: 0, z: 0}
+    xPosRange: 0.3
+    minusXPosRange: -0.3
+    yPosRange: 1
+    minusYPosRange: -0.5
+    zPosRange: 0.5
+    minusZPosRange: -0.5
+    startRotation: {x: 0, y: 0, z: 0}
+    xAngRange: 0
+    yAngRange: 30
+    zAngRange: 0
+    allowedRotations: []
   waterSurface: {fileID: 1582610936}
 --- !u!4 &1064979084
 Transform:
@@ -12026,6 +12041,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1064979085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064979078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b872f5452c8799444ab0594f1ac248d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robot: {fileID: 1240187602}
+  target: {fileID: 6482515160584091805}
+  numberofpictures: 0
+  marginMin: 15
+  marginMax: 25
+  minDistance: 3.5
+  chanceToShow: 0.7
+  drawBox: 1
+  background: {fileID: 2800000, guid: afbd73b92efd241479a988401368c873, type: 3}
+  cam: {fileID: 133001996}
+  frontCameraBackground: {fileID: 1119323032}
+  bottomCameraBackground: {fileID: 544230172}
+  activate: 1
+  activateBackground: 0
+  activatedMode: 0
 --- !u!1 &1074100116
 GameObject:
   m_ObjectHideFlags: 0
@@ -14569,13 +14611,14 @@ MonoBehaviour:
   agentParameters:
     agentCameras:
     - {fileID: 133001996}
+    - {fileID: 940846085}
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  target: {fileID: 426352744}
-  targetAnnotation: {fileID: 993753504}
-  targetIndex: 16
+  target: {fileID: 6482515160584091805}
+  targetAnnotation: {fileID: 6482515160584091805}
+  targetIndex: 0
   targetMode: 0
   targetOffset: {x: 0, y: 0, z: 0}
   light: {fileID: 1582610935}
@@ -14594,11 +14637,12 @@ MonoBehaviour:
   dataCollection: 0
   addNoise: 0
   positiveExamples: 1
+  forceToSaveAsNegative: 0
   targetReset: 0
   collectObservations: 1
-  setFocusedObjectInCenter: 0
+  setFocusedObjectInCenter: 1
   noise: {fileID: 520613246}
-  randomQuarter: 1
+  randomQuarter: 0
   randomPosition: 1
   randomOrientation: 1
   isBackgroundImage: 0
@@ -14687,7 +14731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240187602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 11, z: -28}
+  m_LocalPosition: {x: 17.66, y: 10.24, z: -19.47}
   m_LocalScale: {x: 0.3, y: 0.12, z: 0.24}
   m_Children:
   - {fileID: 1119323033}
@@ -15563,8 +15607,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360851985}
-  m_LocalRotation: {x: 0.07452751, y: 0.9055767, z: 0.17886369, w: -0.37733838}
-  m_LocalPosition: {x: 8.538776, y: 11.15564, z: -23.906706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.615, y: 11.9, z: -19.349998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35914,7 +35958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578275701169808922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.36, y: 7.36, z: -15.64}
+  m_LocalPosition: {x: 17.49, y: 7.36, z: -19.41}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children:
   - {fileID: 578275701169388112}
@@ -36389,7 +36433,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578275701173990280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0.08478689, z: 0.10967827}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 578275701173563306}
@@ -36404,7 +36448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578275701173990282}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 578275701173563304}
@@ -38105,6 +38149,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5827305700786358832}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &578275701197349639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578275701197349635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4ca8220027f2b4a833e58bdb2fbda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 7
+  Robot: {fileID: 1240187602}
 --- !u!4 &578275701197389603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6402092298861475091, guid: bc1768b4d7594374e8479208e16d7a1f,
@@ -44815,17 +44873,17 @@ PrefabInstance:
     - target: {fileID: 6402092298861475091, guid: bc1768b4d7594374e8479208e16d7a1f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6402092298861475091, guid: bc1768b4d7594374e8479208e16d7a1f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6402092298861475091, guid: bc1768b4d7594374e8479208e16d7a1f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6402092298861475091, guid: bc1768b4d7594374e8479208e16d7a1f,
         type: 3}
