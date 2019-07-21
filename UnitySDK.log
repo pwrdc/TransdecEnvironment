@@ -1,2 +1,172 @@
-08.07.2019 21:30:59
+7/20/2019 3:58:57 PM
  
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
+Log
+True
+UnityEngine.Debug:Log(Object)
+RandomPosition:GetNewPos() (at Assets/Scripts/RandomPosition.cs:106)
+RandomPosition:DrawPositions(Boolean, Boolean, Boolean) (at Assets/Scripts/RandomPosition.cs:149)
+RobotAgent:AgentAction(Single[], String) (at Assets/Scripts/RobotAgent.cs:255)
+MLAgents.Agent:AgentStep() (at Assets/ML-Agents/Scripts/Agent.cs:1009)
+MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:605)
+MLAgents.Academy:FixedUpdate() (at Assets/ML-Agents/Scripts/Academy.cs:627)
+
