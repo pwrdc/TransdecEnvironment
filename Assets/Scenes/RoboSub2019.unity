@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4527898}
   - component: {fileID: 4527900}
   - component: {fileID: 4527899}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 11821962}
   - component: {fileID: 11821964}
   - component: {fileID: 11821963}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,6 +278,18 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
       propertyPath: m_Name
       value: board
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
+      propertyPath: m_TagString
+      value: board
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 81dbc78717ccf8d438ac61603b6d2b03, type: 3}
       propertyPath: m_LocalPosition.x
@@ -358,7 +370,7 @@ GameObject:
   - component: {fileID: 19838686}
   - component: {fileID: 19838688}
   - component: {fileID: 19838687}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a36"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +454,7 @@ GameObject:
   - component: {fileID: 25903613}
   - component: {fileID: 25903612}
   - component: {fileID: 25903611}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +545,7 @@ GameObject:
   - component: {fileID: 27024459}
   - component: {fileID: 27024461}
   - component: {fileID: 27024460}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a18"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +622,7 @@ GameObject:
   - component: {fileID: 47947328}
   - component: {fileID: 47947330}
   - component: {fileID: 47947329}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a17"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +699,7 @@ GameObject:
   - component: {fileID: 74312570}
   - component: {fileID: 74312572}
   - component: {fileID: 74312571}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 501ea324e9aadbb4282dfa9ee44672fb, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 501ea324e9aadbb4282dfa9ee44672fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -919,7 +931,7 @@ GameObject:
   - component: {fileID: 112007451}
   - component: {fileID: 112007453}
   - component: {fileID: 112007452}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a29"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,7 +1008,7 @@ GameObject:
   - component: {fileID: 116348575}
   - component: {fileID: 116348577}
   - component: {fileID: 116348576}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Aswang (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,7 +1126,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -1156,7 +1168,7 @@ GameObject:
   - component: {fileID: 139427420}
   - component: {fileID: 139427422}
   - component: {fileID: 139427421}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a17"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1245,7 +1257,7 @@ GameObject:
   - component: {fileID: 188552253}
   - component: {fileID: 188552255}
   - component: {fileID: 188552254}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a53"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,7 +1334,7 @@ GameObject:
   - component: {fileID: 189012876}
   - component: {fileID: 189012878}
   - component: {fileID: 189012877}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a33"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1397,7 +1409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 193651878}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1450,7 +1462,7 @@ GameObject:
   - component: {fileID: 198573866}
   - component: {fileID: 198573868}
   - component: {fileID: 198573867}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1527,7 +1539,7 @@ GameObject:
   - component: {fileID: 201542492}
   - component: {fileID: 201542494}
   - component: {fileID: 201542493}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1604,7 +1616,7 @@ GameObject:
   - component: {fileID: 208607234}
   - component: {fileID: 208607236}
   - component: {fileID: 208607235}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a40"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1681,7 +1693,7 @@ GameObject:
   - component: {fileID: 216451280}
   - component: {fileID: 216451282}
   - component: {fileID: 216451281}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1758,7 +1770,7 @@ GameObject:
   - component: {fileID: 223148206}
   - component: {fileID: 223148208}
   - component: {fileID: 223148207}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a47"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1835,7 +1847,7 @@ GameObject:
   - component: {fileID: 227452880}
   - component: {fileID: 227452882}
   - component: {fileID: 227452881}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a35"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1918,6 +1930,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: bojka
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 055f3f70c66a7a54bb06752d1161b1a5, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 055f3f70c66a7a54bb06752d1161b1a5, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 055f3f70c66a7a54bb06752d1161b1a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1975,7 +1995,7 @@ GameObject:
   - component: {fileID: 241687041}
   - component: {fileID: 241687043}
   - component: {fileID: 241687042}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a85"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2052,7 +2072,7 @@ GameObject:
   - component: {fileID: 242815058}
   - component: {fileID: 242815060}
   - component: {fileID: 242815059}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a57"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,7 +2149,7 @@ GameObject:
   - component: {fileID: 242925167}
   - component: {fileID: 242925169}
   - component: {fileID: 242925168}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2206,6 +2226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bollard_01_c_06
       objectReference: {fileID: 0}
+    - target: {fileID: 1950113213348964, guid: 0c48e0c6ba0fb9448940355ac461bfb7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4593424150408274, guid: 0c48e0c6ba0fb9448940355ac461bfb7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.462701
@@ -2260,6 +2284,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1391677213655658, guid: 0c48e0c6ba0fb9448940355ac461bfb7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152981383745902, guid: 0c48e0c6ba0fb9448940355ac461bfb7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c48e0c6ba0fb9448940355ac461bfb7, type: 3}
 --- !u!1 &260046672
@@ -2273,7 +2305,7 @@ GameObject:
   - component: {fileID: 260046673}
   - component: {fileID: 260046675}
   - component: {fileID: 260046674}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Draugr (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2351,7 +2383,7 @@ GameObject:
   - component: {fileID: 294213038}
   - component: {fileID: 294213040}
   - component: {fileID: 294213039}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a67"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2426,7 +2458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 295026589}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_lever_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2457,7 +2489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 295946631}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_lever_rest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2501,7 +2533,7 @@ GameObject:
   - component: {fileID: 298628773}
   - component: {fileID: 298628775}
   - component: {fileID: 298628774}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a26"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2578,7 +2610,7 @@ GameObject:
   - component: {fileID: 303082227}
   - component: {fileID: 303082230}
   - component: {fileID: 303082229}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2655,7 +2687,7 @@ GameObject:
   - component: {fileID: 306915461}
   - component: {fileID: 306915463}
   - component: {fileID: 306915462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a21"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2732,7 +2764,7 @@ GameObject:
   - component: {fileID: 314629699}
   - component: {fileID: 314629701}
   - component: {fileID: 314629700}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2809,7 +2841,7 @@ GameObject:
   - component: {fileID: 320039953}
   - component: {fileID: 320039955}
   - component: {fileID: 320039954}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a47"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2886,7 +2918,7 @@ GameObject:
   - component: {fileID: 320279136}
   - component: {fileID: 320279138}
   - component: {fileID: 320279137}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a32"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2963,7 +2995,7 @@ GameObject:
   - component: {fileID: 325273685}
   - component: {fileID: 325273687}
   - component: {fileID: 325273686}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3085,7 +3117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: a1bbea9e7ffbb4047aee4b7eed35a36a, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a1bbea9e7ffbb4047aee4b7eed35a36a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3156,7 +3188,7 @@ GameObject:
   - component: {fileID: 340323338}
   - component: {fileID: 340323340}
   - component: {fileID: 340323339}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a16"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3233,7 +3265,7 @@ GameObject:
   - component: {fileID: 342645596}
   - component: {fileID: 342645598}
   - component: {fileID: 342645597}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3311,7 +3343,7 @@ GameObject:
   - component: {fileID: 355520901}
   - component: {fileID: 355520900}
   - component: {fileID: 355520899}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3402,7 +3434,7 @@ GameObject:
   - component: {fileID: 364367190}
   - component: {fileID: 364367192}
   - component: {fileID: 364367191}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a26"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3480,7 +3512,7 @@ GameObject:
   - component: {fileID: 390583365}
   - component: {fileID: 390583364}
   - component: {fileID: 390583363}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3572,7 +3604,7 @@ GameObject:
   - component: {fileID: 396288994}
   - component: {fileID: 396288993}
   - component: {fileID: 396288992}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3663,7 +3695,7 @@ GameObject:
   - component: {fileID: 402982724}
   - component: {fileID: 402982726}
   - component: {fileID: 402982725}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a27"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3740,7 +3772,7 @@ GameObject:
   - component: {fileID: 410301571}
   - component: {fileID: 410301573}
   - component: {fileID: 410301572}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3817,7 +3849,7 @@ GameObject:
   - component: {fileID: 422192549}
   - component: {fileID: 422192551}
   - component: {fileID: 422192550}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a16"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3892,9 +3924,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 426352745}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Expose_to_sunlight_trumna (1)
-  m_TagString: Untagged
+  m_TagString: Expose_to_sunlight_trumna
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3914,7 +3946,7 @@ Transform:
   - {fileID: 1041863186}
   - {fileID: 1007609391}
   m_Father: {fileID: 1064979084}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!1 &427712704
 GameObject:
@@ -3927,7 +3959,7 @@ GameObject:
   - component: {fileID: 427712705}
   - component: {fileID: 427712707}
   - component: {fileID: 427712706}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a38"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4004,7 +4036,7 @@ GameObject:
   - component: {fileID: 429162644}
   - component: {fileID: 429162646}
   - component: {fileID: 429162645}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a38"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4081,7 +4113,7 @@ GameObject:
   - component: {fileID: 437156273}
   - component: {fileID: 437156275}
   - component: {fileID: 437156274}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a28"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4159,7 +4191,7 @@ GameObject:
   - component: {fileID: 438241409}
   - component: {fileID: 438241408}
   - component: {fileID: 438241407}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4250,7 +4282,7 @@ GameObject:
   - component: {fileID: 438636820}
   - component: {fileID: 438636822}
   - component: {fileID: 438636821}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a44"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4327,7 +4359,7 @@ GameObject:
   - component: {fileID: 447721589}
   - component: {fileID: 447721591}
   - component: {fileID: 447721590}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a46"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4404,7 +4436,7 @@ GameObject:
   - component: {fileID: 458197538}
   - component: {fileID: 458197540}
   - component: {fileID: 458197539}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a66"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4481,7 +4513,7 @@ GameObject:
   - component: {fileID: 467283117}
   - component: {fileID: 467283120}
   - component: {fileID: 467283119}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4558,7 +4590,7 @@ GameObject:
   - component: {fileID: 473306672}
   - component: {fileID: 473306674}
   - component: {fileID: 473306673}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a26"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4635,6 +4667,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ogien
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b56505bef1e1d0044a092f80a0b0311c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b56505bef1e1d0044a092f80a0b0311c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b56505bef1e1d0044a092f80a0b0311c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4692,7 +4732,7 @@ GameObject:
   - component: {fileID: 493164791}
   - component: {fileID: 493164793}
   - component: {fileID: 493164792}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a22"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4767,7 +4807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 514886243}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vampire_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4830,7 +4870,7 @@ GameObject:
   - component: {fileID: 519717377}
   - component: {fileID: 519717376}
   - component: {fileID: 519717375}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4919,7 +4959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 520613247}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: NoiseFolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4968,7 +5008,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 523123584}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CoinDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5001,7 +5041,7 @@ GameObject:
   - component: {fileID: 523589639}
   - component: {fileID: 523589641}
   - component: {fileID: 523589640}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a41"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5078,7 +5118,7 @@ GameObject:
   - component: {fileID: 524131895}
   - component: {fileID: 524131897}
   - component: {fileID: 524131896}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5156,7 +5196,7 @@ GameObject:
   - component: {fileID: 528502057}
   - component: {fileID: 528502059}
   - component: {fileID: 528502058}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a19"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5233,7 +5273,7 @@ GameObject:
   - component: {fileID: 542413743}
   - component: {fileID: 542413745}
   - component: {fileID: 542413744}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5387,7 +5427,7 @@ GameObject:
   - component: {fileID: 545648000}
   - component: {fileID: 545648002}
   - component: {fileID: 545648001}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a52"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5464,7 +5504,7 @@ GameObject:
   - component: {fileID: 555659676}
   - component: {fileID: 555659678}
   - component: {fileID: 555659677}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5541,7 +5581,7 @@ GameObject:
   - component: {fileID: 556851939}
   - component: {fileID: 556851941}
   - component: {fileID: 556851940}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a88"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5618,7 +5658,7 @@ GameObject:
   - component: {fileID: 586053850}
   - component: {fileID: 586053852}
   - component: {fileID: 586053851}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5695,7 +5735,7 @@ GameObject:
   - component: {fileID: 586477015}
   - component: {fileID: 586477017}
   - component: {fileID: 586477016}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5774,7 +5814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d67c1ad170729124dab7d483cfbb6b52, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d67c1ad170729124dab7d483cfbb6b52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5845,7 +5885,7 @@ GameObject:
   - component: {fileID: 597828481}
   - component: {fileID: 597828483}
   - component: {fileID: 597828482}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5922,7 +5962,7 @@ GameObject:
   - component: {fileID: 598146537}
   - component: {fileID: 598146539}
   - component: {fileID: 598146538}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5999,7 +6039,7 @@ GameObject:
   - component: {fileID: 601383647}
   - component: {fileID: 601383649}
   - component: {fileID: 601383648}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a49"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6077,7 +6117,7 @@ GameObject:
   - component: {fileID: 601525451}
   - component: {fileID: 601525450}
   - component: {fileID: 601525449}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6168,7 +6208,7 @@ GameObject:
   - component: {fileID: 614104123}
   - component: {fileID: 614104125}
   - component: {fileID: 614104124}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a28"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6251,7 +6291,7 @@ GameObject:
   - component: {fileID: 617256196}
   - component: {fileID: 617256198}
   - component: {fileID: 617256197}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6328,7 +6368,7 @@ GameObject:
   - component: {fileID: 620066222}
   - component: {fileID: 620066224}
   - component: {fileID: 620066223}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a30"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6405,7 +6445,7 @@ GameObject:
   - component: {fileID: 625110940}
   - component: {fileID: 625110942}
   - component: {fileID: 625110941}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a30"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6482,7 +6522,7 @@ GameObject:
   - component: {fileID: 630024100}
   - component: {fileID: 630024102}
   - component: {fileID: 630024101}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6559,6 +6599,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: rura_podwodna
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 1d56303e5841d854e94df0dce2e8e8c7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1d56303e5841d854e94df0dce2e8e8c7, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1d56303e5841d854e94df0dce2e8e8c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6616,7 +6664,7 @@ GameObject:
   - component: {fileID: 640957523}
   - component: {fileID: 640957525}
   - component: {fileID: 640957524}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a54"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6693,7 +6741,7 @@ GameObject:
   - component: {fileID: 641348550}
   - component: {fileID: 641348552}
   - component: {fileID: 641348551}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6770,7 +6818,7 @@ GameObject:
   - component: {fileID: 641850910}
   - component: {fileID: 641850912}
   - component: {fileID: 641850911}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a25"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6847,7 +6895,7 @@ GameObject:
   - component: {fileID: 641907723}
   - component: {fileID: 641907725}
   - component: {fileID: 641907724}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6925,7 +6973,7 @@ GameObject:
   - component: {fileID: 652082788}
   - component: {fileID: 652082787}
   - component: {fileID: 652082786}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7016,7 +7064,7 @@ GameObject:
   - component: {fileID: 653653885}
   - component: {fileID: 653653887}
   - component: {fileID: 653653886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a84"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7093,7 +7141,7 @@ GameObject:
   - component: {fileID: 674263345}
   - component: {fileID: 674263347}
   - component: {fileID: 674263346}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a37"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7170,7 +7218,7 @@ GameObject:
   - component: {fileID: 684296207}
   - component: {fileID: 684296209}
   - component: {fileID: 684296208}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a37"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7247,7 +7295,7 @@ GameObject:
   - component: {fileID: 686797583}
   - component: {fileID: 686797585}
   - component: {fileID: 686797584}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7324,7 +7372,7 @@ GameObject:
   - component: {fileID: 691555309}
   - component: {fileID: 691555311}
   - component: {fileID: 691555310}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a27"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7399,7 +7447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 693930445}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Aswang+Draugr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7434,7 +7482,7 @@ GameObject:
   - component: {fileID: 694906863}
   - component: {fileID: 694906862}
   - component: {fileID: 694906861}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7529,7 +7577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 703456302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cubes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7566,7 +7614,7 @@ GameObject:
   - component: {fileID: 708156394}
   - component: {fileID: 708156396}
   - component: {fileID: 708156395}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a58"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7641,7 +7689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708668908}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_lever_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7680,7 +7728,7 @@ GameObject:
   - component: {fileID: 711576054}
   - component: {fileID: 711576056}
   - component: {fileID: 711576055}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7757,7 +7805,7 @@ GameObject:
   - component: {fileID: 715499961}
   - component: {fileID: 715499963}
   - component: {fileID: 715499962}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7835,7 +7883,7 @@ GameObject:
   - component: {fileID: 720100786}
   - component: {fileID: 720100785}
   - component: {fileID: 720100784}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7974,7 +8022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 730712318}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Aswang+Vetalas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8008,7 +8056,7 @@ GameObject:
   - component: {fileID: 733436369}
   - component: {fileID: 733436371}
   - component: {fileID: 733436370}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8085,7 +8133,7 @@ GameObject:
   - component: {fileID: 734410591}
   - component: {fileID: 734410593}
   - component: {fileID: 734410592}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8162,7 +8210,7 @@ GameObject:
   - component: {fileID: 744415729}
   - component: {fileID: 744415731}
   - component: {fileID: 744415730}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Aswang (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8240,7 +8288,7 @@ GameObject:
   - component: {fileID: 746531801}
   - component: {fileID: 746531803}
   - component: {fileID: 746531802}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a91"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8317,7 +8365,7 @@ GameObject:
   - component: {fileID: 756555754}
   - component: {fileID: 756555756}
   - component: {fileID: 756555755}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a27"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8394,7 +8442,7 @@ GameObject:
   - component: {fileID: 775046108}
   - component: {fileID: 775046110}
   - component: {fileID: 775046109}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8469,7 +8517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 780111503}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_box_with_wolf (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8507,7 +8555,7 @@ GameObject:
   - component: {fileID: 780137123}
   - component: {fileID: 780137125}
   - component: {fileID: 780137124}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8584,7 +8632,7 @@ GameObject:
   - component: {fileID: 786008031}
   - component: {fileID: 786008033}
   - component: {fileID: 786008032}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8661,7 +8709,7 @@ GameObject:
   - component: {fileID: 795852676}
   - component: {fileID: 795852678}
   - component: {fileID: 795852677}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8739,7 +8787,7 @@ GameObject:
   - component: {fileID: 798048131}
   - component: {fileID: 798048130}
   - component: {fileID: 798048129}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8830,7 +8878,7 @@ GameObject:
   - component: {fileID: 809886590}
   - component: {fileID: 809886592}
   - component: {fileID: 809886591}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a56"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8905,7 +8953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 820504672}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_other
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9028,7 +9076,7 @@ GameObject:
   - component: {fileID: 829100369}
   - component: {fileID: 829100371}
   - component: {fileID: 829100370}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9106,7 +9154,7 @@ GameObject:
   - component: {fileID: 832631895}
   - component: {fileID: 832631894}
   - component: {fileID: 832631893}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9197,7 +9245,7 @@ GameObject:
   - component: {fileID: 836393080}
   - component: {fileID: 836393082}
   - component: {fileID: 836393081}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a83"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9274,7 +9322,7 @@ GameObject:
   - component: {fileID: 843730907}
   - component: {fileID: 843730909}
   - component: {fileID: 843730908}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a34"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9416,8 +9464,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844889249}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.275, y: 12.28, z: -28.338}
+  m_LocalRotation: {x: 0.04302519, y: 0.9500256, z: 0.269404, w: -0.15172915}
+  m_LocalPosition: {x: -3.8317814, y: 9.9183855, z: -27.011671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9434,7 +9482,7 @@ GameObject:
   - component: {fileID: 849364488}
   - component: {fileID: 849364490}
   - component: {fileID: 849364489}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a31"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9511,7 +9559,7 @@ GameObject:
   - component: {fileID: 859003024}
   - component: {fileID: 859003026}
   - component: {fileID: 859003025}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a29"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9588,7 +9636,7 @@ GameObject:
   - component: {fileID: 862748049}
   - component: {fileID: 862748051}
   - component: {fileID: 862748050}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a30"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9665,7 +9713,7 @@ GameObject:
   - component: {fileID: 874843488}
   - component: {fileID: 874843490}
   - component: {fileID: 874843489}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9744,7 +9792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 41460cdb52d51dd48b14f74d60039971, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41460cdb52d51dd48b14f74d60039971, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9816,7 +9864,7 @@ GameObject:
   - component: {fileID: 888676083}
   - component: {fileID: 888676082}
   - component: {fileID: 888676081}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9952,7 +10000,7 @@ GameObject:
   - component: {fileID: 901411685}
   - component: {fileID: 901411687}
   - component: {fileID: 901411686}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a19"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10029,7 +10077,7 @@ GameObject:
   - component: {fileID: 903031933}
   - component: {fileID: 903031935}
   - component: {fileID: 903031934}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a86"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10106,7 +10154,7 @@ GameObject:
   - component: {fileID: 903322969}
   - component: {fileID: 903322971}
   - component: {fileID: 903322970}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10181,9 +10229,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 910504963}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_frame_bat
-  m_TagString: Untagged
+  m_TagString: Garlic_drop_frame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10205,7 +10253,7 @@ Transform:
   - {fileID: 820504672}
   - {fileID: 780111503}
   m_Father: {fileID: 1064979084}
-  m_RootOrder: 13
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!1 &912319939
 GameObject:
@@ -10219,7 +10267,7 @@ GameObject:
   - component: {fileID: 912319943}
   - component: {fileID: 912319942}
   - component: {fileID: 912319941}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10310,7 +10358,7 @@ GameObject:
   - component: {fileID: 927852813}
   - component: {fileID: 927852815}
   - component: {fileID: 927852814}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a76"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10427,7 +10475,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -10476,7 +10524,7 @@ GameObject:
   - component: {fileID: 958896715}
   - component: {fileID: 958896714}
   - component: {fileID: 958896713}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10567,7 +10615,7 @@ GameObject:
   - component: {fileID: 966903051}
   - component: {fileID: 966903053}
   - component: {fileID: 966903052}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10645,7 +10693,7 @@ GameObject:
   - component: {fileID: 974158233}
   - component: {fileID: 974158232}
   - component: {fileID: 974158231}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10737,7 +10785,7 @@ GameObject:
   - component: {fileID: 987906175}
   - component: {fileID: 987906174}
   - component: {fileID: 987906173}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: green_oval
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10826,7 +10874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 993753505}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: trumna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10864,7 +10912,7 @@ GameObject:
   - component: {fileID: 998778057}
   - component: {fileID: 998778056}
   - component: {fileID: 998778055}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10956,7 +11004,7 @@ GameObject:
   - component: {fileID: 1007333293}
   - component: {fileID: 1007333292}
   - component: {fileID: 1007333291}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11095,11 +11143,11 @@ MonoBehaviour:
     - key: AgentMaxSteps
       value: 0
     - key: FocusedCamera
-      value: 0
+      value: 1
     - key: WaterCurrent
       value: 0
     - key: FocusedObject
-      value: 26
+      value: 16
     - key: EnableBackgroundImage
       value: 0
     - key: SetFocusedObjectInCenter
@@ -11172,7 +11220,7 @@ MonoBehaviour:
     - {fileID: 987906171}
     - {fileID: 578275701092842326}
     - {fileID: 438241406}
-    targetIsEnabled: 000000000000000000000000000000000000000000000000000001
+    targetIsEnabled: 000000000000000000000000000000000100000000000000000000
   forceDataCollection: 0
   forceNoise: 0
   forceNegativeExamples: 0
@@ -11199,7 +11247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1007609391}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vampire_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11262,7 +11310,7 @@ GameObject:
   - component: {fileID: 1007900122}
   - component: {fileID: 1007900121}
   - component: {fileID: 1007900120}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11354,7 +11402,7 @@ GameObject:
   - component: {fileID: 1008168291}
   - component: {fileID: 1008168290}
   - component: {fileID: 1008168289}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11451,7 +11499,7 @@ GameObject:
   - component: {fileID: 1010892140}
   - component: {fileID: 1010892142}
   - component: {fileID: 1010892141}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a89"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11528,7 +11576,7 @@ GameObject:
   - component: {fileID: 1017112797}
   - component: {fileID: 1017112799}
   - component: {fileID: 1017112798}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11605,7 +11653,7 @@ GameObject:
   - component: {fileID: 1021510665}
   - component: {fileID: 1021510667}
   - component: {fileID: 1021510666}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a36"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11682,7 +11730,7 @@ GameObject:
   - component: {fileID: 1022459039}
   - component: {fileID: 1022459041}
   - component: {fileID: 1022459040}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a74"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11757,7 +11805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1041863186}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Expose_to_sunlight_stojak_na_trumne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11836,7 +11884,7 @@ GameObject:
   - component: {fileID: 1041865242}
   - component: {fileID: 1041865244}
   - component: {fileID: 1041865243}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11913,7 +11961,7 @@ GameObject:
   - component: {fileID: 1043547787}
   - component: {fileID: 1043547789}
   - component: {fileID: 1043547788}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11991,6 +12039,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: garbage_bin_d_05
       objectReference: {fileID: 0}
+    - target: {fileID: 1276372651608378, guid: db11d0ca6905dea44bdcad728b192c13, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4035319321565590, guid: db11d0ca6905dea44bdcad728b192c13, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.462701
@@ -12050,6 +12102,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1893724258810580, guid: db11d0ca6905dea44bdcad728b192c13, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117229798897728, guid: db11d0ca6905dea44bdcad728b192c13, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536196397270352, guid: db11d0ca6905dea44bdcad728b192c13, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db11d0ca6905dea44bdcad728b192c13, type: 3}
 --- !u!1 &1052680851
@@ -12063,7 +12127,7 @@ GameObject:
   - component: {fileID: 1052680852}
   - component: {fileID: 1052680854}
   - component: {fileID: 1052680853}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12140,7 +12204,7 @@ GameObject:
   - component: {fileID: 1055623391}
   - component: {fileID: 1055623393}
   - component: {fileID: 1055623392}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12217,7 +12281,7 @@ GameObject:
   - component: {fileID: 1062229699}
   - component: {fileID: 1062229701}
   - component: {fileID: 1062229700}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a23"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12334,12 +12398,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1240187602}
-  target: {fileID: 578275701501583644}
-  toAnnotate: {fileID: 438241406}
+  target: {fileID: 578275701775983420}
+  toAnnotate: {fileID: 578275701775983420}
   noiseFolder: {fileID: 520613246}
   numberOfNoiseToGenerate: 12
   setFocusedObjectInCenter: 0
   setObjectAlwaysVisible: 1
+  addCompetitionObjectsAsNoise: 1
   options:
   - mode: 0
     minPhi: -180
@@ -12800,7 +12865,7 @@ MonoBehaviour:
     othXAngRange: 90
     othYAngRange: 90
     othZAngRange: 90
-  enabledOption: 26
+  enabledOption: 16
   targetBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -12816,17 +12881,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05ff72398206ba4f8f349a4ca7215d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 438241406}
+  target: {fileID: 578275701775983420}
   numberofpictures: 0
   margin: 10
   drawBox: 1
   background: {fileID: 2800000, guid: afbd73b92efd241479a988401368c873, type: 3}
-  cam: {fileID: 133001996}
+  cam: {fileID: 940846085}
   frontCameraBackground: {fileID: 1119323032}
   bottomCameraBackground: {fileID: 544230172}
   activate: 0
   activateBackground: 0
-  activatedMode: 0
+  activatedMode: 1
 --- !u!114 &1064979082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12886,14 +12951,14 @@ Transform:
   - {fileID: 6482515160584250557}
   - {fileID: 578275701197389603}
   - {fileID: 578275700638754677}
-  - {fileID: 578275701175635888}
-  - {fileID: 578275700769460621}
   - {fileID: 578275700759558152}
+  - {fileID: 578275701175635888}
   - {fileID: 578275701169388154}
+  - {fileID: 578275700769460621}
+  - {fileID: 910504963}
   - {fileID: 578275701501361468}
   - {fileID: 578275701038843058}
   - {fileID: 426352745}
-  - {fileID: 910504963}
   - {fileID: 14219133}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -12909,7 +12974,7 @@ GameObject:
   - component: {fileID: 1074100120}
   - component: {fileID: 1074100119}
   - component: {fileID: 1074100118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12986,7 +13051,7 @@ GameObject:
   - component: {fileID: 1076314583}
   - component: {fileID: 1076314585}
   - component: {fileID: 1076314584}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13063,7 +13128,7 @@ GameObject:
   - component: {fileID: 1076322465}
   - component: {fileID: 1076322467}
   - component: {fileID: 1076322466}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a42"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13140,7 +13205,7 @@ GameObject:
   - component: {fileID: 1077918654}
   - component: {fileID: 1077918656}
   - component: {fileID: 1077918655}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a48"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13217,7 +13282,7 @@ GameObject:
   - component: {fileID: 1079171281}
   - component: {fileID: 1079171283}
   - component: {fileID: 1079171282}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a49"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13294,7 +13359,7 @@ GameObject:
   - component: {fileID: 1091225662}
   - component: {fileID: 1091225664}
   - component: {fileID: 1091225663}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a55"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13371,7 +13436,7 @@ GameObject:
   - component: {fileID: 1097613545}
   - component: {fileID: 1097613547}
   - component: {fileID: 1097613546}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a32"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13448,7 +13513,7 @@ GameObject:
   - component: {fileID: 1100760673}
   - component: {fileID: 1100760675}
   - component: {fileID: 1100760674}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a62"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13525,7 +13590,7 @@ GameObject:
   - component: {fileID: 1103028626}
   - component: {fileID: 1103028628}
   - component: {fileID: 1103028627}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Draugr (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13680,7 +13745,7 @@ GameObject:
   - component: {fileID: 1121523580}
   - component: {fileID: 1121523582}
   - component: {fileID: 1121523581}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a29"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13757,7 +13822,7 @@ GameObject:
   - component: {fileID: 1133066947}
   - component: {fileID: 1133066949}
   - component: {fileID: 1133066948}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13834,7 +13899,7 @@ GameObject:
   - component: {fileID: 1133133014}
   - component: {fileID: 1133133016}
   - component: {fileID: 1133133015}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a25"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13990,7 +14055,7 @@ GameObject:
   - component: {fileID: 1138324118}
   - component: {fileID: 1138324120}
   - component: {fileID: 1138324119}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14068,7 +14133,7 @@ GameObject:
   - component: {fileID: 1145498282}
   - component: {fileID: 1145498281}
   - component: {fileID: 1145498280}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14165,7 +14230,7 @@ GameObject:
   - component: {fileID: 1156269312}
   - component: {fileID: 1156269314}
   - component: {fileID: 1156269313}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a29"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14242,7 +14307,7 @@ GameObject:
   - component: {fileID: 1159223770}
   - component: {fileID: 1159223772}
   - component: {fileID: 1159223771}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14319,7 +14384,7 @@ GameObject:
   - component: {fileID: 1171696831}
   - component: {fileID: 1171696833}
   - component: {fileID: 1171696832}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a16"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14396,7 +14461,7 @@ GameObject:
   - component: {fileID: 1172320079}
   - component: {fileID: 1172320081}
   - component: {fileID: 1172320080}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a22"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14473,7 +14538,7 @@ GameObject:
   - component: {fileID: 1175286659}
   - component: {fileID: 1175286661}
   - component: {fileID: 1175286660}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14551,7 +14616,7 @@ GameObject:
   - component: {fileID: 1177115952}
   - component: {fileID: 1177115951}
   - component: {fileID: 1177115950}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14642,7 +14707,7 @@ GameObject:
   - component: {fileID: 1181543018}
   - component: {fileID: 1181543020}
   - component: {fileID: 1181543019}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a78"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14719,7 +14784,7 @@ GameObject:
   - component: {fileID: 1187904894}
   - component: {fileID: 1187904896}
   - component: {fileID: 1187904895}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a80"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14796,7 +14861,7 @@ GameObject:
   - component: {fileID: 1189704931}
   - component: {fileID: 1189704933}
   - component: {fileID: 1189704932}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a27"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14873,7 +14938,7 @@ GameObject:
   - component: {fileID: 1190739680}
   - component: {fileID: 1190739682}
   - component: {fileID: 1190739681}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14950,7 +15015,7 @@ GameObject:
   - component: {fileID: 1192031499}
   - component: {fileID: 1192031501}
   - component: {fileID: 1192031500}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15027,7 +15092,7 @@ GameObject:
   - component: {fileID: 1211185046}
   - component: {fileID: 1211185048}
   - component: {fileID: 1211185047}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a35"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15104,7 +15169,7 @@ GameObject:
   - component: {fileID: 1218665417}
   - component: {fileID: 1218665419}
   - component: {fileID: 1218665418}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a68"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15187,7 +15252,7 @@ GameObject:
   - component: {fileID: 1220481761}
   - component: {fileID: 1220481763}
   - component: {fileID: 1220481762}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15266,7 +15331,7 @@ GameObject:
   - component: {fileID: 1229315085}
   - component: {fileID: 1229315087}
   - component: {fileID: 1229315086}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a55"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15343,7 +15408,7 @@ GameObject:
   - component: {fileID: 1229966767}
   - component: {fileID: 1229966769}
   - component: {fileID: 1229966768}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a19"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15420,7 +15485,7 @@ GameObject:
   - component: {fileID: 1230516966}
   - component: {fileID: 1230516969}
   - component: {fileID: 1230516968}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15497,7 +15562,7 @@ GameObject:
   - component: {fileID: 1236141793}
   - component: {fileID: 1236141795}
   - component: {fileID: 1236141794}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a64"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15616,16 +15681,16 @@ MonoBehaviour:
   brain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   agentParameters:
     agentCameras:
-    - {fileID: 133001996}
+    - {fileID: 940846085}
     - {fileID: 940846085}
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  target: {fileID: 578275701501583644}
-  targetAnnotation: {fileID: 438241406}
-  targetIndex: 26
-  targetMode: 0
+  target: {fileID: 578275701775983420}
+  targetAnnotation: {fileID: 578275701775983420}
+  targetIndex: 16
+  targetMode: 1
   targetOffset: {x: 0, y: 0, z: 0}
   light: {fileID: 1582610935}
   waterOpacity: {fileID: 1240187605}
@@ -15763,7 +15828,7 @@ GameObject:
   - component: {fileID: 1261831909}
   - component: {fileID: 1261831911}
   - component: {fileID: 1261831910}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15840,6 +15905,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: zawor_bramowy
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: e7338d7e0edb5c24da33a377eff2c7df, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e7338d7e0edb5c24da33a377eff2c7df, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e7338d7e0edb5c24da33a377eff2c7df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15897,7 +15970,7 @@ GameObject:
   - component: {fileID: 1275868565}
   - component: {fileID: 1275868567}
   - component: {fileID: 1275868566}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a17"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15974,7 +16047,7 @@ GameObject:
   - component: {fileID: 1278658626}
   - component: {fileID: 1278658628}
   - component: {fileID: 1278658627}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a73"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16051,7 +16124,7 @@ GameObject:
   - component: {fileID: 1300928290}
   - component: {fileID: 1300928292}
   - component: {fileID: 1300928291}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a48"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16129,7 +16202,7 @@ GameObject:
   - component: {fileID: 1304611193}
   - component: {fileID: 1304611192}
   - component: {fileID: 1304611191}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Empty_oval
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16220,7 +16293,7 @@ GameObject:
   - component: {fileID: 1305935343}
   - component: {fileID: 1305935345}
   - component: {fileID: 1305935344}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a90"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16297,7 +16370,7 @@ GameObject:
   - component: {fileID: 1313093569}
   - component: {fileID: 1313093571}
   - component: {fileID: 1313093570}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a50"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16374,7 +16447,7 @@ GameObject:
   - component: {fileID: 1315719216}
   - component: {fileID: 1315719218}
   - component: {fileID: 1315719217}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a28"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16457,7 +16530,7 @@ GameObject:
   - component: {fileID: 1347335051}
   - component: {fileID: 1347335053}
   - component: {fileID: 1347335052}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16534,7 +16607,7 @@ GameObject:
   - component: {fileID: 1355180507}
   - component: {fileID: 1355180509}
   - component: {fileID: 1355180508}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16676,8 +16749,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360851985}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.275, y: 12.28, z: -28.338}
+  m_LocalRotation: {x: 0.04302519, y: 0.9500256, z: 0.269404, w: -0.15172915}
+  m_LocalPosition: {x: -3.8317814, y: 9.9183855, z: -27.011671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16694,7 +16767,7 @@ GameObject:
   - component: {fileID: 1376437964}
   - component: {fileID: 1376437966}
   - component: {fileID: 1376437965}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a46"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16771,7 +16844,7 @@ GameObject:
   - component: {fileID: 1376737294}
   - component: {fileID: 1376737296}
   - component: {fileID: 1376737295}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a87"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16848,7 +16921,7 @@ GameObject:
   - component: {fileID: 1380968878}
   - component: {fileID: 1380968880}
   - component: {fileID: 1380968879}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16926,7 +16999,7 @@ GameObject:
   - component: {fileID: 1382165064}
   - component: {fileID: 1382165063}
   - component: {fileID: 1382165062}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17017,7 +17090,7 @@ GameObject:
   - component: {fileID: 1386696805}
   - component: {fileID: 1386696807}
   - component: {fileID: 1386696806}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a70"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17094,7 +17167,7 @@ GameObject:
   - component: {fileID: 1393461282}
   - component: {fileID: 1393461284}
   - component: {fileID: 1393461283}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a33"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17171,7 +17244,7 @@ GameObject:
   - component: {fileID: 1398256703}
   - component: {fileID: 1398256705}
   - component: {fileID: 1398256704}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17248,7 +17321,7 @@ GameObject:
   - component: {fileID: 1400810112}
   - component: {fileID: 1400810114}
   - component: {fileID: 1400810113}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17325,7 +17398,7 @@ GameObject:
   - component: {fileID: 1408066615}
   - component: {fileID: 1408066617}
   - component: {fileID: 1408066616}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17404,7 +17477,7 @@ GameObject:
   - component: {fileID: 1410629890}
   - component: {fileID: 1410629889}
   - component: {fileID: 1410629888}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Robot_2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -17510,7 +17583,7 @@ GameObject:
   - component: {fileID: 1411470038}
   - component: {fileID: 1411470040}
   - component: {fileID: 1411470039}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a40"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17589,7 +17662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 092d0e5cc3d7a85418906a938f2c3b65, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 092d0e5cc3d7a85418906a938f2c3b65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17660,7 +17733,7 @@ GameObject:
   - component: {fileID: 1424594797}
   - component: {fileID: 1424594799}
   - component: {fileID: 1424594798}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a51"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17737,7 +17810,7 @@ GameObject:
   - component: {fileID: 1431224299}
   - component: {fileID: 1431224301}
   - component: {fileID: 1431224300}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a54"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17814,7 +17887,7 @@ GameObject:
   - component: {fileID: 1446291280}
   - component: {fileID: 1446291282}
   - component: {fileID: 1446291281}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17891,7 +17964,7 @@ GameObject:
   - component: {fileID: 1453732955}
   - component: {fileID: 1453732957}
   - component: {fileID: 1453732956}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a42"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17968,7 +18041,7 @@ GameObject:
   - component: {fileID: 1456074179}
   - component: {fileID: 1456074181}
   - component: {fileID: 1456074180}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18051,7 +18124,7 @@ GameObject:
   - component: {fileID: 1467417291}
   - component: {fileID: 1467417293}
   - component: {fileID: 1467417292}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a22"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18126,7 +18199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472684432}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dices
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18163,7 +18236,7 @@ GameObject:
   - component: {fileID: 1477762524}
   - component: {fileID: 1477762523}
   - component: {fileID: 1477762522}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18254,7 +18327,7 @@ GameObject:
   - component: {fileID: 1480882256}
   - component: {fileID: 1480882258}
   - component: {fileID: 1480882257}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a50"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18331,7 +18404,7 @@ GameObject:
   - component: {fileID: 1492610849}
   - component: {fileID: 1492610851}
   - component: {fileID: 1492610850}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a39"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18408,7 +18481,7 @@ GameObject:
   - component: {fileID: 1493964846}
   - component: {fileID: 1493964848}
   - component: {fileID: 1493964847}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18598,7 +18671,7 @@ GameObject:
   - component: {fileID: 1510285667}
   - component: {fileID: 1510285669}
   - component: {fileID: 1510285668}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18675,7 +18748,7 @@ GameObject:
   - component: {fileID: 1517636695}
   - component: {fileID: 1517636697}
   - component: {fileID: 1517636696}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18752,7 +18825,7 @@ GameObject:
   - component: {fileID: 1519485033}
   - component: {fileID: 1519485035}
   - component: {fileID: 1519485034}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a60"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18829,7 +18902,7 @@ GameObject:
   - component: {fileID: 1519568858}
   - component: {fileID: 1519568860}
   - component: {fileID: 1519568859}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a45"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18918,7 +18991,7 @@ GameObject:
   - component: {fileID: 1548448428}
   - component: {fileID: 1548448430}
   - component: {fileID: 1548448429}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18995,7 +19068,7 @@ GameObject:
   - component: {fileID: 1552589119}
   - component: {fileID: 1552589121}
   - component: {fileID: 1552589120}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a34"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19072,7 +19145,7 @@ GameObject:
   - component: {fileID: 1560931027}
   - component: {fileID: 1560931029}
   - component: {fileID: 1560931028}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a69"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19149,7 +19222,7 @@ GameObject:
   - component: {fileID: 1563621144}
   - component: {fileID: 1563621146}
   - component: {fileID: 1563621145}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vetalas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19225,7 +19298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1565410019}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_box_with_wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19263,7 +19336,7 @@ GameObject:
   - component: {fileID: 1579252060}
   - component: {fileID: 1579252062}
   - component: {fileID: 1579252061}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a25"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19731,7 +19804,7 @@ GameObject:
   - component: {fileID: 1587360264}
   - component: {fileID: 1587360266}
   - component: {fileID: 1587360265}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a23"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19808,7 +19881,7 @@ GameObject:
   - component: {fileID: 1591426191}
   - component: {fileID: 1591426193}
   - component: {fileID: 1591426192}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19885,7 +19958,7 @@ GameObject:
   - component: {fileID: 1594350688}
   - component: {fileID: 1594350690}
   - component: {fileID: 1594350689}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19963,7 +20036,7 @@ GameObject:
   - component: {fileID: 1602843756}
   - component: {fileID: 1602843755}
   - component: {fileID: 1602843754}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20054,7 +20127,7 @@ GameObject:
   - component: {fileID: 1624754377}
   - component: {fileID: 1624754379}
   - component: {fileID: 1624754378}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a65"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20131,7 +20204,7 @@ GameObject:
   - component: {fileID: 1632855833}
   - component: {fileID: 1632855835}
   - component: {fileID: 1632855834}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a39"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20208,6 +20281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bollard_d_05
       objectReference: {fileID: 0}
+    - target: {fileID: 1624013339271762, guid: 7d8c6ee8ed5c4ca46a4ed602b49a7c07, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4224534603785030, guid: 7d8c6ee8ed5c4ca46a4ed602b49a7c07, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.462701
@@ -20262,6 +20339,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1977528181334324, guid: 7d8c6ee8ed5c4ca46a4ed602b49a7c07, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348410572853926, guid: 7d8c6ee8ed5c4ca46a4ed602b49a7c07, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d8c6ee8ed5c4ca46a4ed602b49a7c07, type: 3}
 --- !u!1 &1655010420
@@ -20275,7 +20360,7 @@ GameObject:
   - component: {fileID: 1655010421}
   - component: {fileID: 1655010423}
   - component: {fileID: 1655010422}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a21"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20352,7 +20437,7 @@ GameObject:
   - component: {fileID: 1686564530}
   - component: {fileID: 1686564532}
   - component: {fileID: 1686564531}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20429,7 +20514,7 @@ GameObject:
   - component: {fileID: 1690320148}
   - component: {fileID: 1690320150}
   - component: {fileID: 1690320149}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a21"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20506,7 +20591,7 @@ GameObject:
   - component: {fileID: 1712646037}
   - component: {fileID: 1712646039}
   - component: {fileID: 1712646038}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20583,7 +20668,7 @@ GameObject:
   - component: {fileID: 1712942342}
   - component: {fileID: 1712942344}
   - component: {fileID: 1712942343}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a24"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20660,7 +20745,7 @@ GameObject:
   - component: {fileID: 1715177193}
   - component: {fileID: 1715177195}
   - component: {fileID: 1715177194}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20737,7 +20822,7 @@ GameObject:
   - component: {fileID: 1722131429}
   - component: {fileID: 1722131431}
   - component: {fileID: 1722131430}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20820,7 +20905,7 @@ GameObject:
   - component: {fileID: 1727104427}
   - component: {fileID: 1727104429}
   - component: {fileID: 1727104428}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a28"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20897,7 +20982,7 @@ GameObject:
   - component: {fileID: 1728818244}
   - component: {fileID: 1728818246}
   - component: {fileID: 1728818245}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a61"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20974,7 +21059,7 @@ GameObject:
   - component: {fileID: 1732006998}
   - component: {fileID: 1732007000}
   - component: {fileID: 1732006999}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a19"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21051,7 +21136,7 @@ GameObject:
   - component: {fileID: 1734771249}
   - component: {fileID: 1734771251}
   - component: {fileID: 1734771250}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a77"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21128,7 +21213,7 @@ GameObject:
   - component: {fileID: 1736394489}
   - component: {fileID: 1736394491}
   - component: {fileID: 1736394490}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a25"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21205,7 +21290,7 @@ GameObject:
   - component: {fileID: 1744283414}
   - component: {fileID: 1744283416}
   - component: {fileID: 1744283415}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a24"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21282,7 +21367,7 @@ GameObject:
   - component: {fileID: 1749916647}
   - component: {fileID: 1749916649}
   - component: {fileID: 1749916648}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a43"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21359,7 +21444,7 @@ GameObject:
   - component: {fileID: 1756432423}
   - component: {fileID: 1756432425}
   - component: {fileID: 1756432424}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a23"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21434,7 +21519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1763543761}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21469,7 +21554,7 @@ GameObject:
   - component: {fileID: 1765186010}
   - component: {fileID: 1765186012}
   - component: {fileID: 1765186011}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a18"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21546,7 +21631,7 @@ GameObject:
   - component: {fileID: 1774328998}
   - component: {fileID: 1774329000}
   - component: {fileID: 1774328999}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a75"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21624,7 +21709,7 @@ GameObject:
   - component: {fileID: 1780212878}
   - component: {fileID: 1780212877}
   - component: {fileID: 1780212876}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21715,7 +21800,7 @@ GameObject:
   - component: {fileID: 1781256261}
   - component: {fileID: 1781256263}
   - component: {fileID: 1781256262}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a51"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21792,7 +21877,7 @@ GameObject:
   - component: {fileID: 1787148192}
   - component: {fileID: 1787148194}
   - component: {fileID: 1787148193}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a63"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21869,7 +21954,7 @@ GameObject:
   - component: {fileID: 1789181924}
   - component: {fileID: 1789181926}
   - component: {fileID: 1789181925}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a26"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21946,7 +22031,7 @@ GameObject:
   - component: {fileID: 1791865798}
   - component: {fileID: 1791865800}
   - component: {fileID: 1791865799}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a18"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22024,7 +22109,7 @@ GameObject:
   - component: {fileID: 1792228929}
   - component: {fileID: 1792228928}
   - component: {fileID: 1792228927}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22115,7 +22200,7 @@ GameObject:
   - component: {fileID: 1798390780}
   - component: {fileID: 1798390782}
   - component: {fileID: 1798390781}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22190,7 +22275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1805485119}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vetalas+Draugr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22224,7 +22309,7 @@ GameObject:
   - component: {fileID: 1811747439}
   - component: {fileID: 1811747441}
   - component: {fileID: 1811747440}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22301,7 +22386,7 @@ GameObject:
   - component: {fileID: 1816809718}
   - component: {fileID: 1816809720}
   - component: {fileID: 1816809719}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22378,7 +22463,7 @@ GameObject:
   - component: {fileID: 1828042365}
   - component: {fileID: 1828042367}
   - component: {fileID: 1828042366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22461,7 +22546,7 @@ GameObject:
   - component: {fileID: 1849464646}
   - component: {fileID: 1849464648}
   - component: {fileID: 1849464647}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a23"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22538,7 +22623,7 @@ GameObject:
   - component: {fileID: 1850571750}
   - component: {fileID: 1850571752}
   - component: {fileID: 1850571751}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a59"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22615,7 +22700,7 @@ GameObject:
   - component: {fileID: 1850718142}
   - component: {fileID: 1850718144}
   - component: {fileID: 1850718143}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vetalas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22693,7 +22778,7 @@ GameObject:
   - component: {fileID: 1854752932}
   - component: {fileID: 1854752934}
   - component: {fileID: 1854752933}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a52"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22770,6 +22855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barricade_01_a_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1170134863322156, guid: f2c1b096e9d5cf346947656ca0b07146, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4763233653278924, guid: f2c1b096e9d5cf346947656ca0b07146, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.462701
@@ -22829,6 +22918,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643017380424512, guid: f2c1b096e9d5cf346947656ca0b07146, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918835514145308, guid: f2c1b096e9d5cf346947656ca0b07146, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243321088064490, guid: f2c1b096e9d5cf346947656ca0b07146, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c1b096e9d5cf346947656ca0b07146, type: 3}
 --- !u!1 &1875381134
@@ -22842,7 +22943,7 @@ GameObject:
   - component: {fileID: 1875381135}
   - component: {fileID: 1875381137}
   - component: {fileID: 1875381136}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22919,7 +23020,7 @@ GameObject:
   - component: {fileID: 1876379122}
   - component: {fileID: 1876379125}
   - component: {fileID: 1876379124}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22996,7 +23097,7 @@ GameObject:
   - component: {fileID: 1888753662}
   - component: {fileID: 1888753664}
   - component: {fileID: 1888753663}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23073,7 +23174,7 @@ GameObject:
   - component: {fileID: 1906415888}
   - component: {fileID: 1906415890}
   - component: {fileID: 1906415889}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a71"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23151,7 +23252,7 @@ GameObject:
   - component: {fileID: 1913188212}
   - component: {fileID: 1913188211}
   - component: {fileID: 1913188210}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23242,7 +23343,7 @@ GameObject:
   - component: {fileID: 1917023194}
   - component: {fileID: 1917023196}
   - component: {fileID: 1917023195}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23319,7 +23420,7 @@ GameObject:
   - component: {fileID: 1926855570}
   - component: {fileID: 1926855572}
   - component: {fileID: 1926855571}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a79"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23396,7 +23497,7 @@ GameObject:
   - component: {fileID: 1930482602}
   - component: {fileID: 1930482604}
   - component: {fileID: 1930482603}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23473,7 +23574,7 @@ GameObject:
   - component: {fileID: 1938408414}
   - component: {fileID: 1938408416}
   - component: {fileID: 1938408415}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a17"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23551,7 +23652,7 @@ GameObject:
   - component: {fileID: 1952734792}
   - component: {fileID: 1952734791}
   - component: {fileID: 1952734790}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23642,7 +23743,7 @@ GameObject:
   - component: {fileID: 1963271896}
   - component: {fileID: 1963271898}
   - component: {fileID: 1963271897}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a81"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23720,7 +23821,7 @@ GameObject:
   - component: {fileID: 1964329839}
   - component: {fileID: 1964329838}
   - component: {fileID: 1964329837}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23811,6 +23912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: firehydrant_01_a_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1248095302587326, guid: a657157b650d824469701d48ff0391ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4949966762765420, guid: a657157b650d824469701d48ff0391ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.462701
@@ -23865,6 +23970,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1866205118431250, guid: a657157b650d824469701d48ff0391ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540674471405166, guid: a657157b650d824469701d48ff0391ed, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a657157b650d824469701d48ff0391ed, type: 3}
 --- !u!1 &1973443702
@@ -23876,7 +23989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1973443703}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_other
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23999,7 +24112,7 @@ GameObject:
   - component: {fileID: 1984146643}
   - component: {fileID: 1984146645}
   - component: {fileID: 1984146644}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a24"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24082,7 +24195,7 @@ GameObject:
   - component: {fileID: 1993324488}
   - component: {fileID: 1993324490}
   - component: {fileID: 1993324489}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a22"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24159,7 +24272,7 @@ GameObject:
   - component: {fileID: 1997072403}
   - component: {fileID: 1997072405}
   - component: {fileID: 1997072404}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24238,7 +24351,7 @@ GameObject:
   - component: {fileID: 2006481830}
   - component: {fileID: 2006481832}
   - component: {fileID: 2006481831}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a30"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24315,6 +24428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 1924217154915476, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4898458119993624, guid: aff47d0fca1e53244a323dbd82ddc90a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.462701
@@ -24372,7 +24489,7 @@ GameObject:
   - component: {fileID: 2017487590}
   - component: {fileID: 2017487592}
   - component: {fileID: 2017487591}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a21"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24449,6 +24566,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: rura_nadwodna
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 548d66ac67dd46248881b9caf2330014, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 548d66ac67dd46248881b9caf2330014, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 548d66ac67dd46248881b9caf2330014, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -24506,7 +24631,7 @@ GameObject:
   - component: {fileID: 2027918649}
   - component: {fileID: 2027918651}
   - component: {fileID: 2027918650}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a72"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24585,7 +24710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Name
@@ -24593,7 +24718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Name
@@ -24601,7 +24726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Name
@@ -24609,7 +24734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: d911f57916f66a74ab8e32e171acf69c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24660,7 +24785,7 @@ GameObject:
   - component: {fileID: 2051830308}
   - component: {fileID: 2051830310}
   - component: {fileID: 2051830309}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a31"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24735,7 +24860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053798646}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24772,7 +24897,7 @@ GameObject:
   - component: {fileID: 2057326173}
   - component: {fileID: 2057326175}
   - component: {fileID: 2057326174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a56"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24849,7 +24974,7 @@ GameObject:
   - component: {fileID: 2064167406}
   - component: {fileID: 2064167408}
   - component: {fileID: 2064167407}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24926,7 +25051,7 @@ GameObject:
   - component: {fileID: 2067270229}
   - component: {fileID: 2067270231}
   - component: {fileID: 2067270230}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a53"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25003,7 +25128,7 @@ GameObject:
   - component: {fileID: 2068683121}
   - component: {fileID: 2068683123}
   - component: {fileID: 2068683122}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25080,7 +25205,7 @@ GameObject:
   - component: {fileID: 2070003178}
   - component: {fileID: 2070003180}
   - component: {fileID: 2070003179}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a18"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25158,7 +25283,7 @@ GameObject:
   - component: {fileID: 2070169298}
   - component: {fileID: 2070169297}
   - component: {fileID: 2070169296}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25250,7 +25375,7 @@ GameObject:
   - component: {fileID: 2074743309}
   - component: {fileID: 2074743308}
   - component: {fileID: 2074743307}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25424,7 +25549,7 @@ GameObject:
   - component: {fileID: 2081690430}
   - component: {fileID: 2081690432}
   - component: {fileID: 2081690431}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25501,7 +25626,7 @@ GameObject:
   - component: {fileID: 2082607402}
   - component: {fileID: 2082607404}
   - component: {fileID: 2082607403}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25584,6 +25709,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: walizka_z_pingerem
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: a507298e5578188438cfb06d84d74383, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a507298e5578188438cfb06d84d74383, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: a507298e5578188438cfb06d84d74383, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -25641,7 +25774,7 @@ GameObject:
   - component: {fileID: 2090413130}
   - component: {fileID: 2090413132}
   - component: {fileID: 2090413131}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a24"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25716,7 +25849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2090562063}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_box_with_wolf (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25754,7 +25887,7 @@ GameObject:
   - component: {fileID: 2120660561}
   - component: {fileID: 2120660563}
   - component: {fileID: 2120660562}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a82"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25831,6 +25964,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: torba
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: a143eeb5bc6170c439270271f320600e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a143eeb5bc6170c439270271f320600e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: a143eeb5bc6170c439270271f320600e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -25888,7 +26029,7 @@ GameObject:
   - component: {fileID: 2140901856}
   - component: {fileID: 2140901858}
   - component: {fileID: 2140901857}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a16"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25965,7 +26106,7 @@ GameObject:
   - component: {fileID: 2145798202}
   - component: {fileID: 2145798204}
   - component: {fileID: 2145798203}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26085,7 +26226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700301465225}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Expose_to_sunlight_tego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26103,7 +26244,7 @@ GameObject:
   - component: {fileID: 578275700301465227}
   - component: {fileID: 578275700298073771}
   - component: {fileID: 578275700299039851}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26150,7 +26291,7 @@ GameObject:
   - component: {fileID: 578275700362891016}
   - component: {fileID: 578275700363661096}
   - component: {fileID: 578275700364791272}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26168,7 +26309,7 @@ GameObject:
   - component: {fileID: 578275700362891018}
   - component: {fileID: 578275700363661098}
   - component: {fileID: 578275700364791274}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26184,7 +26325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700362891020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26202,7 +26343,7 @@ GameObject:
   - component: {fileID: 578275700362891022}
   - component: {fileID: 578275700363661102}
   - component: {fileID: 578275700364791278}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26459,7 +26600,7 @@ GameObject:
   - component: {fileID: 578275700368639797}
   - component: {fileID: 578275700365248277}
   - component: {fileID: 578275700366345685}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26475,7 +26616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700368639799}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_bez_zabka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26523,7 +26664,7 @@ GameObject:
   - component: {fileID: 578275700375006876}
   - component: {fileID: 578275700375809724}
   - component: {fileID: 578275700376775804}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26539,7 +26680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700375006878}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: crucifix_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26692,7 +26833,7 @@ GameObject:
   - component: {fileID: 578275700400676474}
   - component: {fileID: 578275700400676472}
   - component: {fileID: 578275700400676475}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Vetalas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26708,7 +26849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700412091876}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: crucifix_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26726,7 +26867,7 @@ GameObject:
   - component: {fileID: 578275700412091878}
   - component: {fileID: 578275700414991814}
   - component: {fileID: 578275700413861638}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26864,7 +27005,7 @@ GameObject:
   - component: {fileID: 578275700568051591}
   - component: {fileID: 578275700568051589}
   - component: {fileID: 578275700568051588}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sciezka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26942,7 +27083,7 @@ GameObject:
   - component: {fileID: 578275700638754673}
   - component: {fileID: 578275700640081745}
   - component: {fileID: 578275700641179025}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26960,7 +27101,7 @@ GameObject:
   - component: {fileID: 578275700638754675}
   - component: {fileID: 578275700640081747}
   - component: {fileID: 578275700641179027}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26976,9 +27117,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700638754677}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: crucifix-task (1)
-  m_TagString: Untagged
+  m_TagString: crucifix_task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27144,7 +27285,7 @@ GameObject:
   - component: {fileID: 578275700654762532}
   - component: {fileID: 578275700654762535}
   - component: {fileID: 578275700654762534}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27219,7 +27360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700724698461}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_zabek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27237,7 +27378,7 @@ GameObject:
   - component: {fileID: 578275700724698463}
   - component: {fileID: 578275700723404159}
   - component: {fileID: 578275700722274239}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27289,7 +27430,7 @@ Transform:
   - {fileID: 578275700375006878}
   - {fileID: 390583362}
   m_Father: {fileID: 1064979084}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!4 &578275700759558156
 Transform:
@@ -27328,9 +27469,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700759558152}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: crucifix-task
-  m_TagString: Untagged
+  m_TagString: crucifix_task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27346,7 +27487,7 @@ GameObject:
   - component: {fileID: 578275700759558156}
   - component: {fileID: 578275700762949676}
   - component: {fileID: 578275700761852652}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27364,7 +27505,7 @@ GameObject:
   - component: {fileID: 578275700759558158}
   - component: {fileID: 578275700762949678}
   - component: {fileID: 578275700761852654}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27472,7 +27613,7 @@ GameObject:
   - component: {fileID: 578275700768113505}
   - component: {fileID: 578275700771013441}
   - component: {fileID: 578275700770013569}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27488,7 +27629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700768113507}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_box_with_wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28470,7 +28611,7 @@ Transform:
   - {fileID: 1973443703}
   - {fileID: 2090562063}
   m_Father: {fileID: 1064979084}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!4 &578275700769460623
 Transform:
@@ -28833,7 +28974,7 @@ GameObject:
   - component: {fileID: 578275700769460257}
   - component: {fileID: 578275700770787329}
   - component: {fileID: 578275700771885761}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a21"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28851,7 +28992,7 @@ GameObject:
   - component: {fileID: 578275700769460259}
   - component: {fileID: 578275700770787331}
   - component: {fileID: 578275700771885763}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28869,7 +29010,7 @@ GameObject:
   - component: {fileID: 578275700769460261}
   - component: {fileID: 578275700770787333}
   - component: {fileID: 578275700771885765}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a23"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28887,7 +29028,7 @@ GameObject:
   - component: {fileID: 578275700769460263}
   - component: {fileID: 578275700770787335}
   - component: {fileID: 578275700771885767}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a22"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28905,7 +29046,7 @@ GameObject:
   - component: {fileID: 578275700769460265}
   - component: {fileID: 578275700770787337}
   - component: {fileID: 578275700771885769}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a18"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28923,7 +29064,7 @@ GameObject:
   - component: {fileID: 578275700769460267}
   - component: {fileID: 578275700770787339}
   - component: {fileID: 578275700771885771}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a17"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28941,7 +29082,7 @@ GameObject:
   - component: {fileID: 578275700769460269}
   - component: {fileID: 578275700770787341}
   - component: {fileID: 578275700771885773}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28959,7 +29100,7 @@ GameObject:
   - component: {fileID: 578275700769460271}
   - component: {fileID: 578275700770787343}
   - component: {fileID: 578275700771885775}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a19"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28977,7 +29118,7 @@ GameObject:
   - component: {fileID: 578275700769460273}
   - component: {fileID: 578275700770787345}
   - component: {fileID: 578275700771885777}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28995,7 +29136,7 @@ GameObject:
   - component: {fileID: 578275700769460275}
   - component: {fileID: 578275700770787347}
   - component: {fileID: 578275700771885779}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29013,7 +29154,7 @@ GameObject:
   - component: {fileID: 578275700769460277}
   - component: {fileID: 578275700770787349}
   - component: {fileID: 578275700771885781}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a16"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29031,7 +29172,7 @@ GameObject:
   - component: {fileID: 578275700769460279}
   - component: {fileID: 578275700770787351}
   - component: {fileID: 578275700771885783}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29049,7 +29190,7 @@ GameObject:
   - component: {fileID: 578275700769460281}
   - component: {fileID: 578275700770787353}
   - component: {fileID: 578275700771885785}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29067,7 +29208,7 @@ GameObject:
   - component: {fileID: 578275700769460283}
   - component: {fileID: 578275700770787355}
   - component: {fileID: 578275700771885787}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29085,7 +29226,7 @@ GameObject:
   - component: {fileID: 578275700769460285}
   - component: {fileID: 578275700770787357}
   - component: {fileID: 578275700771885789}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29103,7 +29244,7 @@ GameObject:
   - component: {fileID: 578275700769460287}
   - component: {fileID: 578275700770787359}
   - component: {fileID: 578275700771885791}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29121,7 +29262,7 @@ GameObject:
   - component: {fileID: 578275700769460321}
   - component: {fileID: 578275700770787393}
   - component: {fileID: 578275700771885569}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a50"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29139,7 +29280,7 @@ GameObject:
   - component: {fileID: 578275700769460323}
   - component: {fileID: 578275700770787395}
   - component: {fileID: 578275700771885571}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29157,7 +29298,7 @@ GameObject:
   - component: {fileID: 578275700769460325}
   - component: {fileID: 578275700770787397}
   - component: {fileID: 578275700771885573}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a52"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29175,7 +29316,7 @@ GameObject:
   - component: {fileID: 578275700769460327}
   - component: {fileID: 578275700770787399}
   - component: {fileID: 578275700771885575}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a51"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29193,7 +29334,7 @@ GameObject:
   - component: {fileID: 578275700769460329}
   - component: {fileID: 578275700770787401}
   - component: {fileID: 578275700771885577}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a47"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29211,7 +29352,7 @@ GameObject:
   - component: {fileID: 578275700769460331}
   - component: {fileID: 578275700770787403}
   - component: {fileID: 578275700771885579}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a46"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29229,7 +29370,7 @@ GameObject:
   - component: {fileID: 578275700769460333}
   - component: {fileID: 578275700770787405}
   - component: {fileID: 578275700771885581}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a49"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29247,7 +29388,7 @@ GameObject:
   - component: {fileID: 578275700769460335}
   - component: {fileID: 578275700770787407}
   - component: {fileID: 578275700771885583}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a48"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29265,7 +29406,7 @@ GameObject:
   - component: {fileID: 578275700769460337}
   - component: {fileID: 578275700770787409}
   - component: {fileID: 578275700771885585}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a43"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29283,7 +29424,7 @@ GameObject:
   - component: {fileID: 578275700769460339}
   - component: {fileID: 578275700770787411}
   - component: {fileID: 578275700771885587}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a42"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29301,7 +29442,7 @@ GameObject:
   - component: {fileID: 578275700769460341}
   - component: {fileID: 578275700770787413}
   - component: {fileID: 578275700771885589}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a45"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29319,7 +29460,7 @@ GameObject:
   - component: {fileID: 578275700769460343}
   - component: {fileID: 578275700770787415}
   - component: {fileID: 578275700771885591}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a44"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29337,7 +29478,7 @@ GameObject:
   - component: {fileID: 578275700769460345}
   - component: {fileID: 578275700770787417}
   - component: {fileID: 578275700771885593}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29355,7 +29496,7 @@ GameObject:
   - component: {fileID: 578275700769460347}
   - component: {fileID: 578275700770787419}
   - component: {fileID: 578275700771885595}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a39"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29373,7 +29514,7 @@ GameObject:
   - component: {fileID: 578275700769460349}
   - component: {fileID: 578275700770787421}
   - component: {fileID: 578275700771885597}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a41"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29391,7 +29532,7 @@ GameObject:
   - component: {fileID: 578275700769460351}
   - component: {fileID: 578275700770787423}
   - component: {fileID: 578275700771885599}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a40"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29409,7 +29550,7 @@ GameObject:
   - component: {fileID: 578275700769460225}
   - component: {fileID: 578275700770787425}
   - component: {fileID: 578275700771885601}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a36"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29427,7 +29568,7 @@ GameObject:
   - component: {fileID: 578275700769460227}
   - component: {fileID: 578275700770787427}
   - component: {fileID: 578275700771885603}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a35"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29445,7 +29586,7 @@ GameObject:
   - component: {fileID: 578275700769460229}
   - component: {fileID: 578275700770787429}
   - component: {fileID: 578275700771885605}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a38"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29463,7 +29604,7 @@ GameObject:
   - component: {fileID: 578275700769460231}
   - component: {fileID: 578275700770787431}
   - component: {fileID: 578275700771885607}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a37"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29481,7 +29622,7 @@ GameObject:
   - component: {fileID: 578275700769460233}
   - component: {fileID: 578275700770787433}
   - component: {fileID: 578275700771885609}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a32"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29499,7 +29640,7 @@ GameObject:
   - component: {fileID: 578275700769460235}
   - component: {fileID: 578275700770787435}
   - component: {fileID: 578275700771885611}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a31"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29517,7 +29658,7 @@ GameObject:
   - component: {fileID: 578275700769460237}
   - component: {fileID: 578275700770787437}
   - component: {fileID: 578275700771885613}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a34"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29535,7 +29676,7 @@ GameObject:
   - component: {fileID: 578275700769460239}
   - component: {fileID: 578275700770787439}
   - component: {fileID: 578275700771885615}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a33"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29553,7 +29694,7 @@ GameObject:
   - component: {fileID: 578275700769460241}
   - component: {fileID: 578275700770787441}
   - component: {fileID: 578275700771885617}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a29"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29571,7 +29712,7 @@ GameObject:
   - component: {fileID: 578275700769460243}
   - component: {fileID: 578275700770787443}
   - component: {fileID: 578275700771885619}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a28"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29589,7 +29730,7 @@ GameObject:
   - component: {fileID: 578275700769460245}
   - component: {fileID: 578275700770787445}
   - component: {fileID: 578275700771885621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a30"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29607,7 +29748,7 @@ GameObject:
   - component: {fileID: 578275700769460247}
   - component: {fileID: 578275700770787447}
   - component: {fileID: 578275700771885623}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29625,7 +29766,7 @@ GameObject:
   - component: {fileID: 578275700769460249}
   - component: {fileID: 578275700770787449}
   - component: {fileID: 578275700771885625}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a25"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29643,7 +29784,7 @@ GameObject:
   - component: {fileID: 578275700769460251}
   - component: {fileID: 578275700770787451}
   - component: {fileID: 578275700771885627}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a24"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29661,7 +29802,7 @@ GameObject:
   - component: {fileID: 578275700769460253}
   - component: {fileID: 578275700770787453}
   - component: {fileID: 578275700771885629}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a27"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29679,7 +29820,7 @@ GameObject:
   - component: {fileID: 578275700769460255}
   - component: {fileID: 578275700770787455}
   - component: {fileID: 578275700771885631}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a26"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29697,7 +29838,7 @@ GameObject:
   - component: {fileID: 578275700769460641}
   - component: {fileID: 578275700770787713}
   - component: {fileID: 578275700771885633}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29715,7 +29856,7 @@ GameObject:
   - component: {fileID: 578275700769460643}
   - component: {fileID: 578275700770787715}
   - component: {fileID: 578275700771885635}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a79"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29733,7 +29874,7 @@ GameObject:
   - component: {fileID: 578275700769460645}
   - component: {fileID: 578275700770787717}
   - component: {fileID: 578275700771885637}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a81"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29751,7 +29892,7 @@ GameObject:
   - component: {fileID: 578275700769460647}
   - component: {fileID: 578275700770787719}
   - component: {fileID: 578275700771885639}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a80"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29769,7 +29910,7 @@ GameObject:
   - component: {fileID: 578275700769460649}
   - component: {fileID: 578275700770787721}
   - component: {fileID: 578275700771885641}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a76"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29787,7 +29928,7 @@ GameObject:
   - component: {fileID: 578275700769460651}
   - component: {fileID: 578275700770787723}
   - component: {fileID: 578275700771885643}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a75"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29805,7 +29946,7 @@ GameObject:
   - component: {fileID: 578275700769460653}
   - component: {fileID: 578275700770787725}
   - component: {fileID: 578275700771885645}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a78"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29823,7 +29964,7 @@ GameObject:
   - component: {fileID: 578275700769460655}
   - component: {fileID: 578275700770787727}
   - component: {fileID: 578275700771885647}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a77"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29841,7 +29982,7 @@ GameObject:
   - component: {fileID: 578275700769460657}
   - component: {fileID: 578275700770787729}
   - component: {fileID: 578275700771885649}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a72"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29859,7 +30000,7 @@ GameObject:
   - component: {fileID: 578275700769460659}
   - component: {fileID: 578275700770787731}
   - component: {fileID: 578275700771885651}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a71"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29877,7 +30018,7 @@ GameObject:
   - component: {fileID: 578275700769460661}
   - component: {fileID: 578275700770787733}
   - component: {fileID: 578275700771885653}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a74"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29895,7 +30036,7 @@ GameObject:
   - component: {fileID: 578275700769460663}
   - component: {fileID: 578275700770787735}
   - component: {fileID: 578275700771885655}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a73"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29913,7 +30054,7 @@ GameObject:
   - component: {fileID: 578275700769460665}
   - component: {fileID: 578275700770787737}
   - component: {fileID: 578275700771885657}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a69"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29931,7 +30072,7 @@ GameObject:
   - component: {fileID: 578275700769460667}
   - component: {fileID: 578275700770787739}
   - component: {fileID: 578275700771885659}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a68"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29949,7 +30090,7 @@ GameObject:
   - component: {fileID: 578275700769460669}
   - component: {fileID: 578275700770787741}
   - component: {fileID: 578275700771885661}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a70"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29967,7 +30108,7 @@ GameObject:
   - component: {fileID: 578275700769460671}
   - component: {fileID: 578275700770787743}
   - component: {fileID: 578275700771885663}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29985,7 +30126,7 @@ GameObject:
   - component: {fileID: 578275700769460289}
   - component: {fileID: 578275700770787745}
   - component: {fileID: 578275700771885665}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a65"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30003,7 +30144,7 @@ GameObject:
   - component: {fileID: 578275700769460291}
   - component: {fileID: 578275700770787747}
   - component: {fileID: 578275700771885667}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a64"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30021,7 +30162,7 @@ GameObject:
   - component: {fileID: 578275700769460293}
   - component: {fileID: 578275700770787749}
   - component: {fileID: 578275700771885669}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a67"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30039,7 +30180,7 @@ GameObject:
   - component: {fileID: 578275700769460295}
   - component: {fileID: 578275700770787751}
   - component: {fileID: 578275700771885671}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a66"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30057,7 +30198,7 @@ GameObject:
   - component: {fileID: 578275700769460297}
   - component: {fileID: 578275700770787753}
   - component: {fileID: 578275700771885673}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a61"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30075,7 +30216,7 @@ GameObject:
   - component: {fileID: 578275700769460299}
   - component: {fileID: 578275700770787755}
   - component: {fileID: 578275700771885675}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a60"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30093,7 +30234,7 @@ GameObject:
   - component: {fileID: 578275700769460301}
   - component: {fileID: 578275700770787757}
   - component: {fileID: 578275700771885677}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a63"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30111,7 +30252,7 @@ GameObject:
   - component: {fileID: 578275700769460303}
   - component: {fileID: 578275700770787759}
   - component: {fileID: 578275700771885679}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a62"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30129,7 +30270,7 @@ GameObject:
   - component: {fileID: 578275700769460305}
   - component: {fileID: 578275700770787761}
   - component: {fileID: 578275700771885681}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a58"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30147,7 +30288,7 @@ GameObject:
   - component: {fileID: 578275700769460307}
   - component: {fileID: 578275700770787763}
   - component: {fileID: 578275700771885683}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a57"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30165,7 +30306,7 @@ GameObject:
   - component: {fileID: 578275700769460309}
   - component: {fileID: 578275700770787765}
   - component: {fileID: 578275700771885685}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30183,7 +30324,7 @@ GameObject:
   - component: {fileID: 578275700769460311}
   - component: {fileID: 578275700770787767}
   - component: {fileID: 578275700771885687}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a59"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30201,7 +30342,7 @@ GameObject:
   - component: {fileID: 578275700769460313}
   - component: {fileID: 578275700770787769}
   - component: {fileID: 578275700771885689}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a54"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30219,7 +30360,7 @@ GameObject:
   - component: {fileID: 578275700769460315}
   - component: {fileID: 578275700770787771}
   - component: {fileID: 578275700771885691}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a53"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30237,7 +30378,7 @@ GameObject:
   - component: {fileID: 578275700769460317}
   - component: {fileID: 578275700770787773}
   - component: {fileID: 578275700771885693}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a56"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30255,7 +30396,7 @@ GameObject:
   - component: {fileID: 578275700769460319}
   - component: {fileID: 578275700770787775}
   - component: {fileID: 578275700771885695}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a55"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30273,7 +30414,7 @@ GameObject:
   - component: {fileID: 578275700769460617}
   - component: {fileID: 578275700770787817}
   - component: {fileID: 578275700771885993}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a90"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30291,7 +30432,7 @@ GameObject:
   - component: {fileID: 578275700769460619}
   - component: {fileID: 578275700770787819}
   - component: {fileID: 578275700771885995}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30307,9 +30448,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700769460621}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_frame_wolf
-  m_TagString: Untagged
+  m_TagString: Garlic_drop_frame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30325,7 +30466,7 @@ GameObject:
   - component: {fileID: 578275700769460623}
   - component: {fileID: 578275700770787823}
   - component: {fileID: 578275700771885999}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a91"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30343,7 +30484,7 @@ GameObject:
   - component: {fileID: 578275700769460625}
   - component: {fileID: 578275700770787825}
   - component: {fileID: 578275700771886001}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a87"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30361,7 +30502,7 @@ GameObject:
   - component: {fileID: 578275700769460627}
   - component: {fileID: 578275700770787827}
   - component: {fileID: 578275700771886003}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a86"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30379,7 +30520,7 @@ GameObject:
   - component: {fileID: 578275700769460629}
   - component: {fileID: 578275700770787829}
   - component: {fileID: 578275700771886005}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a89"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30397,7 +30538,7 @@ GameObject:
   - component: {fileID: 578275700769460631}
   - component: {fileID: 578275700770787831}
   - component: {fileID: 578275700771886007}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a88"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30415,7 +30556,7 @@ GameObject:
   - component: {fileID: 578275700769460633}
   - component: {fileID: 578275700770787833}
   - component: {fileID: 578275700771886009}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a83"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30433,7 +30574,7 @@ GameObject:
   - component: {fileID: 578275700769460635}
   - component: {fileID: 578275700770787835}
   - component: {fileID: 578275700771886011}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a82"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30451,7 +30592,7 @@ GameObject:
   - component: {fileID: 578275700769460637}
   - component: {fileID: 578275700770787837}
   - component: {fileID: 578275700771886013}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a85"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30469,7 +30610,7 @@ GameObject:
   - component: {fileID: 578275700769460639}
   - component: {fileID: 578275700770787839}
   - component: {fileID: 578275700771886015}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a84"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34629,7 +34770,7 @@ GameObject:
   - component: {fileID: 578275700819593977}
   - component: {fileID: 578275700820396761}
   - component: {fileID: 578275700821362713}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34647,7 +34788,7 @@ GameObject:
   - component: {fileID: 578275700819593979}
   - component: {fileID: 578275700820396763}
   - component: {fileID: 578275700821362715}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34663,7 +34804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700819593981}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stake_throught_heart_pokryweczka_bez_raczki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34878,7 +35019,7 @@ GameObject:
   - component: {fileID: 578275700881173586}
   - component: {fileID: 578275700881173584}
   - component: {fileID: 578275700881173587}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Draugr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35105,7 +35246,7 @@ GameObject:
   - component: {fileID: 578275700945120288}
   - component: {fileID: 578275700946414592}
   - component: {fileID: 578275700947545792}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35123,7 +35264,7 @@ GameObject:
   - component: {fileID: 578275700945120290}
   - component: {fileID: 578275700946414594}
   - component: {fileID: 578275700947545794}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35141,7 +35282,7 @@ GameObject:
   - component: {fileID: 578275700945120292}
   - component: {fileID: 578275700946414596}
   - component: {fileID: 578275700947545796}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35159,7 +35300,7 @@ GameObject:
   - component: {fileID: 578275700945120294}
   - component: {fileID: 578275700946414598}
   - component: {fileID: 578275700947545798}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35177,7 +35318,7 @@ GameObject:
   - component: {fileID: 578275700945120296}
   - component: {fileID: 578275700946414600}
   - component: {fileID: 578275700947545800}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35193,7 +35334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275700945120298}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Expose_to_sunlight_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35211,7 +35352,7 @@ GameObject:
   - component: {fileID: 578275700945120304}
   - component: {fileID: 578275700946414608}
   - component: {fileID: 578275700947545808}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35229,7 +35370,7 @@ GameObject:
   - component: {fileID: 578275700945120306}
   - component: {fileID: 578275700946414610}
   - component: {fileID: 578275700947545810}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35247,7 +35388,7 @@ GameObject:
   - component: {fileID: 578275700945120308}
   - component: {fileID: 578275700946414612}
   - component: {fileID: 578275700947545812}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35265,7 +35406,7 @@ GameObject:
   - component: {fileID: 578275700945120310}
   - component: {fileID: 578275700946414614}
   - component: {fileID: 578275700947545814}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35283,7 +35424,7 @@ GameObject:
   - component: {fileID: 578275700945120312}
   - component: {fileID: 578275700946414616}
   - component: {fileID: 578275700947545816}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35301,7 +35442,7 @@ GameObject:
   - component: {fileID: 578275700945120314}
   - component: {fileID: 578275700946414618}
   - component: {fileID: 578275700947545818}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35319,7 +35460,7 @@ GameObject:
   - component: {fileID: 578275700945120316}
   - component: {fileID: 578275700946414620}
   - component: {fileID: 578275700947545820}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35337,7 +35478,7 @@ GameObject:
   - component: {fileID: 578275700945120318}
   - component: {fileID: 578275700946414622}
   - component: {fileID: 578275700947545822}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36186,7 +36327,7 @@ Transform:
   - {fileID: 578275702123291976}
   - {fileID: 514886243}
   m_Father: {fileID: 1064979084}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!4 &578275701038843064
 Transform:
@@ -36255,7 +36396,7 @@ GameObject:
   - component: {fileID: 578275701038843056}
   - component: {fileID: 578275701038072976}
   - component: {fileID: 578275701036942928}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a56"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36271,9 +36412,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701038843058}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Expose_to_sunlight_trumna
-  m_TagString: Untagged
+  m_TagString: Expose_to_sunlight_trumna
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36289,7 +36430,7 @@ GameObject:
   - component: {fileID: 578275701038843064}
   - component: {fileID: 578275701038072984}
   - component: {fileID: 578275701036942936}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a52"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36307,7 +36448,7 @@ GameObject:
   - component: {fileID: 578275701038843066}
   - component: {fileID: 578275701038072986}
   - component: {fileID: 578275701036942938}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a53"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36325,7 +36466,7 @@ GameObject:
   - component: {fileID: 578275701038843068}
   - component: {fileID: 578275701038072988}
   - component: {fileID: 578275701036942940}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a54"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36343,7 +36484,7 @@ GameObject:
   - component: {fileID: 578275701038843070}
   - component: {fileID: 578275701038072990}
   - component: {fileID: 578275701036942942}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a55"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36404,7 +36545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701093263220}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Stake_throught_heart_raczka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36422,7 +36563,7 @@ GameObject:
   - component: {fileID: 578275701093263222}
   - component: {fileID: 578275701091936086}
   - component: {fileID: 578275701090837910}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: raczka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36485,9 +36626,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701119306410}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Path2
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36546,7 +36687,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701136291824}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Crucifix_reka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36564,7 +36705,7 @@ GameObject:
   - component: {fileID: 578275701136291826}
   - component: {fileID: 578275701132867538}
   - component: {fileID: 578275701133866258}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37873,7 +38014,7 @@ Transform:
   - {fileID: 578275701169388106}
   - {fileID: 578275701408625968}
   m_Father: {fileID: 1064979084}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578275701169808912
 GameObject:
@@ -37886,7 +38027,7 @@ GameObject:
   - component: {fileID: 578275701169388144}
   - component: {fileID: 578275701166488080}
   - component: {fileID: 578275701167618128}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37904,7 +38045,7 @@ GameObject:
   - component: {fileID: 578275701169388146}
   - component: {fileID: 578275701166488082}
   - component: {fileID: 578275701167618130}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37922,7 +38063,7 @@ GameObject:
   - component: {fileID: 578275701169388148}
   - component: {fileID: 578275701166488084}
   - component: {fileID: 578275701167618132}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37940,7 +38081,7 @@ GameObject:
   - component: {fileID: 578275701169388150}
   - component: {fileID: 578275701166488086}
   - component: {fileID: 578275701167618134}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37958,7 +38099,7 @@ GameObject:
   - component: {fileID: 578275701169388152}
   - component: {fileID: 578275701166488088}
   - component: {fileID: 578275701167618136}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37974,9 +38115,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701169388154}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic-task (1)
-  m_TagString: Untagged
+  m_TagString: Garlic_task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37992,7 +38133,7 @@ GameObject:
   - component: {fileID: 578275701169388096}
   - component: {fileID: 578275701166488160}
   - component: {fileID: 578275701167618208}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a17"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38010,7 +38151,7 @@ GameObject:
   - component: {fileID: 578275701169388098}
   - component: {fileID: 578275701166488162}
   - component: {fileID: 578275701167618210}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a18"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38028,7 +38169,7 @@ GameObject:
   - component: {fileID: 578275701169388100}
   - component: {fileID: 578275701166488164}
   - component: {fileID: 578275701167618212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a19"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38046,7 +38187,7 @@ GameObject:
   - component: {fileID: 578275701169388102}
   - component: {fileID: 578275701166488166}
   - component: {fileID: 578275701167618214}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38064,7 +38205,7 @@ GameObject:
   - component: {fileID: 578275701169388104}
   - component: {fileID: 578275701166488168}
   - component: {fileID: 578275701167618216}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38082,7 +38223,7 @@ GameObject:
   - component: {fileID: 578275701169388106}
   - component: {fileID: 578275701166488170}
   - component: {fileID: 578275701167618218}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a21"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38100,7 +38241,7 @@ GameObject:
   - component: {fileID: 578275701169388108}
   - component: {fileID: 578275701166488172}
   - component: {fileID: 578275701167618220}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38118,7 +38259,7 @@ GameObject:
   - component: {fileID: 578275701169388110}
   - component: {fileID: 578275701166488174}
   - component: {fileID: 578275701167618222}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38136,7 +38277,7 @@ GameObject:
   - component: {fileID: 578275701169388112}
   - component: {fileID: 578275701166488176}
   - component: {fileID: 578275701167618224}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38154,7 +38295,7 @@ GameObject:
   - component: {fileID: 578275701169388114}
   - component: {fileID: 578275701166488178}
   - component: {fileID: 578275701167618226}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38172,7 +38313,7 @@ GameObject:
   - component: {fileID: 578275701169388116}
   - component: {fileID: 578275701166488180}
   - component: {fileID: 578275701167618228}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38190,7 +38331,7 @@ GameObject:
   - component: {fileID: 578275701169388118}
   - component: {fileID: 578275701166488182}
   - component: {fileID: 578275701167618230}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38208,7 +38349,7 @@ GameObject:
   - component: {fileID: 578275701169388120}
   - component: {fileID: 578275701166488184}
   - component: {fileID: 578275701167618232}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38226,7 +38367,7 @@ GameObject:
   - component: {fileID: 578275701169388122}
   - component: {fileID: 578275701166488186}
   - component: {fileID: 578275701167618234}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38244,7 +38385,7 @@ GameObject:
   - component: {fileID: 578275701169388124}
   - component: {fileID: 578275701166488188}
   - component: {fileID: 578275701167618236}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38262,7 +38403,7 @@ GameObject:
   - component: {fileID: 578275701169388126}
   - component: {fileID: 578275701166488190}
   - component: {fileID: 578275701167618238}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a16"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38352,7 +38493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701173563304}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_zabek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38370,7 +38511,7 @@ GameObject:
   - component: {fileID: 578275701173563306}
   - component: {fileID: 578275701170696074}
   - component: {fileID: 578275701171793226}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38615,7 +38756,7 @@ Transform:
   - {fileID: 578275700368639799}
   - {fileID: 193651878}
   m_Father: {fileID: 1064979084}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &578275701175635890
 Transform:
@@ -38698,7 +38839,7 @@ GameObject:
   - component: {fileID: 578275701175635840}
   - component: {fileID: 578275701176930208}
   - component: {fileID: 578275701178060128}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a21"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38716,7 +38857,7 @@ GameObject:
   - component: {fileID: 578275701175635842}
   - component: {fileID: 578275701176930210}
   - component: {fileID: 578275701178060130}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38734,7 +38875,7 @@ GameObject:
   - component: {fileID: 578275701175635844}
   - component: {fileID: 578275701176930212}
   - component: {fileID: 578275701178060132}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38752,7 +38893,7 @@ GameObject:
   - component: {fileID: 578275701175635846}
   - component: {fileID: 578275701176930214}
   - component: {fileID: 578275701178060134}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38770,7 +38911,7 @@ GameObject:
   - component: {fileID: 578275701175635848}
   - component: {fileID: 578275701176930216}
   - component: {fileID: 578275701178060136}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a18"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38788,7 +38929,7 @@ GameObject:
   - component: {fileID: 578275701175635850}
   - component: {fileID: 578275701176930218}
   - component: {fileID: 578275701178060138}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a17"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38806,7 +38947,7 @@ GameObject:
   - component: {fileID: 578275701175635852}
   - component: {fileID: 578275701176930220}
   - component: {fileID: 578275701178060140}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38824,7 +38965,7 @@ GameObject:
   - component: {fileID: 578275701175635854}
   - component: {fileID: 578275701176930222}
   - component: {fileID: 578275701178060142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a19"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38842,7 +38983,7 @@ GameObject:
   - component: {fileID: 578275701175635856}
   - component: {fileID: 578275701176930224}
   - component: {fileID: 578275701178060144}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38860,7 +39001,7 @@ GameObject:
   - component: {fileID: 578275701175635858}
   - component: {fileID: 578275701176930226}
   - component: {fileID: 578275701178060146}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38878,7 +39019,7 @@ GameObject:
   - component: {fileID: 578275701175635860}
   - component: {fileID: 578275701176930228}
   - component: {fileID: 578275701178060148}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a16"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38896,7 +39037,7 @@ GameObject:
   - component: {fileID: 578275701175635862}
   - component: {fileID: 578275701176930230}
   - component: {fileID: 578275701178060150}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38914,7 +39055,7 @@ GameObject:
   - component: {fileID: 578275701175635864}
   - component: {fileID: 578275701176930232}
   - component: {fileID: 578275701178060152}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38932,7 +39073,7 @@ GameObject:
   - component: {fileID: 578275701175635866}
   - component: {fileID: 578275701176930234}
   - component: {fileID: 578275701178060154}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38950,7 +39091,7 @@ GameObject:
   - component: {fileID: 578275701175635868}
   - component: {fileID: 578275701176930236}
   - component: {fileID: 578275701178060156}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38968,7 +39109,7 @@ GameObject:
   - component: {fileID: 578275701175635870}
   - component: {fileID: 578275701176930238}
   - component: {fileID: 578275701178060158}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38984,9 +39125,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701175635888}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic-task
-  m_TagString: Untagged
+  m_TagString: Garlic_task
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39002,7 +39143,7 @@ GameObject:
   - component: {fileID: 578275701175635890}
   - component: {fileID: 578275701176930258}
   - component: {fileID: 578275701178060178}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39020,7 +39161,7 @@ GameObject:
   - component: {fileID: 578275701175635896}
   - component: {fileID: 578275701176930264}
   - component: {fileID: 578275701178060184}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39038,7 +39179,7 @@ GameObject:
   - component: {fileID: 578275701175635898}
   - component: {fileID: 578275701176930266}
   - component: {fileID: 578275701178060186}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39056,7 +39197,7 @@ GameObject:
   - component: {fileID: 578275701175635900}
   - component: {fileID: 578275701176930268}
   - component: {fileID: 578275701178060188}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39074,7 +39215,7 @@ GameObject:
   - component: {fileID: 578275701175635902}
   - component: {fileID: 578275701176930270}
   - component: {fileID: 578275701178060190}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40037,7 +40178,7 @@ GameObject:
   - component: {fileID: 578275701197389601}
   - component: {fileID: 578275701198192387}
   - component: {fileID: 578275701199289795}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Aswang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40055,9 +40196,9 @@ GameObject:
   - component: {fileID: 578275701197389603}
   - component: {fileID: 578275701375137782}
   - component: {fileID: 578275701197349639}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: triple_board
-  m_TagString: Untagged
+  m_TagString: triple_board
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40256,7 +40397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701408625968}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_bez_zabka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40274,7 +40415,7 @@ GameObject:
   - component: {fileID: 578275701408625970}
   - component: {fileID: 578275701405725970}
   - component: {fileID: 578275701406726098}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40351,7 +40492,7 @@ GameObject:
   - component: {fileID: 578275701461182936}
   - component: {fileID: 578275701461182918}
   - component: {fileID: 578275701461182937}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sciezka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40428,7 +40569,7 @@ GameObject:
   - component: {fileID: 578275701479557284}
   - component: {fileID: 578275701479557282}
   - component: {fileID: 578275701479557285}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sciezka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40494,7 +40635,7 @@ Transform:
   - {fileID: 578275701501361470}
   - {fileID: 578275700819593981}
   m_Father: {fileID: 1064979084}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!4 &578275701501361470
 Transform:
@@ -40519,9 +40660,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701501361468}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: stake_throught
-  m_TagString: Untagged
+  m_TagString: stake_through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40537,7 +40678,7 @@ GameObject:
   - component: {fileID: 578275701501361470}
   - component: {fileID: 578275701498461470}
   - component: {fileID: 578275701499592670}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41232,7 +41373,7 @@ GameObject:
   - component: {fileID: 578275701520609633}
   - component: {fileID: 578275701519839553}
   - component: {fileID: 578275701518840705}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41250,7 +41391,7 @@ GameObject:
   - component: {fileID: 578275701520609635}
   - component: {fileID: 578275701519839555}
   - component: {fileID: 578275701518840707}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41266,7 +41407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701520609637}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Garlic_drop_lever_rest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41284,7 +41425,7 @@ GameObject:
   - component: {fileID: 578275701520609639}
   - component: {fileID: 578275701519839559}
   - component: {fileID: 578275701518840711}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41302,7 +41443,7 @@ GameObject:
   - component: {fileID: 578275701520609649}
   - component: {fileID: 578275701519839569}
   - component: {fileID: 578275701518840721}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41320,7 +41461,7 @@ GameObject:
   - component: {fileID: 578275701520609651}
   - component: {fileID: 578275701519839571}
   - component: {fileID: 578275701518840723}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41338,7 +41479,7 @@ GameObject:
   - component: {fileID: 578275701520609653}
   - component: {fileID: 578275701519839573}
   - component: {fileID: 578275701518840725}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41356,7 +41497,7 @@ GameObject:
   - component: {fileID: 578275701520609655}
   - component: {fileID: 578275701519839575}
   - component: {fileID: 578275701518840727}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41374,7 +41515,7 @@ GameObject:
   - component: {fileID: 578275701520609657}
   - component: {fileID: 578275701519839577}
   - component: {fileID: 578275701518840729}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41392,7 +41533,7 @@ GameObject:
   - component: {fileID: 578275701520609659}
   - component: {fileID: 578275701519839579}
   - component: {fileID: 578275701518840731}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41410,7 +41551,7 @@ GameObject:
   - component: {fileID: 578275701520609661}
   - component: {fileID: 578275701519839581}
   - component: {fileID: 578275701518840733}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41428,7 +41569,7 @@ GameObject:
   - component: {fileID: 578275701520609663}
   - component: {fileID: 578275701519839583}
   - component: {fileID: 578275701518840735}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41491,7 +41632,7 @@ GameObject:
   - component: {fileID: 578275701630119953}
   - component: {fileID: 578275701628825649}
   - component: {fileID: 578275701627695857}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41507,7 +41648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701630119955}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Crucifix_reka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41606,7 +41747,7 @@ GameObject:
   - component: {fileID: 578275701706718550}
   - component: {fileID: 578275701706718505}
   - component: {fileID: 578275701706718504}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41659,7 +41800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701724687718}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Segment1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41692,9 +41833,9 @@ GameObject:
   m_Component:
   - component: {fileID: 578275701775983421}
   - component: {fileID: 578275701775983418}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Path1
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42400,7 +42541,7 @@ GameObject:
   - component: {fileID: 578275701811131944}
   - component: {fileID: 578275701808264712}
   - component: {fileID: 578275701809231048}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42418,7 +42559,7 @@ GameObject:
   - component: {fileID: 578275701811131946}
   - component: {fileID: 578275701808264714}
   - component: {fileID: 578275701809231050}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42434,7 +42575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275701811131948}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Expose_to_sunlight_raczka_bez_tego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42452,7 +42593,7 @@ GameObject:
   - component: {fileID: 578275701811131950}
   - component: {fileID: 578275701808264718}
   - component: {fileID: 578275701809231054}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42470,7 +42611,7 @@ GameObject:
   - component: {fileID: 578275701811131952}
   - component: {fileID: 578275701808264720}
   - component: {fileID: 578275701809231056}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42488,7 +42629,7 @@ GameObject:
   - component: {fileID: 578275701811131954}
   - component: {fileID: 578275701808264722}
   - component: {fileID: 578275701809231058}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42506,7 +42647,7 @@ GameObject:
   - component: {fileID: 578275701811131956}
   - component: {fileID: 578275701808264724}
   - component: {fileID: 578275701809231060}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42524,7 +42665,7 @@ GameObject:
   - component: {fileID: 578275701811131958}
   - component: {fileID: 578275701808264726}
   - component: {fileID: 578275701809231062}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42542,7 +42683,7 @@ GameObject:
   - component: {fileID: 578275701811131960}
   - component: {fileID: 578275701808264728}
   - component: {fileID: 578275701809231064}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42560,7 +42701,7 @@ GameObject:
   - component: {fileID: 578275701811131962}
   - component: {fileID: 578275701808264730}
   - component: {fileID: 578275701809231066}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42578,7 +42719,7 @@ GameObject:
   - component: {fileID: 578275701811131964}
   - component: {fileID: 578275701808264732}
   - component: {fileID: 578275701809231068}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42596,7 +42737,7 @@ GameObject:
   - component: {fileID: 578275701811131966}
   - component: {fileID: 578275701808264734}
   - component: {fileID: 578275701809231070}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42627,7 +42768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275702001570130}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Segment1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42719,7 +42860,7 @@ GameObject:
   - component: {fileID: 578275702116938451}
   - component: {fileID: 578275702116938450}
   - component: {fileID: 578275702116938453}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42735,7 +42876,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275702123291976}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Expose_to_sunlight_stojak_na_trumne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42753,7 +42894,7 @@ GameObject:
   - component: {fileID: 578275702123291978}
   - component: {fileID: 578275702126159018}
   - component: {fileID: 578275702125193066}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42771,7 +42912,7 @@ GameObject:
   - component: {fileID: 578275702123291980}
   - component: {fileID: 578275702126159020}
   - component: {fileID: 578275702125193068}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a8"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42789,7 +42930,7 @@ GameObject:
   - component: {fileID: 578275702123291982}
   - component: {fileID: 578275702126159022}
   - component: {fileID: 578275702125193070}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a7"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42807,7 +42948,7 @@ GameObject:
   - component: {fileID: 578275702123291936}
   - component: {fileID: 578275702126159104}
   - component: {fileID: 578275702125193152}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a16"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42825,7 +42966,7 @@ GameObject:
   - component: {fileID: 578275702123291938}
   - component: {fileID: 578275702126159106}
   - component: {fileID: 578275702125193154}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42843,7 +42984,7 @@ GameObject:
   - component: {fileID: 578275702123291940}
   - component: {fileID: 578275702126159108}
   - component: {fileID: 578275702125193156}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42861,7 +43002,7 @@ GameObject:
   - component: {fileID: 578275702123291942}
   - component: {fileID: 578275702126159110}
   - component: {fileID: 578275702125193158}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42879,7 +43020,7 @@ GameObject:
   - component: {fileID: 578275702123291944}
   - component: {fileID: 578275702126159112}
   - component: {fileID: 578275702125193160}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42897,7 +43038,7 @@ GameObject:
   - component: {fileID: 578275702123291946}
   - component: {fileID: 578275702126159114}
   - component: {fileID: 578275702125193162}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42915,7 +43056,7 @@ GameObject:
   - component: {fileID: 578275702123291948}
   - component: {fileID: 578275702126159116}
   - component: {fileID: 578275702125193164}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a10"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42933,7 +43074,7 @@ GameObject:
   - component: {fileID: 578275702123291950}
   - component: {fileID: 578275702126159118}
   - component: {fileID: 578275702125193166}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42951,7 +43092,7 @@ GameObject:
   - component: {fileID: 578275702123291952}
   - component: {fileID: 578275702126159120}
   - component: {fileID: 578275702125193168}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a23"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42969,7 +43110,7 @@ GameObject:
   - component: {fileID: 578275702123291954}
   - component: {fileID: 578275702126159122}
   - component: {fileID: 578275702125193170}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a22"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42987,7 +43128,7 @@ GameObject:
   - component: {fileID: 578275702123291956}
   - component: {fileID: 578275702126159124}
   - component: {fileID: 578275702125193172}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a21"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43005,7 +43146,7 @@ GameObject:
   - component: {fileID: 578275702123291958}
   - component: {fileID: 578275702126159126}
   - component: {fileID: 578275702125193174}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43023,7 +43164,7 @@ GameObject:
   - component: {fileID: 578275702123291960}
   - component: {fileID: 578275702126159128}
   - component: {fileID: 578275702125193176}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43041,7 +43182,7 @@ GameObject:
   - component: {fileID: 578275702123291962}
   - component: {fileID: 578275702126159130}
   - component: {fileID: 578275702125193178}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a19"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43059,7 +43200,7 @@ GameObject:
   - component: {fileID: 578275702123291964}
   - component: {fileID: 578275702126159132}
   - component: {fileID: 578275702125193180}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a18"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43077,7 +43218,7 @@ GameObject:
   - component: {fileID: 578275702123291966}
   - component: {fileID: 578275702126159134}
   - component: {fileID: 578275702125193182}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a17"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43095,7 +43236,7 @@ GameObject:
   - component: {fileID: 578275702123292000}
   - component: {fileID: 578275702126159168}
   - component: {fileID: 578275702125192960}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a45"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43113,7 +43254,7 @@ GameObject:
   - component: {fileID: 578275702123292002}
   - component: {fileID: 578275702126159170}
   - component: {fileID: 578275702125192962}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a44"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43131,7 +43272,7 @@ GameObject:
   - component: {fileID: 578275702123292004}
   - component: {fileID: 578275702126159172}
   - component: {fileID: 578275702125192964}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a43"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43149,7 +43290,7 @@ GameObject:
   - component: {fileID: 578275702123292006}
   - component: {fileID: 578275702126159174}
   - component: {fileID: 578275702125192966}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a42"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43167,7 +43308,7 @@ GameObject:
   - component: {fileID: 578275702123292008}
   - component: {fileID: 578275702126159176}
   - component: {fileID: 578275702125192968}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a41"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43185,7 +43326,7 @@ GameObject:
   - component: {fileID: 578275702123292010}
   - component: {fileID: 578275702126159178}
   - component: {fileID: 578275702125192970}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a40"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43203,7 +43344,7 @@ GameObject:
   - component: {fileID: 578275702123292012}
   - component: {fileID: 578275702126159180}
   - component: {fileID: 578275702125192972}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43221,7 +43362,7 @@ GameObject:
   - component: {fileID: 578275702123292014}
   - component: {fileID: 578275702126159182}
   - component: {fileID: 578275702125192974}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a39"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43239,7 +43380,7 @@ GameObject:
   - component: {fileID: 578275702123292016}
   - component: {fileID: 578275702126159184}
   - component: {fileID: 578275702125192976}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43257,7 +43398,7 @@ GameObject:
   - component: {fileID: 578275702123292018}
   - component: {fileID: 578275702126159186}
   - component: {fileID: 578275702125192978}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a51"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43275,7 +43416,7 @@ GameObject:
   - component: {fileID: 578275702123292020}
   - component: {fileID: 578275702126159188}
   - component: {fileID: 578275702125192980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a50"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43293,7 +43434,7 @@ GameObject:
   - component: {fileID: 578275702123292022}
   - component: {fileID: 578275702126159190}
   - component: {fileID: 578275702125192982}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43311,7 +43452,7 @@ GameObject:
   - component: {fileID: 578275702123292024}
   - component: {fileID: 578275702126159192}
   - component: {fileID: 578275702125192984}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a49"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43329,7 +43470,7 @@ GameObject:
   - component: {fileID: 578275702123292026}
   - component: {fileID: 578275702126159194}
   - component: {fileID: 578275702125192986}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a48"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43347,7 +43488,7 @@ GameObject:
   - component: {fileID: 578275702123292028}
   - component: {fileID: 578275702126159196}
   - component: {fileID: 578275702125192988}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a47"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43365,7 +43506,7 @@ GameObject:
   - component: {fileID: 578275702123292030}
   - component: {fileID: 578275702126159198}
   - component: {fileID: 578275702125192990}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a46"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43383,7 +43524,7 @@ GameObject:
   - component: {fileID: 578275702123291904}
   - component: {fileID: 578275702126159200}
   - component: {fileID: 578275702125192992}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a30"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43401,7 +43542,7 @@ GameObject:
   - component: {fileID: 578275702123291906}
   - component: {fileID: 578275702126159202}
   - component: {fileID: 578275702125192994}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43419,7 +43560,7 @@ GameObject:
   - component: {fileID: 578275702123291908}
   - component: {fileID: 578275702126159204}
   - component: {fileID: 578275702125192996}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a29"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43437,7 +43578,7 @@ GameObject:
   - component: {fileID: 578275702123291910}
   - component: {fileID: 578275702126159206}
   - component: {fileID: 578275702125192998}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a28"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43455,7 +43596,7 @@ GameObject:
   - component: {fileID: 578275702123291912}
   - component: {fileID: 578275702126159208}
   - component: {fileID: 578275702125193000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a27"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43473,7 +43614,7 @@ GameObject:
   - component: {fileID: 578275702123291914}
   - component: {fileID: 578275702126159210}
   - component: {fileID: 578275702125193002}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a26"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43491,7 +43632,7 @@ GameObject:
   - component: {fileID: 578275702123291916}
   - component: {fileID: 578275702126159212}
   - component: {fileID: 578275702125193004}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a25"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43509,7 +43650,7 @@ GameObject:
   - component: {fileID: 578275702123291918}
   - component: {fileID: 578275702126159214}
   - component: {fileID: 578275702125193006}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a24"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43527,7 +43668,7 @@ GameObject:
   - component: {fileID: 578275702123291920}
   - component: {fileID: 578275702126159216}
   - component: {fileID: 578275702125193008}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a38"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43545,7 +43686,7 @@ GameObject:
   - component: {fileID: 578275702123291922}
   - component: {fileID: 578275702126159218}
   - component: {fileID: 578275702125193010}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a37"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43563,7 +43704,7 @@ GameObject:
   - component: {fileID: 578275702123291924}
   - component: {fileID: 578275702126159220}
   - component: {fileID: 578275702125193012}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a36"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43581,7 +43722,7 @@ GameObject:
   - component: {fileID: 578275702123291926}
   - component: {fileID: 578275702126159222}
   - component: {fileID: 578275702125193014}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a35"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43599,7 +43740,7 @@ GameObject:
   - component: {fileID: 578275702123291928}
   - component: {fileID: 578275702126159224}
   - component: {fileID: 578275702125193016}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a34"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43617,7 +43758,7 @@ GameObject:
   - component: {fileID: 578275702123291930}
   - component: {fileID: 578275702126159226}
   - component: {fileID: 578275702125193018}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a33"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43635,7 +43776,7 @@ GameObject:
   - component: {fileID: 578275702123291932}
   - component: {fileID: 578275702126159228}
   - component: {fileID: 578275702125193020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a32"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43653,7 +43794,7 @@ GameObject:
   - component: {fileID: 578275702123291934}
   - component: {fileID: 578275702126159230}
   - component: {fileID: 578275702125193022}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a31"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46743,7 +46884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275702211068886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Segment2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46774,7 +46915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578275702305163137}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Segment2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46852,7 +46993,7 @@ GameObject:
   - component: {fileID: 578275702390139079}
   - component: {fileID: 578275702390139077}
   - component: {fileID: 578275702390139076}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sciezka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46898,7 +47039,7 @@ GameObject:
   - component: {fileID: 2712308245514466437}
   - component: {fileID: 2712308245517890727}
   - component: {fileID: 2712308245516891751}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: "Bry\u0142a1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46960,9 +47101,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6482515160584250557}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BRAMA
-  m_TagString: Untagged
+  m_TagString: BRAMA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

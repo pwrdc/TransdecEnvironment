@@ -6,6 +6,15 @@ TagManager:
   tags:
   - Environment
   - Marker
+  - Path
+  - Expose_to_sunlight_trumna
+  - Garlic_drop_frame
+  - Garlic_task
+  - stake_through
+  - crucifix_task
+  - BRAMA
+  - triple_board
+  - board
   layers:
   - Default
   - TransparentFX
@@ -18,7 +27,7 @@ TagManager:
   - PostProcessing
   - Noise
   - Pool
-  - 
+  - Objects
   - 
   - 
   - 

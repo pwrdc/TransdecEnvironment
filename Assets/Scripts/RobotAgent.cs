@@ -98,7 +98,8 @@ public class RobotAgent : Agent {
 
         annotations.target = targetAnnotation;
         positionDrawer.toAnnotate = targetAnnotation;
-        positionDrawer.target = target;
+        positionDrawer.target = target;        
+        positionDrawer.GetNoise();
         positionDrawer.setFocusedObjectInCenter = setFocusedObjectInCenter;
         annotations.activatedMode = targetMode;
         annotations.activateBackground = isBackgroundImage;
@@ -188,7 +189,8 @@ public class RobotAgent : Agent {
         targetCenter = GetComplexBounds(target).center;
         targetRotation = target.transform.rotation;
         startPos = GetPosition();
-        startAngle = GetAngle();
+        startAngle = GetAngle();    
+        positionDrawer.GetNoise();
         SetReward(0);
         if (dataCollection) {
             annotations.activate = true;
@@ -315,6 +317,10 @@ public class RobotAgent : Agent {
             annotations.cam = bottomCamera;
             bottomCamera.targetDisplay = 0;
             frontCamera.targetDisplay = 2;
+        }
+        else {
+            Debug.Log("ERROR");
+            //TO DO: SHOW ERROR ON CHOOSING WRONG CAMERA
         }
     }
 

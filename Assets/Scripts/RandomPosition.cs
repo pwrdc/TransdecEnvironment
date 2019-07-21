@@ -11,6 +11,7 @@ public class RandomPosition : MonoBehaviour
     public int numberOfNoiseToGenerate = 5;
     public bool setFocusedObjectInCenter = false;
     public bool setObjectAlwaysVisible = true; //when adding noise, make sure that noise won't override object
+    public bool addCompetitionObjectsAsNoise = true;
     private List<GameObject> otherObjs = new List<GameObject>();
     private List<MeshRenderer[]> otherObjsMesh = new List<MeshRenderer[]>();
 
@@ -86,6 +87,16 @@ public class RandomPosition : MonoBehaviour
         return false;
     }
 
+    GameObject getRaycastHit() {
+        int layerMask = (1 << 9) | (1 << 11);
+        Debug.Log(layerMask);
+        float dist = Vector3.Distance(toAnnotate.transform.position, agent.transform.position);
+        RaycastHit hit;
+        if (Physics.Raycast(agent.transform.position, toAnnotate.transform.position - agent.transform.position, out hit, dist, layerMask))
+            return hit.transform.gameObject;
+        return null;
+    }
+
     bool isOverridingObject(GameObject obj) {
         //Return true if object is overriding target, otherwise return false
         Bounds objBounds = transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(obj);
@@ -143,10 +154,21 @@ public class RandomPosition : MonoBehaviour
         return boxCoord;
     }
 
-    public void Start() {
+    public void GetNoise() {
+        otherObjs = new List<GameObject>();
+        otherObjsMesh = new List<MeshRenderer[]>();
     	foreach (Transform child in noiseFolder.transform) {
     		otherObjs.Add(child.gameObject);
             otherObjsMesh.Add(child.gameObject.GetComponentsInChildren<MeshRenderer>());
+        }
+
+        if(addCompetitionObjectsAsNoise) {
+            foreach(Transform child in this.transform) {
+                if(child.gameObject != agent && child.gameObject != target && child.gameObject.tag != target.tag) {
+                    otherObjs.Add(child.gameObject);
+                    otherObjsMesh.Add(child.gameObject.GetComponentsInChildren<MeshRenderer>());
+                }
+            }
         }
     }
 
@@ -159,7 +181,6 @@ public class RandomPosition : MonoBehaviour
         float r;
 
         newPos.y = GetRandom(options[enabledOption].maxDepth, options[enabledOption].waterLevel);
-
 
         if(options[enabledOption].mode.Equals(RobotAcademy.DataCollection.bottomCamera)) {
         	if(setFocusedObjectInCenter)
@@ -186,7 +207,6 @@ public class RandomPosition : MonoBehaviour
             agent.transform.eulerAngles = new Vector3(0, GetRandom(0, 360), 0);
         }
         else {
-        	Debug.Log(setFocusedObjectInCenter);
             agent.transform.LookAt(transform.Find("Robot").GetComponent<RobotAgent>().GetComplexBounds(toAnnotate).center);
             if(!setFocusedObjectInCenter)
             	agent.transform.eulerAngles = new Vector3(agent.transform.eulerAngles.x + xRot, agent.transform.eulerAngles.y + yRot, agent.transform.eulerAngles.z + zRot);
@@ -214,8 +234,7 @@ public class RandomPosition : MonoBehaviour
                 newPos.x += r * Mathf.Cos(theta);
                 newPos.y = GetRandom(radiusOfGeneratedObject, options[enabledOption].waterLevel - 0.2f);
                 newPos.z += r * Mathf.Sin(theta);
-                
-            }   
+            }  
         }
 
         obj.transform.position = newPos;
@@ -249,6 +268,14 @@ public class RandomPosition : MonoBehaviour
             foreach (GameObject obj in objToChose) GetOthNewPos(obj);
             foreach (GameObject obj in otherObjs) obj.SetActive(false);
             foreach (GameObject obj in objToChose) obj.SetActive(true);
+
+            if(setObjectAlwaysVisible) {
+                GameObject obj = getRaycastHit();
+                while(obj != null && obj != target && obj != toAnnotate) {
+                    obj.SetActive(false);
+                    obj = getRaycastHit();
+                }
+            }
         }
     }
 
