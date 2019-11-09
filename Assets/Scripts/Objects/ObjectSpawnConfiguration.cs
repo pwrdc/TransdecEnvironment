@@ -192,6 +192,11 @@ namespace Objects
             { ObjectType.OnBottom, new EssentialSettings() { minRadius = 1.5f, maxRadius = 4, maxDepth = 9f, waterLevel = 11 } }
         };
 
+        void Awake()
+        {
+            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
+        }
+
         /// <summary>
         /// Called when [validate].
         /// </summary>
@@ -270,9 +275,9 @@ namespace Objects
         {
             objectSettings[index].type = type;
             objectSettings[index].minRadius = essentialSettings[type].minRadius;
-            objectSettings[index].maxRadius = essentialSettings[type].minRadius;
-            objectSettings[index].waterLevel = essentialSettings[type].minRadius;
-            objectSettings[index].maxDepth = essentialSettings[type].minRadius;
+            objectSettings[index].maxRadius = essentialSettings[type].maxRadius;
+            objectSettings[index].waterLevel = essentialSettings[type].waterLevel;
+            objectSettings[index].maxDepth = essentialSettings[type].maxDepth;
         }
 
         /// <summary>
@@ -316,11 +321,6 @@ namespace Objects
             SetObjectType(index, type);
         }
 
-        /// <summary>
-        /// Activates the option.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        public void ActivateOption(int index) { enabledOption = index; }
 
         /// <summary>
         /// Gets the settings for activated object.
@@ -328,5 +328,9 @@ namespace Objects
         /// <returns>Settings.</returns>
         public Settings GetSettingsForActivatedObject() { return objectSettings[enabledOption]; }
 
+        public void UpdateData(TargetSettings settings)
+        {
+            this.enabledOption = settings.targetIndex;
+        }
     }
 }

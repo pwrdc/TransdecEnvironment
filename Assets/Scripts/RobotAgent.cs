@@ -42,6 +42,10 @@ public class TargetSettings
     /// The target offset
     /// </summary>
     public Vector3 targetOffset = Vector3.zero;
+    /// <summary>
+    /// Is Target Annotation outlined with box
+    /// </summary>
+    public bool drawBox = false;
 }
 
 /// <summary>

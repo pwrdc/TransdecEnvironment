@@ -52,7 +52,7 @@ public class TargetAnnotation : MonoBehaviour
     /// <summary>
     /// The activate
     /// </summary>
-    private bool activate = false;
+    private bool activate = true;
     /// <summary>
     /// The activated mode
     /// </summary>
@@ -159,7 +159,8 @@ public class TargetAnnotation : MonoBehaviour
     /// <param name="settings">The settings.</param>
     public void UpdateData(TargetSettings settings)
     {
-        this.target = settings.target;
+        this.target = settings.targetAnnotation;
+        this.drawBox = settings.drawBox;
     }
 
     /// <summary>

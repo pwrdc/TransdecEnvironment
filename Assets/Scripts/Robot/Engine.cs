@@ -95,7 +95,6 @@ namespace Robot
             rbody = this.transform.parent.gameObject.GetComponent<Rigidbody>();
         }
 
-        // Update is called once per frame
         /// <summary>
         /// Updates this instance.
         /// </summary>
