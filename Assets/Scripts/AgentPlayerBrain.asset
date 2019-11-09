@@ -16,10 +16,7 @@ MonoBehaviour:
     vectorObservationSize: 0
     numStackedVectorObservations: 1
     vectorActionSize: 05000000
-    cameraResolutions:
-    - width: 1280
-      height: 720
-      blackAndWhite: 0
+    cameraResolutions: []
     vectorActionDescriptions:
     - movementLongitudinal
     - movementLateral
