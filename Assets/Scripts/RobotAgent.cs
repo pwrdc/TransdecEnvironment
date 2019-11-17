@@ -371,6 +371,7 @@ public class RobotAgent : Agent
         targetSettings.targetIndex = (int)RobotAcademy.Instance.resetParameters["FocusedObject"];
         targetSettings.target = RobotAcademy.Instance.objectCreator.targetObjects[targetSettings.targetIndex];
         targetSettings.targetAnnotation = RobotAcademy.Instance.objectCreator.targetAnnotations[targetSettings.targetIndex];
+        targetSettings.drawBox = agentSettings.dataCollection;
 
         backgroundSettings.isBackgroundImage = RobotAcademy.Instance.resetParameters["EnableBackgroundImage"] == 0 ? false : true;
         
