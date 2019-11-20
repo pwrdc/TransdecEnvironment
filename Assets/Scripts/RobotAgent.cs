@@ -1,107 +1,37 @@
-﻿// ***********************************************************************
-// Assembly         : Assembly-CSharp
-// Author           : Szymo
-// Created          : 09-20-2019
-//
-// Last Modified By : Szymo
-// Last Modified On : 10-21-2019
-// ***********************************************************************
-// <copyright file="RobotAgent.cs" company="">
-//     Copyright (c) . All rights reserved.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using UnityEngine;
+﻿using UnityEngine;
 using MLAgents;
 using System;
 using System.Collections.Generic;
 
-/// <summary>
-/// Class TargetSettings.
-/// </summary>
 [System.Serializable]
 public class TargetSettings
 {
-    /// <summary>
-    /// The target
-    /// </summary>
     public GameObject target;
-    /// <summary>
-    /// The target annotation
-    /// </summary>
     public GameObject targetAnnotation;
-    /// <summary>
-    /// The target index
-    /// </summary>
     public int targetIndex;
-    /// <summary>
-    /// The camera type
-    /// </summary>
     public CameraType cameraType;
-    /// <summary>
-    /// The target offset
-    /// </summary>
     public Vector3 targetOffset = Vector3.zero;
-    /// <summary>
-    /// Is Target Annotation outlined with box
-    /// </summary>
     public bool drawBox = false;
 }
 
-/// <summary>
-/// Class AgentSettings.
-/// </summary>
 [System.Serializable]
 public class AgentSettings
 {
-    /// <summary>
-    /// The send relative data
-    /// </summary>
     public bool sendRelativeData = false;
-    /// <summary>
-    /// The data collection
-    /// </summary>
     public bool dataCollection = false;
-    /// <summary>
-    /// The positive examples
-    /// </summary>
     public bool positiveExamples = true;
-    /// <summary>
-    /// The force to save as negative
-    /// </summary>
     public bool forceToSaveAsNegative = true;
-    /// <summary>
-    /// The target reset
-    /// </summary>
     public bool targetReset = false;
-    /// <summary>
-    /// The collect observations
-    /// </summary>
     public bool collectObservations = false; //If agent is collecting data
-    /// <summary>
-    /// The randomize target object position on each step
-    /// </summary>
     public bool randomizeTargetObjectPositionOnEachStep = true; //Only in data collection
 }
 
 
-/// <summary>
-/// Class RobotAgent.
-/// Implements the <see cref="MLAgents.Agent" />
-/// </summary>
-/// <seealso cref="MLAgents.Agent" />
 public class RobotAgent : Agent
 {
     #region Fields and Properties
     //Singleton
-    /// <summary>
-    /// The m instance
-    /// </summary>
     private static RobotAgent mInstance = null;
-    /// <summary>
-    /// Gets the instance.
-    /// </summary>
-    /// <value>The instance.</value>
     public static RobotAgent Instance
     {
         get
@@ -126,164 +56,60 @@ public class RobotAgent : Agent
     [HideInInspector]
     public event Action<SceneEnvironment.EnvironmentInitValues> OnDataEnvironmentValuesUpdate;
 
-    /// <summary>
-    /// The environment manager
-    /// </summary>
     [Header("Managers")]
     [SerializeField]
     private SceneEnvironment.EnvironmentManager environmentManager;
-    /// <summary>
-    /// The robot
-    /// </summary>
     [SerializeField]
     private Robot.Robot robot;
-    /// <summary>
-    /// Gets the robot.
-    /// </summary>
-    /// <value>The robot.</value>
     public Robot.Robot Robot { get { return robot; } }
-    /// <summary>
-    /// The object manager
-    /// </summary>
     [SerializeField]
     private Objects.ObjectManager objectManager;
-    /// <summary>
-    /// The annotation
-    /// </summary>
     [SerializeField]
     private TargetAnnotation annotation;
-    /// <summary>
-    /// The background manager
-    /// </summary>
     [SerializeField]
     private BackgroundImageManager backgroundManager;
 
-    /// <summary>
-    /// The front camera
-    /// </summary>
     [Header("Camera settings")]
     public Camera frontCamera = null;
-    /// <summary>
-    /// The bottom camera
-    /// </summary>
     public Camera bottomCamera = null;
-    /// <summary>
-    /// The active camera
-    /// </summary>
     private Camera activeCamera = null;
-    /// <summary>
-    /// Gets the active camera.
-    /// </summary>
-    /// <value>The active camera.</value>
     public Camera ActiveCamera { get { return activeCamera; } }
 
-    /// <summary>
-    /// The target settings
-    /// </summary>
     [Header("Custom Settings")]
     [SerializeField]
     private TargetSettings targetSettings = new TargetSettings();
-    /// <summary>
-    /// The agent settings
-    /// </summary>
     [SerializeField]
     private AgentSettings agentSettings = new AgentSettings();
-    /// <summary>
-    /// The object configuration settings
-    /// </summary>
     [SerializeField]
     private Objects.ObjectConfigurationSettings objectConfigurationSettings = new Objects.ObjectConfigurationSettings();
-    /// <summary>
-    /// The background settings
-    /// </summary>
     [SerializeField]
     private BackgroundSettings backgroundSettings = new BackgroundSettings();
-    /// <summary>
-    /// The environment settings
-    /// </summary>
     [SerializeField]
     private SceneEnvironment.EnvironmentSettings environmentSettings = new SceneEnvironment.EnvironmentSettings();
-    /// <summary>
-    /// The environment values settings
-    /// </summary>
     [SerializeField]
     private SceneEnvironment.EnvironmentInitValues environmentValuesSettings = new SceneEnvironment.EnvironmentInitValues();
 
 
-    /// <summary>
-    /// Gets the target settings.
-    /// </summary>
-    /// <value>The target settings.</value>
     public TargetSettings TargetSettings { get { return targetSettings; } }
-    /// <summary>
-    /// Gets the agent settings.
-    /// </summary>
-    /// <value>The agent settings.</value>
     public AgentSettings AgentSettings { get { return agentSettings; } }
-    /// <summary>
-    /// Gets the object configuration settings.
-    /// </summary>
-    /// <value>The object configuration settings.</value>
     public Objects.ObjectConfigurationSettings ObjectConfigurationSettings { get { return objectConfigurationSettings; } }
-    /// <summary>
-    /// Gets the background settings.
-    /// </summary>
-    /// <value>The background settings.</value>
     public BackgroundSettings BackgroundSettings { get { return backgroundSettings; } }
-    /// <summary>
-    /// Gets the environment settings.
-    /// </summary>
-    /// <value>The environment settings.</value>
     public SceneEnvironment.EnvironmentSettings EnvironmentSettings { get { return environmentSettings; } }
-    /// <summary>
-    /// Gets the environment initialize values.
-    /// </summary>
-    /// <value>The environment initialize values.</value>
     public SceneEnvironment.EnvironmentInitValues EnvironmentInitValues { get { return environmentValuesSettings; } }
 
 
-    /// <summary>
-    /// The robot rigidbody
-    /// </summary>
     Rigidbody RobotRigidbody;
-    /// <summary>
-    /// The target center
-    /// </summary>
     Vector3 targetCenter;
-    /// <summary>
-    /// The target rotation
-    /// </summary>
     Quaternion targetRotation;
-    /// <summary>
-    /// The start position
-    /// </summary>
     Vector3 startPos;
-    /// <summary>
-    /// The start relative angle
-    /// </summary>
     float startRelativeAngle;
-    /// <summary>
-    /// The collided
-    /// </summary>
     int collided = 0;
 
-    /// <summary>
-    /// The relative angle
-    /// </summary>
     float relativeAngle; //angle between robot and target
-    /// <summary>
-    /// The relative position
-    /// </summary>
     Vector3 relativePosition; //position between robot and target
 
-    /// <summary>
-    /// The tasks objects
-    /// </summary>
     List<GameObject> tasksObjects = new List<GameObject>();
 
-    /// <summary>
-    /// The is initialized
-    /// </summary>
     bool isInitialized = false;
     #endregion
 
@@ -325,6 +151,10 @@ public class RobotAgent : Agent
             return;
         isInitialized = true;
 
+        environmentSettings.WaterSurface = GameObject.FindWithTag("WaterSurface");
+        objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");
+        objectConfigurationSettings.noiseFolder = GameObject.FindWithTag("NoiseFolder");
+        //objectConfigurationSettings.noiseFolder.SetActive(false);
         RobotRigidbody = robot.gameObject.GetComponent<Rigidbody>();
         Utils.GetObjectsInFolder(objectConfigurationSettings.tasksFolder, out tasksObjects);
     }
@@ -576,9 +406,6 @@ public class RobotAgent : Agent
     }
     #endregion
 
-    /// <summary>
-    /// Resets the agent.
-    /// </summary>
     void ResetAgent()
     {
         //Reset robot
@@ -676,18 +503,11 @@ public class RobotAgent : Agent
         return (float)(-Math.Sqrt(1 / start * current) + 1);
     }
 
-    /// <summary>
-    /// Called when [collision enter].
-    /// </summary>
     void OnCollisionEnter()
     {
         collided = 1;
     }
 
-    /// <summary>
-    /// Called when [trigger enter].
-    /// </summary>
-    /// <param name="other">The other.</param>
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "TargetPlane" && agentSettings.targetReset)

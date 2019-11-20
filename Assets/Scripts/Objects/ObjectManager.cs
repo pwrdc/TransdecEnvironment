@@ -42,10 +42,12 @@ namespace Objects
         /// <summary>
         /// The noise folder
         /// </summary>
+        [HideInInspector]
         public GameObject noiseFolder = null;
         /// <summary>
         /// The tasks folder
         /// </summary>
+        [HideInInspector]
         public GameObject tasksFolder = null;
         /// <summary>
         /// The random quarter
