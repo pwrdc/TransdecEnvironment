@@ -79,13 +79,6 @@ namespace SceneEnvironment
         /// <param name="isEnabled">if set to <c>true</c> [is enabled].</param>
         public void setWaterCurrent(bool isEnabled) { this.isEnabled = isEnabled; }
 
-        /// <summary>
-        /// Awakes this instance.
-        /// </summary>
-        void Awake()
-        {
-            rbody = GameObject.Find("Robot").GetComponent<Rigidbody>();
-        }
 
         /// <summary>
         /// Starts this instance.
@@ -96,7 +89,8 @@ namespace SceneEnvironment
             radius = Utils.GetRandom(minVelocity, maxVelocity);
             float x = radius * Mathf.Cos(angle);
             float z = radius * Mathf.Sin(angle);
-            current = new Vector3(x, 0, z);
+            current = new Vector3(x, 0, z); 
+            rbody = GameObject.Find("Robot").GetComponent<Rigidbody>();
             RobotAgent.Instance.OnDataEnvironmentUpdate += DataUpdate;
         }
 

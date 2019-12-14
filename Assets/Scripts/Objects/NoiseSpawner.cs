@@ -17,56 +17,31 @@ using UnityEngine;
 
 namespace Objects
 {
-    /// <summary>
-    /// Class NoiseSpawner.
-    /// Implements the <see cref="UnityEngine.MonoBehaviour" />
-    /// </summary>
-    /// <seealso cref="UnityEngine.MonoBehaviour" />
     public class NoiseSpawner : MonoBehaviour
     {
-        /// <summary>
-        /// The robot
-        /// </summary>
         private GameObject robot;
 
-        /// <summary>
-        /// The other objs
-        /// </summary>
         private List<GameObject> otherObjs = new List<GameObject>();
-        /// <summary>
-        /// The other objs mesh
-        /// </summary>
         private List<MeshRenderer[]> otherObjsMesh = new List<MeshRenderer[]>();
 
-        /// <summary>
-        /// The target settings
-        /// </summary>
         private TargetSettings targetSettings;
-        /// <summary>
-        /// The object configuration settings
-        /// </summary>
         private ObjectConfigurationSettings objectConfigurationSettings;
 
-        /// <summary>
-        /// The radius of generated object
-        /// </summary>
         private float radiusOfGeneratedObject;
 
-        /// <summary>
-        /// Awakes this instance.
-        /// </summary>
-        void Awake()
+        void Start()
         {
             robot = RobotAgent.Instance.Robot.gameObject;
             RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
             RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
         }
 
-        /// <summary>
-        /// Determines whether [is overriding object] [the specified object].
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <returns><c>true</c> if [is overriding object] [the specified object]; otherwise, <c>false</c>.</returns>
+        public void Init(ObjectConfigurationSettings objectConfigurationSettings, TargetSettings targetSettings)
+        {
+            this.objectConfigurationSettings = objectConfigurationSettings;
+            this.targetSettings = targetSettings;
+        }
+
         bool IsOverridingObject(GameObject obj)
         {
             //Return true if object is overriding target, otherwise return false
@@ -91,18 +66,9 @@ namespace Objects
             return false;
         }
 
-        /// <summary>
-        /// Gets the other objs.
-        /// </summary>
-        /// <returns>List&lt;GameObject&gt;.</returns>
         public List<GameObject> GetOtherObjs() { return otherObjs; }
 
         //Setting up new position for objects in order to Settings
-        /// <summary>
-        /// Sets the oth new position.
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <param name="setting">The setting.</param>
         public void SetOthNewPos(GameObject obj, Settings setting)
         {
             Vector3 newPos = Utils.GetComplexBounds(targetSettings.targetAnnotation).center;
@@ -135,11 +101,6 @@ namespace Objects
         }
 
         //Add new noise to scene, 
-        /// <summary>
-        /// Adds the noise.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="numberOfNoiseToGenerate">The number of noise to generate.</param>
         public void AddNoise(Settings settings, int numberOfNoiseToGenerate)
         {
             List<GameObject> objToChose = GetRandomObjects(GetOtherObjs(), numberOfNoiseToGenerate);
@@ -158,18 +119,8 @@ namespace Objects
             }
         }
 
-        /// <summary>
-        /// Sets the radius of generated object.
-        /// </summary>
-        /// <param name="radiusOfGeneratedObject">The radius of generated object.</param>
         public void SetRadiusOfGeneratedObject(float radiusOfGeneratedObject) { this.radiusOfGeneratedObject = radiusOfGeneratedObject; }
 
-        /// <summary>
-        /// Gets the random objects.
-        /// </summary>
-        /// <param name="objects">The objects.</param>
-        /// <param name="amount">The amount.</param>
-        /// <returns>List&lt;GameObject&gt;.</returns>
         List<GameObject> GetRandomObjects(List<GameObject> objects, int amount)
         {
             List<GameObject> objToChose = new List<GameObject>();
@@ -181,10 +132,6 @@ namespace Objects
             return objToChose;
         }
 
-        /// <summary>
-        /// Gets the raycast hit.
-        /// </summary>
-        /// <returns>GameObject.</returns>
         GameObject GetRaycastHit() //Raycast from robot position to target
         {
             int layerMask = (1 << 9) | (1 << 11);
@@ -195,19 +142,11 @@ namespace Objects
             return null;
         }
 
-        /// <summary>
-        /// Updates the data.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
         public void UpdateData(TargetSettings settings)
         {
             targetSettings = settings;
         }
 
-        /// <summary>
-        /// Updates the data.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
         public void UpdateData(ObjectConfigurationSettings settings)
         {
             if(objectConfigurationSettings == null)

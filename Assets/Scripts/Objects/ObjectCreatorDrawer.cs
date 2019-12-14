@@ -1,20 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : Assembly-CSharp
-// Author           : Szymo
-// Created          : 09-20-2019
-//
-// Last Modified By : Szymo
-// Last Modified On : 09-22-2019
-// ***********************************************************************
-// <copyright file="ObjectCreatorDrawer.cs" company="">
-//     Copyright (c) . All rights reserved.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using UnityEngine;
-using System;
-using System.Linq;
-using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -23,98 +7,41 @@ using UnityEditor.SceneManagement;
 
 namespace Objects
 {
-    /// <summary>
-    /// Class ObjectCreator.
-    /// </summary>
     [System.Serializable]
     public class ObjectCreator
     {
-        /// <summary>
-        /// The target camera modes
-        /// </summary>
         [SerializeField]
         public List<CameraType> targetCameraModes = new List<CameraType>();
-        /// <summary>
-        /// The target object types
-        /// </summary>
         [SerializeField]
         public List<ObjectType> targetObjectTypes = new List<ObjectType>();
-        /// <summary>
-        /// The target objects
-        /// </summary>
         [SerializeField]
         public List<GameObject> targetObjects = new List<GameObject>();
-        /// <summary>
-        /// The target annotations
-        /// </summary>
         [SerializeField]
         public List<GameObject> targetAnnotations = new List<GameObject>();
-        /// <summary>
-        /// The target is enabled
-        /// </summary>
         [SerializeField]
         public List<bool> targetIsEnabled = new List<bool>();
     }
 #if UNITY_EDITOR
-    /// <summary>
-    /// Class ObjectCreatorDrawer.
-    /// Implements the <see cref="UnityEditor.PropertyDrawer" />
-    /// </summary>
-    /// <seealso cref="UnityEditor.PropertyDrawer" />
     [CustomPropertyDrawer(typeof(ObjectCreator))]
     public class ObjectCreatorDrawer : PropertyDrawer
     {
-        /// <summary>
-        /// The object creator
-        /// </summary>
         private ObjectCreator objectCreator;
-        /// <summary>
-        /// The mode
-        /// </summary>
         private CameraType mode;
-        /// <summary>
-        /// The object spawn configuration
-        /// </summary>
         private ObjectSpawnConfiguration objectSpawnConfiguration;
-        /// <summary>
-        /// The robot academy
-        /// </summary>
         private RobotAcademy robotAcademy;
 
-        /// <summary>
-        /// Gets the object creator.
-        /// </summary>
-        /// <value>The object creator.</value>
         private ObjectCreator ObjectCreator { get { return objectCreator; } }
 
         // The height of a line in the Unity Inspectors
-        /// <summary>
-        /// The line height
-        /// </summary>
         private const float LineHeight = 17f;
         // The vertical space left below the BroadcastHub UI.
-        /// <summary>
-        /// The extra space below
-        /// </summary>
         private const float ExtraSpaceBelow = 10f;
         // The horizontal size of the Control checkbox
-        /// <summary>
-        /// The control size
-        /// </summary>
         private const int ControlSize = 80;
-        /// <summary>
-        /// The specific identifier
-        /// </summary>
         private int specificId = -1;
 
 
 
-        /// <summary>
-        /// Computes the height of the Drawer depending on the property it is showing
-        /// </summary>
-        /// <param name="property">The property that is being drawn.</param>
-        /// <param name="label">The label of the property being drawn.</param>
-        /// <returns>The vertical space needed to draw the property.</returns>
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             InitializeObjectCreator(property, label);
@@ -122,12 +49,6 @@ namespace Objects
             return (numLines) * LineHeight + ExtraSpaceBelow;
         }
 
-        /// <summary>
-        /// Override this method to make your own GUI for the property.
-        /// </summary>
-        /// <param name="position">Rectangle on the screen to use for the property GUI.</param>
-        /// <param name="property">The SerializedProperty to make the custom GUI for.</param>
-        /// <param name="label">The label of this property.</param>
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             if (specificId == -1)
@@ -157,11 +78,6 @@ namespace Objects
             EditorGUI.EndProperty();
         }
 
-        /// <summary>
-        /// Draws the Add and Remove buttons.
-        /// </summary>
-        /// <param name="position">The position at which to draw.</param>
-        /// <param name="property">The property.</param>
         private void DrawAddButton(Rect position, SerializedProperty property)
         {
             // This is the rectangle for the Add button
@@ -190,11 +106,6 @@ namespace Objects
             }
         }
 
-        /// <summary>
-        /// Draws the Brain and Control checkbox for the brains contained in the BroadCastHub.
-        /// </summary>
-        /// <param name="position">The position.</param>
-        /// <param name="property">The property.</param>
         private void DrawTargetObjects(Rect position, SerializedProperty property)
         {
 
@@ -318,9 +229,6 @@ namespace Objects
             }
         }
 
-        /// <summary>
-        /// Adds the new object.
-        /// </summary>
         private void AddNewObject()
         {
             objectCreator.targetObjects.Add(null);
@@ -331,10 +239,6 @@ namespace Objects
             objectSpawnConfiguration.AddNewObject(CameraType.frontCamera, ObjectType.Small, null);
         }
 
-        /// <summary>
-        /// Inserts the new object.
-        /// </summary>
-        /// <param name="index">The index.</param>
         private void InsertNewObject(int index)
         {
             if (index > objectCreator.targetObjects.Count)
@@ -348,32 +252,18 @@ namespace Objects
             objectSpawnConfiguration.InsertNewObject(index, CameraType.frontCamera, ObjectType.Small);
         }
 
-        /// <summary>
-        /// Changes the target object.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        /// <param name="targetObj">The target object.</param>
         private void ChangeTargetObject(int index, GameObject targetObj)
         {
             objectCreator.targetObjects[index] = targetObj;
             objectSpawnConfiguration.SetObjectTarget(index, targetObj);
         }
 
-        /// <summary>
-        /// Changes the target annot.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        /// <param name="targetAnnot">The target annot.</param>
         private void ChangeTargetAnnot(int index, GameObject targetAnnot)
         {
             objectCreator.targetAnnotations[index] = targetAnnot;
             objectSpawnConfiguration.SetObjectTargetAnnotation(index, targetAnnot);
         }
 
-        /// <summary>
-        /// Removes the object.
-        /// </summary>
-        /// <param name="index">The index.</param>
         private void RemoveObject(int index)
         {
             objectCreator.targetObjects.RemoveAt(index);
@@ -384,31 +274,16 @@ namespace Objects
             objectSpawnConfiguration.DeleteObject(index);
         }
 
-        /// <summary>
-        /// Changes the camera mode.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        /// <param name="mode">The mode.</param>
         private void ChangeCameraMode(int index, CameraType mode)
         {
             objectSpawnConfiguration.SetCameraMode(index, objectCreator.targetCameraModes[index]);
         }
 
-        /// <summary>
-        /// Changes the object mode.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        /// <param name="type">The type.</param>
         private void ChangeObjectMode(int index, ObjectType type)
         {
             objectSpawnConfiguration.SetObjectType(index, objectCreator.targetObjectTypes[index]);
         }
 
-        /// <summary>
-        /// Initializes the object creator.
-        /// </summary>
-        /// <param name="property">The property.</param>
-        /// <param name="label">The label.</param>
         private void InitializeObjectCreator(SerializedProperty property, GUIContent label)
         {
             if (objectCreator != null)
@@ -424,10 +299,6 @@ namespace Objects
             }
         }
 
-        /// <summary>
-        /// Signals that the property has been modified and requires the scene to be saved for
-        /// the changes to persist. Only works when the Editor is not playing.
-        /// </summary>
         private static void MarkSceneAsDirty()
         {
             if (!EditorApplication.isPlaying)

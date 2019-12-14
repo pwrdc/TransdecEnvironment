@@ -82,6 +82,26 @@ public class TargetAnnotation : MonoBehaviour
             boxCoord[2] = max.x * RobotAcademy.Instance.VisualObservationResolution.x;
             boxCoord[3] = max.y * RobotAcademy.Instance.VisualObservationResolution.y;
 
+            //To show on Unity screen
+            pts[0] = cam.WorldToScreenPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
+            pts[1] = cam.WorldToScreenPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
+            pts[2] = cam.WorldToScreenPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
+            pts[3] = cam.WorldToScreenPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
+            pts[4] = cam.WorldToScreenPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
+            pts[5] = cam.WorldToScreenPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
+            pts[6] = cam.WorldToScreenPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
+            pts[7] = cam.WorldToScreenPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
+            // calculate coordinate for game view
+            for (int i = 0; i < pts.Length; i++) pts[i].y = Screen.height - pts[i].y;
+
+            // calculate max and min values for drawing box
+            min = pts[0];
+            max = pts[0];
+            for (int i = 1; i < pts.Length; i++)
+            {
+                min = Vector3.Min(min, pts[i]);
+                max = Vector3.Max(max, pts[i]);
+            }
 
             if (drawBox)
             {

@@ -115,19 +115,13 @@ namespace Objects
         private List<GameObject> tasksObjs = new List<GameObject>();
 
 
-        /// <summary>
-        /// Awakes this instance.
-        /// </summary>
-        void Awake()
-        {
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
-        }
 
         /// <summary>
         /// Starts this instance.
         /// </summary>
         void Start()
         {
+            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
             Utils.GetObjectsInFolder(RobotAgent.Instance.ObjectConfigurationSettings.tasksFolder, out tasksObjs);
 
             foreach(var obj in tasksObjs)
@@ -137,6 +131,11 @@ namespace Objects
                 objSettings.startPosition = obj.transform.position;
                 objSettings.startRotation = obj.transform.eulerAngles;
             }
+        }
+
+        public void Init(ObjectConfigurationSettings settings)
+        {
+            objectConfigurationSettings = settings;
         }
 
         //Randomize position of target object

@@ -17,38 +17,17 @@ using System.Collections.Generic;
 
 namespace Objects
 {
-    /// <summary>
-    /// Generates random position of camera, when its called
-    /// </summary>
     public class RandomCameraPosition : MonoBehaviour
     {
-        /// <summary>
-        /// The robot
-        /// </summary>
         private GameObject robot = null;
 
-        /// <summary>
-        /// The object spawn configuration
-        /// </summary>
         private ObjectSpawnConfiguration objectSpawnConfiguration;
-        /// <summary>
-        /// The target settings
-        /// </summary>
         private TargetSettings targetSettings;
-        /// <summary>
-        /// The object configuration settings
-        /// </summary>
         private ObjectConfigurationSettings objectConfigurationSettings;
-        /// <summary>
-        /// The noise spawner
-        /// </summary>
         private NoiseSpawner noiseSpawner;
 
 
-        /// <summary>
-        /// Awakes this instance.
-        /// </summary>
-        void Awake()
+        void Start()
         {
             noiseSpawner = GetComponent<NoiseSpawner>();
             robot = RobotAgent.Instance.Robot.transform.gameObject;
@@ -56,18 +35,13 @@ namespace Objects
             RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
         }
 
-        /// <summary>
-        /// Initializes the specified object spawn configuration.
-        /// </summary>
-        /// <param name="objectSpawnConfiguration">The object spawn configuration.</param>
-        public void Init(ObjectSpawnConfiguration objectSpawnConfiguration)
+        public void Init(ObjectSpawnConfiguration objectSpawnConfiguration, ObjectConfigurationSettings objectConfigurationSettings, TargetSettings targetSettings)
         {
             this.objectSpawnConfiguration = objectSpawnConfiguration;
+            this.objectConfigurationSettings = objectConfigurationSettings;
+            this.targetSettings = targetSettings;
         }
 
-        /// <summary>
-        /// Setup new agent position that looks on object
-        /// </summary>
         public void SetNewRobotPos()
         {
             Settings setting = objectSpawnConfiguration.GetSettingsForActivatedObject();
@@ -111,19 +85,11 @@ namespace Objects
             }
         }
 
-        /// <summary>
-        /// Updates the data.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
         public void UpdateData(TargetSettings settings)
         {
             targetSettings = settings;
         }
 
-        /// <summary>
-        /// Updates the data.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
         public void UpdateData(ObjectConfigurationSettings settings)
         {
             objectConfigurationSettings = settings;

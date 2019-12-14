@@ -210,7 +210,7 @@ public static class Utils
     /// <param name="activate">Is transdec mesh activated</param>
     public static void ActivateEnvironmentMeshRenderer(bool activate)
     {
-        GameObject transdec = GameObject.Find("Transdec");
+        GameObject transdec = GameObject.FindWithTag("Pool");
         MeshRenderer[] meshRenderers = transdec.GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer mesh in meshRenderers)
         {

@@ -104,6 +104,7 @@ public class RobotAgent : Agent
     Vector3 startPos;
     float startRelativeAngle;
     int collided = 0;
+    bool isAwaked = false;
 
     float relativeAngle; //angle between robot and target
     Vector3 relativePosition; //position between robot and target
@@ -121,6 +122,7 @@ public class RobotAgent : Agent
 
     void Awake()
     {
+        isAwaked = true;
         Initialization();
     }
 
@@ -139,6 +141,8 @@ public class RobotAgent : Agent
     /// </summary>
     void SetAgent()
     {
+        if (!isAwaked)
+            return;
         Initialization();
         SetupRobotAcademyInfo();
         SetCamera(); 
@@ -150,6 +154,9 @@ public class RobotAgent : Agent
         if (isInitialized)
             return;
         isInitialized = true;
+        objectManager.Init(objectConfigurationSettings, targetSettings);
+        environmentManager.Init(environmentValuesSettings);
+        
 
         environmentSettings.WaterSurface = GameObject.FindWithTag("WaterSurface");
         objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");

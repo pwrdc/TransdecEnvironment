@@ -32,7 +32,7 @@ namespace SceneEnvironment
         /// <summary>
         /// Awakes this instance.
         /// </summary>
-        private void Awake()
+        private void Start()
         {
             light = GameObject.FindGameObjectWithTag("Light").GetComponent<Light>();
         }

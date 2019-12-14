@@ -70,7 +70,6 @@ public class RobotAcademy : Academy
     {
         get
         {
-
             return mInstance == null ? (mInstance = GameObject.Find("Academy").GetComponent<RobotAcademy>()) : mInstance;
         }
     }
@@ -97,16 +96,12 @@ public class RobotAcademy : Academy
     public Vector2 VisualObservationResolution;
     private RobotAgent robotAgent;
 
-    /// <summary>
-    /// Called when validation.
-    /// Setting up brain control.
-    /// </summary>
     void OnValidate()
     {
-        SetBrainControl();
+        //SetBrainControl();
     }
 
-    void Start()
+    public virtual void Start()
     {
         VisualObservationResolution.x = learningBrain.brainParameters.cameraResolutions[0].width;
         VisualObservationResolution.y = learningBrain.brainParameters.cameraResolutions[0].height;
@@ -116,10 +111,15 @@ public class RobotAcademy : Academy
     void SetupAcademy()
     {
         SetBrainControl();
+        if (control == RobotControl.player || control == RobotControl.pythonNoImage)
+        {
+            resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;
+        }
         if ((int)resetParameters["FocusedObject"] >= objectCreator.targetObjects.Count)
             resetParameters["FocusedObject"] = 0;
         SetFocusedObject((int)resetParameters["FocusedObject"]);
     }
+
 
     /// <summary>
     /// Specifies the academy behavior when being reset, setups academy to starting values.

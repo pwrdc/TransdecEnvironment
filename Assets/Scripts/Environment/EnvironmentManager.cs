@@ -57,9 +57,14 @@ namespace SceneEnvironment
         public WaterOpacity WaterOpacity { get { return waterOpacity; } }
         public WaterCurrent WaterCurrent { get { return waterCurrent; } }
 
-        void Awake()
+        void Start()
         {
             RobotAgent.Instance.OnDataEnvironmentValuesUpdate += UpdateData;   
+        }
+
+        public void Init(EnvironmentInitValues settings)
+        {
+            environmentInitValues = settings;
         }
 
         public void EnvironmentNormalInit()

@@ -57,7 +57,7 @@ namespace Robot
         /// <value>The accelerometer.</value>
         public Accelerometer Accelerometer { get { return _accelerometer; } }
 
-        void Awake()
+        void Start()
         {
             _engine = GetComponentInChildren<Engine>();
             _depthSensor = GetComponentInChildren<DepthSensor>();

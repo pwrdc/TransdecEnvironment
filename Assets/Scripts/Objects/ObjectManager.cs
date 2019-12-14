@@ -109,20 +109,12 @@ namespace Objects
         private TargetSettings targetSettings;
 
         /// <summary>
-        /// Awakes this instance.
-        /// </summary>
-        void Awake()
-        {
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
-            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-        }
-
-        /// <summary>
         /// Starts this instance.
         /// </summary>
         void Start()
         {
-            randomCameraPosition.Init(objectSpawnConfiguration);
+            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
+            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
         }
 
         /// <summary>
@@ -133,6 +125,15 @@ namespace Objects
         {
             randomInitNormal.PutAll();
             randomInitOnMesh.PutAll();
+        }
+
+        public void Init(ObjectConfigurationSettings objectConfigurationSettings, TargetSettings targetSettings)
+        {
+            this.targetSettings = targetSettings;
+            this.objectConfigurationSettings = objectConfigurationSettings;
+            randomCameraPosition.Init(objectSpawnConfiguration, objectConfigurationSettings, targetSettings);
+            randomInitNormal.Init(objectConfigurationSettings);
+            randomInitOnMesh.Init(objectConfigurationSettings);
         }
 
         /// <summary>
