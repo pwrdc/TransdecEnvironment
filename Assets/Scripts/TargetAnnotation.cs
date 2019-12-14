@@ -19,74 +19,32 @@ using UnityEngine.UI;
 using UnityEditor;
 
 
-/// <summary>
-/// Annotation of target
-/// Draws and calculate box around target
-/// </summary>
 public class TargetAnnotation : MonoBehaviour
 {
-    /// <summary>
-    /// The target
-    /// </summary>
     private GameObject target;
-    /// <summary>
-    /// The margin
-    /// </summary>
     [SerializeField]
     private float margin = 10.0f;
-    /// <summary>
-    /// The background
-    /// </summary>
     [SerializeField]
     public Texture2D background;
-    /// <summary>
-    /// The draw box
-    /// </summary>
     [SerializeField]
     private bool drawBox = false;
-    /// <summary>
-    /// The cam
-    /// </summary>
     private Camera cam = null;
 
-    /// <summary>
-    /// The activate
-    /// </summary>
     private bool activate = true;
-    /// <summary>
-    /// The activated mode
-    /// </summary>
     private CameraType activatedMode;
 
 
-    /// <summary>
-    /// The box coord
-    /// </summary>
     private float[] boxCoord = new float[4];
-    /// <summary>
-    /// The style
-    /// </summary>
     private GUIStyle style = null;
-    /// <summary>
-    /// The PTS
-    /// </summary>
     private Vector3[] pts = new Vector3[8];
 
-    /// <summary>
-    /// The number of image to display
-    /// </summary>
     private int numOfImageToDisplay = 0;
 
-    /// <summary>
-    /// The file names
-    /// </summary>
     private string[] fileNames;
 
-    /// <summary>
-    /// Draw box around target
-    /// </summary>
     public void OnGUI()
     {
+        Debug.Log(activate);
         if (activate)
         {
             if (style == null)
@@ -100,17 +58,17 @@ public class TargetAnnotation : MonoBehaviour
 
             // 8 coordinates 
             //TODO: Change to Viewport, and adjust changes in pyTransdec
-            pts[0] = cam.WorldToScreenPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
-            pts[1] = cam.WorldToScreenPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
-            pts[2] = cam.WorldToScreenPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
-            pts[3] = cam.WorldToScreenPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
-            pts[4] = cam.WorldToScreenPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
-            pts[5] = cam.WorldToScreenPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
-            pts[6] = cam.WorldToScreenPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
-            pts[7] = cam.WorldToScreenPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
+            pts[0] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
+            pts[1] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
+            pts[2] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
+            pts[3] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
+            pts[4] = cam.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
+            pts[5] = cam.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
+            pts[6] = cam.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
+            pts[7] = cam.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
             // calculate coordinate for game view
-            for (int i = 0; i < pts.Length; i++) pts[i].y = Screen.height - pts[i].y;
-            
+            for (int i = 0; i < pts.Length; i++) pts[i].y = 1 - pts[i].y;
+
             // calculate max and min values for drawing box
             Vector3 min = pts[0];
             Vector3 max = pts[0];
@@ -119,10 +77,11 @@ public class TargetAnnotation : MonoBehaviour
                 min = Vector3.Min(min, pts[i]);
                 max = Vector3.Max(max, pts[i]);
             }
-            boxCoord[0] = min.x;
-            boxCoord[1] = min.y;
-            boxCoord[2] = max.x;
-            boxCoord[3] = max.y;
+            boxCoord[0] = min.x * RobotAcademy.Instance.VisualObservationResolution.x;
+            boxCoord[1] = min.y * RobotAcademy.Instance.VisualObservationResolution.y;
+            boxCoord[2] = max.x * RobotAcademy.Instance.VisualObservationResolution.x;
+            boxCoord[3] = max.y * RobotAcademy.Instance.VisualObservationResolution.y;
+
 
             if (drawBox)
             {
@@ -137,9 +96,6 @@ public class TargetAnnotation : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Awakes this instance.
-    /// </summary>
     void Awake()
     {
         RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
@@ -147,25 +103,14 @@ public class TargetAnnotation : MonoBehaviour
         cam = RobotAgent.Instance.ActiveCamera;
     }
 
-    /// <summary>
-    /// Gets the bounding box.
-    /// </summary>
-    /// <returns>System.Single[].</returns>
     public float[] GetBoundingBox() { return boxCoord; }
 
-    /// <summary>
-    /// Updates the data.
-    /// </summary>
-    /// <param name="settings">The settings.</param>
     public void UpdateData(TargetSettings settings)
     {
         this.target = settings.targetAnnotation;
         this.drawBox = settings.drawBox;
     }
 
-    /// <summary>
-    /// Updates the data.
-    /// </summary>
     public void UpdateData()
     {
         cam = RobotAgent.Instance.ActiveCamera;

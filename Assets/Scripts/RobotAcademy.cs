@@ -43,41 +43,17 @@ public enum RobotControl
     pythonNoImage
 }
 
-/// <summary>
-/// Camera type
-/// </summary>
 public enum CameraType
 {
-    /// <summary>
-    /// Front camera (in front of robot)
-    /// </summary>
     frontCamera,
-    /// <summary>
-    /// Bottom camera (on bottom of robot)
-    /// </summary>
     bottomCamera
 }
 
-/// <summary>
-/// Enum ObjectType
-/// </summary>
 public enum ObjectType
 {
-    /// <summary>
-    /// The big (used for ex. gate)
-    /// </summary>
     Big,
-    /// <summary>
-    /// Small type (used for smaller object, smaller radius of spawning) 
-    /// </summary>
     Small,
-    /// <summary>
-    /// When object is placed on bottom of pool (for ex. path)
-    /// </summary>
     OnBottom,
-    /// <summary>
-    /// Manual, when user changes some information about object settings
-    /// </summary>
     Manual
 }
 
@@ -90,10 +66,6 @@ public enum ObjectType
 public class RobotAcademy : Academy
 {
     private static RobotAcademy mInstance;
-    /// <summary>
-    /// Gets the instance.
-    /// <value>The instance.</value>
-    /// </summary>
     public static RobotAcademy Instance
     {
         get
@@ -103,27 +75,12 @@ public class RobotAcademy : Academy
         }
     }
 
-    /// <summary>
-    /// The control
-    /// </summary>
     [Header("Controller settings")]
     public RobotControl control;
-    /// <summary>
-    /// The learning brain, used with python script
-    /// </summary>
     public Brain learningBrain;
-    /// <summary>
-    /// The learning brain no image, used with python script but without sending image (more fps)
-    /// </summary>
     public Brain learningBrainNoImage;
-    /// <summary>
-    /// The player brain, used with manual controll on simulation
-    /// </summary>
     public Brain playerBrain;
-    /// <summary>
-    /// The pad brain, used with python script and pad
-    /// </summary>
-    public Brain padBrain;
+    public Brain padBrain;  
 
     /// <summary>
     /// The object creator
@@ -132,16 +89,12 @@ public class RobotAcademy : Academy
     public Objects.ObjectCreator objectCreator = new Objects.ObjectCreator();
 
     [Header("Debug settings - use carefully!")]
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public bool forceDataCollection = false;
     public bool forceNoise = false;
     public bool forceNegativeExamples = false;
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
-
-    /// <summary>
-    /// The robot agent
-    /// </summary>
+    [HideInInspector]
+    public Vector2 VisualObservationResolution;
     private RobotAgent robotAgent;
 
     /// <summary>
@@ -153,17 +106,13 @@ public class RobotAcademy : Academy
         SetBrainControl();
     }
 
-    /// <summary>
-    /// Sets up academy on start.
-    /// </summary>
     void Start()
     {
+        VisualObservationResolution.x = learningBrain.brainParameters.cameraResolutions[0].width;
+        VisualObservationResolution.y = learningBrain.brainParameters.cameraResolutions[0].height;
         SetupAcademy();
     }
 
-    /// <summary>
-    /// Setups brain control and focused object.
-    /// </summary>
     void SetupAcademy()
     {
         SetBrainControl();
@@ -190,10 +139,6 @@ public class RobotAcademy : Academy
         SetupAcademy();
     }
 
-    /// <summary>
-    /// Sets the focused object from target objects.
-    /// </summary>
-    /// <param name="index">The index of target object.</param>
     public void SetFocusedObject(int index)
     {
         for (int i = 0; i < objectCreator.targetObjects.Count; i++)
