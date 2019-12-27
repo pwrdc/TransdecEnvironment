@@ -6,9 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void Robosub()
     {
-        SceneManager.LoadScene("Menu"); //Tutaj nazwa sceny do pobrania z ustawien
+        Debug.Log("ROBOSUB");
+        SceneManager.LoadScene("RoboSub2020"); //Tutaj nazwa sceny do pobrania z ustawien
+    }
+
+    public void ERL()
+    {
+        SceneManager.LoadScene("ERL"); //Tutaj nazwa sceny do pobrania z ustawien
+    }
+
+    public void SAUVC()
+    {
+        SceneManager.LoadScene("SAUVC"); //Tutaj nazwa sceny do pobrania z ustawien
     }
 
     public void QuitGame()
