@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     {
         InitializedSettings.Control = RobotControl.player;
         InitializedSettings.IsCollecting = true;
+        InitializedSettings.IsMenu = true;
     }
 
     public void PlayGame()

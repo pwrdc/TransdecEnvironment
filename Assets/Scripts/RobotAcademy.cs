@@ -111,7 +111,7 @@ public class RobotAcademy : Academy
     void SetupAcademy()
     {
         SetBrainControl();
-        if (control == RobotControl.player || control == RobotControl.pythonNoImage)
+        if (InitializedSettings.IsMenu &&(control == RobotControl.player || control == RobotControl.pythonNoImage))
         {
             resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;
         }

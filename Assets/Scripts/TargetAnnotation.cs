@@ -44,7 +44,6 @@ public class TargetAnnotation : MonoBehaviour
 
     public void OnGUI()
     {
-        Debug.Log(activate);
         if (activate)
         {
             if (style == null)

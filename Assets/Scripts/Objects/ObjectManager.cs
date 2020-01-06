@@ -131,6 +131,8 @@ namespace Objects
         {
             this.targetSettings = targetSettings;
             this.objectConfigurationSettings = objectConfigurationSettings;
+            noiseSpawner.Init(objectConfigurationSettings, targetSettings);
+            objectSpawnConfiguration.Init(targetSettings);
             randomCameraPosition.Init(objectSpawnConfiguration, objectConfigurationSettings, targetSettings);
             randomInitNormal.Init(objectConfigurationSettings);
             randomInitOnMesh.Init(objectConfigurationSettings);

@@ -1,18 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : Assembly-CSharp
-// Author           : Szymo
-// Created          : 09-20-2019
-//
-// Last Modified By : Szymo
-// Last Modified On : 09-22-2019
-// ***********************************************************************
-// <copyright file="NoiseSpawner.cs" company="">
-//     Copyright (c) . All rights reserved.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Objects

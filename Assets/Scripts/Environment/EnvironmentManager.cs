@@ -19,7 +19,8 @@ namespace SceneEnvironment
         public float maxWaterFog = 0.4f;
         public Vector3 minWaterHSV = new Vector3(180, 0, 50);
         public Vector3 maxWaterHSV = new Vector3(250, 100, 100);
-
+        [Header("If true, light is initialized")]
+        public bool isLightInitialized = true;
         public int normalLightAngle = 80;
         public float normalLightIntensivity = 0.6f;
         public float normalWaterFog = 0.25f;
@@ -69,7 +70,8 @@ namespace SceneEnvironment
 
         public void EnvironmentNormalInit()
         {
-            lightManager.initializeLight(environmentInitValues.normalLightAngle, environmentInitValues.normalLightIntensivity);
+            if(!environmentInitValues.isLightInitialized)
+                lightManager.initializeLight(environmentInitValues.normalLightAngle, environmentInitValues.normalLightIntensivity);
             waterOpacity.SetWaterFog(environmentInitValues.normalWaterFog);
             waterOpacity.SetWaterColor(environmentInitValues.normalWaterColor);
         }
@@ -80,7 +82,9 @@ namespace SceneEnvironment
             float intensitivity = Utils.GetRandom(environmentInitValues.minIntensivity, environmentInitValues.maxIntensivity);
             float percentageIntensitivity = (intensitivity - environmentInitValues.minIntensivity) / (environmentInitValues.maxIntensivity - environmentInitValues.minIntensivity);
             float waterFog = environmentInitValues.minWaterFog + (percentageIntensitivity * (environmentInitValues.maxWaterFog - environmentInitValues.minWaterFog));
-            lightManager.initializeLight(angle, intensitivity);
+
+            if (!environmentInitValues.isLightInitialized)
+                lightManager.initializeLight(angle, intensitivity);
 
             waterOpacity.SetWaterFog(waterFog);
 

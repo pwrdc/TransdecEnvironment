@@ -74,6 +74,8 @@ namespace Objects
         public float waterLevel = 3.0f;
         [Range(0.0f, 10.0f)]
         public float maxDepth = 10.0f;
+        [Range(0.0f, 10.0f)]
+        public float othMaxDepth = 3.0f;
         public float cameraFov = 40.0f;
     }
 
@@ -85,7 +87,8 @@ namespace Objects
             minRadius = 3,
             maxRadius = 8,
             maxDepth = 4,
-            waterLevel = 11
+            waterLevel = 11,
+            othMaxDepth = 2
         };
         [SerializeField]
         private EssentialSettings objectSmallSettings = new EssentialSettings()
@@ -93,7 +96,8 @@ namespace Objects
             minRadius = 1.5f,
             maxRadius = 3,
             maxDepth = 7.5f,
-            waterLevel = 9
+            waterLevel = 9,
+            othMaxDepth = 3
         };
         [SerializeField]
         private EssentialSettings objectBottomSettings = new EssentialSettings()
@@ -101,14 +105,17 @@ namespace Objects
             minRadius = 1.5f,
             maxRadius = 4,
             maxDepth = 9f,
-            waterLevel = 11
+            waterLevel = 11,
+            othMaxDepth = 3
         };
         [SerializeField]
         private List<Settings> objectSettings;
         public List<Settings> ObjectSettings { get { return objectSettings; } }
         [SerializeField]
         private int enabledOption;
+        private bool isInitialized = false;
 
+        private bool isEssentialSettingsInitialized = false;
         public Dictionary<ObjectType, EssentialSettings> essentialSettings;
 
         void Start()
@@ -119,16 +126,32 @@ namespace Objects
         public void Init(TargetSettings settings)
         {
             this.enabledOption = settings.targetIndex;
+            InitEssentialSettings();
+            isInitialized = true;
+        }
+
+        private void InitEssentialSettings()
+        {
+            if (isEssentialSettingsInitialized)
+                return;
+
             essentialSettings = new Dictionary<ObjectType, EssentialSettings>()
             {
-                { ObjectType.Big, objectBigSettings },
-                { ObjectType.Small, objectSmallSettings },
+                { ObjectType.Big, objectBigSettings
+    },
+                { ObjectType.Small, objectSmallSettings
+},
                 { ObjectType.OnBottom, objectBottomSettings }
             };
+
+            isEssentialSettingsInitialized = true;
         }
 
         void OnValidate()
         {
+            if (!isInitialized)
+                return;
+
             UpdateAllSettingsType();
         }
 
@@ -148,7 +171,8 @@ namespace Objects
             if (objectSetting.minRadius == typeToCheck.minRadius &&
                 objectSetting.maxRadius == typeToCheck.maxRadius &&
                 objectSetting.waterLevel == typeToCheck.waterLevel &&
-                objectSetting.maxDepth == typeToCheck.maxDepth)
+                objectSetting.maxDepth == typeToCheck.maxDepth &&
+                objectSetting.othMaxDepth == typeToCheck.othMaxDepth)
                 return false;
             return true;
         }
@@ -175,11 +199,13 @@ namespace Objects
 
         public void SetObjectType(int index, ObjectType type)
         {
+            InitEssentialSettings();
             objectSettings[index].type = type;
             objectSettings[index].minRadius = essentialSettings[type].minRadius;
             objectSettings[index].maxRadius = essentialSettings[type].maxRadius;
             objectSettings[index].waterLevel = essentialSettings[type].waterLevel;
             objectSettings[index].maxDepth = essentialSettings[type].maxDepth;
+            objectSettings[index].othMaxDepth = essentialSettings[type].othMaxDepth;
         }
 
         public void AddNewObject(CameraType mode, ObjectType type, GameObject target)

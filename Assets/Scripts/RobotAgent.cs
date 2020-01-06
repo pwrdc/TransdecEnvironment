@@ -294,9 +294,6 @@ public class RobotAgent : Agent
     /// action.
     ///     Setups environment, then target object
     /// </summary>
-    /// <param name="vectorAction">Vector action. Note that for discrete actions, the provided array
-    /// will be of length 1.</param>
-    /// <param name="textAction">Text action.</param>
     public override void AgentAction(float[] vectorAction, string textAction)
     {
         if (agentSettings.dataCollection) //Collecting data
