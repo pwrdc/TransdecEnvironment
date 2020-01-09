@@ -24,6 +24,10 @@ namespace Objects
 
         public void Init(ObjectConfigurationSettings objectConfigurationSettings, TargetSettings targetSettings)
         {
+
+            robot = RobotAgent.Instance.Robot.gameObject;
+            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
+            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
             this.objectConfigurationSettings = objectConfigurationSettings;
             this.targetSettings = targetSettings;
         }

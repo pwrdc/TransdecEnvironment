@@ -110,11 +110,17 @@ public class RobotAcademy : Academy
 
     void SetupAcademy()
     {
-        SetBrainControl();
-        if (InitializedSettings.IsMenu &&(control == RobotControl.player || control == RobotControl.pythonNoImage))
+        Debug.Log("Setup academy");
+        if (InitializedSettings.IsMenu == false &&(control == RobotControl.player || control == RobotControl.pythonNoImage))
         {
             resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;
         }
+        else
+        {
+            Debug.Log(InitializedSettings.Control);
+            control = InitializedSettings.Control;
+        }
+        SetBrainControl();
         if ((int)resetParameters["FocusedObject"] >= objectCreator.targetObjects.Count)
             resetParameters["FocusedObject"] = 0;
         SetFocusedObject((int)resetParameters["FocusedObject"]);

@@ -105,6 +105,7 @@ public class RobotAgent : Agent
     float startRelativeAngle;
     int collided = 0;
     bool isAwaked = false;
+    bool isAgentSet = false;
 
     float relativeAngle; //angle between robot and target
     Vector3 relativePosition; //position between robot and target
@@ -146,7 +147,8 @@ public class RobotAgent : Agent
         Initialization();
         SetupRobotAcademyInfo();
         SetCamera(); 
-        InvokeAllEvents(); 
+        InvokeAllEvents();
+        isAgentSet = true;
     }
 
     void Initialization()
@@ -161,7 +163,7 @@ public class RobotAgent : Agent
         environmentSettings.WaterSurface = GameObject.FindWithTag("WaterSurface");
         objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");
         objectConfigurationSettings.noiseFolder = GameObject.FindWithTag("NoiseFolder");
-        //objectConfigurationSettings.noiseFolder.SetActive(false);
+        objectConfigurationSettings.noiseFolder.SetActive(false);
         RobotRigidbody = robot.gameObject.GetComponent<Rigidbody>();
         Utils.GetObjectsInFolder(objectConfigurationSettings.tasksFolder, out tasksObjects);
     }
@@ -296,6 +298,11 @@ public class RobotAgent : Agent
     /// </summary>
     public override void AgentAction(float[] vectorAction, string textAction)
     {
+        if (!isAgentSet)
+        {
+            SetAgent();
+        }
+
         if (agentSettings.dataCollection) //Collecting data
         {
             //Randomize environment (Water color and light)
