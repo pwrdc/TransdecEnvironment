@@ -21,42 +21,7 @@ PluginImporter:
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
-  - first:
-      Standalone: Linux
-    second:
-      enabled: 1
-      settings:
-        CPU: x86
-  - first:
-      Standalone: Linux64
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      Standalone: LinuxUniversal
-    second:
-      enabled: 1
-      settings: {}
-  - first:
-      Standalone: OSXUniversal
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      Standalone: Win
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      Standalone: Win64
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
+        DefaultValueInitialized: true
   - first:
       Windows Store Apps: WindowsStoreApps
     second:
