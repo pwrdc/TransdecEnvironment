@@ -5,22 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Environment
-  - Garlic_drop_frame
   - Expose_to_sunlight_trumna
-  - Path
-  - stake_through
-  - triple_board
-  - Garlic_task
+  - Garlic_drop_frame
   - crucifix_task
+  - Path
+  - Garlic_task
+  - triple_board
+  - stake_through
   - BRAMA
   - board
   - Light
-  - WaterSurface
-  - Noise
-  - Tasks
-  - NoiseFolder
-  - TasksFolder
-  - Pool
+  - ball
   layers:
   - Default
   - TransparentFX
@@ -31,7 +26,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - ball
   - 
   - 
   - 
