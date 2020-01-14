@@ -5,54 +5,55 @@ using System.Linq;
 
 public class Sonar : MonoBehaviour
 {
-    //Script counts all distances from objects in tasks
 
-    public float viewRadious;
-    public Transform tasks;
-    private Dictionary<Transform, int> children;
+    [SerializeField]
+    private float _viewRadious;
+    private string nameTasksObject = "TasksFolder";
+    private Dictionary<Transform, int> _objectsInSonarArea;
 
-    
-    
+    public Dictionary<Transform, int> objectsInSonarArea
+    {
+        get { return _objectsInSonarArea; }
+    }
+
+    public float viewRadious
+    {
+        get { return _viewRadious; }
+    }
 
     private void Start()
     {
+        Transform tasks = GameObject.FindWithTag(nameTasksObject).transform;
+        _objectsInSonarArea = new Dictionary<Transform, int>();
 
-        children = new Dictionary<Transform, int>();
 
 
-        //this read all children in the 1 hierarchy from tasks and give transform of object
-        //value 0 in dictonary becouse objects are too far 
         for (int ID = 0; ID < tasks.childCount; ID++)
         {
-            children.Add(tasks.GetChild(ID), 0);
+            _objectsInSonarArea.Add(tasks.GetChild(ID), 0);
         }
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < children.Count; i++) {
 
-            var element = children.ElementAt(i);
+        for (int i = 0; i < _objectsInSonarArea.Count; i++)
+        {
 
-            //if distance beetween object and robot is smaller then viewRadious => Value in dictonary changes to 1
-            if (Vector3.Distance(element.Key.position, transform.position) <= viewRadious)
+            var element = _objectsInSonarArea.ElementAt(i);
+
+
+            if (Vector3.Distance(element.Key.position, transform.position) <= _viewRadious)
             {
-                children[element.Key] = 1;
-                
-                
+                _objectsInSonarArea[element.Key] = 1;
             }
-            else {
-                children[element.Key] = 0;
+            else
+            {
+                _objectsInSonarArea[element.Key] = 0;
             }
 
         }
-      
+
     }
-
- 
-
-
-   
 }
