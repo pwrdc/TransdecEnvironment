@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &31472223 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8659837571720475807, guid: a3a0cca5d346f0840b5c29fe80612d07,
+    type: 3}
+  m_PrefabInstance: {fileID: 8659837570782410310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &267303360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 4cdde95925ad7a842abe1dde8539354b,
@@ -212,6 +218,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3705333200093046295}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &618658655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 618658656}
+  - component: {fileID: 618658657}
+  m_Layer: 0
+  m_Name: Sonar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &618658656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618658655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 31472223}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &618658657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618658655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8668489e9b544524db94ceab3bd9b027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadious: 0
+  tasks: {fileID: 3705333199070647808}
 --- !u!4 &770608637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400032, guid: 5f066c25dd1843b45b91b95fbc554ceb,
@@ -522,6 +573,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b50892273f3234fade02ce2357559c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectBigSettings:
+    minRadius: 3
+    maxRadius: 8
+    waterLevel: 11
+    maxDepth: 4
+    othMaxDepth: 2
+    cameraFov: 40
+  objectSmallSettings:
+    minRadius: 1.5
+    maxRadius: 3
+    waterLevel: 9
+    maxDepth: 7.5
+    othMaxDepth: 3
+    cameraFov: 40
+  objectBottomSettings:
+    minRadius: 1.5
+    maxRadius: 4
+    waterLevel: 11
+    maxDepth: 9
+    othMaxDepth: 3
+    cameraFov: 40
   objectSettings:
   - target: {fileID: 4282235253200172265}
     targetAnnotation: {fileID: 4282235253200172265}
