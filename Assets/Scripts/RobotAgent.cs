@@ -146,7 +146,7 @@ public class RobotAgent : Agent
             return;
         Initialization();
         SetupRobotAcademyInfo();
-        SetCamera(); 
+        SetCamera();
         InvokeAllEvents();
         isAgentSet = true;
     }
@@ -158,7 +158,7 @@ public class RobotAgent : Agent
         isInitialized = true;
         objectManager.Init(objectConfigurationSettings, targetSettings);
         environmentManager.Init(environmentValuesSettings);
-        
+
 
         environmentSettings.WaterSurface = GameObject.FindWithTag("WaterSurface");
         objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");
@@ -213,7 +213,7 @@ public class RobotAgent : Agent
         targetSettings.drawBox = agentSettings.dataCollection;
 
         backgroundSettings.isBackgroundImage = RobotAcademy.Instance.resetParameters["EnableBackgroundImage"] == 0 ? false : true;
-        
+
 
         objectConfigurationSettings.addNoise = RobotAcademy.Instance.resetParameters["EnableNoise"] == 0 ? false : true;
         objectConfigurationSettings.setFocusedObjectInCenter = RobotAcademy.Instance.resetParameters["SetFocusedObjectInCenter"] == 0 ? false : true;
@@ -310,14 +310,14 @@ public class RobotAgent : Agent
                 environmentManager.EnvironmentRandomizedInit();
 
             //Randomize target object position
-            if (agentSettings.randomizeTargetObjectPositionOnEachStep)  
+            if (agentSettings.randomizeTargetObjectPositionOnEachStep)
                 objectManager.RandomizeTargetPosition();
 
             //Randomize camera position
             objectManager.RandomizeCameraPositionFocusedOnTarget();
 
             //Set background
-            if (backgroundSettings.isBackgroundImage) 
+            if (backgroundSettings.isBackgroundImage)
                 backgroundManager.SetNewBackground();
 
         }
@@ -328,6 +328,14 @@ public class RobotAgent : Agent
             {
                 targetSettings.cameraType = (CameraType)vectorAction[4];
                 SetAgent();
+            }
+            if (vectorAction[5] == 1)
+            {
+                robot.BallGrapper.Grab();
+            }
+            if (vectorAction[6] == 1)
+            {
+                robot.Torpedo.Shoot();
             }
         }
 
@@ -379,7 +387,7 @@ public class RobotAgent : Agent
         if (!agentSettings.collectObservations)
             return;
 
-        float[] toSend = new float[19];
+        float[] toSend = new float[21];
         float[] acceleration = robot.Accelerometer.GetAcceleration();
         float[] angularAcceleration = robot.Accelerometer.GetAngularAcceleration();
         float[] rotation = robot.Accelerometer.GetRotation();
@@ -413,6 +421,13 @@ public class RobotAgent : Agent
             toSend[toSendCell + 3] = relativePosition.z;
             toSend[toSendCell + 4] = relativeAngle;
         }
+        //Grab state
+        toSendCell += 4;
+        toSend[toSendCell] = (int)robot.BallGrapper.GetState();
+        //Torpedo hit
+        toSendCell += 1;
+        toSend[toSendCell] = robot.Torpedo.IsHit() == true ? 1 : 0;
+        
         AddVectorObs(toSend);
     }
     #endregion

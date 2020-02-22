@@ -115,9 +115,8 @@ public class RobotAcademy : Academy
         {
             resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;
         }
-        else
+        else if(InitializedSettings.IsMenu == true)
         {
-            Debug.Log(InitializedSettings.Control);
             control = InitializedSettings.Control;
         }
         SetBrainControl();
