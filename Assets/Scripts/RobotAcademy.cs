@@ -111,11 +111,11 @@ public class RobotAcademy : Academy
     void SetupAcademy()
     {
         Debug.Log("Setup academy");
-        if (InitializedSettings.IsMenu == false &&(control == RobotControl.player || control == RobotControl.pythonNoImage))
+        if (InitializedSettings.IsMenu == true && control == RobotControl.player)
         {
             resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;
         }
-        else if(InitializedSettings.IsMenu == true)
+        if(InitializedSettings.IsMenu == true)
         {
             control = InitializedSettings.Control;
         }
