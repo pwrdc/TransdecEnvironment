@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : Assembly-CSharp
-// Author           : Szymo
-// Created          : 09-20-2019
-//
-// Last Modified By : Szymo
-// Last Modified On : 10-21-2019
-// ***********************************************************************
-// <copyright file="RandomInitOnMesh.cs" company="">
-//     Copyright (c) . All rights reserved.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,8 +9,7 @@ namespace Objects
         private Renderer mesh;
         private RaycastHit hit;
         private Vector3 position;
-        private int layerMask = 1 << 10; //layer mask - POOL
-
+        private int layerMask = 1 << 10;
         [SerializeField]
         private List<GameObject> objectsToPut = new List<GameObject>();
         private ObjectConfigurationSettings objectConfigurationSettings;
@@ -75,7 +61,7 @@ namespace Objects
 
         public void PutAll()
         {
-            foreach(var obj in objectsToPut)
+            foreach (var obj in objectsToPut)
             {
                 PutTarget(obj);
             }

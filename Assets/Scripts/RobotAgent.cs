@@ -161,6 +161,7 @@ public class RobotAgent : Agent
 
 
         environmentSettings.WaterSurface = GameObject.FindWithTag("WaterSurface");
+        environmentSettings.PoolSurface = GameObject.FindWithTag("PoolSurface");
         objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");
         objectConfigurationSettings.noiseFolder = GameObject.FindWithTag("NoiseFolder");
         objectConfigurationSettings.noiseFolder.SetActive(false);
@@ -168,10 +169,6 @@ public class RobotAgent : Agent
         Utils.GetObjectsInFolder(objectConfigurationSettings.tasksFolder, out tasksObjects);
     }
 
-    /// <summary>
-    /// Show focused camera on Display 1 and set as agentCamera
-    /// </summary>
-    /// <exception cref="Exception">Wrong camera was choosen</exception>
     void SetCamera()
     {
         if (CameraType.frontCamera == targetSettings.cameraType)
@@ -281,21 +278,12 @@ public class RobotAgent : Agent
     }
 
     #region Agent overrided methods
-    /// <summary>
-    /// Specifies the agent behavior when being reset, which can be due to
-    /// the agent or Academy being done (i.e. completion of local or global
-    /// episode).
-    /// </summary>
+    
     public override void AgentReset()
     {
         ResetAgent();
     }
 
-    /// <summary>
-    /// Specifies the agent behavior at every step based on the provided
-    /// action.
-    ///     Setups environment, then target object
-    /// </summary>
     public override void AgentAction(float[] vectorAction, string textAction)
     {
         if (!isAgentSet)
@@ -354,34 +342,6 @@ public class RobotAgent : Agent
         SetReward(currentReward);
     }
 
-    /// <summary>
-    /// Collects the (vector, visual, text) observations of the agent.
-    /// The agent observation describes the current environment from the
-    /// perspective of the agent.
-    /// </summary>
-    /// <remarks>Simply, an agents observation is any environment information that helps
-    /// the Agent acheive its goal. For example, for a fighting Agent, its
-    /// observation could include distances to friends or enemies, or the
-    /// current level of ammunition at its disposal.
-    /// Recall that an Agent may attach vector, visual or textual observations.
-    /// Vector observations are added by calling the provided helper methods:
-    /// - <see cref="AddVectorObs(int)" />
-    /// - <see cref="AddVectorObs(float)" />
-    /// - <see cref="AddVectorObs(Vector3)" />
-    /// - <see cref="AddVectorObs(Vector2)" />
-    /// - <see><cref>AddVectorObs(float[])</cref></see>
-    /// - <see><cref>AddVectorObs(List{float})</cref></see>
-    /// - <see cref="AddVectorObs(Quaternion)" />
-    /// - <see cref="AddVectorObs(bool)" />
-    /// - <see cref="AddVectorObs(int, int)" />
-    /// Depending on your environment, any combination of these helpers can
-    /// be used. They just need to be used in the exact same order each time
-    /// this method is called and the resulting size of the vector observation
-    /// needs to match the vectorObservationSize attribute of the linked Brain.
-    /// Visual observations are implicitly added from the cameras attached to
-    /// the Agent.
-    /// Lastly, textual observations are added using
-    /// <see cref="SetTextObs(string)" />.</remarks>
     public override void CollectObservations()
     {
         if (!agentSettings.collectObservations)

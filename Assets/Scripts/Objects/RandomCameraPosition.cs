@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : Assembly-CSharp
-// Author           : Szymo
-// Created          : 09-20-2019
-//
-// Last Modified By : Szymo
-// Last Modified On : 10-21-2019
-// ***********************************************************************
-// <copyright file="RandomCameraPosition.cs" company="">
-//     Copyright (c) . All rights reserved.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 

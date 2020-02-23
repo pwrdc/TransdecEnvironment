@@ -10,7 +10,6 @@ namespace Robot
         private Accelerometer _accelerometer;
         private BallGrapper _ballGrapper;
         private Torpedo _torpedo;
-        private GameObject waterSurface;
 
         public Engine Engine { get { return _engine; } }
         public DepthSensor DepthSensor { get { return _depthSensor; } }
@@ -26,10 +25,11 @@ namespace Robot
             _ballGrapper = GetComponentInChildren<BallGrapper>();
             _torpedo = GetComponentInChildren<Torpedo>();
 
-            waterSurface = RobotAgent.Instance.EnvironmentSettings.WaterSurface;
+            var waterSurface = RobotAgent.Instance.EnvironmentSettings.WaterSurface;
+            var poolSurface = RobotAgent.Instance.EnvironmentSettings.PoolSurface;
 
             _engine.Init(waterSurface);
-            _depthSensor.Init(waterSurface);
+            _depthSensor.Init(poolSurface);
         }
     }
 }

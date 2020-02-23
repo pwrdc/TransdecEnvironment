@@ -21,6 +21,7 @@ TagManager:
   - NoiseFolder
   - TasksFolder
   - Pool
+  - PoolSurface
   layers:
   - Default
   - TransparentFX

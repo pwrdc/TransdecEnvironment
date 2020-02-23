@@ -35,6 +35,8 @@ namespace SceneEnvironment
         public bool isCurrentEnabled = true;
         [HideInInspector]
         public GameObject WaterSurface = null;
+        [HideInInspector]
+        public GameObject PoolSurface = null;
     }
 
     public class EnvironmentManager : MonoBehaviour

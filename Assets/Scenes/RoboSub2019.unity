@@ -204,6 +204,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3600360837025791297, guid: 99522b51726c60641ab56d715aaffebd,
+        type: 3}
+      propertyPath: m_TagString
+      value: PoolSurface
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99522b51726c60641ab56d715aaffebd, type: 3}
 --- !u!4 &527466174 stripped
@@ -372,7 +377,7 @@ MonoBehaviour:
   resetParameters:
     resetParameters:
     - key: CollectData
-      value: 1
+      value: 0
     - key: EnableNoise
       value: 0
     - key: Positive
@@ -522,6 +527,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b50892273f3234fade02ce2357559c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectBigSettings:
+    minRadius: 3
+    maxRadius: 8
+    waterLevel: 11
+    maxDepth: 4
+    othMaxDepth: 2
+    cameraFov: 40
+  objectSmallSettings:
+    minRadius: 1.5
+    maxRadius: 3
+    waterLevel: 9
+    maxDepth: 7.5
+    othMaxDepth: 3
+    cameraFov: 40
+  objectBottomSettings:
+    minRadius: 1.5
+    maxRadius: 4
+    waterLevel: 11
+    maxDepth: 9
+    othMaxDepth: 3
+    cameraFov: 40
   objectSettings:
   - target: {fileID: 4282235253200172265}
     targetAnnotation: {fileID: 4282235253200172265}

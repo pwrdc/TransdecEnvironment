@@ -1,57 +1,21 @@
-﻿// ***********************************************************************
-// Assembly         : Assembly-CSharp
-// Author           : Szymo
-// Created          : 09-20-2019
-//
-// Last Modified By : Szymo
-// Last Modified On : 10-21-2019
-// ***********************************************************************
-// <copyright file="Utils.cs" company="">
-//     Copyright (c) . All rights reserved.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Utility functions
-/// </summary>
 public static class Utils
 {
-    /// <summary>
-    /// The random
-    /// </summary>
     private static System.Random rnd = new System.Random();
 
-    /// <summary>
-    /// Gets the random.
-    /// </summary>
-    /// <param name="min">The minimum.</param>
-    /// <param name="max">The maximum.</param>
-    /// <returns>System.Single.</returns>
     public static float GetRandom(float min, float max)
     {
         float randValue = (float)rnd.NextDouble();
         return (max - min) * randValue + min;
     }
 
-    /// <summary>
-    /// Gets the random.
-    /// </summary>
-    /// <param name="min">The minimum.</param>
-    /// <param name="max">The maximum.</param>
-    /// <returns>System.Int32.</returns>
     public static int GetRandom(int min, int max)
     {
         return rnd.Next(min, max);
     }
 
-    /// <summary>
-    /// Gets the complex bounds.
-    /// </summary>
-    /// <param name="obj">The object.</param>
-    /// <returns>Bounds.</returns>
     public static Bounds GetComplexBounds(GameObject obj)
     {
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
@@ -71,11 +35,6 @@ public static class Utils
         return bounds;
     }
 
-    /// <summary>
-    /// Gets the box coord.
-    /// </summary>
-    /// <param name="targetBounds">The target bounds.</param>
-    /// <returns>Vector3[].</returns>
     public static Vector3[] GetBoxCoord(Bounds targetBounds)
     {
         Vector3[] boxCoord = new Vector3[2];
@@ -105,13 +64,6 @@ public static class Utils
         return boxCoord;
     }
 
-    /// <summary>
-    /// Changes the color of the object.
-    /// </summary>
-    /// <param name="obj">The object.</param>
-    /// <param name="maxHueChange">The maximum hue change.</param>
-    /// <param name="maxSaturationChange">The maximum saturation change.</param>
-    /// <param name="maxValueChange">The maximum value change.</param>
     public static void ChangeObjectColor(GameObject obj, int maxHueChange, int maxSaturationChange, int maxValueChange)
     {
         MeshRenderer[] meshRenderers = obj.GetComponentsInChildren<MeshRenderer>();
@@ -126,12 +78,6 @@ public static class Utils
         }
     }
 
-    /// <summary>
-    /// Calculates the equation of3 d line.
-    /// </summary>
-    /// <param name="pos1">The pos1.</param>
-    /// <param name="pos2">The pos2.</param>
-    /// <returns>Vector2[].</returns>
     public static Vector2[] calculateEquationOf3DLine(Vector3 pos1, Vector3 pos2)
     {
         Vector2 xyLine = calculateEquationOf2DLine(new Vector2(pos1.x, pos1.y), new Vector2(pos2.x, pos2.y));
@@ -140,12 +86,6 @@ public static class Utils
         return new Vector2[] { xyLine, xzLine };
     }
 
-    /// <summary>
-    /// Calculates the equation of2 d line.
-    /// </summary>
-    /// <param name="pos1">The pos1.</param>
-    /// <param name="pos2">The pos2.</param>
-    /// <returns>Vector2.</returns>
     public static Vector2 calculateEquationOf2DLine(Vector2 pos1, Vector2 pos2)
     {
         float a = (pos1.y - pos2.y) / (pos1.x - pos2.x);
@@ -153,13 +93,6 @@ public static class Utils
         return new Vector2(a, b);
     }
 
-    /// <summary>
-    /// Determines whether [is point in object] [the specified point].
-    /// </summary>
-    /// <param name="point">The point.</param>
-    /// <param name="lineEquationMin">The line equation minimum.</param>
-    /// <param name="lineEquationMax">The line equation maximum.</param>
-    /// <returns><c>true</c> if [is point in object] [the specified point]; otherwise, <c>false</c>.</returns>
     public static bool isPointInObject(Vector3 point, Vector2[] lineEquationMin, Vector2[] lineEquationMax)
     {
         if (lineEquationMin[0].x * point.x + lineEquationMin[0].y < point.y &&
@@ -173,12 +106,6 @@ public static class Utils
     }
 
 
-    /// <summary>
-    /// Gets the objects and mesh in folder.
-    /// </summary>
-    /// <param name="folder">The folder.</param>
-    /// <param name="otherObjs">The other objs.</param>
-    /// <param name="otherObjsMesh">The other objs mesh.</param>
     public static void GetObjectsAndMeshInFolder(GameObject folder, out List<GameObject> otherObjs, out List<MeshRenderer[]> otherObjsMesh)
     {
         otherObjs = new List<GameObject>();
@@ -190,11 +117,6 @@ public static class Utils
         }
     }
 
-    /// <summary>
-    /// Gets the objects in folder.
-    /// </summary>
-    /// <param name="folder">The folder.</param>
-    /// <param name="otherObjs">The other objs.</param>
     public static void GetObjectsInFolder(GameObject folder, out List<GameObject> otherObjs)
     {
         otherObjs = new List<GameObject>();
@@ -204,10 +126,6 @@ public static class Utils
         }
     }
 
-    /// <summary>
-    /// Clear environment mesh renderer for collecting data with enabled background image
-    /// </summary>
-    /// <param name="activate">Is transdec mesh activated</param>
     public static void ActivateEnvironmentMeshRenderer(bool activate)
     {
         GameObject transdec = GameObject.FindWithTag("Environment");
@@ -218,12 +136,6 @@ public static class Utils
         }
     }
 
-    /// <summary>
-    /// Gets the distance.
-    /// </summary>
-    /// <param name="pos1">The pos1.</param>
-    /// <param name="pos2">The pos2.</param>
-    /// <returns>System.Single.</returns>
     public static float GetDistance(Vector3 pos1, Vector3 pos2)
     {
         return Mathf.Sqrt((pos1.x - pos2.x) * (pos1.x - pos2.x) + (pos1.y - pos2.y) * (pos1.y - pos2.y) + (pos1.y - pos2.y) * (pos1.y - pos2.y));
