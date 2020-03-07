@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
     value: 67
   kernelSize:
     overrideState: 1
-    value: 1
+    value: 2
 --- !u!114 &-4808105154393667007
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
   m_Name: Grain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -139,7 +139,7 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 0.148
+    value: 0.21
   size:
     overrideState: 1
     value: 0.89
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
   m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1

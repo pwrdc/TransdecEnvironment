@@ -70,7 +70,7 @@ public class RobotAcademy : Academy
     {
         get
         {
-            return mInstance == null ? (mInstance = GameObject.Find("Academy").GetComponent<RobotAcademy>()) : mInstance;
+            return mInstance == null ? (mInstance = FindObjectOfType<RobotAcademy>()) : mInstance;
         }
     }
 

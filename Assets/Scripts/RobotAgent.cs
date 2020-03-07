@@ -36,7 +36,7 @@ public class RobotAgent : Agent
     {
         get
         {
-            return mInstance == null ? (mInstance = GameObject.Find("Agent").GetComponent<RobotAgent>()) : mInstance;
+            return mInstance == null ? (mInstance = FindObjectOfType<RobotAgent>()) : mInstance;
         }
     }
 
@@ -123,6 +123,7 @@ public class RobotAgent : Agent
 
     void Awake()
     {
+        mInstance=this;
         isAwaked = true;
         Initialization();
     }
