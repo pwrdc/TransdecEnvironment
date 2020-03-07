@@ -8,6 +8,7 @@ namespace Robot
     {
         private GameObject poolSurface;
         public float offset = 0.0f;
+        public bool printDepth;
 
         private Rigidbody rbody;
 
@@ -23,7 +24,9 @@ namespace Robot
 
         private void FixedUpdate()
         {
-            Debug.Log(GetDepth());
+            if(printDepth){
+                Debug.Log(GetDepth());
+            }
         }
 
         public float GetDepth()

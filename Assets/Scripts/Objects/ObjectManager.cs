@@ -24,7 +24,7 @@ namespace Objects
     {
         [Header("Data collection settings")]
         [SerializeField]
-        private ObjectSpawnConfiguration objectSpawnConfiguration = new ObjectSpawnConfiguration();
+        private ObjectSpawnConfiguration objectSpawnConfiguration = null;
         [SerializeField]
         private RandomCameraPosition randomCameraPosition = null;
         [SerializeField]
