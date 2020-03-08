@@ -44,8 +44,6 @@ public class RobotAgent : Agent
     public event Action<Objects.ObjectConfigurationSettings> OnDataConfigurationUpdate;
     [HideInInspector]
     public event Action<AgentSettings> OnDataAgentUpdate;
-    [HideInInspector]
-    public event Action<Environment.EnvironmentInitValues> OnDataEnvironmentValuesUpdate;
 
     public event Action OnDataCollection;
 
@@ -75,14 +73,10 @@ public class RobotAgent : Agent
     private AgentSettings agentSettings = new AgentSettings();
     [SerializeField]
     private Objects.ObjectConfigurationSettings objectConfigurationSettings = new Objects.ObjectConfigurationSettings();
-    [SerializeField]
-    private Environment.EnvironmentInitValues environmentValuesSettings = new Environment.EnvironmentInitValues();
-
 
     public TargetSettings TargetSettings { get { return targetSettings; } }
     public AgentSettings AgentSettings { get { return agentSettings; } }
     public Objects.ObjectConfigurationSettings ObjectConfigurationSettings { get { return objectConfigurationSettings; } }
-    public Environment.EnvironmentInitValues EnvironmentInitValues { get { return environmentValuesSettings; } }
 
     Rigidbody RobotRigidbody;
     Vector3 targetCenter;
@@ -144,7 +138,6 @@ public class RobotAgent : Agent
             return;
         isInitialized = true;
         objectManager.Init(objectConfigurationSettings, targetSettings);
-        environmentManager.Init(environmentValuesSettings);
 
         objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");
         objectConfigurationSettings.noiseFolder = GameObject.FindWithTag("NoiseFolder");
@@ -214,9 +207,6 @@ public class RobotAgent : Agent
 
         if (OnDataAgentUpdate != null)
             OnDataAgentUpdate.Invoke(agentSettings);
-
-        if (OnDataEnvironmentValuesUpdate != null)
-            OnDataEnvironmentValuesUpdate.Invoke(environmentValuesSettings);
     }
 
     /// <summary>

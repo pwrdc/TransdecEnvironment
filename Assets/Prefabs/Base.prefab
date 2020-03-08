@@ -57,7 +57,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1554607907624232974}
-  - component: {fileID: 1554607907624232968}
   - component: {fileID: 1554607907624232969}
   - component: {fileID: 1554607907624232971}
   m_Layer: 0
@@ -81,18 +80,6 @@ Transform:
   m_Father: {fileID: 6048218709992607357}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1554607907624232968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554607907624232975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 496aef3ecac66b54d9ce59271b4d2b97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1554607907624232969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +92,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ff7b69e6a8e304b84a7f97c6cfe62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 9153791786499386259}
+  randomization:
+    minWaterFog: 0.012
+    maxWaterFog: 0.253
+    minWaterHSV: {x: 180, y: 0, z: 50}
+    maxWaterHSV: {x: 250, y: 100, z: 100}
+    normalWaterFog: 0.1
+    normalWaterColor: {r: 0.22, g: 0.65, b: 0.65, a: 0.5}
+  waterColor: {r: 0.22, g: 0.65, b: 0.65, a: 0.5}
+  waterFog: 0.1
 --- !u!114 &1554607907624232971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +347,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1554607908618792030}
-  - component: {fileID: 1554607908618792031}
   - component: {fileID: 1554607908618792028}
   - component: {fileID: 1554607908618792029}
   - component: {fileID: 1554607908618792025}
@@ -376,21 +372,6 @@ Transform:
   m_Father: {fileID: 6048218709992607357}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1554607908618792031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554607908618792018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974251d4fb9a1f747bede176b7190faf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightManager: {fileID: 1554607907624232968}
-  waterOpacity: {fileID: 1554607907624232969}
-  waterCurrent: {fileID: 1554607907624232971}
 --- !u!114 &1554607908618792028
 MonoBehaviour:
   m_ObjectHideFlags: 0

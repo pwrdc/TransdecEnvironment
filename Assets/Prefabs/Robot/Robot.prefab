@@ -296,7 +296,6 @@ GameObject:
   - component: {fileID: 6693106763582877084}
   - component: {fileID: 6693106763582877075}
   - component: {fileID: -5473277948819515785}
-  - component: {fileID: 2094691021971741702}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Player
@@ -469,32 +468,6 @@ MonoBehaviour:
     randomPosition: 0
     randomOrientation: 0
     numberOfNoiseToGenerate: 5
-  environmentValuesSettings:
-    minLightAngle: 60
-    maxLightAngle: 120
-    minIntensivity: 0.1
-    maxIntensivity: 1
-    minWaterFog: 0.2
-    maxWaterFog: 0.25
-    minWaterHSV: {x: 183.12, y: 0, z: 50}
-    maxWaterHSV: {x: 250, y: 100, z: 100}
-    isLightInitialized: 1
-    normalLightAngle: 80
-    normalLightIntensivity: 0.6
-    normalWaterFog: 0.05
-    normalWaterColor: {r: 0.22, g: 0.65, b: 0.65, a: 0.5019608}
---- !u!114 &2094691021971741702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6693106763582877074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ff7b69e6a8e304b84a7f97c6cfe62c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6693106763860638544
 GameObject:
   m_ObjectHideFlags: 0
