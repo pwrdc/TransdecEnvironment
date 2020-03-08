@@ -66,14 +66,10 @@ public enum ObjectType
 /// </summary>
 public class RobotAcademy : Academy
 {
+    
     private static RobotAcademy mInstance;
-    public static RobotAcademy Instance
-    {
-        get
-        {
-            return mInstance == null ? (mInstance = FindObjectOfType<RobotAcademy>()) : mInstance;
-        }
-    }
+    public static RobotAcademy Instance => 
+        mInstance == null ? (mInstance = FindObjectOfType<RobotAcademy>()) : mInstance;
 
     [Header("Controller settings")]
     public RobotControl control;
@@ -178,8 +174,8 @@ public class RobotAcademy : Academy
             RobotAgent.Instance.GiveBrain(playerBrain);
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(playerBrain);
-            RobotAgent.Instance.AgentSettings.collectObservations = false;
-            RobotAgent.Instance.AgentSettings.targetReset = true;
+            RobotAgent.Instance.agentSettings.collectObservations = false;
+            RobotAgent.Instance.agentSettings.targetReset = true;
         }
         else if (control == RobotControl.pad)
         {
@@ -187,8 +183,8 @@ public class RobotAcademy : Academy
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(padBrain);
             broadcastHub.SetControlled(padBrain, true);
-            RobotAgent.Instance.AgentSettings.collectObservations = false;
-            RobotAgent.Instance.AgentSettings.targetReset = false;
+            RobotAgent.Instance.agentSettings.collectObservations = false;
+            RobotAgent.Instance.agentSettings.targetReset = false;
         }
         else if (control == RobotControl.python)
         {
@@ -196,8 +192,8 @@ public class RobotAcademy : Academy
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(learningBrain);
             broadcastHub.SetControlled(learningBrain, true);
-            RobotAgent.Instance.AgentSettings.collectObservations = true;
-            RobotAgent.Instance.AgentSettings.targetReset = false;
+            RobotAgent.Instance.agentSettings.collectObservations = true;
+            RobotAgent.Instance.agentSettings.targetReset = false;
         }
         else if (control == RobotControl.pythonNoImage)
         {
@@ -205,8 +201,8 @@ public class RobotAcademy : Academy
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(learningBrainNoImage);
             broadcastHub.SetControlled(learningBrainNoImage, true);
-            RobotAgent.Instance.AgentSettings.collectObservations = true;
-            RobotAgent.Instance.AgentSettings.targetReset = false;
+            RobotAgent.Instance.agentSettings.collectObservations = true;
+            RobotAgent.Instance.agentSettings.targetReset = false;
         }
     }
 }

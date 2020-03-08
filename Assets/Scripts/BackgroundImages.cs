@@ -21,7 +21,7 @@ public class BackgroundImages : MonoBehaviour
     private bool isBackgroundAvailable = false;
 
     
-    public void ApplyResetParameters(){
+    private void ApplyResetParameters(){
         this.activatedCameraType =  (CameraType)RobotAcademy.Instance.GetResetParameter("FocusedCamera");
         this.isBackgroundImage = RobotAcademy.Instance.IsResetParameterTrue("EnableBackgroundImage");
     }
