@@ -25,11 +25,6 @@ namespace Robot
             _ballGrapper = GetComponentInChildren<BallGrapper>();
             _torpedo = GetComponentInChildren<Torpedo>();
 
-            var waterSurface = RobotAgent.Instance.EnvironmentSettings.WaterSurface;
-            var poolSurface = RobotAgent.Instance.EnvironmentSettings.PoolSurface;
-
-            _engine.Init(waterSurface);
-            _depthSensor.Init(poolSurface);
         }
     }
 }

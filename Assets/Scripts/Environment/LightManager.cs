@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SceneEnvironment
+namespace Environment
 {
     public class LightManager : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿﻿using UnityEngine;
 
 
-namespace SceneEnvironment
+namespace Environment
 {
     [System.Serializable]
     public class EnvironmentInitValues
@@ -27,20 +27,13 @@ namespace SceneEnvironment
         public Color normalWaterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
     }
 
-    [System.Serializable]
-    public class EnvironmentSettings
+    public class Environment : MonoBehaviour
     {
-        public bool isEnvironmentRandomized = false;
-        public bool isEnvironmentInitOnEachStep = false;
-        public bool isCurrentEnabled = true;
-        [HideInInspector]
-        public GameObject WaterSurface = null;
-        [HideInInspector]
-        public GameObject PoolSurface = null;
-    }
+        //Singleton
+        private static Environment mInstance = null;
+        public static Environment Instance => 
+            mInstance == null ? (mInstance = FindObjectOfType<Environment>()) : mInstance;
 
-    public class EnvironmentManager : MonoBehaviour
-    {
         private bool isEnvironmentRandom = false; //true - water color, water fog and light have random values
         private bool areObjectsRandom = false; //true - objects are created randomly with RandomInit class
 
@@ -55,6 +48,11 @@ namespace SceneEnvironment
         private WaterCurrent waterCurrent = null;
 #pragma warning restore 0649
 
+        public Transform waterSurface;
+        public Transform poolSurface;
+        
+        public bool isEnvironmentRandomized = false;
+        public bool isEnvironmentInitOnEachStep = false;
 
         public LightManager Light { get { return lightManager; } }
         public WaterOpacity WaterOpacity { get { return waterOpacity; } }
@@ -62,12 +60,27 @@ namespace SceneEnvironment
 
         void Start()
         {
-            RobotAgent.Instance.OnDataEnvironmentValuesUpdate += UpdateData;   
+            RobotAgent.Instance.OnDataEnvironmentValuesUpdate += UpdateData;
+            RobotAgent.Instance.OnDataCollection+=OnDataCollection;
         }
 
         public void Init(EnvironmentInitValues settings)
         {
             environmentInitValues = settings;
+        }
+
+        public void Reset(){
+            if (isEnvironmentRandomized)
+                EnvironmentRandomizedInit();
+            else
+                EnvironmentNormalInit();
+        }
+
+        public void OnDataCollection(){
+            //Randomize environment (Water color and light)
+            if(isEnvironmentRandomized && isEnvironmentInitOnEachStep){
+                EnvironmentRandomizedInit();
+            }
         }
 
         public void EnvironmentNormalInit()

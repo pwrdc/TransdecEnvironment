@@ -353,7 +353,6 @@ GameObject:
   - component: {fileID: 1554607908618792031}
   - component: {fileID: 1554607908618792028}
   - component: {fileID: 1554607908618792029}
-  - component: {fileID: 1554607908618792024}
   - component: {fileID: 1554607908618792025}
   - component: {fileID: 1554607908618792027}
   m_Layer: 0
@@ -444,18 +443,6 @@ MonoBehaviour:
     cameraFov: 40
   objectSettings: []
   enabledOption: 0
---- !u!114 &1554607908618792024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554607908618792018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d80f13daab0ed84dac6c143a225fafa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1554607908618792025
 MonoBehaviour:
   m_ObjectHideFlags: 0

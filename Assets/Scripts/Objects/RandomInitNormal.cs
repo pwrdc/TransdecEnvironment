@@ -85,7 +85,7 @@ namespace Objects
                 yPos = Math.Min(yPos + Utils.GetRandom(
                     targetObjectSetting.minusYPosRange,
                     targetObjectSetting.yPosRange),
-                    RobotAgent.Instance.EnvironmentSettings.WaterSurface.transform.position.y - bounds.size.y
+                    Environment.Environment.Instance.waterSurface.position.y - bounds.size.y
                     );
                 zPos += Utils.GetRandom(targetObjectSetting.minusZPosRange, targetObjectSetting.zPosRange);
             }

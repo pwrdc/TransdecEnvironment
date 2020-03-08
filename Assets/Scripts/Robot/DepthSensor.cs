@@ -6,7 +6,6 @@ namespace Robot
 {
     public class DepthSensor : MonoBehaviour
     {
-        private GameObject poolSurface;
         public float offset = 0.0f;
         public bool printDepth;
 
@@ -15,11 +14,6 @@ namespace Robot
         void Start()
         {
             rbody = this.transform.parent.gameObject.GetComponent<Rigidbody>();
-        }
-
-        public void Init(GameObject poolSurface)
-        {
-            this.poolSurface = poolSurface;
         }
 
         private void FixedUpdate()

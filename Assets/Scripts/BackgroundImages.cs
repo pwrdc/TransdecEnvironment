@@ -3,35 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class BackgroundSettings
+public class BackgroundImages : MonoBehaviour
 {
-    public bool isBackgroundImage = false;
+    [ResetParameter] public bool isBackgroundImage = false;
+    public int numberOfPictures;
     public GameObject frontCameraBackground = null;
     public GameObject bottomCameraBackground = null;
     public int frequencyOfImageBackground = 10;
-    public int numOfImageToDisplay = 5;
-}
-
-public class BackgroundImageManager : MonoBehaviour
-{
-    private int numberOfPictures;
-    private GameObject frontCameraBackground = null;
-    private GameObject bottomCameraBackground = null;
-    private int frequencyOfImageBackground = 10;
 
     private int numOfImageToDisplay = 0;
     private int numOfDisplayedImage = 0;
 
-    private CameraType activatedCameraType;
+    [ResetParameter] private CameraType activatedCameraType;
 
     private string[] fileNames;
 
     private bool isBackgroundAvailable = false;
 
+    
+    public void ApplyResetParameters(){
+        this.activatedCameraType =  (CameraType)RobotAcademy.Instance.GetResetParameter("FocusedCamera");
+        this.isBackgroundImage = RobotAcademy.Instance.IsResetParameterTrue("EnableBackgroundImage");
+    }
+
     void Awake()
     {
-        RobotAgent.Instance.OnDataBackgroundUpdate += UpdateData;
+        RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
     }
 
     void Start()
@@ -97,19 +94,6 @@ public class BackgroundImageManager : MonoBehaviour
         numOfImageToDisplay++;
         if (numOfImageToDisplay > GetNumOfImages())
             numOfImageToDisplay = 1;
-    }
-
-    public void UpdateData(BackgroundSettings settings)
-    {
-        this.bottomCameraBackground = settings.bottomCameraBackground;
-        this.frontCameraBackground = settings.frontCameraBackground;
-        this.numberOfPictures = settings.numOfImageToDisplay;
-        this.frequencyOfImageBackground = settings.frequencyOfImageBackground;
-    }
-
-    public void UpdateData(TargetSettings settings)
-    {
-        this.activatedCameraType = settings.cameraType;
     }
 
     public int GetNumOfImages() { return fileNames.Length; }

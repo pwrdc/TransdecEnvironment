@@ -32,13 +32,8 @@ public class RobotAgent : Agent
     #region Fields and Properties
     //Singleton
     private static RobotAgent mInstance = null;
-    public static RobotAgent Instance
-    {
-        get
-        {
-            return mInstance == null ? (mInstance = FindObjectOfType<RobotAgent>()) : mInstance;
-        }
-    }
+    public static RobotAgent Instance => 
+        mInstance == null ? (mInstance = FindObjectOfType<RobotAgent>()) : mInstance;
 
     //Events
     [HideInInspector]
@@ -48,17 +43,15 @@ public class RobotAgent : Agent
     [HideInInspector]
     public event Action<Objects.ObjectConfigurationSettings> OnDataConfigurationUpdate;
     [HideInInspector]
-    public event Action<BackgroundSettings> OnDataBackgroundUpdate;
-    [HideInInspector]
     public event Action<AgentSettings> OnDataAgentUpdate;
     [HideInInspector]
-    public event Action<SceneEnvironment.EnvironmentSettings> OnDataEnvironmentUpdate;
-    [HideInInspector]
-    public event Action<SceneEnvironment.EnvironmentInitValues> OnDataEnvironmentValuesUpdate;
+    public event Action<Environment.EnvironmentInitValues> OnDataEnvironmentValuesUpdate;
+
+    public event Action OnDataCollection;
 
     [Header("Managers")]
     [SerializeField]
-    private SceneEnvironment.EnvironmentManager environmentManager;
+    private Environment.Environment environmentManager;
     [SerializeField]
     private Robot.Robot robot;
     public Robot.Robot Robot { get { return robot; } }
@@ -67,7 +60,7 @@ public class RobotAgent : Agent
     [SerializeField]
     private TargetAnnotation annotation;
     [SerializeField]
-    private BackgroundImageManager backgroundManager;
+    private BackgroundImages backgroundManager;
 
     [Header("Camera settings")]
     public Camera frontCamera = null;
@@ -83,20 +76,13 @@ public class RobotAgent : Agent
     [SerializeField]
     private Objects.ObjectConfigurationSettings objectConfigurationSettings = new Objects.ObjectConfigurationSettings();
     [SerializeField]
-    private BackgroundSettings backgroundSettings = new BackgroundSettings();
-    [SerializeField]
-    private SceneEnvironment.EnvironmentSettings environmentSettings = new SceneEnvironment.EnvironmentSettings();
-    [SerializeField]
-    private SceneEnvironment.EnvironmentInitValues environmentValuesSettings = new SceneEnvironment.EnvironmentInitValues();
+    private Environment.EnvironmentInitValues environmentValuesSettings = new Environment.EnvironmentInitValues();
 
 
     public TargetSettings TargetSettings { get { return targetSettings; } }
     public AgentSettings AgentSettings { get { return agentSettings; } }
     public Objects.ObjectConfigurationSettings ObjectConfigurationSettings { get { return objectConfigurationSettings; } }
-    public BackgroundSettings BackgroundSettings { get { return backgroundSettings; } }
-    public SceneEnvironment.EnvironmentSettings EnvironmentSettings { get { return environmentSettings; } }
-    public SceneEnvironment.EnvironmentInitValues EnvironmentInitValues { get { return environmentValuesSettings; } }
-
+    public Environment.EnvironmentInitValues EnvironmentInitValues { get { return environmentValuesSettings; } }
 
     Rigidbody RobotRigidbody;
     Vector3 targetCenter;
@@ -160,9 +146,6 @@ public class RobotAgent : Agent
         objectManager.Init(objectConfigurationSettings, targetSettings);
         environmentManager.Init(environmentValuesSettings);
 
-
-        environmentSettings.WaterSurface = GameObject.FindWithTag("WaterSurface");
-        environmentSettings.PoolSurface = GameObject.FindWithTag("PoolSurface");
         objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");
         objectConfigurationSettings.noiseFolder = GameObject.FindWithTag("NoiseFolder");
         objectConfigurationSettings.noiseFolder.SetActive(false);
@@ -210,13 +193,8 @@ public class RobotAgent : Agent
         targetSettings.targetAnnotation = RobotAcademy.Instance.objectCreator.targetAnnotations[targetSettings.targetIndex];
         targetSettings.drawBox = agentSettings.dataCollection;
 
-        backgroundSettings.isBackgroundImage = RobotAcademy.Instance.resetParameters["EnableBackgroundImage"] == 0 ? false : true;
-
-
         objectConfigurationSettings.addNoise = RobotAcademy.Instance.resetParameters["EnableNoise"] == 0 ? false : true;
         objectConfigurationSettings.setFocusedObjectInCenter = RobotAcademy.Instance.resetParameters["SetFocusedObjectInCenter"] == 0 ? false : true;
-
-        environmentSettings.isCurrentEnabled = RobotAcademy.Instance.resetParameters["WaterCurrent"] == 0 ? false : true;
     }
     #endregion
 
@@ -234,14 +212,8 @@ public class RobotAgent : Agent
         if (OnDataConfigurationUpdate != null)
             OnDataConfigurationUpdate.Invoke(objectConfigurationSettings);
 
-        if (OnDataBackgroundUpdate != null)
-            OnDataBackgroundUpdate.Invoke(backgroundSettings);
-
         if (OnDataAgentUpdate != null)
             OnDataAgentUpdate.Invoke(agentSettings);
-
-        if (OnDataEnvironmentUpdate != null)
-            OnDataEnvironmentUpdate.Invoke(environmentSettings);
 
         if (OnDataEnvironmentValuesUpdate != null)
             OnDataEnvironmentValuesUpdate.Invoke(environmentValuesSettings);
@@ -294,10 +266,7 @@ public class RobotAgent : Agent
 
         if (agentSettings.dataCollection) //Collecting data
         {
-            //Randomize environment (Water color and light)
-            if (environmentSettings.isEnvironmentRandomized && environmentSettings.isEnvironmentInitOnEachStep)
-                environmentManager.EnvironmentRandomizedInit();
-
+            OnDataCollection.Invoke();
             //Randomize target object position
             if (agentSettings.randomizeTargetObjectPositionOnEachStep)
                 objectManager.RandomizeTargetPosition();
@@ -306,7 +275,7 @@ public class RobotAgent : Agent
             objectManager.RandomizeCameraPositionFocusedOnTarget();
 
             //Set background
-            if (backgroundSettings.isBackgroundImage)
+            if (backgroundManager.isBackgroundImage)
                 backgroundManager.SetNewBackground();
 
         }
@@ -406,10 +375,7 @@ public class RobotAgent : Agent
         SetReward(0);
 
         //Reset scene
-        if (environmentSettings.isEnvironmentRandomized)
-            environmentManager.EnvironmentRandomizedInit();
-        else
-            environmentManager.EnvironmentNormalInit();
+        Environment.Environment.Instance.Reset();
 
         if (agentSettings.dataCollection)
         {
@@ -421,7 +387,7 @@ public class RobotAgent : Agent
             objectConfigurationSettings.noiseFolder.SetActive(objectConfigurationSettings.addNoise);
 
             //Set background enabled/disabled
-            backgroundManager.EnableBackgroundImage(backgroundSettings.isBackgroundImage);
+            backgroundManager.EnableBackgroundImage(backgroundManager.isBackgroundImage);
 
             //Set target enabled/disabled
             targetSettings.target.SetActive(agentSettings.positiveExamples);
@@ -475,7 +441,7 @@ public class RobotAgent : Agent
                         CalculateSingleReward(relativePosition.y, startPos.y) +
                         CalculateSingleReward(relativePosition.z, startPos.z) +
                         CalculateSingleReward(relativeAngle, startRelativeAngle)) / 4 -
-                        collided - robot.Engine.isAboveSurface();
+                        collided - (robot.Engine.isAboveSurface()?1:0);
         return reward;
     }
 
