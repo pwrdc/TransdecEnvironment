@@ -20,7 +20,7 @@ namespace Environment
         private float angle;
         private float radius;
         private Vector3 current;
-        private bool isEnabled = false;
+        [ResetParameter] private bool isEnabled = false;
 
         public bool isWaterCurrent() { return isEnabled; }
         public void setWaterCurrent(bool isEnabled) { this.isEnabled = isEnabled; }

@@ -36,30 +36,19 @@ namespace Objects
             public ObjectPositionSettings(GameObject obj) { this.obj = obj; }
         }
 
+        // TOOD: this could be easily implemented using a component added to each object
+        // and the code would be much cleaner and easier to manage from editor
         [SerializeField]
         private List<ObjectPositionSettings> objectsSettings;
-        private ObjectConfigurationSettings objectConfigurationSettings;
-
-        private List<GameObject> tasksObjs = new List<GameObject>();
-
-
 
         void Start()
         {
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
-            Utils.GetObjectsInFolder(RobotAgent.Instance.ObjectConfigurationSettings.tasksFolder, out tasksObjs);
-
-            foreach (var obj in tasksObjs)
+            foreach (var obj in ObjectConfigurationSettings.Instance.tasksGameObjects)
             {
                 var objSettings = GetObjectPositionSettingsForTarget(obj);
                 objSettings.startPosition = obj.transform.position;
                 objSettings.startRotation = obj.transform.eulerAngles;
             }
-        }
-
-        public void Init(ObjectConfigurationSettings settings)
-        {
-            objectConfigurationSettings = settings;
         }
 
         public void PutTarget(GameObject target)
@@ -75,7 +64,7 @@ namespace Objects
             float yPos = targetObjectSetting.startPosition.y;
             float zPos = zCoef * targetObjectSetting.startPosition.z;
             if (zCoef == -1) yRot += 180f;
-            if (objectConfigurationSettings.randomPosition)
+            if (ObjectConfigurationSettings.Instance.randomPosition)
             {
                 xRot += Utils.GetRandom(-targetObjectSetting.xAngRange, targetObjectSetting.xAngRange);
                 yRot += Utils.GetRandom(-targetObjectSetting.yAngRange, targetObjectSetting.yAngRange);
@@ -89,7 +78,7 @@ namespace Objects
                     );
                 zPos += Utils.GetRandom(targetObjectSetting.minusZPosRange, targetObjectSetting.zPosRange);
             }
-            if (objectConfigurationSettings.randomOrientation)
+            if (ObjectConfigurationSettings.Instance.randomOrientation)
             {
                 if (targetObjectSetting.allowedRotations.Count != 0)
                     yRot += -xCoef * zCoef * targetObjectSetting.allowedRotations[Utils.GetRandom(0, targetObjectSetting.allowedRotations.Count)];
@@ -109,7 +98,7 @@ namespace Objects
         private void CalculateCoefficient(out int quarter, out int xCoef, out int zCoef)
         {
             quarter = (int)Utils.GetRandom(0, 4);
-            if (objectConfigurationSettings.randomQuarter)
+            if (ObjectConfigurationSettings.Instance.randomQuarter)
             {
                 xCoef = 2 * (quarter % 2) - 1;
                 zCoef = 2 * (quarter / 2 % 2) - 1;
@@ -131,17 +120,6 @@ namespace Objects
 
             objectsSettings.Add(new ObjectPositionSettings(target));
             return objectsSettings[objectsSettings.Count - 1];
-        }
-
-        public void UpdateData(ObjectConfigurationSettings settings)
-        {
-            if (objectConfigurationSettings == null)
-                objectConfigurationSettings = settings;
-
-            if (objectConfigurationSettings.tasksFolder == settings.tasksFolder || tasksObjs.Count == 0)
-                Utils.GetObjectsInFolder(settings.tasksFolder, out tasksObjs);
-            objectConfigurationSettings = settings;
-
         }
     }
 }

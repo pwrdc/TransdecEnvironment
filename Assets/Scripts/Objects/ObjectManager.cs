@@ -4,22 +4,6 @@ using UnityEngine;
 
 namespace Objects
 {
-    [System.Serializable]
-    public class ObjectConfigurationSettings
-    {
-        public bool addNoise = false;
-        public bool setFocusedObjectInCenter = false;
-        public bool setObjectAlwaysVisible = true; public bool addCompetitionObjectsAsNoise = true;
-        [HideInInspector]
-        public GameObject noiseFolder = null;
-        [HideInInspector]
-        public GameObject tasksFolder = null;
-        public bool randomQuarter = true;
-        public bool randomPosition = true;
-        public bool randomOrientation = true;
-        public int numberOfNoiseToGenerate = 5;
-    }
-
     public class ObjectManager : MonoBehaviour
     {
         [Header("Data collection settings")]
@@ -33,13 +17,10 @@ namespace Objects
         private RandomInitOnMesh randomInitOnMesh = null;
         [SerializeField]
         private NoiseSpawner noiseSpawner = null;
-
-        private ObjectConfigurationSettings objectConfigurationSettings;
         private TargetSettings targetSettings;
 
         void Start()
         {
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
             RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
         }
 
@@ -47,17 +28,6 @@ namespace Objects
         {
             randomInitNormal.PutAll();
             randomInitOnMesh.PutAll();
-        }
-
-        public void Init(ObjectConfigurationSettings objectConfigurationSettings, TargetSettings targetSettings)
-        {
-            this.targetSettings = targetSettings;
-            this.objectConfigurationSettings = objectConfigurationSettings;
-            noiseSpawner.Init(objectConfigurationSettings, targetSettings);
-            objectSpawnConfiguration.Init(targetSettings);
-            randomCameraPosition.Init(objectSpawnConfiguration, objectConfigurationSettings, targetSettings);
-            randomInitNormal.Init(objectConfigurationSettings);
-            randomInitOnMesh.Init(objectConfigurationSettings);
         }
 
         public void RandomizeTargetPosition()
@@ -75,9 +45,9 @@ namespace Objects
         public void RandomizeCameraPositionFocusedOnTarget()
         {
             randomCameraPosition.SetNewRobotPos();
-            if (objectConfigurationSettings.addNoise)
+            if (ObjectConfigurationSettings.Instance.addNoise)
             {
-                noiseSpawner.AddNoise(objectSpawnConfiguration.GetSettingsForActivatedObject(), objectConfigurationSettings.numberOfNoiseToGenerate);
+                noiseSpawner.AddNoise(objectSpawnConfiguration.GetSettingsForActivatedObject(), ObjectConfigurationSettings.Instance.numberOfNoiseToGenerate);
             }
         }
 
@@ -86,11 +56,6 @@ namespace Objects
         public RandomInitNormal GetRandomInitNormal() { return randomInitNormal; }
         public RandomInitOnMesh GetRandomInitOnMesh() { return randomInitOnMesh; }
         public NoiseSpawner GetNoiseSpawner() { return noiseSpawner; }
-
-        public void UpdateData(ObjectConfigurationSettings settings)
-        {
-            objectConfigurationSettings = settings;
-        }
 
         public void UpdateData(TargetSettings settings)
         {

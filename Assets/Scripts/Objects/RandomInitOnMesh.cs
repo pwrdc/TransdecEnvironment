@@ -12,17 +12,6 @@ namespace Objects
         private int layerMask = 1 << 10;
         [SerializeField]
         private List<GameObject> objectsToPut = new List<GameObject>();
-        private ObjectConfigurationSettings objectConfigurationSettings;
-
-        void Awake()
-        {
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
-        }
-
-        public void Init(ObjectConfigurationSettings settings)
-        {
-            objectConfigurationSettings = settings;
-        }
 
         Vector3 GetRandomPosition(GameObject target)
         {
@@ -65,11 +54,6 @@ namespace Objects
             {
                 PutTarget(obj);
             }
-        }
-
-        public void UpdateData(ObjectConfigurationSettings settings)
-        {
-            objectConfigurationSettings = settings;
         }
     }
 }

@@ -8,7 +8,5 @@ namespace Objects
     {
         void PutAll();
         void PutTarget(GameObject target);
-
-        void UpdateData(ObjectConfigurationSettings settings);
     }
 }

@@ -41,8 +41,6 @@ public class RobotAgent : Agent
     [HideInInspector]
     public event Action<TargetSettings> OnDataTargetUpdate;
     [HideInInspector]
-    public event Action<Objects.ObjectConfigurationSettings> OnDataConfigurationUpdate;
-    [HideInInspector]
     public event Action<AgentSettings> OnDataAgentUpdate;
 
     public event Action OnDataCollection;
@@ -71,13 +69,8 @@ public class RobotAgent : Agent
     private TargetSettings targetSettings = new TargetSettings();
     [SerializeField]
     private AgentSettings agentSettings = new AgentSettings();
-    [SerializeField]
-    private Objects.ObjectConfigurationSettings objectConfigurationSettings = new Objects.ObjectConfigurationSettings();
-
     public TargetSettings TargetSettings { get { return targetSettings; } }
     public AgentSettings AgentSettings { get { return agentSettings; } }
-    public Objects.ObjectConfigurationSettings ObjectConfigurationSettings { get { return objectConfigurationSettings; } }
-
     Rigidbody RobotRigidbody;
     Vector3 targetCenter;
     Quaternion targetRotation;
@@ -137,13 +130,8 @@ public class RobotAgent : Agent
         if (isInitialized)
             return;
         isInitialized = true;
-        objectManager.Init(objectConfigurationSettings, targetSettings);
-
-        objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");
-        objectConfigurationSettings.noiseFolder = GameObject.FindWithTag("NoiseFolder");
-        objectConfigurationSettings.noiseFolder.SetActive(false);
         RobotRigidbody = robot.gameObject.GetComponent<Rigidbody>();
-        Utils.GetObjectsInFolder(objectConfigurationSettings.tasksFolder, out tasksObjects);
+        Utils.GetObjectsInFolder(Objects.ObjectConfigurationSettings.Instance.tasksFolder, out tasksObjects);
     }
 
     void SetCamera()
@@ -186,8 +174,6 @@ public class RobotAgent : Agent
         targetSettings.targetAnnotation = RobotAcademy.Instance.objectCreator.targetAnnotations[targetSettings.targetIndex];
         targetSettings.drawBox = agentSettings.dataCollection;
 
-        objectConfigurationSettings.addNoise = RobotAcademy.Instance.resetParameters["EnableNoise"] == 0 ? false : true;
-        objectConfigurationSettings.setFocusedObjectInCenter = RobotAcademy.Instance.resetParameters["SetFocusedObjectInCenter"] == 0 ? false : true;
     }
     #endregion
 
@@ -201,9 +187,6 @@ public class RobotAgent : Agent
 
         if (OnDataTargetUpdate != null)
             OnDataTargetUpdate.Invoke(targetSettings);
-
-        if (OnDataConfigurationUpdate != null)
-            OnDataConfigurationUpdate.Invoke(objectConfigurationSettings);
 
         if (OnDataAgentUpdate != null)
             OnDataAgentUpdate.Invoke(agentSettings);
@@ -236,7 +219,7 @@ public class RobotAgent : Agent
             obj.SetActive(true);
         }
 
-        objectConfigurationSettings.noiseFolder.SetActive(false);
+        Objects.ObjectConfigurationSettings.Instance.noiseFolder.SetActive(false);
         backgroundManager.EnableBackgroundImage(false);
     }
 
@@ -374,7 +357,7 @@ public class RobotAgent : Agent
             DisableAllInactiveTasks();
 
             //Set Noise enabled/disabled
-            objectConfigurationSettings.noiseFolder.SetActive(objectConfigurationSettings.addNoise);
+            Objects.ObjectConfigurationSettings.Instance.noiseFolder.SetActive(Objects.ObjectConfigurationSettings.Instance.addNoise);
 
             //Set background enabled/disabled
             backgroundManager.EnableBackgroundImage(backgroundManager.isBackgroundImage);

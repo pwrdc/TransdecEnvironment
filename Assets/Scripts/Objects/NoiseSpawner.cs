@@ -6,12 +6,7 @@ namespace Objects
     public class NoiseSpawner : MonoBehaviour
     {
         private GameObject robot;
-
-        private List<GameObject> otherObjs = new List<GameObject>();
-        private List<MeshRenderer[]> otherObjsMesh = new List<MeshRenderer[]>();
-
         private TargetSettings targetSettings;
-        private ObjectConfigurationSettings objectConfigurationSettings;
 
         private float radiusOfGeneratedObject;
 
@@ -19,16 +14,13 @@ namespace Objects
         {
             robot = RobotAgent.Instance.Robot.gameObject;
             RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
         }
 
-        public void Init(ObjectConfigurationSettings objectConfigurationSettings, TargetSettings targetSettings)
+        public void Init(TargetSettings targetSettings)
         {
 
             robot = RobotAgent.Instance.Robot.gameObject;
             RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
-            this.objectConfigurationSettings = objectConfigurationSettings;
             this.targetSettings = targetSettings;
         }
 
@@ -56,8 +48,6 @@ namespace Objects
             return false;
         }
 
-        public List<GameObject> GetOtherObjs() { return otherObjs; }
-
         //Setting up new position for objects in order to Settings
         public void SetOthNewPos(GameObject obj, Settings setting)
         {
@@ -74,7 +64,7 @@ namespace Objects
             obj.transform.position = newPos;
             obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
 
-            if (objectConfigurationSettings.setObjectAlwaysVisible)
+            if (ObjectConfigurationSettings.Instance.setObjectAlwaysVisible)
             {
                 if (IsOverridingObject(obj)) //Check if object is overriding target
                 {
@@ -90,15 +80,17 @@ namespace Objects
             obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
         }
 
+        private List<GameObject> noiseGameObjects => ObjectConfigurationSettings.Instance.noiseGameObjects;
+
         //Add new noise to scene, 
         public void AddNoise(Settings settings, int numberOfNoiseToGenerate)
         {
-            List<GameObject> objToChose = GetRandomObjects(GetOtherObjs(), numberOfNoiseToGenerate);
+            List<GameObject> objToChose = GetRandomObjects(noiseGameObjects, numberOfNoiseToGenerate);
             foreach (GameObject obj in objToChose) SetOthNewPos(obj, settings);
-            foreach (GameObject obj in otherObjs) obj.SetActive(false);
+            foreach (GameObject obj in noiseGameObjects) obj.SetActive(false);
             foreach (GameObject obj in objToChose) obj.SetActive(true);
 
-            if (objectConfigurationSettings.setObjectAlwaysVisible) //Erase all objects that cover target
+            if (ObjectConfigurationSettings.Instance.setObjectAlwaysVisible) //Erase all objects that cover target
             {
                 GameObject obj = GetRaycastHit();
                 while (obj != null && obj != targetSettings.target && obj != targetSettings.targetAnnotation)
@@ -135,17 +127,6 @@ namespace Objects
         public void UpdateData(TargetSettings settings)
         {
             targetSettings = settings;
-        }
-
-        public void UpdateData(ObjectConfigurationSettings settings)
-        {
-            if(objectConfigurationSettings == null)
-                objectConfigurationSettings = settings;
-
-            if (objectConfigurationSettings.noiseFolder == settings.noiseFolder || otherObjs.Count == 0)
-                Utils.GetObjectsAndMeshInFolder(settings.noiseFolder, out otherObjs, out otherObjsMesh);
-
-            objectConfigurationSettings = settings;
         }
     }
 }
