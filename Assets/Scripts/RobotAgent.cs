@@ -21,7 +21,6 @@ public class AgentSettings
 
 public class RobotAgent : Agent
 {
-    #region Fields and Properties
     //Singleton
     private static RobotAgent mInstance = null;
     public static RobotAgent Instance => 
@@ -39,7 +38,6 @@ public class RobotAgent : Agent
     private Camera activeCamera = null;
     public Camera ActiveCamera { get { return activeCamera; } }
 
-    
     private Engine engine;
     private DepthSensor depthSensor;
     private Accelerometer accelerometer;
@@ -58,61 +56,23 @@ public class RobotAgent : Agent
 
     float relativeAngle; //angle between robot and target
     Vector3 relativePosition; //position between robot and target
-
-    List<GameObject> tasksObjects = new List<GameObject>();
-
-    bool isInitialized = false;
-    #endregion
-
-    #region Setting up Agent
-    void OnValidate()
-    {
-        SetAgent();
-    }
-
-    void Awake()
-    {
-        
+    
+    bool initialized=false;
+    void Initialize(){
         engine=GetComponentInChildren<Engine>();
         depthSensor=GetComponentInChildren<DepthSensor>();
         accelerometer=GetComponentInChildren<Accelerometer>();
         ballGrapper=GetComponentInChildren<BallGrapper>();
         torpedo=GetComponentInChildren<Torpedo>();
-
-        mInstance=this;
-        isAwaked = true;
-        Initialization();
-    }
-
-    void Start()
-    {
+        body = GetComponent<Rigidbody>();
         RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
-        SetAgent();
+        SetCamera();
         AgentReset();
     }
 
-    /// <summary>
-    /// Sets agent:
-    /// Initalizes agent
-    /// Setups information from robot academy
-    /// Sets camera
-    /// </summary>
-    void SetAgent()
+    void Awake()
     {
-        if (!isAwaked)
-            return;
-        Initialization();
-        SetCamera();
-        isAgentSet = true;
-    }
-
-    void Initialization()
-    {
-        if (isInitialized)
-            return;
-        isInitialized = true;
-        body = GetComponent<Rigidbody>();
-        Utils.GetObjectsInFolder(Objects.ObjectConfigurationSettings.Instance.tasksFolder, out tasksObjects);
+        Initialize();
     }
 
     void SetCamera()
@@ -167,9 +127,9 @@ public class RobotAgent : Agent
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
-        if (!isAgentSet)
+        if (!initialized)
         {
-            SetAgent();
+            Initialize();
         }
 
         if (agentSettings.dataCollection) //Collecting data
@@ -182,7 +142,7 @@ public class RobotAgent : Agent
             if (IsNewCameraChosen((CameraType)vectorAction[4]))
             {
                 TargetSettings.Instance.cameraType = (CameraType)vectorAction[4];
-                SetAgent();
+                SetCamera();
             }
             if (vectorAction[5] == 1)
             {
@@ -209,6 +169,9 @@ public class RobotAgent : Agent
     }
 
     public Vector3 RelativeTargetPosition(){
+        if(TargetSettings.Instance.target==null){
+            return Vector3.zero;
+        }
         Transform target=TargetSettings.Instance.target.transform;
         Vector3 targetOffset=TargetSettings.Instance.targetOffset;
         Vector3 distToCenter = target.InverseTransformPoint(targetCenter);
@@ -220,6 +183,9 @@ public class RobotAgent : Agent
     }
 
     public float RelativeTargetAngle(){
+        if(TargetSettings.Instance.target==null){
+            return 0f;
+        }
         Transform target=TargetSettings.Instance.target.transform;
         float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
         relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
@@ -319,4 +285,3 @@ public class RobotAgent : Agent
             Done();
     }
 }
-#endregion

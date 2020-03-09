@@ -17,16 +17,9 @@ namespace Objects
         private RandomInitOnMesh randomInitOnMesh = null;
         [SerializeField]
         private NoiseSpawner noiseSpawner = null;
-        private TargetSettings targetSettings;
 
         private void Start(){
             RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
-        }
-
-        public void RandomizeObjectsPositionsOnInit()
-        {
-            randomInitNormal.PutAll();
-            randomInitOnMesh.PutAll();
         }
 
         private void OnDataCollection(){
@@ -53,16 +46,10 @@ namespace Objects
         public void RandomizeCameraPositionFocusedOnTarget()
         {
             randomCameraPosition.SetNewRobotPos();
-            if (ObjectConfigurationSettings.Instance.addNoise)
+            if (noiseSpawner.addNoise)
             {
                 noiseSpawner.AddNoise(objectSpawnConfiguration.GetSettingsForActivatedObject(), ObjectConfigurationSettings.Instance.numberOfNoiseToGenerate);
             }
         }
-
-        public ObjectSpawnConfiguration GetSpawnConfiguration() { return objectSpawnConfiguration; }
-        public RandomCameraPosition GetRandomPosition() { return randomCameraPosition; }
-        public RandomInitNormal GetRandomInitNormal() { return randomInitNormal; }
-        public RandomInitOnMesh GetRandomInitOnMesh() { return randomInitOnMesh; }
-        public NoiseSpawner GetNoiseSpawner() { return noiseSpawner; }
     }
 }

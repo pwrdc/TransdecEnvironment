@@ -4,58 +4,41 @@ using UnityEngine;
 
 namespace Objects
 {
-    public class RandomInitNormal : MonoBehaviour, IRandomInit
-    {
-        [System.Serializable]
-        public class ObjectPositionSettings
-        {
-            public GameObject obj;
-            public Vector3 startPosition = new Vector3(0f, 0f, 0f);
-            [Range(0f, 10f)]
-            public float xPosRange = 0f;
-            [Range(-10f, 0f)]
-            public float minusXPosRange = 0f;
-            [Range(0f, 10f)]
-            public float yPosRange = 0f;
-            [Range(-10f, 0f)]
-            public float minusYPosRange = 0;
-            [Range(0f, 10f)]
-            public float zPosRange = 0f;
-            [Range(-10f, 0f)]
-            public float minusZPosRange = -0f;
-            public Vector3 startRotation = new Vector3(0f, 0f, 0f);
-            [Range(0f, 30f)]
-            public float xAngRange = 0f;
-            [Range(0f, 30f)]
-            public float yAngRange = 0f;
-            [Range(0f, 30f)]
-            public float zAngRange = 0f;
-            [Range(0f, 360f)]
-            public List<float> allowedRotations = new List<float>();
-
-            public ObjectPositionSettings(GameObject obj) { this.obj = obj; }
-        }
-
-        // TOOD: this could be easily implemented using a component added to each object
-        // and the code would be much cleaner and easier to manage from editor
-        [SerializeField]
-        private List<ObjectPositionSettings> objectsSettings;
+    public class RandomInitNormal : MonoBehaviour
+    {   
+        private ObjectPositionSettings[] objectsSettings;
+        public GameObject tasksFolder;
 
         void Start()
         {
-            foreach (var obj in ObjectConfigurationSettings.Instance.tasksGameObjects)
-            {
-                var objSettings = GetObjectPositionSettingsForTarget(obj);
-                objSettings.startPosition = obj.transform.position;
-                objSettings.startRotation = obj.transform.eulerAngles;
+            objectsSettings=tasksFolder.GetComponentsInChildren<ObjectPositionSettings>();
+            RobotAgent.Instance.OnReset.AddListener(OnReset);
+        }
+
+        void OnReset(){
+            if(RobotAgent.Instance.agentSettings.dataCollection){
+                foreach (var obj in objectsSettings)
+                {
+                    if (obj.gameObject != TargetSettings.Instance.target){
+                        obj.gameObject.SetActive(false);
+                    }
+                }
             }
         }
 
-        public void PutTarget(GameObject target)
+        public void PutTarget(GameObject target){
+            foreach (var objSettings in objectsSettings){
+                if(objSettings.gameObject==target){
+                    PutTarget(objSettings);
+                }
+            }
+        }
+
+        public void PutTarget(ObjectPositionSettings targetObjectSetting)
         {
             int quarter, xCoef, zCoef;
             CalculateCoefficient(out quarter, out xCoef, out zCoef);
-            ObjectPositionSettings targetObjectSetting = GetObjectPositionSettingsForTarget(target);
+            GameObject target=targetObjectSetting.gameObject;
 
             float xRot = targetObjectSetting.startRotation.x;
             float yRot = targetObjectSetting.startRotation.y;
@@ -91,7 +74,7 @@ namespace Objects
         {
             foreach (var objSettings in objectsSettings)
             {
-                PutTarget(objSettings.obj);
+                PutTarget(objSettings);
             }
         }
 
@@ -117,9 +100,7 @@ namespace Objects
                 if (objectSetting.obj == target)
                     return objectSetting;
             }
-
-            objectsSettings.Add(new ObjectPositionSettings(target));
-            return objectsSettings[objectsSettings.Count - 1];
+            return null;
         }
     }
 }

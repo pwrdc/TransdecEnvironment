@@ -9,20 +9,20 @@ namespace Objects
         private GameObject robot = null;
 
         private ObjectSpawnConfiguration objectSpawnConfiguration;
-        private TargetSettings targetSettings;
         private NoiseSpawner noiseSpawner;
 
 
         void Start()
         {
             noiseSpawner = GetComponent<NoiseSpawner>();
+            objectSpawnConfiguration=GetComponent<ObjectSpawnConfiguration>();
             robot = RobotAgent.Instance.gameObject;
         }
 
         public void SetNewRobotPos()
         {
             Settings setting = objectSpawnConfiguration.GetSettingsForActivatedObject();
-            Vector3 newPos = Utils.GetComplexBounds(targetSettings.target).center;
+            Vector3 newPos = Utils.GetComplexBounds(TargetSettings.Instance.target).center;
             float xRot = Utils.GetRandom(-setting.xAngRange, setting.xAngRange);
             float yRot = Utils.GetRandom(-setting.yAngRange, setting.yAngRange);
             float zRot = Utils.GetRandom(-setting.zAngRange, setting.zAngRange);
@@ -35,7 +35,7 @@ namespace Objects
                 if (ObjectConfigurationSettings.Instance.setFocusedObjectInCenter)
                     r = 0;
                 else
-                    r = Utils.GetRandom(0, ((newPos.y - Utils.GetComplexBounds(targetSettings.target).center.y) * (setting.cameraFov / 100)));
+                    r = Utils.GetRandom(0, ((newPos.y - Utils.GetComplexBounds(TargetSettings.Instance.target).center.y) * (setting.cameraFov / 100)));
             }
             else
             {
@@ -56,7 +56,7 @@ namespace Objects
             }
             else
             {
-                robot.transform.LookAt(Utils.GetComplexBounds(targetSettings.targetAnnotation).center);
+                robot.transform.LookAt(Utils.GetComplexBounds(TargetSettings.Instance.targetAnnotation).center);
                 if (!ObjectConfigurationSettings.Instance.setFocusedObjectInCenter)
                     robot.transform.eulerAngles = new Vector3(robot.transform.eulerAngles.x + xRot, robot.transform.eulerAngles.y + yRot, robot.transform.eulerAngles.z + zRot);
             }

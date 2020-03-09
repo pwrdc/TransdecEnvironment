@@ -6,6 +6,23 @@ namespace Objects
     public class NoiseSpawner : MonoBehaviour
     {
         private float radiusOfGeneratedObject;
+        public GameObject folder;
+        [HideInInspector]
+        List<GameObject> noiseGameObjects;
+        [ResetParameter] public bool addNoise;
+
+        private void Start(){
+            Utils.GetObjectsInFolder(folder, out noiseGameObjects);
+            RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
+        }
+
+        private void Update(){
+            folder.SetActive(addNoise);
+        }
+        
+        private void ApplyResetParameters(){
+            addNoise = RobotAcademy.Instance.IsResetParameterTrue("EnableNoise");
+        }
 
         private Transform robot=>RobotAgent.Instance.transform;
         bool IsOverridingObject(GameObject obj)
@@ -63,8 +80,6 @@ namespace Objects
             obj.transform.position = newPos;
             obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
         }
-
-        private List<GameObject> noiseGameObjects => ObjectConfigurationSettings.Instance.noiseGameObjects;
 
         //Add new noise to scene, 
         public void AddNoise(Settings settings, int numberOfNoiseToGenerate)
