@@ -8,7 +8,8 @@ namespace Objects{
         private static ObjectConfigurationSettings mInstance;
         public static ObjectConfigurationSettings Instance => 
             mInstance == null ? (mInstance = FindObjectOfType<ObjectConfigurationSettings>()) : mInstance;
-        public bool setObjectAlwaysVisible = true; public bool addCompetitionObjectsAsNoise = true;
+        public bool setObjectAlwaysVisible = true; 
+        public bool addCompetitionObjectsAsNoise = true;
         
         public GameObject noiseFolder = null;
         private GameObject previousNoiseFolder=null;

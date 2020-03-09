@@ -5,30 +5,15 @@ namespace Objects
 {
     public class NoiseSpawner : MonoBehaviour
     {
-        private GameObject robot;
-        private TargetSettings targetSettings;
+        private GameObject robot=>RobotAgent.Instance.Robot.gameObject;
 
         private float radiusOfGeneratedObject;
-
-        void Start()
-        {
-            robot = RobotAgent.Instance.Robot.gameObject;
-            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-        }
-
-        public void Init(TargetSettings targetSettings)
-        {
-
-            robot = RobotAgent.Instance.Robot.gameObject;
-            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-            this.targetSettings = targetSettings;
-        }
 
         bool IsOverridingObject(GameObject obj)
         {
             //Return true if object is overriding target, otherwise return false
             Bounds objBounds = Utils.GetComplexBounds(obj);
-            Bounds targetBounds = Utils.GetComplexBounds(targetSettings.targetAnnotation);
+            Bounds targetBounds = Utils.GetComplexBounds(TargetSettings.Instance.targetAnnotation);
 
             Vector3[] boxCoordOfTarget = Utils.GetBoxCoord(targetBounds);
             Vector3[] boxCoordOfObject = Utils.GetBoxCoord(objBounds);
@@ -51,7 +36,7 @@ namespace Objects
         //Setting up new position for objects in order to Settings
         public void SetOthNewPos(GameObject obj, Settings setting)
         {
-            Vector3 newPos = Utils.GetComplexBounds(targetSettings.targetAnnotation).center;
+            Vector3 newPos = Utils.GetComplexBounds(TargetSettings.Instance.targetAnnotation).center;
 
             float xRot = Utils.GetRandom(-setting.othXAngRange, setting.othXAngRange);
             float yRot = Utils.GetRandom(-setting.othYAngRange, setting.othYAngRange);
@@ -93,7 +78,7 @@ namespace Objects
             if (ObjectConfigurationSettings.Instance.setObjectAlwaysVisible) //Erase all objects that cover target
             {
                 GameObject obj = GetRaycastHit();
-                while (obj != null && obj != targetSettings.target && obj != targetSettings.targetAnnotation)
+                while (obj != null && obj != TargetSettings.Instance.target && obj != TargetSettings.Instance.targetAnnotation)
                 {
                     obj.SetActive(false);
                     obj = GetRaycastHit();
@@ -117,16 +102,11 @@ namespace Objects
         GameObject GetRaycastHit() //Raycast from robot position to target
         {
             int layerMask = (1 << 9) | (1 << 11);
-            float dist = Vector3.Distance(targetSettings.targetAnnotation.transform.position, robot.transform.position);
+            float dist = Vector3.Distance(TargetSettings.Instance.targetAnnotation.transform.position, robot.transform.position);
             RaycastHit hit;
-            if (Physics.Raycast(robot.transform.position, targetSettings.targetAnnotation.transform.position - robot.transform.position, out hit, dist, layerMask))
+            if (Physics.Raycast(robot.transform.position, TargetSettings.Instance.targetAnnotation.transform.position - robot.transform.position, out hit, dist, layerMask))
                 return hit.transform.gameObject;
             return null;
-        }
-
-        public void UpdateData(TargetSettings settings)
-        {
-            targetSettings = settings;
         }
     }
 }

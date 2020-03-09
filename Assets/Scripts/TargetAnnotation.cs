@@ -3,8 +3,8 @@
 // Author           : Szymo
 // Created          : 09-20-2019
 //
-// Last Modified By : Szymo
-// Last Modified On : 10-21-2019
+// Last Modified By : piotrszleg
+// Last Modified On : 09-03-2020
 // ***********************************************************************
 // <copyright file="TargetAnnotation.cs" company="">
 //     Copyright (c) . All rights reserved.
@@ -49,6 +49,7 @@ public class TargetAnnotation : MonoBehaviour
 
             // 8 coordinates 
             //TODO: Change to Viewport, and adjust changes in pyTransdec
+            Camera cam=RobotAgent.Instance.ActiveCamera;
             pts[0] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
             pts[1] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
             pts[2] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
