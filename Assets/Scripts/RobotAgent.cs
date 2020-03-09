@@ -28,18 +28,12 @@ public class RobotAgent : Agent
     public event Action OnReset;
     [Header("Managers")]
     [SerializeField]
-    private Environment.Environment environmentManager;
-    [SerializeField]
     private Robot.Robot robot;
     public Robot.Robot Robot { get { return robot; } }
     [SerializeField]
-    private Objects.ObjectManager objectManager;
-    [SerializeField]
     private TargetAnnotation annotation;
-    [SerializeField]
-    private BackgroundImages backgroundManager;
 
-    [Header("Camera settings")]
+    [Header("Cameras")]
     public Camera frontCamera = null;
     public Camera bottomCamera = null;
     private Camera activeCamera = null;
@@ -137,25 +131,6 @@ public class RobotAgent : Agent
         agentSettings.forceToSaveAsNegative = RobotAcademy.Instance.IsResetParameterTrue("ForceToSaveAsNegative");
     }
 
-    /// <summary>
-    /// Set environment to normal
-    /// Tasks are active
-    /// Background is disabled
-    /// Transdec is active
-    /// Noise is disabled
-    /// </summary>
-    void OnApplicationQuit()
-    {
-
-        foreach (var obj in tasksObjects)
-        {
-            obj.SetActive(true);
-        }
-
-        Objects.ObjectConfigurationSettings.Instance.noiseFolder.SetActive(false);
-        backgroundManager.EnableBackgroundImage(false);
-    }
-
     #region Agent overrided methods
     
     public override void AgentReset()
@@ -186,17 +161,6 @@ public class RobotAgent : Agent
         if (agentSettings.dataCollection) //Collecting data
         {
             OnDataCollection.Invoke();
-            //Randomize target object position
-            if (agentSettings.randomizeTargetObjectPositionOnEachStep)
-                objectManager.RandomizeTargetPosition();
-
-            //Randomize camera position
-            objectManager.RandomizeCameraPositionFocusedOnTarget();
-
-            //Set background
-            if (backgroundManager.isBackgroundImage)
-                backgroundManager.SetNewBackground();
-
         }
         else //Testing/Training software 
         {
@@ -215,7 +179,6 @@ public class RobotAgent : Agent
                 robot.Torpedo.Shoot();
             }
         }
-
 
         //Calculate target info for collecting data (in case of new position on each step) 
         if (agentSettings.randomizeTargetObjectPositionOnEachStep)

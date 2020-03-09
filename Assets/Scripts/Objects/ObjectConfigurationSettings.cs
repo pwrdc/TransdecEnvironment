@@ -47,6 +47,17 @@ namespace Objects{
             noiseFolder.SetActive(addNoise);
         }
 
+        void OnApplicationQuit()
+        {
+
+            foreach (var obj in tasksGameObjects)
+            {
+                obj.SetActive(true);
+            }
+
+            Objects.ObjectConfigurationSettings.Instance.noiseFolder.SetActive(false);
+        }
+
         void OnReset(){
             if(RobotAgent.Instance.agentSettings.dataCollection){
                 foreach (var obj in tasksGameObjects)

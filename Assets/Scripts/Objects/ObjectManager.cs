@@ -19,10 +19,23 @@ namespace Objects
         private NoiseSpawner noiseSpawner = null;
         private TargetSettings targetSettings;
 
+        private void Start(){
+            RobotAgent.Instance.OnDataCollection+=OnDataCollection;
+        }
+
         public void RandomizeObjectsPositionsOnInit()
         {
             randomInitNormal.PutAll();
             randomInitOnMesh.PutAll();
+        }
+
+        private void OnDataCollection(){
+            //Randomize target object position
+            if (RobotAgent.Instance.agentSettings.randomizeTargetObjectPositionOnEachStep)
+                RandomizeTargetPosition();
+
+            //Randomize camera position
+            RandomizeCameraPositionFocusedOnTarget();
         }
 
         public void RandomizeTargetPosition()

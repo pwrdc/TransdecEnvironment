@@ -25,13 +25,17 @@ public class BackgroundImages : MonoBehaviour
         this.isBackgroundImage = RobotAcademy.Instance.IsResetParameterTrue("EnableBackgroundImage");
     }
 
-    void Awake()
-    {
-        RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
+    void OnDataCollection(){
+        if (isBackgroundImage)
+            SetNewBackground();
     }
 
-    void Start()
+    void OnApplicationQuit()
     {
+        EnableBackgroundImage(false);
+    }
+
+    void LoadImages(){
         try
         {
             string path = Application.dataPath + @"\Resources\backgroundImages";
@@ -52,6 +56,13 @@ public class BackgroundImages : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
+        RobotAgent.Instance.OnDataCollection+=OnDataCollection;
+        LoadImages();
+    }
+
     public void EnableBackgroundImage(bool enable)
     {
         Utils.ActivateEnvironmentMeshRenderer(!enable);
@@ -67,11 +78,11 @@ public class BackgroundImages : MonoBehaviour
     {
         if (isBackgroundAvailable)
         {
-            if (CameraType.frontCamera == activatedCameraType)
+            if (activatedCameraType==CameraType.frontCamera)
             {
                 SetNewMaterial(frontCameraBackground, numOfImageToDisplay);
             }
-            else if (CameraType.bottomCamera == activatedCameraType)
+            else if (activatedCameraType==CameraType.bottomCamera)
             {
                 SetNewMaterial(bottomCameraBackground, numOfImageToDisplay);
             }
