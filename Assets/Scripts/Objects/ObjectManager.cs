@@ -20,7 +20,7 @@ namespace Objects
         private TargetSettings targetSettings;
 
         private void Start(){
-            RobotAgent.Instance.OnDataCollection+=OnDataCollection;
+            RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
         }
 
         public void RandomizeObjectsPositionsOnInit()

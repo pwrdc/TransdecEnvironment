@@ -34,7 +34,7 @@ namespace Environment
             float z = radius * Mathf.Sin(angle);
             current = new Vector3(x, 0, z);
             rbody = GameObject.Find("Robot").GetComponent<Rigidbody>();
-            RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
+            RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
         }
 
         void Update()

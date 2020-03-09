@@ -31,8 +31,8 @@ namespace Objects{
 
         private void Start(){
             noiseFolder.SetActive(false);
-            RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
-            RobotAgent.Instance.OnReset+=OnReset;
+            RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
+            RobotAgent.Instance.OnReset.AddListener(OnReset);
         }
 
         private void Update(){

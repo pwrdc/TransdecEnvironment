@@ -22,8 +22,8 @@ namespace Environment
 
         void Start()
         {
-            RobotAgent.Instance.OnDataCollection+=OnDataCollection;
-            RobotAgent.Instance.OnReset+=OnReset;
+            RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
+            RobotAgent.Instance.OnReset.AddListener(OnReset);
         }
 
         public void OnReset(){

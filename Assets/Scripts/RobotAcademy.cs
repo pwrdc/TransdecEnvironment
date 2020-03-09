@@ -15,6 +15,7 @@ using MLAgents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -93,7 +94,7 @@ public class RobotAcademy : Academy
     public Vector2 VisualObservationResolution;
     private RobotAgent robotAgent;
 
-    public event Action onResetParametersChanged;
+    public UnityEvent onResetParametersChanged;
 
     public bool IsResetParameterTrue(string parameterName){
         return resetParameters[parameterName] != 0;

@@ -2,6 +2,9 @@
 using MLAgents;
 using System;
 using System.Collections.Generic;
+using Robot;
+using Robot.Functionality;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class AgentSettings
@@ -24,12 +27,9 @@ public class RobotAgent : Agent
     public static RobotAgent Instance => 
         mInstance == null ? (mInstance = FindObjectOfType<RobotAgent>()) : mInstance;
 
-    public event Action OnDataCollection;
-    public event Action OnReset;
-    [Header("Managers")]
-    [SerializeField]
-    private Robot.Robot robot;
-    public Robot.Robot Robot { get { return robot; } }
+    public UnityEvent OnDataCollection;
+    public UnityEvent OnReset;
+    
     [SerializeField]
     private TargetAnnotation annotation;
 
@@ -39,8 +39,15 @@ public class RobotAgent : Agent
     private Camera activeCamera = null;
     public Camera ActiveCamera { get { return activeCamera; } }
 
+    
+    private Engine engine;
+    private DepthSensor depthSensor;
+    private Accelerometer accelerometer;
+    private BallGrapper ballGrapper;
+    private Torpedo torpedo;
+
     public AgentSettings agentSettings = new AgentSettings();
-    Rigidbody RobotRigidbody;
+    Rigidbody body;
     Vector3 targetCenter;
     Quaternion targetRotation;
     Vector3 startPos;
@@ -65,6 +72,13 @@ public class RobotAgent : Agent
 
     void Awake()
     {
+        
+        engine=GetComponentInChildren<Engine>();
+        depthSensor=GetComponentInChildren<DepthSensor>();
+        accelerometer=GetComponentInChildren<Accelerometer>();
+        ballGrapper=GetComponentInChildren<BallGrapper>();
+        torpedo=GetComponentInChildren<Torpedo>();
+
         mInstance=this;
         isAwaked = true;
         Initialization();
@@ -72,7 +86,7 @@ public class RobotAgent : Agent
 
     void Start()
     {
-        RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
+        RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
         SetAgent();
         AgentReset();
     }
@@ -97,7 +111,7 @@ public class RobotAgent : Agent
         if (isInitialized)
             return;
         isInitialized = true;
-        RobotRigidbody = robot.gameObject.GetComponent<Rigidbody>();
+        body = GetComponent<Rigidbody>();
         Utils.GetObjectsInFolder(Objects.ObjectConfigurationSettings.Instance.tasksFolder, out tasksObjects);
     }
 
@@ -136,8 +150,8 @@ public class RobotAgent : Agent
     public override void AgentReset()
     {
         //Reset robot
-        this.RobotRigidbody.angularVelocity = Vector3.zero;
-        this.RobotRigidbody.velocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
+        body.velocity = Vector3.zero;
 
         startPos = RelativeTargetPosition();
         startRelativeAngle = RelativeTargetAngle();
@@ -164,7 +178,7 @@ public class RobotAgent : Agent
         }
         else //Testing/Training software 
         {
-            robot.Engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+            engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
             if (IsNewCameraChosen((CameraType)vectorAction[4]))
             {
                 TargetSettings.Instance.cameraType = (CameraType)vectorAction[4];
@@ -172,11 +186,11 @@ public class RobotAgent : Agent
             }
             if (vectorAction[5] == 1)
             {
-                robot.BallGrapper.Grab();
+                ballGrapper.Grab();
             }
             if (vectorAction[6] == 1)
             {
-                robot.Torpedo.Shoot();
+                torpedo.Shoot();
             }
         }
 
@@ -198,7 +212,7 @@ public class RobotAgent : Agent
         Transform target=TargetSettings.Instance.target.transform;
         Vector3 targetOffset=TargetSettings.Instance.targetOffset;
         Vector3 distToCenter = target.InverseTransformPoint(targetCenter);
-        Vector3 relativePos = target.InverseTransformPoint(robot.transform.position) - distToCenter - targetOffset;
+        Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter - targetOffset;
         relativePos.x = Mathf.Abs(relativePos.x);
         relativePos.y = Mathf.Abs(relativePos.y);
         relativePos.z = Mathf.Abs(relativePos.z);
@@ -207,7 +221,7 @@ public class RobotAgent : Agent
 
     public float RelativeTargetAngle(){
         Transform target=TargetSettings.Instance.target.transform;
-        float relativeYaw = (Quaternion.Inverse(target.rotation) * robot.transform.rotation).eulerAngles.y;
+        float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
         relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
         return relativeYaw;
     }
@@ -218,9 +232,9 @@ public class RobotAgent : Agent
             return;
 
         float[] toSend = new float[21];
-        float[] acceleration = robot.Accelerometer.GetAcceleration();
-        float[] angularAcceleration = robot.Accelerometer.GetAngularAcceleration();
-        float[] rotation = robot.Accelerometer.GetRotation();
+        float[] acceleration = accelerometer.GetAcceleration();
+        float[] angularAcceleration = accelerometer.GetAngularAcceleration();
+        float[] rotation = accelerometer.GetRotation();
         // acceleration data
         int toSendCell = 0;
         acceleration.CopyTo(toSend, toSendCell);
@@ -232,7 +246,7 @@ public class RobotAgent : Agent
         rotation.CopyTo(toSend, toSendCell);
         // depth data
         toSendCell += rotation.Length;
-        toSend[toSendCell] = robot.DepthSensor.GetDepth();
+        toSend[toSendCell] = depthSensor.GetDepth();
         // bounding box
         toSendCell += 1;
         if (agentSettings.dataCollection && agentSettings.positiveExamples)
@@ -253,10 +267,10 @@ public class RobotAgent : Agent
         }
         //Grab state
         toSendCell += 4;
-        toSend[toSendCell] = (int)robot.BallGrapper.GetState();
+        toSend[toSendCell] = (int)ballGrapper.GetState();
         //Torpedo hit
         toSendCell += 1;
-        toSend[toSendCell] = robot.Torpedo.IsHit() == true ? 1 : 0;
+        toSend[toSendCell] = torpedo.IsHit() == true ? 1 : 0;
         
         AddVectorObs(toSend);
     }
@@ -279,7 +293,7 @@ public class RobotAgent : Agent
                         CalculateSingleReward(relativePosition.y, startPos.y) +
                         CalculateSingleReward(relativePosition.z, startPos.z) +
                         CalculateSingleReward(relativeAngle, startRelativeAngle)) / 4 -
-                        collided - (robot.Engine.isAboveSurface()?1:0);
+                        collided - (engine.isAboveSurface()?1:0);
         return reward;
     }
 

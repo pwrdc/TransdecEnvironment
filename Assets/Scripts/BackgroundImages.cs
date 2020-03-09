@@ -58,8 +58,8 @@ public class BackgroundImages : MonoBehaviour
 
     void Start()
     {
-        RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
-        RobotAgent.Instance.OnDataCollection+=OnDataCollection;
+        RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
+        RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
         LoadImages();
     }
 

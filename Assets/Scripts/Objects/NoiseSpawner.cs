@@ -5,10 +5,9 @@ namespace Objects
 {
     public class NoiseSpawner : MonoBehaviour
     {
-        private GameObject robot=>RobotAgent.Instance.Robot.gameObject;
-
         private float radiusOfGeneratedObject;
 
+        private Transform robot=>RobotAgent.Instance.transform;
         bool IsOverridingObject(GameObject obj)
         {
             //Return true if object is overriding target, otherwise return false
@@ -20,8 +19,8 @@ namespace Objects
 
             Vector3 positionOfObject = obj.transform.position;
             //first equation is XY second is XZ
-            Vector2[] lineEquationMin = Utils.calculateEquationOf3DLine(boxCoordOfTarget[0], robot.transform.position);
-            Vector2[] lineEquationMax = Utils.calculateEquationOf3DLine(boxCoordOfTarget[1], robot.transform.position);
+            Vector2[] lineEquationMin = Utils.calculateEquationOf3DLine(boxCoordOfTarget[0], robot.position);
+            Vector2[] lineEquationMax = Utils.calculateEquationOf3DLine(boxCoordOfTarget[1], robot.position);
 
             //if object is 
             if (Utils.isPointInObject(boxCoordOfObject[0], lineEquationMin, lineEquationMax) ||
@@ -102,9 +101,9 @@ namespace Objects
         GameObject GetRaycastHit() //Raycast from robot position to target
         {
             int layerMask = (1 << 9) | (1 << 11);
-            float dist = Vector3.Distance(TargetSettings.Instance.targetAnnotation.transform.position, robot.transform.position);
+            float dist = Vector3.Distance(TargetSettings.Instance.targetAnnotation.transform.position, robot.position);
             RaycastHit hit;
-            if (Physics.Raycast(robot.transform.position, TargetSettings.Instance.targetAnnotation.transform.position - robot.transform.position, out hit, dist, layerMask))
+            if (Physics.Raycast(robot.position, TargetSettings.Instance.targetAnnotation.transform.position - robot.position, out hit, dist, layerMask))
                 return hit.transform.gameObject;
             return null;
         }
