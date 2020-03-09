@@ -24,14 +24,8 @@ public class RobotAgent : Agent
     public static RobotAgent Instance => 
         mInstance == null ? (mInstance = FindObjectOfType<RobotAgent>()) : mInstance;
 
-    //Events
-    [HideInInspector]
-    public event Action OnDataUpdate;
-    [HideInInspector]
-    public event Action<TargetSettings> OnDataTargetUpdate;
-
     public event Action OnDataCollection;
-
+    public event Action OnReset;
     [Header("Managers")]
     [SerializeField]
     private Environment.Environment environmentManager;
@@ -86,7 +80,7 @@ public class RobotAgent : Agent
     {
         RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
         SetAgent();
-        ResetAgent();
+        AgentReset();
     }
 
     /// <summary>
@@ -94,7 +88,6 @@ public class RobotAgent : Agent
     /// Initalizes agent
     /// Setups information from robot academy
     /// Sets camera
-    /// Invoke all events
     /// </summary>
     void SetAgent()
     {
@@ -102,7 +95,6 @@ public class RobotAgent : Agent
             return;
         Initialization();
         SetCamera();
-        InvokeAllEvents();
         isAgentSet = true;
     }
 
@@ -145,24 +137,6 @@ public class RobotAgent : Agent
         agentSettings.forceToSaveAsNegative = RobotAcademy.Instance.IsResetParameterTrue("ForceToSaveAsNegative");
     }
 
-    void InvokeAllEvents()
-    {
-        if (OnDataUpdate != null)
-            OnDataUpdate.Invoke();
-    }
-
-    /// <summary>
-    /// Clear all tasks that are not active (only for collecting data)
-    /// </summary>
-    void DisableAllInactiveTasks()
-    {
-        foreach (var obj in tasksObjects)
-        {
-            if (obj != TargetSettings.Instance.target)
-                obj.SetActive(false);
-        }
-    }
-
     /// <summary>
     /// Set environment to normal
     /// Tasks are active
@@ -186,7 +160,20 @@ public class RobotAgent : Agent
     
     public override void AgentReset()
     {
-        ResetAgent();
+        //Reset robot
+        this.RobotRigidbody.angularVelocity = Vector3.zero;
+        this.RobotRigidbody.velocity = Vector3.zero;
+
+        startPos = RelativeTargetPosition();
+        startRelativeAngle = RelativeTargetAngle();
+
+        //Reset reward
+        SetReward(0);
+        if (agentSettings.dataCollection)
+        {
+            agentParameters.numberOfActionsBetweenDecisions = 1;
+        }
+        OnReset.Invoke();
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
@@ -311,38 +298,6 @@ public class RobotAgent : Agent
         AddVectorObs(toSend);
     }
     #endregion
-
-    void ResetAgent()
-    {
-        //Reset robot
-        this.RobotRigidbody.angularVelocity = Vector3.zero;
-        this.RobotRigidbody.velocity = Vector3.zero;
-
-        startPos = RelativeTargetPosition();
-        startRelativeAngle = RelativeTargetAngle();
-
-        //Reset reward
-        SetReward(0);
-
-        //Reset scene
-        Environment.Environment.Instance.Reset();
-
-        if (agentSettings.dataCollection)
-        {
-            agentParameters.numberOfActionsBetweenDecisions = 1;
-            //Set only target task visibled
-            DisableAllInactiveTasks();
-
-            //Set Noise enabled/disabled
-            Objects.ObjectConfigurationSettings.Instance.noiseFolder.SetActive(Objects.ObjectConfigurationSettings.Instance.addNoise);
-
-            //Set background enabled/disabled
-            backgroundManager.EnableBackgroundImage(backgroundManager.isBackgroundImage);
-
-            //Set target enabled/disabled
-            TargetSettings.Instance.target.SetActive(agentSettings.positiveExamples);
-        }
-    }
 
     bool IsNewCameraChosen(CameraType newMode)
     {

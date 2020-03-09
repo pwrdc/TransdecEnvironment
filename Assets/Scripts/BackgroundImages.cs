@@ -20,7 +20,6 @@ public class BackgroundImages : MonoBehaviour
 
     private bool isBackgroundAvailable = false;
 
-    
     private void ApplyResetParameters(){
         this.activatedCameraType =  (CameraType)RobotAcademy.Instance.GetResetParameter("FocusedCamera");
         this.isBackgroundImage = RobotAcademy.Instance.IsResetParameterTrue("EnableBackgroundImage");
@@ -58,6 +57,10 @@ public class BackgroundImages : MonoBehaviour
         Utils.ActivateEnvironmentMeshRenderer(!enable);
         frontCameraBackground.SetActive(enable);
         bottomCameraBackground.SetActive(enable);
+    }
+
+    void Update(){
+        EnableBackgroundImage(isBackgroundImage);
     }
 
     public void SetNewBackground()

@@ -9,14 +9,17 @@ namespace Objects{
         public static ObjectConfigurationSettings Instance => 
             mInstance == null ? (mInstance = FindObjectOfType<ObjectConfigurationSettings>()) : mInstance;
         public bool setObjectAlwaysVisible = true; public bool addCompetitionObjectsAsNoise = true;
+        
         public GameObject noiseFolder = null;
         private GameObject previousNoiseFolder=null;
         [HideInInspector]
         public List<GameObject> noiseGameObjects;
+
         public GameObject tasksFolder = null;
         private GameObject previousTasksFolder=null;
         [HideInInspector]
         public List<GameObject> tasksGameObjects;
+
         public bool randomQuarter = true;
         public bool randomPosition = true;
         public bool randomOrientation = true;
@@ -28,6 +31,7 @@ namespace Objects{
         private void Start(){
             noiseFolder.SetActive(false);
             RobotAcademy.Instance.onResetParametersChanged+=ApplyResetParameters;
+            RobotAgent.Instance.OnReset+=OnReset;
         }
 
         private void Update(){
@@ -38,6 +42,18 @@ namespace Objects{
             if (tasksFolder != previousTasksFolder) {
                 Utils.GetObjectsInFolder(tasksFolder, out tasksGameObjects);
                 previousTasksFolder=tasksFolder;
+            }
+            noiseFolder.SetActive(addNoise);
+        }
+
+        void OnReset(){
+            if(RobotAgent.Instance.agentSettings.dataCollection){
+                foreach (var obj in tasksGameObjects)
+                {
+                    if (obj != TargetSettings.Instance.target){
+                        obj.SetActive(false);
+                    }
+                }
             }
         }
 

@@ -21,26 +21,18 @@ using UnityEditor;
 
 public class TargetAnnotation : MonoBehaviour
 {
-    private GameObject target;
     [SerializeField]
     private float margin = 10.0f;
     [SerializeField]
     public Texture2D background;
     [SerializeField]
     private bool drawBox = false;
-    private Camera cam = null;
 
     private bool activate = true;
-    private CameraType activatedMode;
-
 
     private float[] boxCoord = new float[4];
     private GUIStyle style = null;
     private Vector3[] pts = new Vector3[8];
-
-    private int numOfImageToDisplay = 0;
-
-    private string[] fileNames;
 
     public void OnGUI()
     {
@@ -51,9 +43,9 @@ public class TargetAnnotation : MonoBehaviour
                 style = new GUIStyle(GUI.skin.box);
                 style.normal.background = background;
             }
-            Bounds bounds = Utils.GetComplexBounds(target);
+            Bounds bounds = Utils.GetComplexBounds(TargetSettings.Instance.target);
             // object is not visible
-            if (cam.WorldToScreenPoint(bounds.center).z < 0) return;
+            if (RobotAgent.Instance.ActiveCamera.WorldToScreenPoint(bounds.center).z < 0) return;
 
             // 8 coordinates 
             //TODO: Change to Viewport, and adjust changes in pyTransdec
@@ -95,23 +87,5 @@ public class TargetAnnotation : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-        RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-        RobotAgent.Instance.OnDataUpdate += UpdateData;
-        cam = RobotAgent.Instance.ActiveCamera;
-    }
-
     public float[] GetBoundingBox() { return boxCoord; }
-
-    public void UpdateData(TargetSettings settings)
-    {
-        this.target = settings.targetAnnotation;
-        this.drawBox = settings.drawBox;
-    }
-
-    public void UpdateData()
-    {
-        cam = RobotAgent.Instance.ActiveCamera;
-    }
 }

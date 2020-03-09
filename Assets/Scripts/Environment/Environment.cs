@@ -23,9 +23,10 @@ namespace Environment
         void Start()
         {
             RobotAgent.Instance.OnDataCollection+=OnDataCollection;
+            RobotAgent.Instance.OnReset+=OnReset;
         }
 
-        public void Reset(){
+        public void OnReset(){
             if (isEnvironmentRandomized)
                 EnvironmentRandomizedInit();
             else

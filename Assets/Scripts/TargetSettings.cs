@@ -16,11 +16,19 @@ public class TargetSettings : MonoBehaviour
     [ResetParameter] public Vector3 targetOffset = Vector3.zero;
     [ResetParameter] public bool drawBox = false;
 
+    void Awake(){
+        target = RobotAcademy.Instance.objectCreator.targetObjects[targetIndex];
+        targetAnnotation = RobotAcademy.Instance.objectCreator.targetAnnotations[targetIndex];
+    }
     private void ApplyResetParameters(){
         cameraType = (CameraType)RobotAcademy.Instance.resetParameters["FocusedCamera"];
         targetIndex = (int)RobotAcademy.Instance.resetParameters["FocusedObject"];
         target = RobotAcademy.Instance.objectCreator.targetObjects[targetIndex];
         targetAnnotation = RobotAcademy.Instance.objectCreator.targetAnnotations[targetIndex];
         drawBox = RobotAcademy.Instance.IsResetParameterTrue("CollectData");
+    }
+
+    void Update(){
+        target.SetActive(RobotAgent.Instance.agentSettings.positiveExamples);
     }
 }

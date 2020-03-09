@@ -118,14 +118,8 @@ namespace Objects
         private bool isEssentialSettingsInitialized = false;
         public Dictionary<ObjectType, EssentialSettings> essentialSettings;
 
-        void Start()
-        {
-            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-        }
-
         public void Init(TargetSettings settings)
         {
-            this.enabledOption = settings.targetIndex;
             InitEssentialSettings();
             isInitialized = true;
         }
@@ -227,12 +221,8 @@ namespace Objects
             SetObjectType(index, type);
         }
 
-
-        public Settings GetSettingsForActivatedObject() { return objectSettings[enabledOption]; }
-
-        public void UpdateData(TargetSettings settings)
-        {
-            this.enabledOption = settings.targetIndex;
+        public Settings GetSettingsForActivatedObject() { 
+            return objectSettings[TargetSettings.Instance.targetIndex]; 
         }
     }
 }

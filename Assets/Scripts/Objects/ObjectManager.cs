@@ -19,11 +19,6 @@ namespace Objects
         private NoiseSpawner noiseSpawner = null;
         private TargetSettings targetSettings;
 
-        void Start()
-        {
-            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-        }
-
         public void RandomizeObjectsPositionsOnInit()
         {
             randomInitNormal.PutAll();
@@ -32,13 +27,13 @@ namespace Objects
 
         public void RandomizeTargetPosition()
         {
-            if (targetSettings.cameraType == CameraType.bottomCamera)
+            if (TargetSettings.Instance.cameraType == CameraType.bottomCamera)
             {
-                randomInitOnMesh.PutTarget(targetSettings.target);
+                randomInitOnMesh.PutTarget(TargetSettings.Instance.target);
             }
-            else if (targetSettings.cameraType == CameraType.frontCamera)
+            else if (TargetSettings.Instance.cameraType == CameraType.frontCamera)
             {
-                randomInitNormal.PutTarget(targetSettings.target);
+                randomInitNormal.PutTarget(TargetSettings.Instance.target);
             }
         }
 
@@ -56,10 +51,5 @@ namespace Objects
         public RandomInitNormal GetRandomInitNormal() { return randomInitNormal; }
         public RandomInitOnMesh GetRandomInitOnMesh() { return randomInitOnMesh; }
         public NoiseSpawner GetNoiseSpawner() { return noiseSpawner; }
-
-        public void UpdateData(TargetSettings settings)
-        {
-            targetSettings = settings;
-        }
     }
 }
