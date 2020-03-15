@@ -2,54 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SceneEnvironment
+namespace Environment
 {
     public class WaterOpacity : MonoBehaviour
     {
-        private Color waterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
-        private float waterFog = 0.25f;
-        public float WaterFog { get { return waterFog; } }
 
+        [System.Serializable]
+        public class Randomization {
+            [Range(0.0f, 0.3f)]
+            public float minWaterFog = 0.2f;
+            [Range(0.2f, 0.6f)]
+            public float maxWaterFog = 0.4f;
+            public Vector3 minWaterHSV = new Vector3(180, 0, 50);
+            public Vector3 maxWaterHSV = new Vector3(250, 100, 100);
+            public float normalWaterFog = 0.25f;
+            public Color normalWaterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
+        }
+        public Transform target;
+        public Randomization randomization;
+        public Color waterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
+        public float waterFog = 0.25f;
         private bool underwater;
 
+        public void RandomizedInit(){
+            float percentageIntensitivity = Random.value;
+            waterFog = randomization.minWaterFog + (percentageIntensitivity * (randomization.maxWaterFog - randomization.minWaterFog));
+            float h = Utils.GetRandom(randomization.minWaterHSV.x, randomization.maxWaterHSV.x) / 360;
+            float s = Utils.GetRandom(randomization.minWaterHSV.y, randomization.maxWaterHSV.y) / 100;
+            float v = Utils.GetRandom(randomization.minWaterHSV.z, randomization.maxWaterHSV.z) / 100;
+            Color rgb = Color.HSVToRGB(h, s, v);
+            waterColor=rgb;
+        }
+
+        public void NormalInit(){
+            waterColor=randomization.normalWaterColor;
+            waterFog=randomization.normalWaterFog;
+        }
 
         void Start()
         {
             RenderSettings.fogMode = FogMode.Exponential;
-            RobotAgent.Instance.OnDataEnvironmentValuesUpdate += UpdateData;
+            Environment.Instance.OnNormalInit+=NormalInit;
+            Environment.Instance.OnRandomizedInit+=RandomizedInit;
         }
 
         void Update()
         {
-            if (waterColor != RenderSettings.fogColor)
-                RenderSettings.fogColor = waterColor;
-            if (waterFog != RenderSettings.fogDensity)
-                RenderSettings.fogDensity = waterFog;
-            if ((transform.position.y < RobotAgent.Instance.EnvironmentSettings.WaterSurface.transform.position.y) != underwater)
-            {
-                underwater = (transform.position.y < RobotAgent.Instance.EnvironmentSettings.WaterSurface.transform.position.y);
-                if (underwater) SetUnderwater();
-                else SetNormal();
-            }
-        }
-
-        public void SetWaterColor(Color color) { waterColor = color; }
-        public void SetWaterFog(float fog) { waterFog = fog; }
-
-        private void SetNormal()
-        {
-            RenderSettings.fog = false;
-        }
-
-        private void SetUnderwater()
-        {
-            RenderSettings.fog = true;
-        }
-
-        public void UpdateData(EnvironmentInitValues settings)
-        {
-            waterColor = settings.normalWaterColor;
-            waterFog = settings.normalWaterFog;
+            
+            Environment environment=Environment.Instance;
+            underwater = (target.position.y < environment.waterSurface.position.y);
+            RenderSettings.fog = underwater;
+            RenderSettings.fogColor = waterColor;
+            RenderSettings.fogDensity = waterFog;
         }
     }
 }

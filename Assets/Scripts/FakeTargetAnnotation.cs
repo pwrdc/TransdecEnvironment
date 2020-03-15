@@ -13,7 +13,7 @@ public class FakeTargetAnnotation : MonoBehaviour
     [SerializeField]
     private bool drawBox = false;
     [SerializeField]
-    private SceneEnvironment.WaterOpacity waterOpacity = null;
+    private Environment.WaterOpacity waterOpacity = null;
     private float probability = 0;
     [SerializeField]
     private int fps = 1;
@@ -102,7 +102,7 @@ public class FakeTargetAnnotation : MonoBehaviour
 
     private float GetScoreForPoint(Vector3 point)
     {
-        float waterFog = waterOpacity.WaterFog;
+        float waterFog = waterOpacity.waterFog;
         float maxDistance = 16.61f - 20.351f * waterFog;
         float minDistThatObjectIsVisible = 0.6f;
         float dist = point.z;

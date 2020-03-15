@@ -1,4 +1,4 @@
-﻿namespace Robot.functionality
+﻿namespace Robot.Functionality
 {
     public enum StateGrapper
     {

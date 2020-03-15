@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SceneEnvironment
+namespace Environment
 {
     public class WaterCurrent : MonoBehaviour
     {
@@ -20,8 +20,7 @@ namespace SceneEnvironment
         private float angle;
         private float radius;
         private Vector3 current;
-        private bool isEnabled = false;
-
+        [ResetParameter] private bool isEnabled = false;
 
         public bool isWaterCurrent() { return isEnabled; }
         public void setWaterCurrent(bool isEnabled) { this.isEnabled = isEnabled; }
@@ -35,9 +34,8 @@ namespace SceneEnvironment
             float z = radius * Mathf.Sin(angle);
             current = new Vector3(x, 0, z);
             rbody = GameObject.Find("Robot").GetComponent<Rigidbody>();
-            RobotAgent.Instance.OnDataEnvironmentUpdate += DataUpdate;
+            RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
         }
-
 
         void Update()
         {
@@ -65,9 +63,8 @@ namespace SceneEnvironment
             rbody.velocity = newVelocity;
         }
 
-        public void DataUpdate(EnvironmentSettings settings)
-        {
-            isEnabled = settings.isCurrentEnabled;
+        public void ApplyResetParameters(){
+            isEnabled=RobotAcademy.Instance.IsResetParameterTrue("WaterCurrent");
         }
     }
 }

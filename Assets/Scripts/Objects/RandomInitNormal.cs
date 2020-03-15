@@ -4,69 +4,41 @@ using UnityEngine;
 
 namespace Objects
 {
-    public class RandomInitNormal : MonoBehaviour, IRandomInit
-    {
-        [System.Serializable]
-        public class ObjectPositionSettings
-        {
-            public GameObject obj;
-            public Vector3 startPosition = new Vector3(0f, 0f, 0f);
-            [Range(0f, 10f)]
-            public float xPosRange = 0f;
-            [Range(-10f, 0f)]
-            public float minusXPosRange = 0f;
-            [Range(0f, 10f)]
-            public float yPosRange = 0f;
-            [Range(-10f, 0f)]
-            public float minusYPosRange = 0;
-            [Range(0f, 10f)]
-            public float zPosRange = 0f;
-            [Range(-10f, 0f)]
-            public float minusZPosRange = -0f;
-            public Vector3 startRotation = new Vector3(0f, 0f, 0f);
-            [Range(0f, 30f)]
-            public float xAngRange = 0f;
-            [Range(0f, 30f)]
-            public float yAngRange = 0f;
-            [Range(0f, 30f)]
-            public float zAngRange = 0f;
-            [Range(0f, 360f)]
-            public List<float> allowedRotations = new List<float>();
-
-            public ObjectPositionSettings(GameObject obj) { this.obj = obj; }
-        }
-
-        [SerializeField]
-        private List<ObjectPositionSettings> objectsSettings;
-        private ObjectConfigurationSettings objectConfigurationSettings;
-
-        private List<GameObject> tasksObjs = new List<GameObject>();
-
-
+    public class RandomInitNormal : MonoBehaviour
+    {   
+        private ObjectPositionSettings[] objectsSettings;
+        public GameObject tasksFolder;
 
         void Start()
         {
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
-            Utils.GetObjectsInFolder(RobotAgent.Instance.ObjectConfigurationSettings.tasksFolder, out tasksObjs);
+            objectsSettings=tasksFolder.GetComponentsInChildren<ObjectPositionSettings>();
+            RobotAgent.Instance.OnReset.AddListener(OnReset);
+        }
 
-            foreach (var obj in tasksObjs)
-            {
-                var objSettings = GetObjectPositionSettingsForTarget(obj);
-                objSettings.startPosition = obj.transform.position;
-                objSettings.startRotation = obj.transform.eulerAngles;
+        void OnReset(){
+            if(RobotAgent.Instance.agentSettings.dataCollection){
+                foreach (var obj in objectsSettings)
+                {
+                    if (obj.gameObject != TargetSettings.Instance.target){
+                        obj.gameObject.SetActive(false);
+                    }
+                }
             }
         }
 
-        public void Init(ObjectConfigurationSettings settings)
-        {
-            objectConfigurationSettings = settings;
+        public void PutTarget(GameObject target){
+            foreach (var objSettings in objectsSettings){
+                if(objSettings.gameObject==target){
+                    PutTarget(objSettings);
+                }
+            }
         }
 
-        public void PutTarget(GameObject target)
+        public void PutTarget(ObjectPositionSettings targetObjectSetting)
         {
             int quarter, xCoef, zCoef;
             CalculateCoefficient(out quarter, out xCoef, out zCoef);
-            ObjectPositionSettings targetObjectSetting = GetObjectPositionSettingsForTarget(target);
+            GameObject target=targetObjectSetting.gameObject;
 
             float xRot = targetObjectSetting.startRotation.x;
             float yRot = targetObjectSetting.startRotation.y;
@@ -75,7 +47,7 @@ namespace Objects
             float yPos = targetObjectSetting.startPosition.y;
             float zPos = zCoef * targetObjectSetting.startPosition.z;
             if (zCoef == -1) yRot += 180f;
-            if (objectConfigurationSettings.randomPosition)
+            if (ObjectConfigurationSettings.Instance.randomPosition)
             {
                 xRot += Utils.GetRandom(-targetObjectSetting.xAngRange, targetObjectSetting.xAngRange);
                 yRot += Utils.GetRandom(-targetObjectSetting.yAngRange, targetObjectSetting.yAngRange);
@@ -85,11 +57,11 @@ namespace Objects
                 yPos = Math.Min(yPos + Utils.GetRandom(
                     targetObjectSetting.minusYPosRange,
                     targetObjectSetting.yPosRange),
-                    RobotAgent.Instance.EnvironmentSettings.WaterSurface.transform.position.y - bounds.size.y
+                    Environment.Environment.Instance.waterSurface.position.y - bounds.size.y
                     );
                 zPos += Utils.GetRandom(targetObjectSetting.minusZPosRange, targetObjectSetting.zPosRange);
             }
-            if (objectConfigurationSettings.randomOrientation)
+            if (ObjectConfigurationSettings.Instance.randomOrientation)
             {
                 if (targetObjectSetting.allowedRotations.Count != 0)
                     yRot += -xCoef * zCoef * targetObjectSetting.allowedRotations[Utils.GetRandom(0, targetObjectSetting.allowedRotations.Count)];
@@ -102,14 +74,14 @@ namespace Objects
         {
             foreach (var objSettings in objectsSettings)
             {
-                PutTarget(objSettings.obj);
+                PutTarget(objSettings);
             }
         }
 
         private void CalculateCoefficient(out int quarter, out int xCoef, out int zCoef)
         {
             quarter = (int)Utils.GetRandom(0, 4);
-            if (objectConfigurationSettings.randomQuarter)
+            if (ObjectConfigurationSettings.Instance.randomQuarter)
             {
                 xCoef = 2 * (quarter % 2) - 1;
                 zCoef = 2 * (quarter / 2 % 2) - 1;
@@ -128,20 +100,7 @@ namespace Objects
                 if (objectSetting.obj == target)
                     return objectSetting;
             }
-
-            objectsSettings.Add(new ObjectPositionSettings(target));
-            return objectsSettings[objectsSettings.Count - 1];
-        }
-
-        public void UpdateData(ObjectConfigurationSettings settings)
-        {
-            if (objectConfigurationSettings == null)
-                objectConfigurationSettings = settings;
-
-            if (objectConfigurationSettings.tasksFolder == settings.tasksFolder || tasksObjs.Count == 0)
-                Utils.GetObjectsInFolder(settings.tasksFolder, out tasksObjs);
-            objectConfigurationSettings = settings;
-
+            return null;
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Environment;
 
 namespace Robot
 {
@@ -22,9 +23,6 @@ namespace Robot
         private float yaw = 0;
         private float vertical = 0;
 
-        private GameObject waterSurface;
-        float top;
-
         void Start()
         {
             Physics.gravity = new Vector3(0, -5.0f, 0);
@@ -34,7 +32,7 @@ namespace Robot
         void Update()
         {
             selfLevel();
-            if (rbody.position.y >= top)
+            if (isAboveSurface())
                 rbody.useGravity = true;
             else
                 rbody.useGravity = false;
@@ -44,18 +42,9 @@ namespace Robot
                 rbody.angularDrag = angularDrag;
         }
 
-        public void Init(GameObject waterSurface)
+        public bool isAboveSurface()
         {
-            this.waterSurface = waterSurface;
-            top = waterSurface.transform.position.y;
-        }
-
-        public int isAboveSurface()
-        {
-            if (rbody.position.y >= top)
-                return 1;
-            else
-                return 0;
+            return rbody.position.y >= Environment.Environment.Instance.waterSurface.position.y;
         }
 
         public void Move(float Longitudinal, float Lateral, float Vertical, float Yaw)

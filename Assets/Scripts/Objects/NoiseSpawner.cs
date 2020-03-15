@@ -5,46 +5,39 @@ namespace Objects
 {
     public class NoiseSpawner : MonoBehaviour
     {
-        private GameObject robot;
-
-        private List<GameObject> otherObjs = new List<GameObject>();
-        private List<MeshRenderer[]> otherObjsMesh = new List<MeshRenderer[]>();
-
-        private TargetSettings targetSettings;
-        private ObjectConfigurationSettings objectConfigurationSettings;
-
         private float radiusOfGeneratedObject;
+        public GameObject folder;
+        [HideInInspector]
+        List<GameObject> noiseGameObjects;
+        [ResetParameter] public bool addNoise;
 
-        void Start()
-        {
-            robot = RobotAgent.Instance.Robot.gameObject;
-            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
+        private void Start(){
+            Utils.GetObjectsInFolder(folder, out noiseGameObjects);
+            RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
         }
 
-        public void Init(ObjectConfigurationSettings objectConfigurationSettings, TargetSettings targetSettings)
-        {
-
-            robot = RobotAgent.Instance.Robot.gameObject;
-            RobotAgent.Instance.OnDataTargetUpdate += UpdateData;
-            RobotAgent.Instance.OnDataConfigurationUpdate += UpdateData;
-            this.objectConfigurationSettings = objectConfigurationSettings;
-            this.targetSettings = targetSettings;
+        private void Update(){
+            folder.SetActive(addNoise);
+        }
+        
+        private void ApplyResetParameters(){
+            addNoise = RobotAcademy.Instance.IsResetParameterTrue("EnableNoise");
         }
 
+        private Transform robot=>RobotAgent.Instance.transform;
         bool IsOverridingObject(GameObject obj)
         {
             //Return true if object is overriding target, otherwise return false
             Bounds objBounds = Utils.GetComplexBounds(obj);
-            Bounds targetBounds = Utils.GetComplexBounds(targetSettings.targetAnnotation);
+            Bounds targetBounds = Utils.GetComplexBounds(TargetSettings.Instance.targetAnnotation);
 
             Vector3[] boxCoordOfTarget = Utils.GetBoxCoord(targetBounds);
             Vector3[] boxCoordOfObject = Utils.GetBoxCoord(objBounds);
 
             Vector3 positionOfObject = obj.transform.position;
             //first equation is XY second is XZ
-            Vector2[] lineEquationMin = Utils.calculateEquationOf3DLine(boxCoordOfTarget[0], robot.transform.position);
-            Vector2[] lineEquationMax = Utils.calculateEquationOf3DLine(boxCoordOfTarget[1], robot.transform.position);
+            Vector2[] lineEquationMin = Utils.calculateEquationOf3DLine(boxCoordOfTarget[0], robot.position);
+            Vector2[] lineEquationMax = Utils.calculateEquationOf3DLine(boxCoordOfTarget[1], robot.position);
 
             //if object is 
             if (Utils.isPointInObject(boxCoordOfObject[0], lineEquationMin, lineEquationMax) ||
@@ -56,12 +49,10 @@ namespace Objects
             return false;
         }
 
-        public List<GameObject> GetOtherObjs() { return otherObjs; }
-
         //Setting up new position for objects in order to Settings
         public void SetOthNewPos(GameObject obj, Settings setting)
         {
-            Vector3 newPos = Utils.GetComplexBounds(targetSettings.targetAnnotation).center;
+            Vector3 newPos = Utils.GetComplexBounds(TargetSettings.Instance.targetAnnotation).center;
 
             float xRot = Utils.GetRandom(-setting.othXAngRange, setting.othXAngRange);
             float yRot = Utils.GetRandom(-setting.othYAngRange, setting.othYAngRange);
@@ -74,7 +65,7 @@ namespace Objects
             obj.transform.position = newPos;
             obj.transform.eulerAngles = new Vector3(xRot, yRot, zRot);
 
-            if (objectConfigurationSettings.setObjectAlwaysVisible)
+            if (ObjectConfigurationSettings.Instance.setObjectAlwaysVisible)
             {
                 if (IsOverridingObject(obj)) //Check if object is overriding target
                 {
@@ -93,15 +84,15 @@ namespace Objects
         //Add new noise to scene, 
         public void AddNoise(Settings settings, int numberOfNoiseToGenerate)
         {
-            List<GameObject> objToChose = GetRandomObjects(GetOtherObjs(), numberOfNoiseToGenerate);
+            List<GameObject> objToChose = GetRandomObjects(noiseGameObjects, numberOfNoiseToGenerate);
             foreach (GameObject obj in objToChose) SetOthNewPos(obj, settings);
-            foreach (GameObject obj in otherObjs) obj.SetActive(false);
+            foreach (GameObject obj in noiseGameObjects) obj.SetActive(false);
             foreach (GameObject obj in objToChose) obj.SetActive(true);
 
-            if (objectConfigurationSettings.setObjectAlwaysVisible) //Erase all objects that cover target
+            if (ObjectConfigurationSettings.Instance.setObjectAlwaysVisible) //Erase all objects that cover target
             {
                 GameObject obj = GetRaycastHit();
-                while (obj != null && obj != targetSettings.target && obj != targetSettings.targetAnnotation)
+                while (obj != null && obj != TargetSettings.Instance.target && obj != TargetSettings.Instance.targetAnnotation)
                 {
                     obj.SetActive(false);
                     obj = GetRaycastHit();
@@ -125,27 +116,11 @@ namespace Objects
         GameObject GetRaycastHit() //Raycast from robot position to target
         {
             int layerMask = (1 << 9) | (1 << 11);
-            float dist = Vector3.Distance(targetSettings.targetAnnotation.transform.position, robot.transform.position);
+            float dist = Vector3.Distance(TargetSettings.Instance.targetAnnotation.transform.position, robot.position);
             RaycastHit hit;
-            if (Physics.Raycast(robot.transform.position, targetSettings.targetAnnotation.transform.position - robot.transform.position, out hit, dist, layerMask))
+            if (Physics.Raycast(robot.position, TargetSettings.Instance.targetAnnotation.transform.position - robot.position, out hit, dist, layerMask))
                 return hit.transform.gameObject;
             return null;
-        }
-
-        public void UpdateData(TargetSettings settings)
-        {
-            targetSettings = settings;
-        }
-
-        public void UpdateData(ObjectConfigurationSettings settings)
-        {
-            if(objectConfigurationSettings == null)
-                objectConfigurationSettings = settings;
-
-            if (objectConfigurationSettings.noiseFolder == settings.noiseFolder || otherObjs.Count == 0)
-                Utils.GetObjectsAndMeshInFolder(settings.noiseFolder, out otherObjs, out otherObjsMesh);
-
-            objectConfigurationSettings = settings;
         }
     }
 }

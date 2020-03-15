@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace Robot.functionality
+namespace Robot.Functionality
 {
     public class BallGrapper : MonoBehaviour
     {
