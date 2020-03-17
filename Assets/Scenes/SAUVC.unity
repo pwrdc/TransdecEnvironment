@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_Fog: 1
+  m_FogColor: {r: 0.19117124, g: 0.21819153, b: 0.2264151, a: 1}
+  m_FogMode: 2
+  m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -120,40 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &46370804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1554607907624232975, guid: 43af792d632711a79a7b7f029cbcd5fc,
+--- !u!114 &46370806 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6185550624271084111, guid: 43af792d632711a79a7b7f029cbcd5fc,
     type: 3}
   m_PrefabInstance: {fileID: 7134980805273521817}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &46370805 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1554607907624232969, guid: 43af792d632711a79a7b7f029cbcd5fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 7134980805273521817}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46370804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ff7b69e6a8e304b84a7f97c6cfe62c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &46370806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46370804}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6010a3412ca3b986cb33ad29c79ad98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterSurface: {fileID: 1340000660}
-  poolSurface: {fileID: 4537998850112707304}
-  isEnvironmentRandomized: 0
-  isEnvironmentInitOnEachStep: 0
 --- !u!1 &100309483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8099949753989911454, guid: 9b9e78f4ece6a7545a12c1a61c4bdbf3,
@@ -3991,10 +3969,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6185550624271084111, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: waterSurface
+      value: 
+      objectReference: {fileID: 1340000660}
+    - target: {fileID: 6185550624271084111, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: poolSurface
+      value: 
+      objectReference: {fileID: 4537998850112707304}
     - target: {fileID: 5118742042968492889, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Name
       value: Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232969, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: waterColor.r
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232969, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: waterColor.g
+      value: 0.19215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232969, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: waterColor.b
+      value: 0.2509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232969, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: waterColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232969, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: randomization.minWaterFog
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6048218709992607357, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -4120,7 +4133,7 @@ PrefabInstance:
         type: 3}
       propertyPath: waterOpacity
       value: 
-      objectReference: {fileID: 46370805}
+      objectReference: {fileID: 0}
     - target: {fileID: 1554607908618792027, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
@@ -4183,6 +4196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
+      propertyPath: m_AfterStackBundles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
       propertyPath: m_ShowCustomSorter
       value: 0
       objectReference: {fileID: 0}
@@ -4190,6 +4208,34 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ShowToolkit
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[0].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.Blur, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[0].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.Blur, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[0].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.Blur, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1554607907624232968, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

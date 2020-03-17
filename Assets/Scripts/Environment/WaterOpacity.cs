@@ -10,9 +10,7 @@ namespace Environment
 
         [System.Serializable]
         public class Randomization {
-            [Range(0.0f, 0.3f)]
             public float minWaterFog = 0.2f;
-            [Range(0.2f, 0.6f)]
             public float maxWaterFog = 0.4f;
             public Vector3 minWaterHSV = new Vector3(180, 0, 50);
             public Vector3 maxWaterHSV = new Vector3(250, 100, 100);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5701826006014159104}
   - component: {fileID: 5679708998078379871}
+  - component: {fileID: -1435879747760280849}
   m_Layer: 8
   m_Name: PostProcessVolume
   m_TagString: Untagged
@@ -48,3 +49,24 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &-1435879747760280849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618607413287433895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ff7b69e6a8e304b84a7f97c6cfe62c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  randomization:
+    minWaterFog: 0.02
+    maxWaterFog: 0.07
+    minWaterHSV: {x: 180, y: 0, z: 50}
+    maxWaterHSV: {x: 250, y: 100, z: 100}
+    normalWaterFog: 0.05
+    normalWaterColor: {r: 0.19117124, g: 0.21819153, b: 0.2264151, a: 1}
+  waterFog: 0.05
