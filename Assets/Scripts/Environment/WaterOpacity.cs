@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Environment
 {
+    [ExecuteInEditMode]
     public class WaterOpacity : MonoBehaviour
     {
 
@@ -20,9 +21,9 @@ namespace Environment
         }
         public Transform target;
         public Randomization randomization;
-        public Color waterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
+        Color waterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
+        [HideInInspector]
         public float waterFog = 0.25f;
-        private bool underwater;
 
         public void RandomizedInit(){
             float percentageIntensitivity = Random.value;
@@ -41,19 +42,25 @@ namespace Environment
 
         void Start()
         {
-            RenderSettings.fogMode = FogMode.Exponential;
             Environment.Instance.OnNormalInit+=NormalInit;
             Environment.Instance.OnRandomizedInit+=RandomizedInit;
+            RenderSettings.fogMode = FogMode.Exponential;
+            
         }
 
         void Update()
         {
-            
             Environment environment=Environment.Instance;
-            underwater = (target.position.y < environment.waterSurface.position.y);
+            bool underwater = (target.position.y < environment.waterSurface.position.y);
             RenderSettings.fog = underwater;
             RenderSettings.fogColor = waterColor;
             RenderSettings.fogDensity = waterFog;
+
+            // preview water opacity in the edit mode
+            if(Application.isEditor && !Application.isPlaying)
+            {
+                NormalInit();
+            }
         }
     }
 }
