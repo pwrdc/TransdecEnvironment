@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ff7b69e6a8e304b84a7f97c6cfe62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wobbleMaterial: {fileID: 2100000, guid: 11b2340a5e4e73d49b6b11c43dd800da, type: 2}
   target: {fileID: 0}
   randomization:
     minWaterFog: 0.02

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5993714480178439800}
   - component: {fileID: 5993714480178439801}
   - component: {fileID: 8977843416370945323}
+  - component: {fileID: 2689081742344323809}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -143,4 +144,19 @@ MonoBehaviour:
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
-  m_AfterStackBundles: []
+  m_AfterStackBundles:
+  - assemblyQualifiedName: UnityEngine.Rendering.PostProcessing.Blur, Assembly-CSharp,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &2689081742344323809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5993714480178439807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e678abe9dd074b0488313d1f6b9ab67a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 11b2340a5e4e73d49b6b11c43dd800da, type: 2}

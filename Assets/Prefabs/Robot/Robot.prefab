@@ -870,6 +870,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2689081742344323809, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: underwaterColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689081742344323809, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: underwaterColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689081742344323809, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: underwaterColor.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab07cd0d49b41c4088575f290e8df775, type: 3}
 --- !u!4 &1733793392758863871 stripped
