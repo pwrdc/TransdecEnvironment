@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618607413287433895}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -51.54, y: 0.95, z: 0.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 087d561de5cb80045a1d6b13d23eea49, type: 2}
-  isGlobal: 0
-  blendDistance: 0
+  isGlobal: 1
+  blendDistance: 10
   weight: 1
   priority: 0
 --- !u!114 &-1435879747760280849
@@ -61,13 +61,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ff7b69e6a8e304b84a7f97c6cfe62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wobbleMaterial: {fileID: 2100000, guid: 11b2340a5e4e73d49b6b11c43dd800da, type: 2}
   target: {fileID: 0}
   randomization:
-    minWaterFog: 0.02
-    maxWaterFog: 0.07
+    minWaterFog: 0.01
+    maxWaterFog: 0.04
     minWaterHSV: {x: 180, y: 0, z: 50}
     maxWaterHSV: {x: 250, y: 100, z: 100}
-    normalWaterFog: 0.05
-    normalWaterColor: {r: 0.19117124, g: 0.21819153, b: 0.2264151, a: 1}
-  waterFog: 0.05
+    normalWaterFog: 0.02
+    normalWaterColor: {r: 0.09300464, g: 0.1401692, b: 0.20754719, a: 1}
+  waterFog: 0.02

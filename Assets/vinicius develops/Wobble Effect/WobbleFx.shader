@@ -5,7 +5,7 @@
 		_MainTex("Texture", 2D) = "white" {}
 		_Color("Color", Color) = (1,1,1,1)
 		_Intensity("Intensity", Range(0.0, 360.0)) = 20.0
-		_Speed("Speed", Range(0, 3)) = 0.0
+		_Speed("Speed", Range(0.0, 20.0)) = 0.0
 	}
 		SubShader
 		{
@@ -48,9 +48,8 @@
 
 				fixed4 frag(v2f i) : SV_Target
 				{
-					int speed = round(_Speed);
-					float sine = sin((i.uv.y + abs(_Time[speed]))* _Intensity);
-					i.uv.x += sine * 0.01;
+					float sine = sin((i.uv.y + _Speed*_Time[0] ) * _Intensity );
+					i.uv.x += sine * 0.01 ;
 
 					fixed4 col = tex2D(_MainTex, i.uv);
 					col *= _Color;

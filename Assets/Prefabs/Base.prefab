@@ -490,65 +490,8 @@ PrefabInstance:
       propertyPath: annotation
       value: 
       objectReference: {fileID: 1554607908618792025}
-    - target: {fileID: -5473277948819515785, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: agentSettings.dataCollection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6693106763582877075, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6693106763582877075, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6693106763582877075, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 6693106763582877075, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014375719247776942, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_AfterStackBundles.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014375719247776942, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[0].assemblyQualifiedName
-      value: UnityEngine.Rendering.PostProcessing.Blur, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 7019049274381564899, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_AfterStackBundles.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7019049274381564899, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[0].assemblyQualifiedName
-      value: UnityEngine.Rendering.PostProcessing.Blur, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 8311665475731957535, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_AfterStackBundles.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8311665475731957535, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_AfterStackBundles.Array.data[0].assemblyQualifiedName
-      value: UnityEngine.Rendering.PostProcessing.Blur, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6854758257402014164, guid: b522b6efb5ec849dca481532bc053825, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b522b6efb5ec849dca481532bc053825, type: 3}
 --- !u!4 &9153791786499386259 stripped
 Transform:
@@ -703,16 +646,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 9153791786499386259}
-    - target: {fileID: 5679708998078379871, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: isGlobal
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5679708998078379871, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: blendDistance
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c73e3c29a531be14ea2ef0f2447d2ca7, type: 3}
 --- !u!4 &8695719222620578788 stripped
