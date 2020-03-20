@@ -43,7 +43,7 @@ Shader "vdev/FX/Sprite Wobble (Screen)"
 				#include "UnitySprites.cginc"
 
 				float _Intensity;
-				int _Speed;
+				float _Speed;
 
 				float screen(float a, float b)
 				{

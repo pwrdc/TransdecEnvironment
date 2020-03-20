@@ -44,7 +44,7 @@
 				uniform float4 _Color;
 				float _Intensity;
 				const float PI = 3.14;
-				int _Speed;
+				float _Speed;
 
 				float overlay(float a, float b)
 				{
