@@ -20,9 +20,11 @@ Properties {
 // Fragment program cards
 
 
-Subshader {
-	Tags { "WaterMode"="Refractive" "RenderType"="Opaque" }
-	Pass {
+Subshader{
+	Tags{ "RenderType" = "Transparent" }
+	Blend SrcAlpha OneMinusSrcAlpha
+	ColorMask RGB
+	Pass{
 CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
@@ -48,6 +50,8 @@ uniform float _ReflDistort;
 #if HAS_REFRACTION
 uniform float _RefrDistort;
 #endif
+
+float _Opacity;
 
 struct appdata {
 	float4 vertex : POSITION;
@@ -151,6 +155,8 @@ half4 frag( v2f i ) : SV_Target
 	color.rgb = lerp( water.rgb, _HorizonColor.rgb, water.a );
 	color.a = _HorizonColor.a;
 	#endif
+
+	color.a = color.a * _Opacity;
 
 	UNITY_APPLY_FOG(i.fogCoord, color);
 	return color;

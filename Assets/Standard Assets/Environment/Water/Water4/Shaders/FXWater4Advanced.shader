@@ -35,6 +35,8 @@ Properties {
 	_GSpeed ("Wave Speed", Vector) = (1.2, 1.375, 1.1, 1.5)
 	_GDirectionAB ("Wave Direction", Vector) = (0.3 ,0.85, 0.85, 0.25)
 	_GDirectionCD ("Wave Direction", Vector) = (0.1 ,0.9, 0.5, 0.5)
+
+	_Opacity("Opacity", Range(0.0, 1.0)) = 1.0
 }
 
 
@@ -115,6 +117,8 @@ CGINCLUDE
 	
 	// foam
 	uniform float4 _Foam;
+
+	float _Opacity;
 	
 	// shortcuts
 	#define PER_PIXEL_DISPLACE _DistortParams.x
@@ -224,7 +228,7 @@ CGINCLUDE
 		half4 foam = Foam(_ShoreTex, i.bumpCoords * 2.0);
 		baseColor.rgb += foam.rgb * _Foam.x * (edgeBlendFactors.y + saturate(i.viewInterpolator.w - _Foam.y));
 		
-		baseColor.a = edgeBlendFactors.x;
+		baseColor.a = edgeBlendFactors.x*_Opacity;
 		UNITY_APPLY_FOG(i.fogCoord, baseColor);
 		return baseColor;
 	}
@@ -310,7 +314,7 @@ CGINCLUDE
 		
 		baseColor = baseColor + spec * _SpecularColor;
 		
-		baseColor.a = edgeBlendFactors.x * saturate(0.5 + refl2Refr * 1.0);
+		baseColor.a = edgeBlendFactors.x * saturate(0.5 + refl2Refr * 1.0)*_Opacity;
 		UNITY_APPLY_FOG(i.fogCoord, baseColor);
 		return baseColor;
 	}
@@ -354,7 +358,7 @@ CGINCLUDE
 
 		half4 baseColor = _BaseColor;
 		baseColor = lerp(baseColor, _ReflectionColor, saturate(refl2Refr * 2.0));
-		baseColor.a = saturate(2.0 * refl2Refr + 0.5);
+		baseColor.a = saturate(2.0 * refl2Refr + 0.5)*_Opacity;
 
 		baseColor.rgb += spec * _SpecularColor.rgb;
 		UNITY_APPLY_FOG(i.fogCoord, baseColor);

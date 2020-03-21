@@ -50,7 +50,7 @@ namespace Environment
             RenderSettings.fogMode = FogMode.Exponential;
         }
 
-        bool underwater => target!=null && target.position.y < Environment.Instance.waterSurface.position.y;
+        bool underwater => target!=null && Environment.Instance.waterSurface !=null && target.position.y < Environment.Instance.waterSurface.position.y;
 
         void Update()
         {
