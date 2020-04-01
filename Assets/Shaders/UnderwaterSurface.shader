@@ -1,4 +1,4 @@
-﻿Shader "UnderwaterSurface" {
+﻿Shader "Effects/UnderwaterSurface" {
 	Properties{
 		_Opacity("Opacity", Float) = .5
 		_Sharpness("Sharpness", Float)=3.0
