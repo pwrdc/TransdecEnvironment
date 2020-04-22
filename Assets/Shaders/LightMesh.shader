@@ -34,6 +34,7 @@
 			float _Emission;
 			float _Numerator;
 			float _Power;
+			float _VerticalMultiplier;
  
             v2f vert (appdata v)
             {
@@ -46,8 +47,12 @@
             fixed4 frag (v2f i) : SV_Target
             {
 				float3 centerPosition = UnityObjectToViewPos(float4(0,0,0,0));
-				float3 difference = i.viewPos - centerPosition;
-				float opacity= _Numerator / pow(abs(difference.x/difference.y), _Power);
+				float3 downPosition = UnityObjectToViewPos(float4(0, 0, -1, 0));
+				// h dervied from ah/2=vw/2 where v and w are vectors
+				float horizontalDistance = cross(i.viewPos - centerPosition, i.viewPos - downPosition)/distance(centerPosition, downPosition);
+
+				float horizontal = horizontalDistance;
+				float opacity= _Numerator * pow(abs(horizontal), _Power);
 				opacity = min(opacity, 1);
 				opacity *= _Opacity;
                 return float4(1,1,1, opacity);

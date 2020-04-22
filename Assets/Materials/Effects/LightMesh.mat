@@ -66,11 +66,11 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _Numerator: 0.001
+    - _Numerator: 1.73
     - _OcclusionStrength: 1
-    - _Opacity: 0.1
+    - _Opacity: 0.246
     - _Parallax: 0.02
-    - _Power: 1.94
+    - _Power: 1.55
     - _Scale: 1
     - _Sharpness: 3
     - _Shininess: 0.078125
@@ -80,6 +80,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _VerticalFading: 0.001
+    - _VerticalMultiplier: 0.1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
