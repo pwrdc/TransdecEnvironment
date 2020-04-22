@@ -1,42 +1,58 @@
-﻿Shader "Effects/LightMesh" {
+﻿Shader "Unlit/InnerSpriteOutline HLSL"
+{
 	Properties{
-		_Opacity("Opacity", Range(0, 1)) = .5
-		_Emission("Emission", Range(0, 1)) = .5
+		_Opacity("Opacity", Range(0, 2)) = .5
 		_Numerator("Numerator", Float) = 3
+		_Power("Power", Float) = 2
 	}
-		SubShader{
+    SubShader
+    {
 		Tags{ "RenderType" = "Transparent" "Queue" = "Transparent" }
-		LOD 200
-		Pass{
-			ColorMask 0
-		}
-		// Render normally
-		ZWrite Off
-		BlendOp Add
-		ColorMask RGB
-
-		CGPROGRAM
-
-#pragma surface surf Standard fullforwardshadows alpha:fade
-#pragma target 3.0
-	struct Input {
-		float2 uv_MainTex;
-		float3 worldPos;
-	};
-	float _Opacity;
-	float _Emission;
-	float _Numerator;
-
-	#include "UnityBuiltin2xTreeLibrary.cginc"
-
-	void surf(Input IN, inout SurfaceOutputStandard o) {
-		float3 localPosition = IN.worldPos - mul(unity_ObjectToWorld, float4(0, 0, 0, 1)).xyz;
-		// float opacity = 10/sqrt(localPosition.x*localPosition.x+ localPosition.z*localPosition.z);
-		float opacity = _Numerator/localPosition.y;
-		o.Alpha = _Opacity * opacity;
-		o.Emission = _Emission* opacity;
-	}
-	ENDCG
-	}
-		Fallback "Diffuse"
+ 
+		Blend SrcAlpha OneMinusSrcAlpha
+ 
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+ 
+            #include "UnityCG.cginc"
+ 
+            struct appdata
+            {
+                float4 vertex : POSITION;
+            };
+ 
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+				float3 viewPos : TEXCOORD0;
+            };
+ 
+			float _Opacity;
+			float _Emission;
+			float _Numerator;
+			float _Power;
+ 
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+				o.viewPos = UnityObjectToViewPos(v.vertex);
+                return o;
+            }
+ 
+            fixed4 frag (v2f i) : SV_Target
+            {
+				float3 centerPosition = UnityObjectToViewPos(float4(0,0,0,0));
+				float3 difference = i.viewPos - centerPosition;
+				float opacity= _Numerator / pow(abs(difference.x/difference.y), _Power);
+				opacity = min(opacity, 1);
+				opacity *= _Opacity;
+                return float4(1,1,1, opacity);
+            }
+            ENDCG
+        }
+    }
 }
