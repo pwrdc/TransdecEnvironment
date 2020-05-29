@@ -84,7 +84,12 @@ namespace Environment
             {
                 wobbleEffect.enabled = active;
             }
-            if(volume!=null) volume.enabled = active;
+            if (volume != null)
+            {
+                // Unity's implementation of PostProcessVolume is buggy
+                // and disabling volume through enabled causes bunch of NullPointerExceptions
+                volume.weight = active ? 1 : 0;
+            }
             if (robotLight != null) robotLight.enabled = active;
             RenderSettings.fog = active;
             RenderSettings.fogColor = waterColor;

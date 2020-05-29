@@ -663,7 +663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5118742042968492889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.54, y: -0.95, z: -0.39}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1554607908618792030}
@@ -748,29 +748,8 @@ PrefabInstance:
       propertyPath: annotation
       value: 
       objectReference: {fileID: 1554607908618792025}
-    - target: {fileID: 6693106763582877075, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: m_Mass
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4014375719247776942, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: volumeTrigger
-      value: 
-      objectReference: {fileID: 9153791787606317636}
-    - target: {fileID: 7019049274381564899, guid: b522b6efb5ec849dca481532bc053825,
-        type: 3}
-      propertyPath: volumeTrigger
-      value: 
-      objectReference: {fileID: 9153791787606317636}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b522b6efb5ec849dca481532bc053825, type: 3}
---- !u!4 &9153791787606317636 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6693106762273889358, guid: b522b6efb5ec849dca481532bc053825,
-    type: 3}
-  m_PrefabInstance: {fileID: 2588017285137434122}
-  m_PrefabAsset: {fileID: 0}
 --- !u!108 &2464539755930589609 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 133333222001090467, guid: b522b6efb5ec849dca481532bc053825,
@@ -930,101 +909,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 9153791786499386259}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.minWaterFog
-      value: 0.075
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.maxWaterFog
-      value: 0.095
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key0.r
-      value: 0.043137256
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key0.g
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key0.b
-      value: 0.16862746
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key1.r
-      value: 0.07035421
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key1.g
-      value: 0.20442024
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key1.b
-      value: 0.2924528
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key2.r
-      value: 0.043137256
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key2.g
-      value: 0.12988257
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.key2.b
-      value: 0.16862746
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.ctime1
-      value: 33346
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.ctime2
-      value: 65535
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.fogColor.m_NumColorKeys
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.normalWaterFog
-      value: 0.085
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.normalWaterColor.r
-      value: 0.09077964
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.normalWaterColor.g
-      value: 0.17254902
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: randomization.normalWaterColor.b
-      value: 0.25882354
-      objectReference: {fileID: 0}
-    - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: waterFog
-      value: 0.085
-      objectReference: {fileID: 0}
     - target: {fileID: -1435879747760280849, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
         type: 3}
       propertyPath: robotLight

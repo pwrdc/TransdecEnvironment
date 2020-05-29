@@ -41,12 +41,12 @@ namespace Environment
 
         public void EnvironmentNormalInit()
         {
-            OnNormalInit.Invoke();
+            OnNormalInit?.Invoke();
         }
 
         public void EnvironmentRandomizedInit()
         {
-            OnRandomizedInit.Invoke();
+            OnRandomizedInit?.Invoke();
         }
     }
 }
