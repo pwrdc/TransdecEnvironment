@@ -68,7 +68,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Fading: 80
+    - _Fading: 100
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -76,10 +76,10 @@ Material:
     - _Mode: 0
     - _Numerator: 1
     - _OcclusionStrength: 1
-    - _Opacity: 0.21
+    - _Opacity: 0.6
     - _Parallax: 0.02
     - _Scale: 3.5
-    - _Sharpness: 3.5
+    - _Sharpness: 5.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 10
