@@ -13,12 +13,11 @@ namespace Environment
         public Transform waterSurface;
         public Transform poolSurface;
         
-        public bool isEnvironmentRandomized = false;
-        public bool isEnvironmentInitOnEachStep = false;
+        public bool randomized = false;
+        public bool initOnEachStep = false;
 
         public event Action OnNormalInit;
         public event Action OnRandomizedInit;
-
 
         void Start()
         {
@@ -27,7 +26,7 @@ namespace Environment
         }
 
         public void OnReset(){
-            if (isEnvironmentRandomized)
+            if (randomized)
                 EnvironmentRandomizedInit();
             else
                 EnvironmentNormalInit();
@@ -35,7 +34,7 @@ namespace Environment
 
         public void OnDataCollection(){
             //Randomize environment (Water color and light)
-            if(isEnvironmentRandomized && isEnvironmentInitOnEachStep){
+            if(randomized && initOnEachStep){
                 EnvironmentRandomizedInit();
             }
         }

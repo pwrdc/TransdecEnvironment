@@ -67,10 +67,10 @@ Material:
     - _Mode: 0
     - _Numerator: 1
     - _OcclusionStrength: 1
-    - _Opacity: 0.5
+    - _Opacity: 0.4
     - _Parallax: 0.02
-    - _Scale: 4
-    - _Sharpness: 3
+    - _Scale: 5.5
+    - _Sharpness: 2.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 10

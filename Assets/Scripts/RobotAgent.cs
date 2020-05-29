@@ -51,8 +51,6 @@ public class RobotAgent : Agent
     Vector3 startPos;
     float startRelativeAngle;
     int collided = 0;
-    bool isAwaked = false;
-    bool isAgentSet = false;
 
     float relativeAngle; //angle between robot and target
     Vector3 relativePosition; //position between robot and target
@@ -68,6 +66,7 @@ public class RobotAgent : Agent
         RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
         SetCamera();
         AgentReset();
+        initialized = true;
     }
 
     void Awake()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 /*
  * Basically we want this thing to rotate 
@@ -8,19 +9,32 @@ using UnityEngine;
  * This could be a shader, but it'd require implementing 
  * LookAt in shader language.
  */
+ [ExecuteInEditMode]
 public class LightBillboard : MonoBehaviour
 {
-    Vector3 up;
+    // rotation as Euler angles, 
+    // the actual transform rotation is updated by the script
+    public Vector3 rotation;
 
-    void Start()
+    Vector3 GetObserver()
     {
-        up = transform.up;
+        if (Application.isEditor && !Application.isPlaying)
+        {
+            // in edit mode rotate towards editor camera
+            return SceneView.lastActiveSceneView.camera.transform.position;
+        }
+        else
+        {
+            return Camera.current.transform.position;
+        }
     }
 
     void OnRenderObject()
     {
-        Vector3 observer = Camera.current.transform.position;
+        Vector3 observer=GetObserver();
+        
         Vector3 onPlane = new Vector3(observer.x, transform.position.y, observer.z);
-        transform.LookAt(onPlane, up);
+        Vector3 downDirection = Quaternion.Euler(rotation) * Vector3.down;
+        transform.LookAt(onPlane, downDirection);
     }
 }

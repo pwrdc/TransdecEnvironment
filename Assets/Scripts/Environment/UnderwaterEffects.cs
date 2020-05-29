@@ -3,16 +3,16 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace Environment
 {
-    [ExecuteInEditMode]
-    public class UnderwaterEffects : MonoBehaviour
-    {
+    class InvalidEnumValueException<E> : System.Exception where E : System.Enum { }
 
+    [ExecuteInEditMode]
+    public class UnderwaterEffects : Randomized
+    {
         [System.Serializable]
         public class Randomization {
             public float minWaterFog = 0.2f;
             public float maxWaterFog = 0.4f;
-            public Vector3 minWaterHSV = new Vector3(180, 0, 50);
-            public Vector3 maxWaterHSV = new Vector3(250, 100, 100);
+            public Gradient fogColor;
             public float normalWaterFog = 0.25f;
             public Color normalWaterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
         }
@@ -22,52 +22,86 @@ namespace Environment
         Color waterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
         [HideInInspector]
         public float waterFog = 0.25f;
+        public Light robotLight;
+
+        // Linear fog mode is for slowest devices, looks unrealistic
+        // and requires additional two parameters (start and end)
+        // so fog mode is limited to exponential variants
+        [System.Serializable]
+        public enum ExponentialFogMode
+        {
+            Exponential, ExponentialSquared
+        }
+        FogMode ExponentailFogModeToFogMode(ExponentialFogMode fogMode)
+        {
+            switch (fogMode)
+            {
+                case ExponentialFogMode.Exponential:
+                    return FogMode.Exponential;
+                case ExponentialFogMode.ExponentialSquared:
+                    return FogMode.ExponentialSquared;
+                default:
+                    throw new InvalidEnumValueException<ExponentialFogMode>();
+            }
+        }
+        public ExponentialFogMode fogMode=ExponentialFogMode.ExponentialSquared;
 
         PostProcessVolume volume;
         WobbleEffect[] wobbleEffects;
 
-        public void RandomizedInit(){
-            float percentageIntensitivity = Random.value;
-            waterFog = randomization.minWaterFog + (percentageIntensitivity * (randomization.maxWaterFog - randomization.minWaterFog));
-            float h = Utils.GetRandom(randomization.minWaterHSV.x, randomization.maxWaterHSV.x) / 360;
-            float s = Utils.GetRandom(randomization.minWaterHSV.y, randomization.maxWaterHSV.y) / 100;
-            float v = Utils.GetRandom(randomization.minWaterHSV.z, randomization.maxWaterHSV.z) / 100;
-            Color rgb = Color.HSVToRGB(h, s, v);
-            waterColor=rgb;
+        public override void InitializeRandom(){
+            waterFog = Random.Range(randomization.minWaterFog, randomization.maxWaterFog);
+            waterColor = randomization.fogColor.Evaluate(Random.value);
         }
 
-        public void NormalInit(){
+        public override void InitializeNormal(){
             waterColor=randomization.normalWaterColor;
             waterFog=randomization.normalWaterFog;
         }
 
-        void Start()
+        public override void Start()
         {
             volume = GetComponent<PostProcessVolume>();
+            // wobble effects must be attached directly to each camera
             wobbleEffects = FindObjectsOfType<WobbleEffect>();
-            Environment.Instance.OnNormalInit+=NormalInit;
-            Environment.Instance.OnRandomizedInit+=RandomizedInit;
-            RenderSettings.fogMode = FogMode.Exponential;
+            base.Start();
         }
 
-        bool underwater => target!=null && Environment.Instance.waterSurface !=null && target.position.y < Environment.Instance.waterSurface.position.y;
+        void OnDisable()
+        {
+            UpdateEffects(false);
+        }
+
+        void OnEnable()
+        {
+            Start();
+            UpdateEffects(true);
+        }
+
+        void UpdateEffects(bool active)
+        {
+            foreach (var wobbleEffect in wobbleEffects)
+            {
+                wobbleEffect.enabled = active;
+            }
+            if(volume!=null) volume.enabled = active;
+            if (robotLight != null) robotLight.enabled = active;
+            RenderSettings.fog = active;
+            RenderSettings.fogColor = waterColor;
+            RenderSettings.fogDensity = waterFog;
+            RenderSettings.fogMode = ExponentailFogModeToFogMode(fogMode);
+
+            // preview water opacity in the edit mode
+            if (Application.isEditor && !Application.isPlaying)
+            {
+                InitializeNormal();
+            }
+        }
 
         void Update()
         {
-            foreach(var wobbleEffect in wobbleEffects)
-            {
-                wobbleEffect.enabled = underwater;
-            }
-            volume.enabled = underwater;
-            RenderSettings.fog = underwater;
-            RenderSettings.fogColor = waterColor;
-            RenderSettings.fogDensity = waterFog;
-
-            // preview water opacity in the edit mode
-            if(Application.isEditor && !Application.isPlaying)
-            {
-                NormalInit();
-            }
+            bool underwater = target != null && Environment.Instance.waterSurface != null && target.position.y < Environment.Instance.waterSurface.position.y;
+            UpdateEffects(underwater);
         }
     }
 }
