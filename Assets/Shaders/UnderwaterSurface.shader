@@ -3,11 +3,11 @@
 
 Shader "Effects/Underwater Surface" {
 	Properties{
+		_Color("Color", Color) = (1,1,1,1)
 		_Opacity("Opacity", Range(0, 1)) = .5
 		_Sharpness("Sharpness", Float) = 3.0
 		_Speed("Speed", Float) = 1.0
 		_Scale("Scale", Float) = 1.0
-		_Color("Main Color", Color) = (1,1,1,1)
 		_Fading("Fading", Float) = 30
 	}
 
@@ -39,6 +39,9 @@ Shader "Effects/Underwater Surface" {
 	float _Scale;
 	float _Fading;
 	fixed4 _Color;
+
+	float4x4 unity_Projector;
+	float4x4 unity_ProjectorClip;
 
 	//get a scalar random value from a 3d value
 	float rand3dTo1d(float3 value, float3 dotDir = float3(12.9898, 78.233, 37.719)) {
@@ -114,10 +117,6 @@ Shader "Effects/Underwater Surface" {
 		return float3(minDistToCell, random, minEdgeDistance);
 	}
 
-
-	float4x4 unity_Projector;
-	float4x4 unity_ProjectorClip;
-
 	v2f vert(float4 vertex : POSITION)
 	{
 		v2f o;
@@ -140,8 +139,8 @@ Shader "Effects/Underwater Surface" {
 
 	fixed4 frag(v2f i) : SV_Target
 	{
-		fixed4 position = UNITY_PROJ_COORD(i.uvShadow);
-		if (i.uvFalloff.x < 0 || !isValidUv(position))
+		fixed4 uv = UNITY_PROJ_COORD(i.uvShadow);
+		if (i.uvFalloff.x < 0 || !isValidUv(uv))
 		{
 			return float4(0, 0, 0, 0);
 		}
