@@ -2,6 +2,6 @@
 
 public class Note : MonoBehaviour
 {
-    [Multiline]
+    [Multiline(20)]
     public string note;
 }

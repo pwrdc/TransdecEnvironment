@@ -11,7 +11,6 @@ namespace Environment
             mInstance == null ? (mInstance = FindObjectOfType<Environment>()) : mInstance;
 
         public Transform waterSurface;
-        public Transform poolSurface;
         
         public bool randomized = false;
         public bool initOnEachStep = false;
