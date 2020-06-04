@@ -3,7 +3,6 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace Environment
 {
-    class InvalidEnumValueException<E> : System.Exception where E : System.Enum { }
 
     [ExecuteInEditMode]
     public class UnderwaterEffects : Randomized
@@ -41,7 +40,7 @@ namespace Environment
                 case ExponentialFogMode.ExponentialSquared:
                     return FogMode.ExponentialSquared;
                 default:
-                    throw new InvalidEnumValueException<ExponentialFogMode>();
+                    throw new InvalidEnumValueException(fogMode);
             }
         }
         public ExponentialFogMode fogMode=ExponentialFogMode.ExponentialSquared;
