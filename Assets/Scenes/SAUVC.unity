@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.08235294, g: 0.1458414, b: 0.1882353, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.085
@@ -159,8 +159,8 @@ MonoBehaviour:
       farClipPlaneDistance: 50
       density: 0.25
       anisotropy: 0.289
-      color: {r: 0.23952192, g: 0.24628893, b: 0.25, a: 1}
-      colorStrength: 0.03
+      color: {r: 0.1591194, g: 0.21522598, b: 0.25, a: 1}
+      colorStrength: 0.04
     _computeMaximumDepthComputeShader: {fileID: 7200000, guid: a5d52c8a306e8b746ab60b306575aa3e,
       type: 3}
     _processOcclusionMapShader: {fileID: 4800000, guid: b9b5b0990ea6cfa4d96c89a9c1cec3e9,
@@ -445,7 +445,7 @@ MonoBehaviour:
   density:
     injectionParameters:
       enable: 1
-      strength: 0.3
+      strength: 0.8
       textureMaskLevelParameters:
         levelLowThreshold: 0
         levelHiThreshold: 0
@@ -461,7 +461,7 @@ MonoBehaviour:
   anisotropy:
     injectionParameters:
       enable: 1
-      strength: 0.1
+      strength: 0.25
       textureMaskLevelParameters:
         levelLowThreshold: 0
         levelHiThreshold: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
         outputLowValue: 0
         outputHiValue: 0
         contrast: 0
-    color: {r: 0, g: 0, b: 0, a: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
   gizmoColor: {r: 0.5, g: 1, b: 0.7333131, a: 1}
 --- !u!4 &239825201
 Transform:
@@ -895,7 +895,7 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 0.9999, g: 0.9999, b: 0.9999, a: 0.9999}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 649155177}
+  shadowMapRenderTexture: {fileID: 1192754962}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
@@ -1468,41 +1468,6 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
---- !u!84 &649155177
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  serializedVersion: 3
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &678732032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2414,6 +2379,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &1192754962
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 3
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1295375140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,7 +2468,6 @@ GameObject:
   - component: {fileID: 1300071503}
   - component: {fileID: 1300071502}
   - component: {fileID: 1300071501}
-  - component: {fileID: 1300071505}
   m_Layer: 0
   m_Name: Waves Mask
   m_TagString: Untagged
@@ -2476,20 +2475,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1300071501
-MeshCollider:
+--- !u!114 &1300071501
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300071500}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: "This object creates holes for the light \nto go through and create light
+    rays in the water.\nIt's texture is created by the material shader.\nAura respects
+    opacity only for cutoff shaders."
 --- !u!23 &1300071502
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2550,21 +2550,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1300071505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300071500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b99cac7697d722947a93294dcaa1c9e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 500
-  height: 300
-  scale: 0.1
 --- !u!1001 &1344839058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5182,6 +5167,7 @@ GameObject:
   - component: {fileID: 4504552049035873324}
   - component: {fileID: 4475875089098495740}
   - component: {fileID: 4514813741316512756}
+  - component: {fileID: 4535326356512284899}
   m_Layer: 0
   m_Name: GroundCube
   m_TagString: PoolSurface
@@ -5189,6 +5175,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4535326356512284899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535326356512284898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: "It is important to keep receive shadows option off.\nLower surface projector
+    creates softer and better \nlooking light shapes than the lightning system.\nKeeping
+    them both on creates visual conflicts."
 --- !u!1 &4535509659822791828
 GameObject:
   m_ObjectHideFlags: 0
@@ -5886,22 +5887,22 @@ PrefabInstance:
     - target: {fileID: 5591691647725671790, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1964955644754354723, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 681370832179773151, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2464539755930589609, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1554607907821713679, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -5998,6 +5999,11 @@ PrefabInstance:
     - target: {fileID: 1745070510, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.6999817
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602040655634571275, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

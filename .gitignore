@@ -5,6 +5,9 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Paid assets that can't be posted on Github
+Assets/Paid/
+
 # Visual Studio cache directory
 .vs/
 .vscode/
