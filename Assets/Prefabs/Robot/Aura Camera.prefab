@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5993714480178439807
+--- !u!1 &4832862335068262179
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5993714480178439802}
-  - component: {fileID: 5993714480178439800}
-  - component: {fileID: 5993714480178439801}
-  - component: {fileID: 3306352825816767092}
-  - component: {fileID: 8977843416370945323}
-  - component: {fileID: 2689081742344323809}
-  - component: {fileID: 290935369747304043}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: MainCamera
+  - component: {fileID: 4832862335068262182}
+  - component: {fileID: 4832862335068262181}
+  - component: {fileID: 4832862335068262180}
+  - component: {fileID: 4832862335068262183}
+  m_Layer: 8
+  m_Name: Aura Camera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5993714480178439802
+  m_IsActive: 0
+--- !u!4 &4832862335068262182
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993714480178439807}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0, z: 0.5}
+  m_GameObject: {fileID: 4832862335068262179}
+  m_LocalRotation: {x: 0, y: -0.743051, z: 0, w: 0.6692348}
+  m_LocalPosition: {x: 13.255881, y: 1.489, z: -21.505013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &5993714480178439800
+--- !u!20 &4832862335068262181
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993714480178439807}
+  m_GameObject: {fileID: 4832862335068262179}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -79,42 +76,34 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5993714480178439801
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993714480178439807}
-  m_Enabled: 0
---- !u!114 &3306352825816767092
+--- !u!114 &4832862335068262180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993714480178439807}
+  m_GameObject: {fileID: 4832862335068262179}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdcd06815c47d30489f70df42db56a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frustumSettings:
-    baseSettings: {fileID: 11400000, guid: 6e2a2a5a93204ca4a83401a43d3ee5f0, type: 2}
+    baseSettings: {fileID: 0}
     qualitySettings: {fileID: 0}
---- !u!114 &8977843416370945323
+--- !u!114 &4832862335068262183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993714480178439807}
+  m_GameObject: {fileID: 4832862335068262179}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 5993714480178439802}
+  volumeTrigger: {fileID: 4832862335068262182}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -164,31 +153,3 @@ MonoBehaviour:
   m_AfterStackBundles:
   - assemblyQualifiedName: UnityEngine.Rendering.PostProcessing.Blur, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &2689081742344323809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993714480178439807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e678abe9dd074b0488313d1f6b9ab67a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 11b2340a5e4e73d49b6b11c43dd800da, type: 2}
---- !u!114 &290935369747304043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993714480178439807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note: "Changing the global scale of camera to value\nother than 1 will break Aura
-    2.\nLocal scale in transform component isn't\nthe same as global scale, global
-    scale is local \nscale multiplied by parents scale."

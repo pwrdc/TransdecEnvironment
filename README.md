@@ -1,13 +1,8 @@
-# Read before opening in editor
+# Paid assets
 
-From my understanding Aura has a lot of shader variants for different platforms and level of detail.
-Opening this project in Unity will freeze it for about **30 minutes** consuming all of your memory and CPU power until all of the compute shaders compile.
-If 30 minutes passed it still frozen try clicking on the window, it might bring it back.
-If that didnt' help, try terminating the Unity process from task menager, after that reopen the project. 
-Bunch of error messages will show up, close them and add some whitespace to one of the Aura files, it will restart the compilation.
-After compiling do not edit or move files inside of Aura folder, even the slightest whitespace change will trigger recompilation.
-Besides that Aura doesn't really affect performance or compile time for the project.
-The developer of Aura claims that his paid Aura 2 package has faster compile times.
+This branch contains Aura 2 which is paid and cannot be posted on a public github repo. In order to run the full simulation download it from Unity asset store.
+
+If you don't have it you can still run the program, only some undefined script warnings will appear in the console.
 
 # TransdecEnvironment
 

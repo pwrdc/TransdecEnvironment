@@ -44,7 +44,7 @@ CGINCLUDE
 
 	#include "UnityCG.cginc"
 	#include "WaterInclude.cginc"
-	#include "../../../../../Aura/Shaders/Aura.cginc"
+	#include "../../../../../Aura 2/Core/Code/Shaders/Aura.cginc"
 
 	struct appdata
 	{
@@ -173,7 +173,7 @@ CGINCLUDE
 		o.normalInterpolator.w = 1;//GetDistanceFadeout(o.screenPos.w, DISTANCE_SCALE);
 		
 		UNITY_TRANSFER_FOG(o,o.pos);
-		o.frustrumSpacePosition= Aura_GetFrustumSpaceCoordinates(v.vertex);
+		o.frustrumSpacePosition= Aura2_GetFrustumSpaceCoordinates(v.vertex);
 		return o;
 	}
 
@@ -253,8 +253,8 @@ CGINCLUDE
 		UNITY_APPLY_FOG(i.fogCoord, baseColor);
 
 		float3 color = float3(0,0,0);
-		Aura_ApplyLighting(color, i.frustrumSpacePosition, .1f);
-		Aura_ApplyFog(baseColor, i.frustrumSpacePosition);
+		Aura2_ApplyLighting(color, i.frustrumSpacePosition, .1f);
+		Aura2_ApplyFog(baseColor, i.frustrumSpacePosition);
 		baseColor+=half4(color, 0);
 		
 		return baseColor;

@@ -2,7 +2,6 @@
 {
     Properties
     {
-		_Opacity("Opacity", Range(0, 1)) = .5
 		_Sharpness("Sharpness", Float) = 3.0
 		_Speed("Speed", Float) = 1.0
 		_Scale("Scale", Float) = 1.0
@@ -23,7 +22,6 @@
 
 #include "UnderwaterSurface.cginc"
 
-		float _Opacity;
 		float _Sharpness;
 		float _Speed;
 		float _Scale;
@@ -36,10 +34,10 @@
 
         void surf (Input IN, inout SurfaceOutputStandard  o)
         {
-            o.Albedo = 1;
+            o.Albedo = float3(1,1,1);
 			float3 localPos = IN.worldPos - mul(unity_ObjectToWorld, float4(0, 0, 0, 1)).xyz;
 			float2 xzPos = float2(localPos.x, localPos.z);
-            o.Alpha = 1-underwater_surface(float3(_Time[0] * _Speed, xzPos*_Scale), _Sharpness) * _Opacity;
+            o.Alpha = 1-underwater_surface(float3(_Time[0] * _Speed, xzPos*_Scale), _Sharpness);
         }
         ENDCG
     }
