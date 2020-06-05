@@ -6,7 +6,7 @@
 Assets/AssetStoreTools*
 
 # Paid assets that can't be posted on Github
-Assets/Paid/
+Aura 2/
 
 # Visual Studio cache directory
 .vs/
