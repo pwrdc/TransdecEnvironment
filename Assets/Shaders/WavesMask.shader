@@ -2,9 +2,14 @@
 {
     Properties
     {
-		_Sharpness("Sharpness", Float) = 3.0
 		_Speed("Speed", Float) = 1.0
-		_Scale("Scale", Float) = 1.0
+		// there are two layers of noise to create a clumping effect
+		_Sharpness_1("Sharpness 1", Float) = 1.5
+		_Scale_1("Scale 1", Float) = 2.0
+		_Sharpness_2("Sharpness 2", Float) = 1.3
+		_Scale_2("Scale 2", Float) = 1.0
+		// which layer should be more important in mixing
+		_Layers_Mixing("Layers Mixing", Range(0,1)) = 0.5
 		// this variable is created and managed by alphatest option implementation
 		_Cutoff("Alpha Cutoff", Range(0,1)) = 0.7
     }
@@ -22,9 +27,12 @@
 
 #include "UnderwaterSurface.cginc"
 
-		float _Sharpness;
 		float _Speed;
-		float _Scale;
+		float _Sharpness_1;
+		float _Scale_1;
+		float _Sharpness_2;
+		float _Scale_2;
+		float _Layers_Mixing;
 
         struct Input
         {
@@ -37,7 +45,9 @@
             o.Albedo = float3(1,1,1);
 			float3 localPos = IN.worldPos - mul(unity_ObjectToWorld, float4(0, 0, 0, 1)).xyz;
 			float2 xzPos = float2(localPos.x, localPos.z);
-            o.Alpha = 1-underwater_surface(float3(_Time[0] * _Speed, xzPos*_Scale), _Sharpness);
+			float layer1= 1-underwater_surface(float3(_Time[0] * _Speed, xzPos*_Scale_1), _Sharpness_1);
+			float layer2 = 1-underwater_surface(float3(_Time[0] * _Speed, xzPos*_Scale_2), _Sharpness_2);
+			o.Alpha = -lerp(-layer1, -layer2, _Layers_Mixing);
         }
         ENDCG
     }
