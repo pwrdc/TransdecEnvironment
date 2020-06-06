@@ -41,9 +41,17 @@ Properties {
 
 
 CGINCLUDE
+	
+	// IMPORTANT: comment out line below if you don't have Aura 2
+	#define HAVE_AURA_2
+
+	// currently only the most expensive shader variant has Aura 2 integration
 
 	#include "UnityCG.cginc"
 	#include "WaterInclude.cginc"
+	#ifdef HAVE_AURA_2
+		#include "../../../../../Aura 2/Core/Code/Shaders/Aura.cginc"
+	#endif
 
 	struct appdata
 	{
@@ -61,7 +69,9 @@ CGINCLUDE
 		float4 bumpCoords : TEXCOORD2;
 		float4 screenPos : TEXCOORD3;
 		float4 grabPassPos : TEXCOORD4;
-		UNITY_FOG_COORDS(5)
+		float3 frustrumSpacePosition : TEXCOORD5;
+		UNITY_FOG_COORDS(6)
+
 	};
 
 	struct v2f_noGrab
@@ -170,7 +180,25 @@ CGINCLUDE
 		o.normalInterpolator.w = 1;//GetDistanceFadeout(o.screenPos.w, DISTANCE_SCALE);
 		
 		UNITY_TRANSFER_FOG(o,o.pos);
+		o.frustrumSpacePosition= Aura2_GetFrustumSpaceCoordinates(v.vertex);
 		return o;
+	}
+
+	float max_amplified(float not_amplified, float amplified, float amplification) {
+		if (not_amplified > amplified) {
+			return not_amplified;
+		}
+		else {
+			return amplified * amplification;
+		}
+	}
+
+	float sum_components(float3 color) {
+		return color.r + color.g + color.b;
+	}
+
+	float sum_components(half4 color) {
+		return color.r + color.g + color.b;
 	}
 
 	half4 frag( v2f i ) : SV_Target
@@ -230,6 +258,14 @@ CGINCLUDE
 		
 		baseColor.a = edgeBlendFactors.x*_Opacity;
 		UNITY_APPLY_FOG(i.fogCoord, baseColor);
+
+		#ifdef HAVE_AURA_2
+			float3 color = float3(0,0,0);
+			Aura2_ApplyLighting(color, i.frustrumSpacePosition, .1f);
+			Aura2_ApplyFog(baseColor, i.frustrumSpacePosition);
+			baseColor+=half4(color, 0);
+		#endif
+		
 		return baseColor;
 	}
 	

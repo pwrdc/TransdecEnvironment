@@ -644,6 +644,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6693106763582877081}
     m_Modifications:
+    - target: {fileID: 3306352825816767092, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: frustumSettings.qualitySettings
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5993714480178439807, guid: ab07cd0d49b41c4088575f290e8df775,
         type: 3}
       propertyPath: m_Name
@@ -704,6 +709,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.3333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.1666665
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab07cd0d49b41c4088575f290e8df775, type: 3}
 --- !u!20 &6693106762273889356 stripped
@@ -725,6 +745,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6693106763582877081}
     m_Modifications:
+    - target: {fileID: 3306352825816767092, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: frustumSettings.baseSettings
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306352825816767092, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: frustumSettings.qualitySettings
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5993714480178439807, guid: ab07cd0d49b41c4088575f290e8df775,
         type: 3}
       propertyPath: m_Name
@@ -784,6 +814,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.3333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.1666665
       objectReference: {fileID: 0}
     - target: {fileID: 8977843416370945323, guid: ab07cd0d49b41c4088575f290e8df775,
         type: 3}
@@ -886,6 +931,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6693106763582877081}
     m_Modifications:
+    - target: {fileID: 3306352825816767092, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: frustumSettings.baseSettings
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306352825816767092, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: frustumSettings.qualitySettings
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5993714480178439807, guid: ab07cd0d49b41c4088575f290e8df775,
         type: 3}
       propertyPath: m_Name
@@ -945,6 +1000,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.3333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.333333
+      objectReference: {fileID: 0}
+    - target: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.1666665
       objectReference: {fileID: 0}
     - target: {fileID: 8977843416370945323, guid: ab07cd0d49b41c4088575f290e8df775,
         type: 3}

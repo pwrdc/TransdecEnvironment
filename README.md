@@ -1,3 +1,9 @@
+# Paid assets
+
+This branch contains Aura 2 which is paid and cannot be posted on a public github repo. In order to run the full simulation download it from Unity asset store.
+
+If you don't have it you can still run the program, only some undefined script warnings will appear in the console.
+
 # TransdecEnvironment
 
 ![image](https://user-images.githubusercontent.com/23311513/53693770-1e5fbe00-3da5-11e9-8d21-36170c0b334d.png)
