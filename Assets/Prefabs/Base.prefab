@@ -1,5 +1,276 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &239825199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 239825201}
+  - component: {fileID: 239825200}
+  m_Layer: 0
+  m_Name: Aura Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &239825201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239825199}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -28.7, y: 1.38, z: -12.86}
+  m_LocalScale: {x: 50, y: 7, z: 25}
+  m_Children: []
+  m_Father: {fileID: 6048218709992607357}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &239825200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239825199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b142c931e4f39c429a012dc68ba0659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeShape:
+    shape: 0
+    fading:
+      falloffExponent: 0
+      xPositiveCubeFade: 0
+      xNegativeCubeFade: 0
+      yPositiveCubeFade: 0
+      yNegativeCubeFade: 0
+      zPositiveCubeFade: 0
+      zNegativeCubeFade: 0
+      angularConeFade: 0
+      distanceConeFade: 0
+      widthCylinderFade: 0
+      yNegativeCylinderFade: 0
+      yPositiveCylinderFade: 0
+      distanceSphereFade: 0
+  useAsLightProbesProxyVolume: 0
+  lightProbesMultiplier: 1
+  texture2DMask:
+    enable: 0
+    texture: {fileID: 0}
+    textureIndex: 0
+    transform:
+      space: 0
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0, y: 0, z: 0}
+  texture3DMask:
+    enable: 0
+    texture: {fileID: 0}
+    textureIndex: 0
+    transform:
+      space: 0
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0, y: 0, z: 0}
+  noiseMask:
+    enable: 0
+    speed: 0
+    transform:
+      space: 0
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+      scale: {x: 0, y: 0, z: 0}
+  densityInjection:
+    enable: 1
+    strength: 1
+    useNoiseMask: 0
+    useNoiseMaskLevels: 0
+    noiseMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+    useTexture2DMask: 0
+    useTexture2DMaskLevels: 0
+    texture2DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+    useTexture3DMask: 0
+    useTexture3DMaskLevels: 0
+    texture3DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+  scatteringInjection:
+    enable: 0
+    strength: 2
+    useNoiseMask: 0
+    useNoiseMaskLevels: 0
+    noiseMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+    useTexture2DMask: 0
+    useTexture2DMaskLevels: 0
+    texture2DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+    useTexture3DMask: 0
+    useTexture3DMaskLevels: 0
+    texture3DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+  lightInjection:
+    injectionParameters:
+      enable: 0
+      strength: 0
+      useNoiseMask: 0
+      useNoiseMaskLevels: 0
+      noiseMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 0
+        outputLowValue: 0
+        outputHiValue: 0
+        contrast: 0
+        saturateOutputValues: 0
+      useTexture2DMask: 0
+      useTexture2DMaskLevels: 0
+      texture2DMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 0
+        outputLowValue: 0
+        outputHiValue: 0
+        contrast: 0
+        saturateOutputValues: 0
+      useTexture3DMask: 0
+      useTexture3DMaskLevels: 0
+      texture3DMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 0
+        outputLowValue: 0
+        outputHiValue: 0
+        contrast: 0
+        saturateOutputValues: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  tintInjection:
+    injectionParameters:
+      enable: 0
+      strength: 0
+      useNoiseMask: 0
+      useNoiseMaskLevels: 0
+      noiseMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 0
+        outputLowValue: 0
+        outputHiValue: 0
+        contrast: 0
+        saturateOutputValues: 0
+      useTexture2DMask: 0
+      useTexture2DMaskLevels: 0
+      texture2DMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 0
+        outputLowValue: 0
+        outputHiValue: 0
+        contrast: 0
+        saturateOutputValues: 0
+      useTexture3DMask: 0
+      useTexture3DMaskLevels: 0
+      texture3DMaskLevelParameters:
+        levelLowThreshold: 0
+        levelHiThreshold: 0
+        outputLowValue: 0
+        outputHiValue: 0
+        contrast: 0
+        saturateOutputValues: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+  ambientInjection:
+    enable: 0
+    strength: 0
+    useNoiseMask: 0
+    useNoiseMaskLevels: 0
+    noiseMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+    useTexture2DMask: 0
+    useTexture2DMaskLevels: 0
+    texture2DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+    useTexture3DMask: 0
+    useTexture3DMaskLevels: 0
+    texture3DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+  boostInjection:
+    enable: 0
+    strength: 10
+    useNoiseMask: 0
+    useNoiseMaskLevels: 0
+    noiseMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+    useTexture2DMask: 0
+    useTexture2DMaskLevels: 0
+    texture2DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
+    useTexture3DMask: 0
+    useTexture3DMaskLevels: 0
+    texture3DMaskLevelParameters:
+      levelLowThreshold: 0
+      levelHiThreshold: 0
+      outputLowValue: 0
+      outputHiValue: 0
+      contrast: 0
+      saturateOutputValues: 0
 --- !u!1 &520323843
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +1060,8 @@ Transform:
   - {fileID: 9153791786499386259}
   - {fileID: 542129642}
   - {fileID: 520323844}
+  - {fileID: 239825201}
+  - {fileID: 7958329949215969571}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -808,6 +1081,81 @@ MonoBehaviour:
     Environment.\nIt can be any transform, its Y position \nis the only thing used.\nYou
     can also assign folder fields in Objects.\nBe careful with prefab overrides as
     they \ncan break other scenes. You shouldn't override scene\nspecific fields."
+--- !u!1001 &1872193282455956785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6048218709992607357}
+    m_Modifications:
+    - target: {fileID: 3407167546769583744, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_Name
+      value: Aura Directional Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.404694
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.702862
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5870906
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.053993464
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.17411111
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.78872985
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 65.136
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 43.534
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 53.514004
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28a137918b7786b4c904b9d12b29360e, type: 3}
+--- !u!4 &7958329949215969571 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1872193282455956785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2588017285137434122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -880,6 +1228,43 @@ PrefabInstance:
       propertyPath: annotation
       value: 
       objectReference: {fileID: 1554607908618792025}
+    - target: {fileID: 1733793392758863866, guid: b522b6efb5ec849dca481532bc053825,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679860144947708087, guid: b522b6efb5ec849dca481532bc053825,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693106762273889355, guid: b522b6efb5ec849dca481532bc053825,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467102409821371580, guid: b522b6efb5ec849dca481532bc053825,
+        type: 3}
+      propertyPath: frustumSettings.baseSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e2a2a5a93204ca4a83401a43d3ee5f0,
+        type: 2}
+    - target: {fileID: 4084361056947495977, guid: b522b6efb5ec849dca481532bc053825,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404161978861865969, guid: b522b6efb5ec849dca481532bc053825,
+        type: 3}
+      propertyPath: frustumSettings.baseSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e2a2a5a93204ca4a83401a43d3ee5f0,
+        type: 2}
+    - target: {fileID: 7958935791944930148, guid: b522b6efb5ec849dca481532bc053825,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b522b6efb5ec849dca481532bc053825, type: 3}
 --- !u!4 &9153791786499386259 stripped
