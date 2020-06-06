@@ -67,6 +67,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _Higlight_Start: 0.8
     - _IlluminationStrength: 1
     - _Metallic: 0
     - _Mode: 0

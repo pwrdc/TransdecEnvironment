@@ -41,10 +41,17 @@ Properties {
 
 
 CGINCLUDE
+	
+	// IMPORTANT: comment out line below if you don't have Aura 2
+	#define HAVE_AURA_2
+
+	// currently only the most expensive shader variant has Aura 2 integration
 
 	#include "UnityCG.cginc"
 	#include "WaterInclude.cginc"
-	#include "../../../../../Aura 2/Core/Code/Shaders/Aura.cginc"
+	#ifdef HAVE_AURA_2
+		#include "../../../../../Aura 2/Core/Code/Shaders/Aura.cginc"
+	#endif
 
 	struct appdata
 	{
@@ -252,10 +259,12 @@ CGINCLUDE
 		baseColor.a = edgeBlendFactors.x*_Opacity;
 		UNITY_APPLY_FOG(i.fogCoord, baseColor);
 
-		float3 color = float3(0,0,0);
-		Aura2_ApplyLighting(color, i.frustrumSpacePosition, .1f);
-		Aura2_ApplyFog(baseColor, i.frustrumSpacePosition);
-		baseColor+=half4(color, 0);
+		#ifdef HAVE_AURA_2
+			float3 color = float3(0,0,0);
+			Aura2_ApplyLighting(color, i.frustrumSpacePosition, .1f);
+			Aura2_ApplyFog(baseColor, i.frustrumSpacePosition);
+			baseColor+=half4(color, 0);
+		#endif
 		
 		return baseColor;
 	}

@@ -195,6 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7133343178172746120}
+  - component: {fileID: -6868116371864954679}
   - component: {fileID: 7133343178172746123}
   - component: {fileID: 7133343178172746124}
   - component: {fileID: 7133343178172746122}
@@ -225,6 +226,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &-6868116371864954679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7133343178172746121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: 'If you don''t have Aura 2 you have to open
+
+    Assets/Standard Assets/Environment/Water/
+
+    Water4/Shaders/FXWater4Advanced.shader
+
+    search for IMPORTANT and follow the instructions
+
+    there. This is because there is no way to check
+
+    if file exists before including it in a shader.'
 --- !u!114 &7133343178172746123
 MonoBehaviour:
   m_ObjectHideFlags: 0
