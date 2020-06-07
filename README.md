@@ -1,5 +1,7 @@
 # Paid assets
 
+![image](https://i.ibb.co/8Pm1gQp/volumetric-3.gif)
+
 This branch contains Aura 2 which is paid and cannot be posted on a public github repo. In order to run the full simulation download it from Unity asset store.
 
 If you don't have it you can still run the program, only some undefined script warnings will appear in the console. 
