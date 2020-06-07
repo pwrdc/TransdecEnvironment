@@ -2,7 +2,9 @@
 
 This branch contains Aura 2 which is paid and cannot be posted on a public github repo. In order to run the full simulation download it from Unity asset store.
 
-If you don't have it you can still run the program, only some undefined script warnings will appear in the console.
+If you don't have it you can still run the program, only some undefined script warnings will appear in the console. 
+
+You'll also have to comment out `#define HAVE_AURA_2` in `Assets/Standard Assets/Environment/Water/Water4/Shaders/FXWater4Advanced.shader`.
 
 # TransdecEnvironment
 
