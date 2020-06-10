@@ -25,7 +25,12 @@ Feel free to add tests here or edit them according to your judgement, just remem
 	- `rf` to move upwards and downwards
 	- go to an object on layer *ball*, press and hold `t`, it should follow the boat
 	- torpedo is left out for now as it has no visual indication
-- Pause the game and click *show sent data* in academy and judge if the values there are correct, do it five times while moving around.
+Debug screen:
+	- Press `b` button while moving.
+	- It should pause the simulation and display debug screen with the data exchanged with python. 
+	- Judge if the values there are correct. 
+	- Press `v' to close debug screen and resume the simulation.
+	- Do it five times while moving around.
 - Go to step one and select different scene, test for each scene.
 
 ## Data collection mode
@@ -34,12 +39,15 @@ Feel free to add tests here or edit them according to your judgement, just remem
 - Go back and click *start*.
 - A scene should open.
 - You should see quickly changing scene views.
-- Click pause in the editor.
+- Press `b` button
+	- It should pause the simulation and display debug screen.
 	- Check if you're inside of the pool, you can see upper water surface and you can recognise that you're under water by camera effects.
-	- You should be able to see a target, you can check if an object is a target in academy
-	- Find target annotation script and activate it, a green box should appear around the target
-	- Click *show sent data* in academy and judge if the values there are correct.
-- Click pause 4 more times and repeat the previous 4 checks
+	- You should see a green rectangle around an object.
+	- Verify that the rectangle approximates the area covered by the object on screen. 
+	- Check if the object is a target in academy.
+	- Judge if the floating point values displayed on the screen are correct. 
+	- Resume the simulation.
+	- Click `b` 4 more times and repeat the previous checks.
 - Go to step one and select different scene, test for each scene.
 
 ## Python integration

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Robot;
 using Robot.Functionality;
 using UnityEngine.Events;
+using System.Text;
 
 [System.Serializable]
 public class AgentSettings
@@ -54,7 +55,10 @@ public class RobotAgent : Agent
 
     float relativeAngle; //angle between robot and target
     Vector3 relativePosition; //position between robot and target
-    
+
+    float[] lastVectorAction = null;
+    float lastReward = 0;
+
     bool initialized=false;
     void Initialize(){
         engine=GetComponentInChildren<Engine>();
@@ -124,6 +128,39 @@ public class RobotAgent : Agent
         OnReset.Invoke();
     }
 
+    
+    string VectorActionsToString()
+    {
+        string[] actionNames =
+        {
+            "Longitudal",
+            "Lateral",
+            "Vertical",
+            "Yaw",
+            "Camera",
+            "Ball Grapper",
+            "Torpedo"
+        };
+        StringBuilder stringBuilder = new StringBuilder(256);
+        for (int i=0; i<actionNames.Length; i++)
+        {
+            stringBuilder.Append($"{actionNames[i]} : {lastVectorAction[i]}\n");
+        }
+        return stringBuilder.ToString();
+    }
+
+    public string GenerateDebugString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.Append("vector actions:\n");
+        stringBuilder.Append(VectorActionsToString());
+        stringBuilder.Append("\nobservations:\n");
+        stringBuilder.Append(GetObservations().toString());
+        stringBuilder.Append("\nreward : ");
+        stringBuilder.Append(lastReward);
+        return stringBuilder.ToString();
+    }
+
     public override void AgentAction(float[] vectorAction, string textAction)
     {
         if (!initialized)
@@ -165,6 +202,8 @@ public class RobotAgent : Agent
         relativeAngle = RelativeTargetAngle();
         float currentReward = CalculateReward();
         SetReward(currentReward);
+        lastReward = currentReward;
+        lastVectorAction = vectorAction;
     }
 
     public Vector3 RelativeTargetPosition(){
@@ -191,53 +230,56 @@ public class RobotAgent : Agent
         return relativeYaw;
     }
 
+    public Observations GetObservations()
+    {
+        Observations result = new Observations(new string[]{
+            "acceleration",
+            "angular acceleration",
+            "rotation",
+            "depth",
+            "bounding box",
+            "positive/negative",
+            "relative position",
+            "grab",
+            "torpedo"
+        }, 21);
+
+        result.Set("acceleration", accelerometer.GetAcceleration());
+        result.Set("angular acceleration", accelerometer.GetAngularAcceleration());
+        result.Set("rotation", accelerometer.GetRotation());
+        result.Set("depth", depthSensor.GetDepth());
+        if (agentSettings.dataCollection && agentSettings.positiveExamples)
+            result.Set("bounding box", annotation.GetBoundingBox());
+        else
+            result.SetZeros("bounding box", 4);
+        if (agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative)
+            result.Set("positive/negative", 1.0f);
+        else
+            result.Set("positive/negative", 0.0f);
+
+        if (agentSettings.sendRelativeData)
+            result.Set("relative position", new float[]{
+                relativePosition.x,
+                relativePosition.y,
+                relativePosition.z,
+                relativeAngle
+            });
+        else
+            result.SetZeros("relative position", 4);
+
+        result.Set("grab", (int)ballGrapper.GetState());
+        result.Set("torpedo", torpedo.IsHit() ? 1 : 0);
+        result.EndSetting();
+
+        return result;
+    }
+
     public override void CollectObservations()
     {
         if (!agentSettings.collectObservations)
             return;
-
-        float[] toSend = new float[21];
-        float[] acceleration = accelerometer.GetAcceleration();
-        float[] angularAcceleration = accelerometer.GetAngularAcceleration();
-        float[] rotation = accelerometer.GetRotation();
-        // acceleration data
-        int toSendCell = 0;
-        acceleration.CopyTo(toSend, toSendCell);
-        // angular acceleration data
-        toSendCell += acceleration.Length;
-        angularAcceleration.CopyTo(toSend, toSendCell);
-        // rotation data
-        toSendCell += angularAcceleration.Length;
-        rotation.CopyTo(toSend, toSendCell);
-        // depth data
-        toSendCell += rotation.Length;
-        toSend[toSendCell] = depthSensor.GetDepth();
-        // bounding box
-        toSendCell += 1;
-        if (agentSettings.dataCollection && agentSettings.positiveExamples)
-            annotation.GetBoundingBox().CopyTo(toSend, toSendCell);
-        // positive/negative example
-        toSendCell += 4;
-        if (agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative)
-            toSend[toSendCell] = 1.0f;
-        else
-            toSend[toSendCell] = 0.0f;
-        // relative position data
-        if (agentSettings.sendRelativeData)
-        {
-            toSend[toSendCell + 1] = relativePosition.x;
-            toSend[toSendCell + 2] = relativePosition.y;
-            toSend[toSendCell + 3] = relativePosition.z;
-            toSend[toSendCell + 4] = relativeAngle;
-        }
-        //Grab state
-        toSendCell += 4;
-        toSend[toSendCell] = (int)ballGrapper.GetState();
-        //Torpedo hit
-        toSendCell += 1;
-        toSend[toSendCell] = torpedo.IsHit() == true ? 1 : 0;
         
-        AddVectorObs(toSend);
+        AddVectorObs(GetObservations().ToArray());
     }
     #endregion
 

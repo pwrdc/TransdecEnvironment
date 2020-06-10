@@ -2,39 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlacingArea : MonoBehaviour
+public abstract class PlacingArea : MonoBehaviour
 {
-    public enum Type
+    public Vector3 CalculateBounds(Placeable placeable)
     {
-        Cube, CastedCircle
-    }
-    public Type type;
-
-    public Vector3 RandomPosition(Placeable placeable)
-    {
-        return Vector3.zero;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Matrix4x4 saved = Gizmos.matrix;
-        Gizmos.color = Color.yellow;
-        switch (type) {
-            case Type.Cube:
-                Gizmos.DrawWireCube(transform.position, transform.lossyScale);
-                break;
-            case Type.CastedCircle:
-                {
-                    Gizmos.matrix *= Matrix4x4.Translate(transform.position);
-                    Vector3 scale = transform.lossyScale;
-                    scale.y = 0;
-                    Gizmos.matrix *= Matrix4x4.Scale(scale);
-                    Gizmos.DrawWireSphere(Vector3.zero, 0.5f);
-                    Gizmos.matrix = saved;
-                    break;
-                }
-            default:
-                throw new InvalidEnumValueException(type);
+        Vector3 bounds = transform.lossyScale - new Vector3(placeable.radius, 0, placeable.radius);
+        if (placeable.occupiedSpace == Placeable.OccupiedSpace.Sphere)
+        {
+            bounds.y -= placeable.radius;
         }
+        bounds /= 2;
+        return bounds;
     }
+
+    public abstract Vector3 RandomPosition(Placeable placeable);
 }

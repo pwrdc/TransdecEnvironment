@@ -197,7 +197,8 @@ namespace UnityStandardAssets.Water
             Vector3 euler = cam.transform.eulerAngles;
             reflectCamera.transform.eulerAngles = new Vector3(-euler.x, euler.y, euler.z);
 
-            reflectCamera.Render();
+            if(reflectCamera.rect.x != 0 && reflectCamera.rect.y != 0)
+                reflectCamera.Render();
 
             GL.invertCulling = false;
         }

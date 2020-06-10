@@ -1,13 +1,3 @@
-# Paid assets
-
-![image](https://i.ibb.co/8Pm1gQp/volumetric-3.gif)
-
-This branch contains Aura 2 which is paid and cannot be posted on a public github repo. In order to run the full simulation download it from Unity asset store.
-
-If you don't have it you can still run the program, only some undefined script warnings will appear in the console. 
-
-You'll also have to comment out `#define HAVE_AURA_2` in `Assets/Standard Assets/Environment/Water/Water4/Shaders/FXWater4Advanced.shader`.
-
 # TransdecEnvironment
 
 ![image](https://user-images.githubusercontent.com/23311513/53693770-1e5fbe00-3da5-11e9-8d21-36170c0b334d.png)
@@ -46,7 +36,20 @@ Having done all of the above steps, double-click `RoboSub2018` scene in `Assets/
 
 ![image](https://user-images.githubusercontent.com/23311513/53694507-296c1b80-3db0-11e9-87df-822953e76585.png)
 
-Everything is set up, you may now start using **TransdecEnvironment**!
+# Optional Paid Assets
+
+![image](https://i.ibb.co/8Pm1gQp/volumetric-3.gif)
+
+*Aura 2* is a paid asset used in the project for more realistic lightning. We can't post it in this repository as it would be against the license.
+
+If you're not a member of PWr Diving Crew and you want to use it you need to buy *Aura 2* on the [Unity Asset Store](https://assetstore.unity.com/).
+
+After you have an account with *Aura 2* bought, go back to Unity and select `Window/Asset Store` in the menu. Then search for *Aura 2* package and import it into the project.
+
+If you don't have it you can still run the simulation, although there will be some warnings about missing scripts in the console. 
+
+You'll also have to comment out `#define HAVE_AURA_2` in `Assets/Standard Assets/Environment/Water/Water4/Shaders/FXWater4Advanced.shader`.
+
 
 ## Usage
 
@@ -94,6 +97,10 @@ Click it to show its properties in the Inspector:
     * `Force Data Collection` - execute data collection regardless of controller mode
     * `Force Noise` - execute noised data collection
     * `Force Negative Examples` - execute negative examples data collection
+
+# Debugging Controls
+  * `B` to pause the simulation in editor and display debug screen
+  * `V` to toggle debug screen on and off
     
 ## Updating
 In order to update TransdecEnvironment you need to reset your changes by executing:

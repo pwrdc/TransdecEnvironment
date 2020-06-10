@@ -116,6 +116,22 @@ public class RobotAcademy : Academy
         SetupAcademy();
     }
 
+    void ApplyDebugSettings()
+    {
+        if (forceDataCollection)
+        {
+            resetParameters["CollectData"] = 1;
+        }
+        if (forceNoise)
+        {
+            resetParameters["EnableNoise"] = 1;
+        }
+        if (forceNegativeExamples)
+        {
+            resetParameters["ForceToSaveAsNegative"] = 1;
+        }
+    }
+
     void SetupAcademy()
     {
         Debug.Log("Setup academy");
@@ -127,6 +143,7 @@ public class RobotAcademy : Academy
         {
             control = InitializedSettings.Control;
         }
+        ApplyDebugSettings();
         SetBrainControl();
         if ((int)resetParameters["FocusedObject"] >= objectCreator.targetObjects.Count)
             resetParameters["FocusedObject"] = 0;

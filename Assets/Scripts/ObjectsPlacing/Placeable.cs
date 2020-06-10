@@ -10,8 +10,14 @@ public class Placeable : MonoBehaviour
         Sphere
     }
     public OccupiedSpace occupiedSpace;
-    public bool randomY;
-    public float radius;
+    public enum Height
+    {
+        UnderSurface,
+        InTheMiddle,
+        OnBottom
+    }
+    public Height height;
+    public float radius=1;
     public Vector3 offset;
     [System.Serializable]
     public class Limit
@@ -37,6 +43,10 @@ public class Placeable : MonoBehaviour
     {
         public int min;
         public int max;
+        public int GetRandom()
+        {
+            return Random.Range(min, max);
+        }
     }
     public IntRange count;
 
@@ -46,12 +56,12 @@ public class Placeable : MonoBehaviour
         Vector3 bPosition = b.transform.position;
         if (a.occupiedSpace==OccupiedSpace.InfiniteCyllinder || b.occupiedSpace == OccupiedSpace.InfiniteCyllinder)
         {
-            // if either of them doesn't have randomY calculate distance between them on plane
+            // if either of them is a infinite cylinder calculate distance between them on plane
             aPosition.y = bPosition.y = 0;
         }
         float radiuses = a.radius + b.radius;
         // avoid square rooting
-        return Vector3.SqrMagnitude(aPosition-aPosition) >= radiuses*radiuses;
+        return Vector3.SqrMagnitude(aPosition-aPosition) <= radiuses*radiuses;
     }
 
     private void OnDrawGizmosSelected()

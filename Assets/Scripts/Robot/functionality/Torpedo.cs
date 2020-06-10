@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace Robot.Functionality
 {
     public class Torpedo : MonoBehaviour

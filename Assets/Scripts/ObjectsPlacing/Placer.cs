@@ -6,21 +6,59 @@ public class Placer : MonoBehaviour
 {
     public PlacingArea placingArea;
     public Transform folder;
-    Placeable folderPlaceables;
-    Placeable placed;
+    List<Placeable> placed=new List<Placeable>();
 
-    public Vector3 FindPlace(Placeable placeable)
+    public int maxTries = 3;
+
+    bool placeOnStart = true;
+
+    private void Start()
     {
-        return Vector3.zero;
+        if (placeOnStart)
+        {
+            PlaceAll();
+        }
     }
 
-    public void Place(Placeable placeable)
+    public bool Place(Placeable placeable)
     {
-
+        bool success = false;
+        int tries = 0;
+        while (!success && tries< maxTries)
+        {
+            placeable.transform.position=placingArea.RandomPosition(placeable);
+            success = true;
+            foreach (var otherPlaceable in placed)
+            {
+                if(Placeable.Overlaps(placeable, otherPlaceable))
+                {
+                    success = false;
+                    break;
+                }
+            }
+            tries++;
+        }
+        if (success)
+        {
+            placed.Add(placeable);
+        }
+        return success;
     }
 
     public void PlaceAll()
     {
-
+        Placeable[] folderPlaceables=folder.GetComponentsInChildren<Placeable>();
+        foreach(var placeable in folderPlaceables)
+        {
+            int count = placeable.count.GetRandom();
+            for (int i = 0; i < count; i++)
+            {
+                Placeable placeableInstance = Instantiate(placeable);
+                if (!Place(placeableInstance))
+                {
+                    Destroy(placeableInstance);
+                }
+            }
+        }
     }
 }
