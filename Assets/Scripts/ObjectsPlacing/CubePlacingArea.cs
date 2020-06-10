@@ -6,7 +6,7 @@ public class CubePlacingArea : PlacingArea
 {
     public override Vector3 RandomPosition(Placeable placeable)
     {
-        Vector3 bounds = CalculateBounds(placeable);
+        Vector3 bounds = CalculateBoundsSize(placeable);
         Vector3 position = transform.position + new Vector3(Random.Range(-bounds.x, bounds.x), 0, Random.Range(-bounds.z, bounds.z));
         switch (placeable.height)
         {
@@ -20,13 +20,26 @@ public class CubePlacingArea : PlacingArea
                 position.y = transform.position.y - bounds.y;
                 break;
         }
-        position += placeable.offset;
+        position -= placeable.offset;
         return position;
+    }
+
+    public override bool Contains(Placeable placeable)
+    {
+        Vector3 boundsSize = CalculateBoundsSize(placeable);
+        Bounds bounds = new Bounds(transform.position, boundsSize*2);
+        return bounds.Contains(placeable.transform.position+placeable.offset);
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, transform.lossyScale);
+    }
+
+    public override void DrawBoundsGizmo(Placeable placeable)
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, CalculateBoundsSize(placeable)*2);
     }
 }

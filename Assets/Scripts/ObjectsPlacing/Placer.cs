@@ -7,6 +7,7 @@ public class Placer : MonoBehaviour
     public PlacingArea placingArea;
     public Transform folder;
     List<Placeable> placed=new List<Placeable>();
+    List<Placeable> instantiated = new List<Placeable>();
 
     public int maxTries = 3;
 
@@ -20,45 +21,82 @@ public class Placer : MonoBehaviour
         }
     }
 
-    public bool Place(Placeable placeable)
+    bool OverlapsWithAnother(Placeable placeable)
     {
-        bool success = false;
-        int tries = 0;
-        while (!success && tries< maxTries)
+        foreach (var otherPlaceable in placed)
         {
-            placeable.transform.position=placingArea.RandomPosition(placeable);
-            success = true;
-            foreach (var otherPlaceable in placed)
+            if (placeable !=otherPlaceable && Placeable.Overlaps(placeable, otherPlaceable))
             {
-                if(Placeable.Overlaps(placeable, otherPlaceable))
-                {
-                    success = false;
-                    break;
-                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool Allowed(Placeable placeable)
+    {
+        return placingArea.Contains(placeable) && !OverlapsWithAnother(placeable);
+    }
+
+    public bool Place(Placeable toPlace, System.Func<Placeable, bool> restriction=null)
+    {
+        placed.Remove(toPlace);
+        int tries = 0;
+        while (tries< maxTries)
+        {
+            toPlace.transform.position=placingArea.RandomPosition(toPlace);
+            bool restrictionSatisifed = restriction == null || !restriction(toPlace);
+            if (restrictionSatisifed && !OverlapsWithAnother(toPlace))
+            {
+                placed.Add(toPlace);
+                toPlace.placer = this;
+                return true;
             }
             tries++;
         }
-        if (success)
-        {
-            placed.Add(placeable);
-        }
-        return success;
+        return false;
     }
 
-    public void PlaceAll()
+    public bool PlaceNear(Placeable toPlace, Placeable other, FloatRange range, System.Func<Placeable, bool> restriction = null)
+    {
+        int tries = 0;
+        while (tries < maxTries)
+        {
+            toPlace.transform.position = other.transform.position + Random.onUnitSphere*range.GetRandom();
+            if ((restriction == null || !restriction(toPlace)) && !OverlapsWithAnother(toPlace) && placingArea.Contains(toPlace))
+            {
+                placed.Add(toPlace);
+                return true;
+            }
+            tries++;
+        }
+        return false;
+    }
+
+    public void PlaceAll(System.Func<Placeable, bool> restriction=null)
     {
         Placeable[] folderPlaceables=folder.GetComponentsInChildren<Placeable>();
         foreach(var placeable in folderPlaceables)
         {
-            int count = placeable.count.GetRandom();
+            Place(placeable, restriction);
+            /*int count = placeable.count.GetRandom();
             for (int i = 0; i < count; i++)
             {
                 Placeable placeableInstance = Instantiate(placeable);
-                if (!Place(placeableInstance))
+                if (!Place(placeableInstance, restriction))
                 {
                     Destroy(placeableInstance);
                 }
-            }
+            }*/
+        }
+    }
+
+    public void Clear()
+    {
+        placed.Clear();
+        foreach(var placeable in instantiated)
+        {
+            // Destroy(placeable);
         }
     }
 }

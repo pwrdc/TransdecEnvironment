@@ -121,6 +121,124 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &55968030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1554607907821713665, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &55968031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1554607907821713677, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55968030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33df647cb54f10d4ea02f62f00e58d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &55968033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1554607907821713667, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55968030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec62eb245bbb22d40bc88a979bdb5446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &55968034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1554607907821713664, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55968030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3e2efcca156ed408fd53ec4c516d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &55968035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1554607907821713666, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55968030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b9ae88417e28948bb93e1c0226709a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &55968036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1554607907821713679, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55968030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b50892273f3234fade02ce2357559c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &55968038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55968030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b50892273f3234fade02ce2357559c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectBigSettings:
+    minRadius: 3
+    maxRadius: 8
+    waterLevel: 11
+    maxDepth: 4
+    othMaxDepth: 2
+    cameraFov: 40
+  objectSmallSettings:
+    minRadius: 1.5
+    maxRadius: 3
+    waterLevel: 9
+    maxDepth: 7.5
+    othMaxDepth: 3
+    cameraFov: 40
+  objectBottomSettings:
+    minRadius: 1.5
+    maxRadius: 4
+    waterLevel: 11
+    maxDepth: 9
+    othMaxDepth: 3
+    cameraFov: 40
+  objectSettings: []
+  enabledOption: 0
+--- !u!114 &55968039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55968030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e2977cb0c670e46a8de28d98a96d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectSpawnConfiguration: {fileID: 55968036}
+  randomCameraPosition: {fileID: 55968035}
+  randomInitNormal: {fileID: 55968034}
+  randomInitOnMesh: {fileID: 55968033}
+  noiseSpawner: {fileID: 55968031}
 --- !u!1 &100309483 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8099949753989911454, guid: 9b9e78f4ece6a7545a12c1a61c4bdbf3,
@@ -824,6 +942,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &386742198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386742196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!4 &406041796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e210e425cbd68e84d9edbaeb23593019,
@@ -860,6 +1014,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &421658644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421658642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1 &439321923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1322,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &582595563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582595561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1001 &607933500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1257,6 +1483,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &635680324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635680321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1001 &678732032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1338,6 +1600,48 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 178146782}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &733650855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153791786499386264, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &733650863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733650855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.3
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1 &796596785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,6 +1840,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &848060016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848060014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1 &899847807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5639931482307560736, guid: 6514bc9f39efd1440b47da1cce31b6f8,
@@ -1616,8 +1956,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915012531}
-  m_LocalRotation: {x: -0.08166981, y: 0.65550625, z: 0.07170678, w: 0.7473284}
-  m_LocalPosition: {x: 22.338257, y: 4.2025366, z: -11.06463}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: 16.820004, y: 5.13, z: -20.734999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1996,6 +2336,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &1066257711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066257708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1 &1066827615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 4486ff900b2a8f945978f60606018421,
@@ -2026,6 +2402,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &1066827617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066827615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1001 &1097167421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3087,6 +3499,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &1636033663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636033661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1 &1687311354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,6 +3734,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &1857019301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857019299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1 &1862145027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,6 +3781,7 @@ GameObject:
   - component: {fileID: 1862145029}
   - component: {fileID: 1862145030}
   - component: {fileID: 5202359785850059096}
+  - component: {fileID: 1862145028}
   m_Layer: 0
   m_Name: PlacingArea
   m_TagString: Untagged
@@ -3304,6 +3789,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1862145028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862145027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8185ffa2e7768459d5026cd4ef03b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robot: {fileID: 733650863}
+  targetsFolder: {fileID: 6774831613844491160}
+  cameraRange:
+    min: 5
+    max: 10
 --- !u!4 &1862145029
 Transform:
   m_ObjectHideFlags: 0
@@ -3749,6 +4251,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &1932592038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932592036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!1 &1944646664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,7 +4628,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 1
     max: 5
@@ -5054,7 +5592,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -5135,7 +5673,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -5673,7 +6211,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -5774,7 +6312,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -5827,7 +6365,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -5880,7 +6418,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -5933,7 +6471,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -6250,7 +6788,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -6569,7 +7107,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -6846,7 +7384,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -7049,7 +7587,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -7566,7 +8104,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -7937,7 +8475,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -8097,7 +8635,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -8282,7 +8820,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -8349,7 +8887,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -8418,7 +8956,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 3
     max: 5
@@ -8517,7 +9055,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -8621,7 +9159,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 1
+  canObscureView: 0
   count:
     min: 1
     max: 3
@@ -9342,7 +9880,7 @@ MonoBehaviour:
       enabled: 0
       min: 0
       max: 0
-  obscuresView: 0
+  canObscureView: 0
   count:
     min: 1
     max: 5
@@ -9407,7 +9945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1001 &5639931482612015489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9656,15 +10194,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
-    - target: {fileID: 1554607908618792025, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607908618792025, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 128274322474526282, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -9876,7 +10414,14 @@ PrefabInstance:
       propertyPath: agentSettings.collectObservations
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1554607907821713665, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1554607908618792028, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
+    - {fileID: 1554607908618792029, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
 --- !u!33 &7224387393263112245
 MeshFilter:
@@ -9986,6 +10531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5006512735270071609}
   - component: {fileID: 8296172669262044971}
+  - component: {fileID: 8296172669262044972}
   m_Layer: 0
   m_Name: NavigationGate
   m_TagString: Untagged
@@ -10017,6 +10563,42 @@ MonoBehaviour:
   yAngRange: 0
   zAngRange: 0
   allowedRotations: []
+--- !u!114 &8296172669262044972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172669262044970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  occupiedSpace: 1
+  height: 0
+  radius: 0.8
+  offset: {x: 0, y: 0, z: 0}
+  randomRotation:
+    X: 0
+    Y: 0
+    Z: 0
+    xLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    yLimit:
+      enabled: 0
+      min: 0
+      max: 0
+    zLimit:
+      enabled: 0
+      min: 0
+      max: 0
+  canObscureView: 0
+  count:
+    min: 0
+    max: 0
 --- !u!23 &8304834354806008048
 MeshRenderer:
   m_ObjectHideFlags: 0

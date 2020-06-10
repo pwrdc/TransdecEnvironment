@@ -9,7 +9,7 @@ public class Placeable : MonoBehaviour
         InfiniteCyllinder,
         Sphere
     }
-    public OccupiedSpace occupiedSpace;
+    public OccupiedSpace occupiedSpace=OccupiedSpace.Sphere;
     public enum Height
     {
         UnderSurface,
@@ -37,18 +37,11 @@ public class Placeable : MonoBehaviour
         public Limit zLimit;
     }
     public RandomRotation randomRotation;
-    public bool obscuresView;
-    [System.Serializable]
-    public class IntRange
-    {
-        public int min;
-        public int max;
-        public int GetRandom()
-        {
-            return Random.Range(min, max);
-        }
-    }
+    public bool canObscureView;
     public IntRange count;
+    
+    [HideInInspector]
+    public Placer placer;
 
     public static bool Overlaps(Placeable a, Placeable b)
     {
@@ -61,15 +54,23 @@ public class Placeable : MonoBehaviour
         }
         float radiuses = a.radius + b.radius;
         // avoid square rooting
-        return Vector3.SqrMagnitude(aPosition-aPosition) <= radiuses*radiuses;
+        return Vector3.SqrMagnitude(bPosition-aPosition) <= radiuses*radiuses;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
+        if (placer != null)
+        {
+            placer.placingArea.DrawBoundsGizmo(this);
+            if (!placer.Allowed(this))
+            {
+                Gizmos.color = Color.red;
+            }
+        }
         if (occupiedSpace==OccupiedSpace.Sphere)
         {
-            Gizmos.DrawWireSphere(transform.position, radius);
+            Gizmos.DrawWireSphere(transform.position+offset, radius);
         } else
         {
             Matrix4x4 saved = Gizmos.matrix;

@@ -152,8 +152,11 @@ public class RobotAgent : Agent
     public string GenerateDebugString()
     {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.Append("vector actions:\n");
-        stringBuilder.Append(VectorActionsToString());
+        if (lastVectorAction != null)
+        {
+            stringBuilder.Append("vector actions:\n");
+            stringBuilder.Append(VectorActionsToString());
+        }
         stringBuilder.Append("\nobservations:\n");
         stringBuilder.Append(GetObservations().toString());
         stringBuilder.Append("\nreward : ");

@@ -6,14 +6,14 @@ public class CastedCirclePlacingArea : PlacingArea
 {
     public override Vector3 RandomPosition(Placeable placeable)
     {
-        Vector3 bounds = CalculateBounds(placeable);
+        Vector3 bounds = CalculateBoundsSize(placeable);
 
         Vector3 position = Random.insideUnitSphere;
         position.y = 0;
         position.x *= bounds.x;
         position.y *= bounds.y;
         position += transform.position;
-        
+
         float bottom = transform.position.y - bounds.y;
         RaycastHit hit;
         if (Physics.Raycast(position, -transform.up, out hit))
@@ -36,6 +36,12 @@ public class CastedCirclePlacingArea : PlacingArea
         return position;
     }
 
+    public override bool Contains(Placeable placeable)
+    {
+        Vector3 bounds = CalculateBoundsSize(placeable);
+        return Vector3.Distance(placeable.transform.position, transform.position) < bounds.magnitude;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Matrix4x4 saved = Gizmos.matrix;
@@ -46,5 +52,10 @@ public class CastedCirclePlacingArea : PlacingArea
         Gizmos.matrix *= Matrix4x4.Scale(scale);
         Gizmos.DrawWireSphere(Vector3.zero, 0.5f);
         Gizmos.matrix = saved;
+    }
+
+    public override void DrawBoundsGizmo(Placeable placeable)
+    {
+
     }
 }
