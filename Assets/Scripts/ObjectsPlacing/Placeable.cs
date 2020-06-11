@@ -56,11 +56,18 @@ public class Placeable : MonoBehaviour
         return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
     }
 
-    // Sphere equation taken from: https://www.youtube.com/watch?v=E_Hwhp74Rhc
-    public Vector3 LeadingVector(Vector3 direction)
+    // returns a vector from (0,0,0) to point on shape surface 
+    // used for debugging RadiusInDirection
+    // Sphere equation taken from: https://en.wikipedia.org/wiki/Sphere
+    private Vector3 LeadingVector(Vector3 direction)
     {
+        if (occupiedSpace == OccupiedSpace.InfiniteCyllinder)
+        {
+            direction.y = 0;
+        }
         direction = Quaternion.Inverse(transform.rotation) * direction;
         direction = DivideVectorFields(direction, scale*radius);
+        
         direction.Normalize();
         float alpha=Vector3.Angle(Vector3.forward, direction)*Mathf.Deg2Rad;
         Vector3 projectionOnXY = new Vector3(direction.x, direction.y, 0);
@@ -75,7 +82,6 @@ public class Placeable : MonoBehaviour
 
     public float RadiusInDirection(Vector3 direction)
     {
-        
         return LeadingVector(direction).magnitude;
     }
 
@@ -140,7 +146,6 @@ public class Placeable : MonoBehaviour
         } else
         {
             Gizmos.matrix *= Matrix4x4.Translate(transform.position+offset);
-            Gizmos.matrix *= Matrix4x4.Rotate(transform.rotation);
             Gizmos.matrix *= Matrix4x4.Scale(new Vector3(radius*2 * scale.x, 0, radius * 2* scale.z));
             Gizmos.DrawWireMesh(PrimitiveHelper.GetPrimitiveMesh(PrimitiveType.Cylinder));
         }
