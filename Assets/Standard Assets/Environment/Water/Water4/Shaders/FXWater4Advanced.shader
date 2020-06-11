@@ -180,7 +180,9 @@ CGINCLUDE
 		o.normalInterpolator.w = 1;//GetDistanceFadeout(o.screenPos.w, DISTANCE_SCALE);
 		
 		UNITY_TRANSFER_FOG(o,o.pos);
-		o.frustrumSpacePosition= Aura2_GetFrustumSpaceCoordinates(v.vertex);
+		#ifdef HAVE_AURA_2
+			o.frustrumSpacePosition= Aura2_GetFrustumSpaceCoordinates(v.vertex);
+		#endif
 		return o;
 	}
 
