@@ -41,6 +41,7 @@ public class Placer : MonoBehaviour
     public bool Place(Placeable toPlace, System.Func<Placeable, bool> restriction=null)
     {
         placed.Remove(toPlace);
+        toPlace.RotateRandomly();
         int tries = 0;
         while (tries< maxTries)
         {
@@ -78,25 +79,16 @@ public class Placer : MonoBehaviour
         Placeable[] folderPlaceables=folder.GetComponentsInChildren<Placeable>();
         foreach(var placeable in folderPlaceables)
         {
-            Place(placeable, restriction);
-            /*int count = placeable.count.GetRandom();
-            for (int i = 0; i < count; i++)
+            placeable.gameObject.SetActive(false);
+            if(Place(placeable, restriction))
             {
-                Placeable placeableInstance = Instantiate(placeable);
-                if (!Place(placeableInstance, restriction))
-                {
-                    Destroy(placeableInstance);
-                }
-            }*/
+                placeable.gameObject.SetActive(true);
+            }
         }
     }
 
     public void Clear()
     {
         placed.Clear();
-        foreach(var placeable in instantiated)
-        {
-            // Destroy(placeable);
-        }
     }
 }

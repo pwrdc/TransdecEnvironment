@@ -39,7 +39,7 @@ public class CubePlacingArea : PlacingArea
 
     public override void DrawBoundsGizmo(Placeable placeable)
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Contains(placeable) ? Color.yellow : Color.red;
         Gizmos.DrawWireCube(transform.position, CalculateBoundsSize(placeable)*2);
     }
 }
