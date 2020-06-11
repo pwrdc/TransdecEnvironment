@@ -9,7 +9,7 @@ public class Placeable : MonoBehaviour
         InfiniteCyllinder,
         Sphere
     }
-    public OccupiedSpace occupiedSpace=OccupiedSpace.Sphere;
+    public OccupiedSpace occupiedSpace = OccupiedSpace.Sphere;
     public enum Height
     {
         UnderSurface,
@@ -17,7 +17,8 @@ public class Placeable : MonoBehaviour
         OnBottom
     }
     public Height height;
-    public float radius=1;
+    public float radius = 1;
+    public Vector3 scale = Vector3.one;
     public Vector3 offset;
     [System.Serializable]
     public class Limit
@@ -38,9 +39,45 @@ public class Placeable : MonoBehaviour
     }
     public RandomRotation randomRotation;
     public bool canObscureView;
-    
+
     [HideInInspector]
     public Placer placer;
+
+    [Tooltip("Used for debugging, there is a yellow line showing what is the allowed distance in this direction, and white one showing the direction itself.")]
+    public Vector3 probingVector = Vector3.forward;
+
+    Vector3 MultiplyVectorFields(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
+    }
+
+    Vector3 DivideVectorFields(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
+    }
+
+    // Sphere equation taken from: https://www.youtube.com/watch?v=E_Hwhp74Rhc
+    public Vector3 LeadingVector(Vector3 direction)
+    {
+        direction = Quaternion.Inverse(transform.rotation) * direction;
+        direction = DivideVectorFields(direction, scale*radius);
+        direction.Normalize();
+        float alpha=Vector3.Angle(Vector3.forward, direction)*Mathf.Deg2Rad;
+        Vector3 projectionOnXY = new Vector3(direction.x, direction.y, 0);
+        float beta= Vector3.Angle(Vector3.right, projectionOnXY)*Mathf.Deg2Rad;
+
+        Vector3 leadingVector = new Vector3();
+        leadingVector.x = radius * scale.x * Mathf.Sin(alpha)*Mathf.Cos(beta);
+        leadingVector.y = radius * scale.y * Mathf.Sin(alpha)*Mathf.Sin(beta);
+        leadingVector.z = radius * scale.z * Mathf.Cos(alpha);
+        return leadingVector;
+    }
+
+    public float RadiusInDirection(Vector3 direction)
+    {
+        
+        return LeadingVector(direction).magnitude;
+    }
 
     // checks if occupied spaces of two placeables overlap
     public static bool Overlaps(Placeable a, Placeable b)
@@ -52,7 +89,7 @@ public class Placeable : MonoBehaviour
             // if either of them is a infinite cylinder calculate distance between them on plane
             aPosition.y = bPosition.y = 0;
         }
-        float radiuses = a.radius + b.radius;
+        float radiuses = a.RadiusInDirection(aPosition-bPosition) + b.RadiusInDirection(aPosition - bPosition);
         // avoid square rooting
         return Vector3.SqrMagnitude(bPosition-aPosition) <= radiuses*radiuses;
     }
@@ -71,7 +108,7 @@ public class Placeable : MonoBehaviour
     {
         Vector3 rotation = new Vector3();
         // id doesn't make sense to rotate horizontally if some options are enabled
-        bool rotateHorizontally = height != Height.OnBottom && occupiedSpace != OccupiedSpace.InfiniteCyllinder;
+        bool rotateHorizontally = height != Height.OnBottom && height != Height.UnderSurface && occupiedSpace != OccupiedSpace.InfiniteCyllinder;
         if (rotateHorizontally && randomRotation.x) rotation.x = RotateAroundAxis(randomRotation.xLimit);
         if (randomRotation.y)                       rotation.y = RotateAroundAxis(randomRotation.yLimit);
         if (rotateHorizontally && randomRotation.z) rotation.z = RotateAroundAxis(randomRotation.zLimit);
@@ -81,7 +118,10 @@ public class Placeable : MonoBehaviour
     // yellow means correct placement and red means conflict
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.white;
+        Gizmos.DrawRay(transform.position + offset, probingVector);
         Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position + offset, transform.rotation*LeadingVector(probingVector));
         if (placer != null)
         {
             placer.placingArea.DrawBoundsGizmo(this);
@@ -90,16 +130,20 @@ public class Placeable : MonoBehaviour
                 Gizmos.color = Color.red;
             }
         }
+        Matrix4x4 saved = Gizmos.matrix;
         if (occupiedSpace==OccupiedSpace.Sphere)
         {
-            Gizmos.DrawWireSphere(transform.position+offset, radius);
+            Gizmos.matrix *= Matrix4x4.Translate(transform.position + offset);
+            Gizmos.matrix *= Matrix4x4.Rotate(transform.rotation);
+            Gizmos.matrix *= Matrix4x4.Scale(scale);
+            Gizmos.DrawWireSphere(Vector3.zero, radius);
         } else
         {
-            Matrix4x4 saved = Gizmos.matrix;
             Gizmos.matrix *= Matrix4x4.Translate(transform.position+offset);
-            Gizmos.matrix *= Matrix4x4.Scale(new Vector3(radius*2, 0, radius * 2));
+            Gizmos.matrix *= Matrix4x4.Rotate(transform.rotation);
+            Gizmos.matrix *= Matrix4x4.Scale(new Vector3(radius*2 * scale.x, 0, radius * 2* scale.z));
             Gizmos.DrawWireMesh(PrimitiveHelper.GetPrimitiveMesh(PrimitiveType.Cylinder));
-            Gizmos.matrix = saved;
         }
+        Gizmos.matrix = saved;
     }
 }
