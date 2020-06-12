@@ -25,4 +25,4 @@ MonoBehaviour:
   tint: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   tintStrength: 1
   useExtinction: 1
-  extinction: 0.70500004
+  extinction: 0.717

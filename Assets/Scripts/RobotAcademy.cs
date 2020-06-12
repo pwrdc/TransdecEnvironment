@@ -96,6 +96,9 @@ public class RobotAcademy : Academy
 
     public UnityEvent onResetParametersChanged;
 
+    public GameObject currentTarget => objectCreator.targetObjects[(int)resetParameters["FocusedObject"]];
+    public GameObject currentTargetAnnotation => objectCreator.targetAnnotations[(int)resetParameters["FocusedObject"]];
+
     public bool IsResetParameterTrue(string parameterName){
         return resetParameters[parameterName] != 0;
     }
