@@ -877,6 +877,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &439321923
 GameObject:
@@ -1104,6 +1105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 524484061}
   - component: {fileID: 524484060}
+  - component: {fileID: 524484062}
   m_Layer: 0
   m_Name: Academy
   m_TagString: Untagged
@@ -1192,6 +1194,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &524484062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524484059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: "Creating a prefab of Academy breaks \nreset parameters. They get reverted
+    to previous\nstate randomly. It might be an issue with custom\neditor or list
+    serialization."
 --- !u!1 &552001578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8099949753989911454, guid: 9b9e78f4ece6a7545a12c1a61c4bdbf3,
@@ -1273,6 +1290,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &635680321 stripped
 GameObject:
@@ -1335,6 +1353,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!4 &705912775 stripped
 Transform:
@@ -1389,6 +1408,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &796596785
 GameObject:
@@ -1613,6 +1633,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &899847807 stripped
 GameObject:
@@ -1915,6 +1936,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &1054726969
 MonoBehaviour:
@@ -1991,6 +2013,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &1066827615 stripped
 GameObject:
@@ -2047,6 +2070,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1001 &1115328076
 PrefabInstance:
@@ -2253,6 +2277,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &1139189574
 MonoBehaviour:
@@ -2815,6 +2840,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1001 &1648513220
 PrefabInstance:
@@ -3040,6 +3066,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &1773509138
 MonoBehaviour:
@@ -3194,6 +3221,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &1862145027
 GameObject:
@@ -3891,6 +3919,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 1.12, z: 0}
 --- !u!4 &2048658497 stripped
 Transform:
@@ -4472,6 +4501,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &3741212506920909148
 MonoBehaviour:
@@ -4567,6 +4597,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!23 &3741212507050966632
 MeshRenderer:
@@ -5105,6 +5136,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &3741212507233018393
 GameObject:
@@ -5206,6 +5238,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &3741212507257785648
 GameObject:
@@ -5259,6 +5292,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &3741212507299142934
 GameObject:
@@ -5312,6 +5346,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &3741212507380580099
 GameObject:
@@ -5365,6 +5400,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!4 &3741212507380580348
 Transform:
@@ -5683,6 +5719,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &3741212507487156380
 MonoBehaviour:
@@ -6031,6 +6068,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &3741212507652009840
 GameObject:
@@ -6308,6 +6346,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!4 &3741212507817143083
 Transform:
@@ -6511,6 +6550,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &3741212507992742664
 GameObject:
@@ -7028,6 +7068,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!4 &3741212508295720910
 Transform:
@@ -7414,6 +7455,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!54 &3741212508536456572
 Rigidbody:
@@ -7574,6 +7616,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!4 &3741212508599760008
 Transform:
@@ -7759,6 +7802,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!4 &3741212508810575326
 Transform:
@@ -7826,6 +7870,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!4 &3741212508871046116
 Transform:
@@ -7895,6 +7940,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!23 &3741212508871046122
 MeshRenderer:
@@ -7994,6 +8040,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0.8, y: 0, z: 1}
 --- !u!23 &3741212508893762644
 MeshRenderer:
@@ -8099,6 +8146,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &3741212508893762653
 MonoBehaviour:
@@ -8741,6 +8789,7 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &5202359785850059096
 MonoBehaviour:
@@ -8766,7 +8815,7 @@ GameObject:
   m_Layer: 0
   m_Name: Targets
   m_TagString: TasksFolder
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -8806,7 +8855,7 @@ MonoBehaviour:
   cameraRange:
     min: 3
     max: 10
-  cameraRotationRange: {x: 15, y: 20, z: 0}
+  cameraRotationRange: {x: 15, y: 30, z: 0}
 --- !u!114 &5636495343262407387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9125,4 +9174,5 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1554607908618792028, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
     - {fileID: 1554607908618792029, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
+    - {fileID: 1211506624, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

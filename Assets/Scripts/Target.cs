@@ -13,7 +13,7 @@ public class Target : MonoBehaviour
         {
             annotation = gameObject;
         }
-        
+        OnStart(this);
     }
     
     #region static variables and functions
