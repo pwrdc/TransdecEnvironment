@@ -43,7 +43,7 @@ public class TargetAnnotation : MonoBehaviour
                 style = new GUIStyle(GUI.skin.box);
                 style.normal.background = background;
             }
-            Bounds bounds = Utils.GetComplexBounds(TargetSettings.Instance.target);
+            Bounds bounds = Utils.GetComplexBounds(Target.Focused().gameObject);
             // object is not visible
             if (RobotAgent.Instance.ActiveCamera.WorldToScreenPoint(bounds.center).z < 0) return;
 

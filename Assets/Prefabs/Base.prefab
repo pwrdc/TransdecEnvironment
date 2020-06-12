@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 239825201}
   - component: {fileID: 239825200}
+  - component: {fileID: 5028344590265296675}
   m_Layer: 0
   m_Name: Aura Volume
   m_TagString: Untagged
@@ -271,6 +272,25 @@ MonoBehaviour:
       outputHiValue: 0
       contrast: 0
       saturateOutputValues: 0
+--- !u!114 &5028344590265296675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239825199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: 'The shape of the volume affects the way the
+
+    light travels, so it should only cover the water.
+
+    Otherwise the scene will be darker and the skybox
+
+    will be invisible.'
 --- !u!1 &520323843
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,15 +974,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b522b6efb5ec849dca481532bc053825, type: 3}
---- !u!108 &2464539755930589609 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 133333222001090467, guid: b522b6efb5ec849dca481532bc053825,
-    type: 3}
-  m_PrefabInstance: {fileID: 2588017285137434122}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9153791786499386259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6693106763582877081, guid: b522b6efb5ec849dca481532bc053825,
+    type: 3}
+  m_PrefabInstance: {fileID: 2588017285137434122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &2464539755930589609 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 133333222001090467, guid: b522b6efb5ec849dca481532bc053825,
     type: 3}
   m_PrefabInstance: {fileID: 2588017285137434122}
   m_PrefabAsset: {fileID: 0}

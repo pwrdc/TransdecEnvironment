@@ -36,8 +36,7 @@ public class RobotAgent : Agent
     [Header("Cameras")]
     public Camera frontCamera = null;
     public Camera bottomCamera = null;
-    private Camera activeCamera = null;
-    public Camera ActiveCamera { get { return activeCamera; } }
+    public Camera ActiveCamera { get; private set; } = null;
 
     private Engine engine;
     private DepthSensor depthSensor;
@@ -58,6 +57,8 @@ public class RobotAgent : Agent
 
     float[] lastVectorAction = null;
     float lastReward = 0;
+    
+    public CameraType focusedCamera;
 
     bool initialized=false;
     void Initialize(){
@@ -80,19 +81,19 @@ public class RobotAgent : Agent
 
     void SetCamera()
     {
-        if (CameraType.frontCamera == TargetSettings.Instance.cameraType)
+        if (focusedCamera==CameraType.frontCamera)
         {
             agentParameters.agentCameras[0] = frontCamera;
             frontCamera.targetDisplay = 0;
             bottomCamera.targetDisplay = 2;
-            activeCamera = frontCamera;
+            ActiveCamera = frontCamera;
         }
-        else if (CameraType.bottomCamera == TargetSettings.Instance.cameraType)
+        else if (focusedCamera==CameraType.bottomCamera)
         {
             agentParameters.agentCameras[0] = bottomCamera;
             bottomCamera.targetDisplay = 0;
             frontCamera.targetDisplay = 2;
-            activeCamera = bottomCamera;
+            ActiveCamera = bottomCamera;
         }
         else
         {
@@ -106,6 +107,7 @@ public class RobotAgent : Agent
         agentSettings.dataCollection = RobotAcademy.Instance.IsResetParameterTrue("CollectData");
         agentSettings.positiveExamples = RobotAcademy.Instance.IsResetParameterTrue("Positive");
         agentSettings.forceToSaveAsNegative = RobotAcademy.Instance.IsResetParameterTrue("ForceToSaveAsNegative");
+        focusedCamera = (CameraType)RobotAcademy.Instance.resetParameters["FocusedCamera"];
     }
 
     #region Agent overrided methods
@@ -180,7 +182,7 @@ public class RobotAgent : Agent
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
             if (IsNewCameraChosen((CameraType)vectorAction[4]))
             {
-                TargetSettings.Instance.cameraType = (CameraType)vectorAction[4];
+                focusedCamera = (CameraType)vectorAction[4];
                 SetCamera();
             }
             if (vectorAction[5] == 1)
@@ -193,11 +195,12 @@ public class RobotAgent : Agent
             }
         }
 
+        Target target = Target.Focused();
         //Calculate target info for collecting data (in case of new position on each step) 
-        if (agentSettings.randomizeTargetObjectPositionOnEachStep)
+        if (agentSettings.randomizeTargetObjectPositionOnEachStep && target!=null)
         {
-            targetCenter = Utils.GetComplexBounds(TargetSettings.Instance.target).center;
-            targetRotation = TargetSettings.Instance.target.transform.rotation;
+            targetCenter = Utils.GetComplexBounds(target.gameObject).center;
+            targetRotation = target.transform.rotation;
         }
 
         //Collect data
@@ -210,24 +213,24 @@ public class RobotAgent : Agent
     }
 
     public Vector3 RelativeTargetPosition(){
-        if(TargetSettings.Instance.target==null){
+        Transform target = Target.Focused()?.transform;
+        if (target == null){
             return Vector3.zero;
         }
-        Transform target=TargetSettings.Instance.target.transform;
-        Vector3 targetOffset=TargetSettings.Instance.targetOffset;
         Vector3 distToCenter = target.InverseTransformPoint(targetCenter);
-        Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter - targetOffset;
+        Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter;
         relativePos.x = Mathf.Abs(relativePos.x);
         relativePos.y = Mathf.Abs(relativePos.y);
         relativePos.z = Mathf.Abs(relativePos.z);
         return relativePos;
     }
 
-    public float RelativeTargetAngle(){
-        if(TargetSettings.Instance.target==null){
+    public float RelativeTargetAngle()
+    {
+        Transform target = Target.Focused()?.transform;
+        if (target==null){
             return 0f;
         }
-        Transform target=TargetSettings.Instance.target.transform;
         float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
         relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
         return relativeYaw;
@@ -288,7 +291,7 @@ public class RobotAgent : Agent
 
     bool IsNewCameraChosen(CameraType newMode)
     {
-        return newMode != TargetSettings.Instance.cameraType;
+        return newMode != focusedCamera;
     }
 
     /// <summary>

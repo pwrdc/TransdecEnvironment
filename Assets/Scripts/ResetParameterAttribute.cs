@@ -63,6 +63,10 @@ public class ResetParameterAttribute : Attribute {
             {
                 field.SetValue(obj, (int)resetParameter);
             }
+            else if (fieldType.IsEnum)
+            {
+                field.SetValue(obj, (int)resetParameter);
+            }
             else if (fieldType == typeof(bool))
             {
                 // bool field is false only if resetParameter is zero
@@ -74,7 +78,7 @@ public class ResetParameterAttribute : Attribute {
                 return;
             }
         }
-        catch (KeyNotFoundException e)
+        catch (KeyNotFoundException)
         {
             Debug.LogError($"ResetParameterAttribute name {name} doesn't exist in reset parameters dictionary.");
             return;
@@ -114,7 +118,7 @@ public class ResetParameterAttribute : Attribute {
         else
         {
             List<AttributeAndField> typeCache = new List<AttributeAndField>();
-            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
             foreach (FieldInfo field in fields)
             {
                 foreach (ResetParameterAttribute attribute in field.GetCustomAttributes<ResetParameterAttribute>())

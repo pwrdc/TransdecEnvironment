@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8613969033633872914}
   - component: {fileID: 5537146887801356785}
   - component: {fileID: 7032685673829613397}
+  - component: {fileID: 8227689981050478941}
   m_Layer: 0
   m_Name: Aura Directional Light
   m_TagString: Untagged
@@ -125,3 +126,21 @@ MonoBehaviour:
   customCookieDistanceFalloffPower: 2
   customAngularFalloffThreshold: 0.8
   customAngularFalloffPower: 2
+--- !u!114 &8227689981050478941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407167546769583744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e32fa964cd4466098c981fd0f975bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalLightAngle: 80
+  normalLightIntensivity: 1.2
+  minLightAngle: 60
+  maxLightAngle: 120
+  minIntensivity: 0.3
+  maxIntensivity: 1

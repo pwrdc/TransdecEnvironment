@@ -20,7 +20,6 @@ using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using Objects;
 
 /// <summary>
 /// Robot control
@@ -51,14 +50,6 @@ public enum CameraType
     bottomCamera
 }
 
-public enum ObjectType
-{
-    Big,
-    Small,
-    OnBottom,
-    Manual
-}
-
 /// <summary>
 /// Controls all academy
 /// 
@@ -77,13 +68,7 @@ public class RobotAcademy : Academy
     public Brain learningBrain;
     public Brain learningBrainNoImage;
     public Brain playerBrain;
-    public Brain padBrain;  
-
-    /// <summary>
-    /// The object creator
-    /// </summary>
-    [Header("Objects for creating datasets")]
-    public Objects.ObjectCreator objectCreator = new Objects.ObjectCreator();
+    public Brain padBrain;
 
     [Header("Debug settings - use carefully!")]
     public bool forceDataCollection = false;
@@ -95,9 +80,6 @@ public class RobotAcademy : Academy
     private RobotAgent robotAgent;
 
     public UnityEvent onResetParametersChanged;
-
-    public GameObject currentTarget => objectCreator.targetObjects[(int)resetParameters["FocusedObject"]];
-    public GameObject currentTargetAnnotation => objectCreator.targetAnnotations[(int)resetParameters["FocusedObject"]];
 
     public bool IsResetParameterTrue(string parameterName){
         return resetParameters[parameterName] != 0;
@@ -148,9 +130,8 @@ public class RobotAcademy : Academy
         }
         ApplyDebugSettings();
         SetBrainControl();
-        if ((int)resetParameters["FocusedObject"] >= objectCreator.targetObjects.Count)
+        if ((int)resetParameters["FocusedObject"] >= Target.Count())
             resetParameters["FocusedObject"] = 0;
-        SetFocusedObject((int)resetParameters["FocusedObject"]);
         onResetParametersChanged.Invoke();
     }
 
@@ -172,18 +153,6 @@ public class RobotAcademy : Academy
     {
         SetupAcademy();
     }
-
-    public void SetFocusedObject(int index)
-    {
-        for (int i = 0; i < objectCreator.targetObjects.Count; i++)
-        {
-            objectCreator.targetIsEnabled[i] = false;
-        }
-        objectCreator.targetIsEnabled[index] = true;
-
-        resetParameters["FocusedObject"] = index;
-    }
-
 
     /// <summary>
     /// Setups brains the control.

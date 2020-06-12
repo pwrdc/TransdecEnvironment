@@ -14,10 +14,17 @@ public class ScenesGenerator : MonoBehaviour
     public FloatRange cameraRange=new FloatRange(3, 10);
     public Vector3 cameraRotationRange = new Vector3(20, 20, 20);
 
+    bool targetAlwaysVisible;
+
+    // suppress variable is never assigned warning
+    #pragma warning disable 0649
     [ResetParameter] bool enableNoise;
     [ResetParameter] bool collectData;
     [ResetParameter] int focusedObject;
     [ResetParameter] bool setFocusedObjectInCenter;
+    [ResetParameter("Positive")] bool positiveExamples;
+    [ResetParameter] CameraType focusedCamera;
+    #pragma warning restore 0649
 
 
     void Start()
@@ -41,21 +48,20 @@ public class ScenesGenerator : MonoBehaviour
                 Random.Range(-multipliedRange.x, multipliedRange.x),
                 Random.Range(-multipliedRange.y, multipliedRange.y),
                 Random.Range(-multipliedRange.z, multipliedRange.z));
-        // TODO: bottom camera
         robot.transform.rotation*= rotation;
     }
 
-    void RotateRobot(Placeable target)
+    void RotateRobot(Placeable targetPlaceable, Target target)
     {
-        Quaternion rotation=Quaternion.LookRotation(target.transform.position - robot.transform.position);
-        if(TargetSettings.Instance.cameraType== CameraType.frontCamera)
+        Quaternion rotation=Quaternion.LookRotation(targetPlaceable.transform.position - robot.transform.position);
+        if(RobotAgent.Instance.focusedCamera == CameraType.bottomCamera || target.cameraType==CameraType.bottomCamera)
         {
             // rotate the robot 90 degrees up
             rotation *= Quaternion.Euler(-90, 0, 0);
         }
-        robot.transform.rotation = Quaternion.LookRotation(target.transform.position - robot.transform.position);
+        robot.transform.rotation = rotation;
         if (!setFocusedObjectInCenter)
-            RandomizeRobotRotation(target);
+            RandomizeRobotRotation(targetPlaceable);
     }
 
     private void OnDataCollection()
@@ -93,12 +99,11 @@ public class ScenesGenerator : MonoBehaviour
         }
     }
 
-    bool ObscuresView(Placeable placeable)
+    bool ObscuresView(Placeable placeable, Vector3 target)
     {
-        if (!placeable.canObscureView || !Objects.ObjectConfigurationSettings.Instance.setObjectAlwaysVisible)
+        if (!placeable.canObscureView || !targetAlwaysVisible)
             return false;
         Vector3 camera = RobotAgent.Instance.transform.position;
-        Vector3 target = TargetSettings.Instance.target.transform.position;
 
         Vector3 placeablePosition = placeable.transform.position;
 
@@ -109,7 +114,7 @@ public class ScenesGenerator : MonoBehaviour
         if (!bounds.Contains(placeablePosition))
             return false;
 
-        // distance(P, l)=|APxu|/|u| where A is a point on the line and u is line's direction 
+        // distance(P, l)=|AP x u|/|u| where A is a point on the line and u is line's direction 
         Vector3 AP = placeablePosition - target;
         Vector3 u = target - camera;
         float distance = Vector3.Cross(AP, u).magnitude / u.magnitude;
@@ -145,9 +150,11 @@ public class ScenesGenerator : MonoBehaviour
             ))
         {
             // successfully placed both of them
-            RotateRobot(target);
+            RotateRobot(target, Target.AtIndex(focusedObject));
             if (enableNoise)
-                placer.PlaceAll(noise);
+                placer.PlaceAll(noise, (Placeable placeable)=>ObscuresView(placeable, target.transform.position));
+            if (collectData && !positiveExamples)
+                target.gameObject.SetActive(false);
         }
         else
         {

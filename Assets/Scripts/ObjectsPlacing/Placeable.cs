@@ -43,7 +43,9 @@ public class Placeable : MonoBehaviour
     [HideInInspector]
     public Placer placer;
 
-    [Tooltip("Used for debugging, there is a yellow line showing what is the allowed distance in this direction, and white one showing the direction itself.")]
+    public bool debugMode;
+
+    [HideInInspector, Tooltip("Used for debugging, there is a yellow line showing what is the allowed distance in this direction, and white one showing the direction itself.")]
     public Vector3 probingVector = Vector3.forward;
 
     Vector3 MultiplyVectorFields(Vector3 a, Vector3 b)
@@ -120,21 +122,29 @@ public class Placeable : MonoBehaviour
         if (rotateHorizontally && randomRotation.z) rotation.z = RotateAroundAxis(randomRotation.zLimit);
     }
 
-    // draws the area of Placeable and placing area bounds for placing this placeable
-    // yellow means correct placement and red means conflict
-    private void OnDrawGizmosSelected()
+    void DrawProbingVector()
     {
         Gizmos.color = Color.white;
         Gizmos.DrawRay(transform.position + offset, probingVector);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position + offset, transform.rotation*LeadingVector(probingVector));
+        Gizmos.DrawRay(transform.position + offset, transform.rotation * LeadingVector(probingVector));
+    }
+
+    // draws the area of Placeable and placing area bounds for placing this placeable
+    // yellow means correct placement and red means conflict
+    void OnDrawGizmosSelected()
+    {
+        if (debugMode)
+            DrawProbingVector();
+        Gizmos.color = Color.yellow;
         if (placer != null)
         {
-            placer.placingArea.DrawBoundsGizmo(this);
+            // draw bounds gimzo of placing area shows it's bounds reduced by radius in each direction
+            // basically the area where the center of the object can be placed
+            if(debugMode)
+                placer.placingArea.DrawBoundsGizmo(this);
             if (!placer.Allowed(this))
-            {
                 Gizmos.color = Color.red;
-            }
         }
         Matrix4x4 saved = Gizmos.matrix;
         if (shape==Shape.Sphere)
@@ -143,11 +153,14 @@ public class Placeable : MonoBehaviour
             Gizmos.matrix *= Matrix4x4.Rotate(transform.rotation);
             Gizmos.matrix *= Matrix4x4.Scale(scale);
             Gizmos.DrawWireSphere(Vector3.zero, radius);
-        } else
+        } else if(shape == Shape.InfiniteCyllinder)
         {
             Gizmos.matrix *= Matrix4x4.Translate(transform.position+offset);
             Gizmos.matrix *= Matrix4x4.Scale(new Vector3(radius*2 * scale.x, 0, radius * 2* scale.z));
             Gizmos.DrawWireMesh(PrimitiveHelper.GetPrimitiveMesh(PrimitiveType.Cylinder));
+        } else
+        {
+            throw new InvalidEnumValueException(shape);
         }
         Gizmos.matrix = saved;
     }
