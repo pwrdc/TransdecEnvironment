@@ -20,15 +20,15 @@ public class CastedCirclePlacingArea : PlacingArea
         {
             bottom = hit.point.y;
         }
-        switch (placeable.height)
+        switch (placeable.verticalPlacement)
         {
-            case Placeable.Height.UnderSurface:
+            case Placeable.VerticalPlacement.UnderSurface:
                 position.y = transform.position.y;
                 break;
-            case Placeable.Height.InTheMiddle:
+            case Placeable.VerticalPlacement.InTheMiddle:
                 position.y = transform.position.y + Random.Range(0, hit.point.y);
                 break;
-            case Placeable.Height.OnBottom:
+            case Placeable.VerticalPlacement.OnBottom:
                 position.y = hit.point.y;
                 break;
         }

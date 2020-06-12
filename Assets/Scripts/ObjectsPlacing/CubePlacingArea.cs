@@ -8,15 +8,15 @@ public class CubePlacingArea : PlacingArea
     {
         Vector3 bounds = CalculateBoundsSize(placeable);
         Vector3 position = transform.position + new Vector3(Random.Range(-bounds.x, bounds.x), 0, Random.Range(-bounds.z, bounds.z));
-        switch (placeable.height)
+        switch (placeable.verticalPlacement)
         {
-            case Placeable.Height.UnderSurface:
+            case Placeable.VerticalPlacement.UnderSurface:
                 position.y = transform.position.y + bounds.y;
                 break;
-            case Placeable.Height.InTheMiddle:
+            case Placeable.VerticalPlacement.InTheMiddle:
                 position.y = transform.position.y + Random.Range(-bounds.y, bounds.y);
                 break;
-            case Placeable.Height.OnBottom:
+            case Placeable.VerticalPlacement.OnBottom:
                 position.y = transform.position.y - bounds.y;
                 break;
         }

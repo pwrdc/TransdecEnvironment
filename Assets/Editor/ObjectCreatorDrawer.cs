@@ -42,7 +42,7 @@ namespace Objects {
         */
             if (robotAcademy == null && objectSpawnConfiguration == null)
             {
-                robotAcademy = GameObject.Find("Academy").GetComponent<RobotAcademy>();
+                robotAcademy = GameObject.FindObjectOfType<RobotAcademy>();
                 objectSpawnConfiguration = GameObject.FindObjectOfType<ObjectSpawnConfiguration>();
             }
             InitializeObjectCreator(property, label);

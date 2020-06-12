@@ -2,6 +2,7 @@
 {
     Properties
     {
+		_Color("Color", Color) = (1,1,1, 1)
 		_Speed("Speed", Float) = 1.0
 		// there are two layers of noise to create a clumping effect
 		_Sharpness_1("Sharpness 1", Float) = 1.5
@@ -27,6 +28,7 @@
 
 #include "UnderwaterSurface.cginc"
 
+		fixed4 _Color;
 		float _Speed;
 		float _Sharpness_1;
 		float _Scale_1;
@@ -42,7 +44,7 @@
 
         void surf (Input IN, inout SurfaceOutputStandard  o)
         {
-            o.Albedo = float3(1,1,1);
+			o.Albedo = _Color;
 			float3 localPos = IN.worldPos - mul(unity_ObjectToWorld, float4(0, 0, 0, 1)).xyz;
 			float2 xzPos = float2(localPos.x, localPos.z);
 			float layer1= 1-underwater_surface(float3(_Time[0] * _Speed, xzPos*_Scale_1), _Sharpness_1);

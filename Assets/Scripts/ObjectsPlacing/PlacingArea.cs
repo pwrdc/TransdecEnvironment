@@ -7,7 +7,7 @@ public abstract class PlacingArea : MonoBehaviour
     public Vector3 CalculateBoundsSize(Placeable placeable)
     {
         Vector3 bounds = transform.lossyScale/2 - new Vector3(placeable.RadiusInDirection(transform.right), 0, placeable.RadiusInDirection(transform.forward));
-        if (placeable.occupiedSpace == Placeable.OccupiedSpace.Sphere)
+        if (placeable.shape == Placeable.Shape.Sphere)
         {
             bounds.y -= placeable.RadiusInDirection(transform.up);
         }

@@ -9,10 +9,8 @@ namespace Environment
         private Light light;
         public int minLightAngle = 60;
         public int maxLightAngle = 120;
-        [Range(0.0f, 0.3f)]
-        public float minIntensivity = 0.1f;
-        [Range(0.3f, 1f)]
-        public float maxIntensivity = 1f;
+        public float minIntensivity = 1.0f;
+        public float maxIntensivity = 1.4f;
 
         public override void Start()
         {

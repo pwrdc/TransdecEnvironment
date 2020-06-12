@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Placeable : MonoBehaviour
 {
-    public enum OccupiedSpace
+    public enum Shape
     {
         InfiniteCyllinder,
         Sphere
     }
-    public OccupiedSpace occupiedSpace = OccupiedSpace.Sphere;
-    public enum Height
+    public Shape shape = Shape.Sphere;
+    public enum VerticalPlacement
     {
         UnderSurface,
         InTheMiddle,
         OnBottom
     }
-    public Height height;
+    public VerticalPlacement verticalPlacement;
     public float radius = 1;
     public Vector3 scale = Vector3.one;
     public Vector3 offset;
@@ -61,7 +61,7 @@ public class Placeable : MonoBehaviour
     // Sphere equation taken from: https://en.wikipedia.org/wiki/Sphere
     private Vector3 LeadingVector(Vector3 direction)
     {
-        if (occupiedSpace == OccupiedSpace.InfiniteCyllinder)
+        if (shape == Shape.InfiniteCyllinder)
         {
             direction.y = 0;
         }
@@ -90,7 +90,7 @@ public class Placeable : MonoBehaviour
     {
         Vector3 aPosition = a.transform.position;
         Vector3 bPosition = b.transform.position;
-        if (a.occupiedSpace==OccupiedSpace.InfiniteCyllinder || b.occupiedSpace == OccupiedSpace.InfiniteCyllinder)
+        if (a.shape==Shape.InfiniteCyllinder || b.shape == Shape.InfiniteCyllinder)
         {
             // if either of them is a infinite cylinder calculate distance between them on plane
             aPosition.y = bPosition.y = 0;
@@ -114,7 +114,7 @@ public class Placeable : MonoBehaviour
     {
         Vector3 rotation = new Vector3();
         // id doesn't make sense to rotate horizontally if some options are enabled
-        bool rotateHorizontally = height != Height.OnBottom && height != Height.UnderSurface && occupiedSpace != OccupiedSpace.InfiniteCyllinder;
+        bool rotateHorizontally = verticalPlacement != VerticalPlacement.OnBottom && verticalPlacement != VerticalPlacement.UnderSurface && shape != Shape.InfiniteCyllinder;
         if (rotateHorizontally && randomRotation.x) rotation.x = RotateAroundAxis(randomRotation.xLimit);
         if (randomRotation.y)                       rotation.y = RotateAroundAxis(randomRotation.yLimit);
         if (rotateHorizontally && randomRotation.z) rotation.z = RotateAroundAxis(randomRotation.zLimit);
@@ -137,7 +137,7 @@ public class Placeable : MonoBehaviour
             }
         }
         Matrix4x4 saved = Gizmos.matrix;
-        if (occupiedSpace==OccupiedSpace.Sphere)
+        if (shape==Shape.Sphere)
         {
             Gizmos.matrix *= Matrix4x4.Translate(transform.position + offset);
             Gizmos.matrix *= Matrix4x4.Rotate(transform.rotation);

@@ -11,16 +11,6 @@ public class Placer : MonoBehaviour
 
     public int maxTries = 3;
 
-    bool placeOnStart = true;
-
-    private void Start()
-    {
-        if (placeOnStart)
-        {
-            PlaceAll();
-        }
-    }
-
     bool OverlapsWithAnother(Placeable placeable)
     {
         foreach (var otherPlaceable in placed)
@@ -74,10 +64,9 @@ public class Placer : MonoBehaviour
         return false;
     }
 
-    public void PlaceAll(System.Func<Placeable, bool> restriction=null)
+    public void PlaceAll(Placeable[] placeables, System.Func<Placeable, bool> restriction=null)
     {
-        Placeable[] folderPlaceables=folder.GetComponentsInChildren<Placeable>();
-        foreach(var placeable in folderPlaceables)
+        foreach(var placeable in placeables)
         {
             placeable.gameObject.SetActive(false);
             if(Place(placeable, restriction))
