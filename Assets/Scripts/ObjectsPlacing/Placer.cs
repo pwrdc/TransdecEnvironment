@@ -5,7 +5,6 @@ using UnityEngine;
 public class Placer : MonoBehaviour
 {
     public PlacingArea placingArea;
-    public Transform folder;
     List<Placeable> placed=new List<Placeable>();
     List<Placeable> instantiated = new List<Placeable>();
 

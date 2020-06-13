@@ -48,16 +48,6 @@ public class Placeable : MonoBehaviour
     [HideInInspector, Tooltip("Used for debugging, there is a yellow line showing what is the allowed distance in this direction, and white one showing the direction itself.")]
     public Vector3 probingVector = Vector3.forward;
 
-    Vector3 MultiplyVectorFields(Vector3 a, Vector3 b)
-    {
-        return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
-    }
-
-    Vector3 DivideVectorFields(Vector3 a, Vector3 b)
-    {
-        return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
-    }
-
     // returns a vector from (0,0,0) to point on shape surface 
     // used for debugging RadiusInDirection
     // Sphere equation taken from: https://en.wikipedia.org/wiki/Sphere
@@ -68,7 +58,7 @@ public class Placeable : MonoBehaviour
             direction.y = 0;
         }
         direction = Quaternion.Inverse(transform.rotation) * direction;
-        direction = DivideVectorFields(direction, scale*radius);
+        direction = Geometry.DivideVectorFields(direction, scale*radius);
         
         direction.Normalize();
         float alpha=Vector3.Angle(Vector3.forward, direction)*Mathf.Deg2Rad;

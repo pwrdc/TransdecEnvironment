@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-[CustomEditor(typeof(Placeable))]
+[CustomEditor(typeof(Placeable)), CanEditMultipleObjects]
 public class PlaceableEditor : Editor
 {
     SerializedProperty debugModeProperty;

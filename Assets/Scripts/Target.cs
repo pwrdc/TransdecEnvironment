@@ -49,7 +49,8 @@ public class Target : MonoBehaviour
     static void Initialize()
     {
         Target target = FindObjectOfType<Target>();
-        OnStart(target);
+        ResetParameterAttribute.InitializeAll(target);
+        ListTargets(target.transform.parent);
     }
 
     static void OnStart(Target target)

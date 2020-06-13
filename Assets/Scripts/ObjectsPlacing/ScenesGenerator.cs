@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Placer))]
 public class ScenesGenerator : MonoBehaviour
 {
     public Placeable robot;
