@@ -55,12 +55,12 @@ public class Target : MonoBehaviour
 
     static void OnStart(Target target)
     {
-        if (!initialized)
+        if (target==null)
         {
             ResetParameterAttribute.InitializeAll(target);
             ListTargets(target.transform.parent);
         }
-        else
+        else if(container!=target.transform.parent)
         {
             Debug.LogWarning("All targets should share the same parent for their ordering to work correctly.");
             targets.Add(target);

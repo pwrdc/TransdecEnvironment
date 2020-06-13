@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BackgroundImages : MonoBehaviour
 {
-    [ResetParameter] public bool isBackgroundImage = false;
+    [ResetParameter("EnableBackgroundImage")]
+    public bool isEnabled = false;
     public int numberOfPictures;
     public GameObject frontCameraBackground = null;
     public GameObject bottomCameraBackground = null;
@@ -14,19 +15,14 @@ public class BackgroundImages : MonoBehaviour
     private int numOfImageToDisplay = 0;
     private int numOfDisplayedImage = 0;
 
-    [ResetParameter] private CameraType activatedCameraType;
+    [ResetParameter] CameraType focusedCamera;
 
     private string[] fileNames;
 
     private bool isBackgroundAvailable = false;
 
-    private void ApplyResetParameters(){
-        this.activatedCameraType =  (CameraType)RobotAcademy.Instance.GetResetParameter("FocusedCamera");
-        this.isBackgroundImage = RobotAcademy.Instance.IsResetParameterTrue("EnableBackgroundImage");
-    }
-
     void OnDataCollection(){
-        if (isBackgroundImage)
+        if (isEnabled)
             SetNewBackground();
     }
 
@@ -58,7 +54,7 @@ public class BackgroundImages : MonoBehaviour
 
     void Start()
     {
-        RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
+        ResetParameterAttribute.InitializeAll(this);
         RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
         LoadImages();
     }
@@ -71,18 +67,18 @@ public class BackgroundImages : MonoBehaviour
     }
 
     void Update(){
-        EnableBackgroundImage(isBackgroundImage);
+        EnableBackgroundImage(isEnabled);
     }
 
     public void SetNewBackground()
     {
         if (isBackgroundAvailable)
         {
-            if (activatedCameraType==CameraType.frontCamera)
+            if (focusedCamera==CameraType.frontCamera)
             {
                 SetNewMaterial(frontCameraBackground, numOfImageToDisplay);
             }
-            else if (activatedCameraType==CameraType.bottomCamera)
+            else if (focusedCamera==CameraType.bottomCamera)
             {
                 SetNewMaterial(bottomCameraBackground, numOfImageToDisplay);
             }
