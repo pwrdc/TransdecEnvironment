@@ -320,8 +320,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312285019}
-  m_LocalRotation: {x: -0.00047529483, y: 0.9993193, z: 0.01649296, w: 0.032995116}
-  m_LocalPosition: {x: 12.237224, y: 12.232356, z: -9.51786}
+  m_LocalRotation: {x: 0, y: 0.9930263, z: 0, w: -0.11789287}
+  m_LocalPosition: {x: 29.78465, y: 11.828, z: -4.7172008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -478,8 +478,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603983576}
-  m_LocalRotation: {x: -0.016557526, y: -0.67947525, z: 0.015230704, w: -0.73335344}
-  m_LocalPosition: {x: 31.267418, y: 18.773264, z: -17.607529}
+  m_LocalRotation: {x: 0, y: 0.9930263, z: 0, w: -0.11789287}
+  m_LocalPosition: {x: 29.78465, y: 11.828, z: -4.7172008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -492,6 +492,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: randomRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: randomRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: verticalPlacement
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: placingArea
@@ -694,14 +709,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1653295314683915710, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: note
-      value: "To initialize scene drop this object and assign \nwater surface field
-        in Environment.\nIt can be any transform, its Y position \nis the only thing
-        used.\nBe careful with prefab overrides as they \ncan break other scenes.
-        You shouldn't override scene\nspecific fields."
       objectReference: {fileID: 0}
     - target: {fileID: 9153791786499386259, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}

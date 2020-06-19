@@ -14,7 +14,7 @@ public abstract class PlacingArea : MonoBehaviour
         return bounds;
     }
 
-    public abstract Vector3 RandomPosition(Placeable placeable);
+    public abstract void Place(Placeable placeable);
     public abstract bool Contains(Placeable placeable);
 
     public abstract void DrawBoundsGizmo(Placeable placeable);

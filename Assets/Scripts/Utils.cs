@@ -5,6 +5,18 @@ public static class Utils
 {
     private static System.Random rnd = new System.Random();
 
+    // calls action until it returns true or it is called tries times
+    // returns true if action succeded
+    public static bool Try(int tries, System.Func<bool> action)
+    {
+        while (tries > 0)
+        {
+            if (action()) return true;
+            else tries--;
+        }
+        return false;
+    }
+
     public static float GetRandom(float min, float max)
     {
         float randValue = (float)rnd.NextDouble();

@@ -122,18 +122,6 @@ public class ScenesGenerator : MonoBehaviour
         return distance < placeable.radius;
     }
 
-    // calls action until it returns true or it is called tries times
-    // returns true if action succeded
-    bool Try(int tries, System.Func<bool> action)
-    {
-        while (tries > 0)
-        {
-            if (action()) return true;
-            else tries--;
-        }
-        return false;
-    }
-
     void GenerateForDataCollection()
     {
         placer.Clear();
@@ -144,9 +132,9 @@ public class ScenesGenerator : MonoBehaviour
                 otherTarget.gameObject.SetActive(false);
         }
         // try putting target 10 times and every time target is placed try placing camera near it 10 times
-        if (Try(10, () =>
+        if (Utils.Try(10, () =>
             placer.Place(target)
-            && Try(10, () => placer.PlaceNear(robot, target, cameraRange))
+            && Utils.Try(10, () => placer.PlaceNear(robot, target, cameraRange))
             ))
         {
             // successfully placed both of them

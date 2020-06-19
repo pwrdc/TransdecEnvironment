@@ -110,6 +110,7 @@ public class Placeable : MonoBehaviour
         if (rotateHorizontally && randomRotation.x) rotation.x = RotateAroundAxis(randomRotation.xLimit);
         if (randomRotation.y)                       rotation.y = RotateAroundAxis(randomRotation.yLimit);
         if (rotateHorizontally && randomRotation.z) rotation.z = RotateAroundAxis(randomRotation.zLimit);
+        transform.rotation *= Quaternion.Euler(rotation);
     }
 
     void DrawProbingVector()

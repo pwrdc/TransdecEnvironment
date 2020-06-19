@@ -6,19 +6,26 @@ public class CastedCirclePlacingArea : PlacingArea
 {
     public LayerMask layerMask;
 
-    float Bottom(float x, float z, float placeableHeight)
+    struct BottomPoint
+    {
+        public float height;
+        public Vector3 normal;
+        public Vector3 position;
+    }
+
+    BottomPoint Bottom(float x, float z, float placeableHeight)
     {
         Vector3 position = new Vector3(x, transform.position.y - placeableHeight, z);
         RaycastHit hit;
         Ray ray = new Ray(position, -transform.up);
         if (Physics.Raycast(ray, out hit, float.PositiveInfinity, layerMask.value))
-            return hit.point.y+placeableHeight;
+            return new BottomPoint { height = hit.point.y + placeableHeight, normal=hit.normal};
         else
             // return a point right below the surface where the ray started
-            return position.y;
+            return new BottomPoint { height = position.y };
     }
 
-    public override Vector3 RandomPosition(Placeable placeable)
+    public override void Place(Placeable placeable)
     {
         Vector3 bounds = CalculateBoundsSize(placeable);
         float placeableHeight = placeable.RadiusInDirection(transform.up);
@@ -29,21 +36,23 @@ public class CastedCirclePlacingArea : PlacingArea
         position.z *= bounds.z;
         position += transform.position;
 
-        if (placeable.verticalPlacement == Placeable.VerticalPlacement.UnderSurface)
-            return position+placeable.offset;
-
-        float bottom = Bottom(position.x, position.z, placeableHeight);
-        
-        switch (placeable.verticalPlacement)
+        if (placeable.verticalPlacement != Placeable.VerticalPlacement.UnderSurface)
         {
-            case Placeable.VerticalPlacement.InTheMiddle:
-                position.y = Random.Range(position.y, bottom);
-                break;
-            case Placeable.VerticalPlacement.OnBottom:
-                position.y = bottom;
-                break;
+            BottomPoint bottom = Bottom(position.x, position.z, placeableHeight);
+
+            switch (placeable.verticalPlacement)
+            {
+                case Placeable.VerticalPlacement.InTheMiddle:
+                    position.y = Random.Range(position.y, bottom.height);
+                    break;
+                case Placeable.VerticalPlacement.OnBottom:
+                    position.y = bottom.height;
+                    // rotate the placeable to make it parallel to the ground in this point
+                    placeable.transform.rotation =Quaternion.LookRotation(bottom.normal) * Quaternion.Euler(90, 0, 0) * placeable.transform.rotation;
+                    break;
+            }
         }
-        return position+ placeable.offset;
+        placeable.transform.position=position+ placeable.offset;
     }
 
     public override bool Contains(Placeable placeable)
@@ -51,7 +60,7 @@ public class CastedCirclePlacingArea : PlacingArea
         Vector3 bounds = CalculateBoundsSize(placeable);
         Vector3 position = placeable.transform.position-placeable.offset;
         float placeableHeight = placeable.RadiusInDirection(transform.up);
-        if (position.y>transform.position.y+bounds.y || position.y <Bottom(position.x, position.z, placeableHeight))
+        if (position.y>transform.position.y+bounds.y || position.y <Bottom(position.x, position.z, placeableHeight).height)
         {
             return false;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CubePlacingArea : PlacingArea
 {
-    public override Vector3 RandomPosition(Placeable placeable)
+    public override void Place(Placeable placeable)
     {
         Vector3 bounds = CalculateBoundsSize(placeable);
         Vector3 position = transform.position + new Vector3(Random.Range(-bounds.x, bounds.x), 0, Random.Range(-bounds.z, bounds.z));
@@ -20,8 +20,7 @@ public class CubePlacingArea : PlacingArea
                 position.y = transform.position.y - bounds.y;
                 break;
         }
-        position -= placeable.offset;
-        return position;
+        placeable.transform.position=position+placeable.offset;
     }
 
     public override bool Contains(Placeable placeable)

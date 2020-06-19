@@ -31,10 +31,9 @@ public class Placer : MonoBehaviour
     {
         placed.Remove(toPlace);
         toPlace.RotateRandomly();
-        int tries = 0;
-        while (tries< maxTries)
+        return Utils.Try(maxTries, () =>
         {
-            toPlace.transform.position=placingArea.RandomPosition(toPlace);
+            placingArea.Place(toPlace);
             bool restrictionSatisifed = restriction == null || !restriction(toPlace);
             if (restrictionSatisifed && !OverlapsWithAnother(toPlace))
             {
@@ -42,15 +41,15 @@ public class Placer : MonoBehaviour
                 toPlace.placer = this;
                 return true;
             }
-            tries++;
-        }
-        return false;
+            else return false;
+        });
     }
 
     public bool PlaceNear(Placeable toPlace, Placeable other, FloatRange range, System.Func<Placeable, bool> restriction = null)
     {
-        int tries = 0;
-        while (tries < maxTries)
+        placed.Remove(toPlace);
+        toPlace.RotateRandomly();
+        return Utils.Try(maxTries, () =>
         {
             toPlace.transform.position = other.transform.position + Random.onUnitSphere*range.GetRandom();
             if ((restriction == null || !restriction(toPlace)) && !OverlapsWithAnother(toPlace) && placingArea.Contains(toPlace))
@@ -58,9 +57,8 @@ public class Placer : MonoBehaviour
                 placed.Add(toPlace);
                 return true;
             }
-            tries++;
-        }
-        return false;
+            else return false;
+        });
     }
 
     public void PlaceAll(Placeable[] placeables, System.Func<Placeable, bool> restriction=null)
