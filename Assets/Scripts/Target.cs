@@ -22,16 +22,22 @@ public class Target : MonoBehaviour
     static Transform container;
     static List<Target> targets;
 
+    // suppress variable is never assigned warning
+    #pragma warning disable 0649
     [ResetParameter] static bool collectData;
     [ResetParameter] static int focusedObject;
     [ResetParameter("Positive")] static bool positiveExamples;
+    #pragma warning restore 0649
 
     public static Target Focused()
     {
         if (!initialized) Initialize();
         if (collectData && !positiveExamples)
             return null;
-        return targets[focusedObject];
+        if (focusedObject >= 0 && focusedObject < targets.Count)
+            return targets[focusedObject];
+        else
+            return null;
     }
 
     public static Target AtIndex(int index)
@@ -65,6 +71,12 @@ public class Target : MonoBehaviour
             Debug.LogWarning("All targets should share the same parent for their ordering to work correctly.");
             targets.Add(target);
         }
+    }
+
+    public static void ActivateFolder(Transform folder)
+    {
+        targets.Clear();
+        ListTargets(folder);
     }
 
     static void ListTargets(Transform newContainer)

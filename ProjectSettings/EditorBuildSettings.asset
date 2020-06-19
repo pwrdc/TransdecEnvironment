@@ -5,15 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 250df961ade7b412c83f22c60b2bdf4a
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/RoboSub2019.unity
     guid: f2046fe3c9d5aed48b7d857a0c39b2c4
-  - enabled: 0
-    path: Assets/Scenes/ERL.unity
-    guid: e68a28fe00e86b24d98193e935b515f5
   - enabled: 1
     path: Assets/Scenes/SAUVC.unity
     guid: 9a402649e09e4b844adf68bfe3c55dec

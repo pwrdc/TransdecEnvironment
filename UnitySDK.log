@@ -1,21 +1,22 @@
-23.02.2020 12:41:01
+19.06.2020 21:08:50
  
-Log
-Setup academy
-UnityEngine.Debug:Log(Object)
-RobotAcademy:SetupAcademy() (at Assets/Scripts/RobotAcademy.cs:113)
-RobotAcademy:Start() (at Assets/Scripts/RobotAcademy.cs:108)
-
 Error
-Could not find background images: Could not find a part of the path 'D:\Github\robocik\Transdec_new\TransdecEnvironment\Assets\Resources\backgroundImages'.
+Could not find background images: Could not find a part of the path 'E:\Projects\TransdecEnvironment\Assets\Resources\backgroundImages'.
 UnityEngine.Debug:LogError(Object)
-BackgroundImageManager:Start() (at Assets/Scripts/BackgroundImageManager.cs:124)
+BackgroundImages:LoadImages() (at Assets/Scripts/BackgroundImages.cs:51)
+BackgroundImages:Start() (at Assets/Scripts/BackgroundImages.cs:59)
 
 Log
 Setup academy
 UnityEngine.Debug:Log(Object)
-RobotAcademy:SetupAcademy() (at Assets/Scripts/RobotAcademy.cs:113)
-RobotAcademy:AcademyReset() (at Assets/Scripts/RobotAcademy.cs:134)
+RobotAcademy:SetupAcademy() (at Assets/Scripts/RobotAcademy.cs:122)
+RobotAcademy:Start() (at Assets/Scripts/RobotAcademy.cs:101)
+
+Log
+Setup academy
+UnityEngine.Debug:Log(Object)
+RobotAcademy:SetupAcademy() (at Assets/Scripts/RobotAcademy.cs:122)
+RobotAcademy:AcademyReset() (at Assets/Scripts/RobotAcademy.cs:144)
 MLAgents.Academy:EnvironmentReset() (at Assets/ML-Agents/Scripts/Academy.cs:619)
 MLAgents.Academy:ForcedFullReset() (at Assets/ML-Agents/Scripts/Academy.cs:535)
 MLAgents.Academy:EnvironmentStep() (at Assets/ML-Agents/Scripts/Academy.cs:579)

@@ -15,7 +15,7 @@ public class ScenesGenerator : MonoBehaviour
     public FloatRange cameraRange=new FloatRange(3, 10);
     public Vector3 cameraRotationRange = new Vector3(20, 20, 20);
 
-    bool targetAlwaysVisible;
+    public bool targetAlwaysVisible;
 
     // suppress variable is never assigned warning
     #pragma warning disable 0649
@@ -26,7 +26,6 @@ public class ScenesGenerator : MonoBehaviour
     [ResetParameter("Positive")] bool positiveExamples;
     [ResetParameter] CameraType focusedCamera;
     #pragma warning restore 0649
-
 
     void Start()
     {
