@@ -864,11 +864,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoboSub2018
       objectReference: {fileID: 0}
-    - target: {fileID: 4481534106409197011, guid: bd48e4aa0b011d243b7306cc013f9742,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6551169359018776585, guid: bd48e4aa0b011d243b7306cc013f9742,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1245,11 +1240,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ERL
       objectReference: {fileID: 0}
-    - target: {fileID: 4698148191596431955, guid: 841135993d4dbf348b25359d868be697,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8503947878227425986, guid: 841135993d4dbf348b25359d868be697,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1571,11 +1561,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SAUVC
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328253614190549860, guid: ec1e626a9f8fec940b0d5d3e662a82f4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8328253614190549860, guid: ec1e626a9f8fec940b0d5d3e662a82f4,
         type: 3}

@@ -18,6 +18,14 @@ public class PlaceableEditor : Editor
     {
         DrawDefaultInspector();
 
+        if (GUILayout.Button("Auto Adjust")) {
+            foreach (Object target in targets)
+            {
+                Undo.RegisterCompleteObjectUndo(target, "Auto adjustment of " + target.name);
+                ((Placeable)target).AutoAdjust();
+            }
+        }
+        
         if (debugModeProperty.boolValue)
         {
             EditorGUILayout.HelpBox("There is a white line showing the probing vector and yellow line showing what is the allowed distance in this direction.", MessageType.Info);

@@ -16,7 +16,7 @@ public class Placeable : MonoBehaviour
         InTheMiddle,
         OnBottom
     }
-    public VerticalPlacement verticalPlacement;
+    public VerticalPlacement verticalPlacement=VerticalPlacement.OnBottom;
     public float radius = 1;
     public Vector3 scale = Vector3.one;
     public Vector3 offset;
@@ -38,15 +38,45 @@ public class Placeable : MonoBehaviour
         public Limit zLimit;
     }
     public RandomRotation randomRotation;
-    public bool canObscureView;
+    public bool canObscureView=true;
 
     [HideInInspector]
     public Placer placer;
 
     public bool debugMode;
 
-    [HideInInspector, Tooltip("Used for debugging, there is a yellow line showing what is the allowed distance in this direction, and white one showing the direction itself.")]
+    [HideInInspector]
     public Vector3 probingVector = Vector3.forward;
+
+    public void AutoAdjust()
+    {
+        Bounds bounds=Utils.GetComplexBounds(gameObject);
+        scale=transform.rotation*bounds.extents;
+        // scale might become flipped because of rotation so here it is fixed
+        scale = new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z));
+        radius = 1;
+        offset = bounds.center-transform.position;
+    }
+
+    // checks if occupied spaces of two placeables overlap
+    public static bool Overlaps(Placeable a, Placeable b)
+    {
+        Vector3 aPosition = a.transform.position;
+        Vector3 bPosition = b.transform.position;
+        if (a.shape == Shape.InfiniteCyllinder || b.shape == Shape.InfiniteCyllinder)
+        {
+            // if either of them is a infinite cylinder calculate distance between them on plane
+            aPosition.y = bPosition.y = 0;
+        }
+        float radiuses = a.RadiusInDirection(aPosition - bPosition) + b.RadiusInDirection(aPosition - bPosition);
+        // avoid square rooting
+        return Vector3.SqrMagnitude(bPosition - aPosition) <= radiuses * radiuses;
+    }
+
+    public float RadiusInDirection(Vector3 direction)
+    {
+        return LeadingVector(direction).magnitude;
+    }
 
     // returns a vector from (0,0,0) to point on shape surface 
     // used for debugging RadiusInDirection
@@ -58,38 +88,18 @@ public class Placeable : MonoBehaviour
             direction.y = 0;
         }
         direction = Quaternion.Inverse(transform.rotation) * direction;
-        direction = Geometry.DivideVectorFields(direction, scale*radius);
-        
+        direction = Geometry.DivideVectorFields(direction, scale * radius);
+
         direction.Normalize();
-        float alpha=Vector3.Angle(Vector3.forward, direction)*Mathf.Deg2Rad;
+        float alpha = Vector3.Angle(Vector3.forward, direction) * Mathf.Deg2Rad;
         Vector3 projectionOnXY = new Vector3(direction.x, direction.y, 0);
-        float beta= Vector3.Angle(Vector3.right, projectionOnXY)*Mathf.Deg2Rad;
+        float beta = Vector3.Angle(Vector3.right, projectionOnXY) * Mathf.Deg2Rad;
 
         Vector3 leadingVector = new Vector3();
-        leadingVector.x = radius * scale.x * Mathf.Sin(alpha)*Mathf.Cos(beta);
-        leadingVector.y = radius * scale.y * Mathf.Sin(alpha)*Mathf.Sin(beta);
+        leadingVector.x = radius * scale.x * Mathf.Sin(alpha) * Mathf.Cos(beta);
+        leadingVector.y = radius * scale.y * Mathf.Sin(alpha) * Mathf.Sin(beta);
         leadingVector.z = radius * scale.z * Mathf.Cos(alpha);
         return leadingVector;
-    }
-
-    public float RadiusInDirection(Vector3 direction)
-    {
-        return LeadingVector(direction).magnitude;
-    }
-
-    // checks if occupied spaces of two placeables overlap
-    public static bool Overlaps(Placeable a, Placeable b)
-    {
-        Vector3 aPosition = a.transform.position;
-        Vector3 bPosition = b.transform.position;
-        if (a.shape==Shape.InfiniteCyllinder || b.shape == Shape.InfiniteCyllinder)
-        {
-            // if either of them is a infinite cylinder calculate distance between them on plane
-            aPosition.y = bPosition.y = 0;
-        }
-        float radiuses = a.RadiusInDirection(aPosition-bPosition) + b.RadiusInDirection(aPosition - bPosition);
-        // avoid square rooting
-        return Vector3.SqrMagnitude(bPosition-aPosition) <= radiuses*radiuses;
     }
 
     // returns rotation around an axis taking the asisLimit into consideration if it is enabled
@@ -111,14 +121,6 @@ public class Placeable : MonoBehaviour
         if (randomRotation.y)                       rotation.y = RotateAroundAxis(randomRotation.yLimit);
         if (rotateHorizontally && randomRotation.z) rotation.z = RotateAroundAxis(randomRotation.zLimit);
         transform.rotation *= Quaternion.Euler(rotation);
-    }
-
-    void DrawProbingVector()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawRay(transform.position + offset, probingVector);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position + offset, transform.rotation * LeadingVector(probingVector));
     }
 
     // draws the area of Placeable and placing area bounds for placing this placeable
@@ -154,5 +156,13 @@ public class Placeable : MonoBehaviour
             throw new InvalidEnumValueException(shape);
         }
         Gizmos.matrix = saved;
+    }
+
+    void DrawProbingVector()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawRay(transform.position + offset, probingVector);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position + offset, transform.rotation * LeadingVector(probingVector));
     }
 }

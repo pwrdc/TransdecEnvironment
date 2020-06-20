@@ -55,13 +55,18 @@ public class Target : MonoBehaviour
     static void Initialize()
     {
         Target target = FindObjectOfType<Target>();
-        ResetParameterAttribute.InitializeAll(target);
-        ListTargets(target.transform.parent);
+        targets = new List<Target>();
+        if (target != null)
+        {
+            ResetParameterAttribute.InitializeAll(target);
+            ListTargets(target.transform.parent);
+        }
+        initialized = true;
     }
 
     static void OnStart(Target target)
     {
-        if (target==null)
+        if (container == null)
         {
             ResetParameterAttribute.InitializeAll(target);
             ListTargets(target.transform.parent);
@@ -75,14 +80,12 @@ public class Target : MonoBehaviour
 
     public static void ActivateFolder(Transform folder)
     {
-        targets.Clear();
-        ListTargets(folder);
+        if (!initialized) Initialize();
     }
 
     static void ListTargets(Transform newContainer)
     {
         container = newContainer;
-        targets = new List<Target>();
 
         // it is important to obtain targets in their order in the scene hierarchy
         // there is no such guarantee in FinObjectsOfType function
@@ -96,7 +99,6 @@ public class Target : MonoBehaviour
                     targets.Add(target);
             }
         }
-        initialized = true;
     }
     #endregion
 }

@@ -10,7 +10,6 @@ public class CastedCirclePlacingArea : PlacingArea
     {
         public float height;
         public Vector3 normal;
-        public Vector3 position;
     }
 
     BottomPoint Bottom(float x, float z, float placeableHeight)
@@ -22,7 +21,7 @@ public class CastedCirclePlacingArea : PlacingArea
             return new BottomPoint { height = hit.point.y + placeableHeight, normal=hit.normal};
         else
             // return a point right below the surface where the ray started
-            return new BottomPoint { height = position.y };
+            return new BottomPoint { height = position.y, normal = Vector3.up };
     }
 
     public override void Place(Placeable placeable)
@@ -52,7 +51,7 @@ public class CastedCirclePlacingArea : PlacingArea
                     break;
             }
         }
-        placeable.transform.position=position+ placeable.offset;
+        placeable.transform.position=position- placeable.offset;
     }
 
     public override bool Contains(Placeable placeable)

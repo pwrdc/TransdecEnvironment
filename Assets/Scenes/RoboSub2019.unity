@@ -492,6 +492,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3328227218160330, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194256184341607373, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: randomRotation.x

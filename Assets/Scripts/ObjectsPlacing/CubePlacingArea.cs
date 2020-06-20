@@ -20,7 +20,7 @@ public class CubePlacingArea : PlacingArea
                 position.y = transform.position.y - bounds.y;
                 break;
         }
-        placeable.transform.position=position+placeable.offset;
+        placeable.transform.position=position-placeable.offset;
     }
 
     public override bool Contains(Placeable placeable)
