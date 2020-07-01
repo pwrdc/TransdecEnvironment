@@ -10,8 +10,8 @@ Feel free to add tests here or edit them according to your judgement, just remem
 
 ## Main menu
 - Open Scenes/MainMenu.unity file. You should be presented with three buttons: *start*, *settings* and *quit*.
-- After clicking on settings three dropdown options should appear: *competition*, *mode* and *simulation mode* as well as back button.
-- Build the project with menu scene selected as main scene and test if clicking *exit* closes the window. Alternatively you can check if Application.Quit() is called after clicking the button.
+- After clicking on settings four dropdown options should appear: *mode* and *simulation mode*, *scenes* and *targets* as well as back button.
+- Build the project with menu scene selected as main scene and test if clicking *exit* closes the window. Alternatively you can check if `Application.Quit()` is called after clicking the button.
 
 ## Free swim mode
 - Open *Scenes/MainMenu.unity* file.
@@ -48,7 +48,16 @@ Debug screen:
 	- Judge if the floating point values displayed on the screen are correct. 
 	- Resume the simulation.
 	- Click `b` 4 more times and repeat the previous checks.
-- Go to step one and select different scene, test for each scene.
+- Go to step one and select different scene, test for each scene and targets.
+
+## Academy settings
+- Open one of the simulation scenes.
+- Open academy object.
+- Set FocusedCamera and CollectData to one and open the scene.
+- Run the scene and check if the generated scene views are correct.
+- Set EnableNoise to zero, there shouldn't be any objects from the noise folder on the scene.
+- Set EnableNoise to one, the objects from noise folder should be placed on the scene. 
+- Test if rest of the options work according to description in *README->Essential Academy parameters->Reset Parameters*
 
 ## Python integration
 
