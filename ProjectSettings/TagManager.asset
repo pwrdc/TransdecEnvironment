@@ -20,6 +20,8 @@ TagManager:
   - Tasks
   - NoiseFolder
   - TasksFolder
+  - Pool
+  - PoolSurface
   layers:
   - Default
   - TransparentFX
@@ -30,10 +32,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Ball
+  - Torpedo
+  - LightRays
+  - Pool
   - 
   - 
   - 

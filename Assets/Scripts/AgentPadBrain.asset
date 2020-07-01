@@ -15,13 +15,16 @@ MonoBehaviour:
   brainParameters:
     vectorObservationSize: 0
     numStackedVectorObservations: 1
-    vectorActionSize: 04000000
+    vectorActionSize: 07000000
     cameraResolutions: []
     vectorActionDescriptions:
     - movementLongitudinal
     - movementLateral
     - movementVertical
     - movementYaw
+    - cameraFocus
+    - grap
+    - torpedo
     vectorActionSpaceType: 1
   model: {fileID: 0}
   inferenceDevice: 0

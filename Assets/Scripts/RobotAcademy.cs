@@ -15,10 +15,11 @@ using MLAgents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using Objects;
 
 /// <summary>
 /// Robot control
@@ -49,14 +50,6 @@ public enum CameraType
     bottomCamera
 }
 
-public enum ObjectType
-{
-    Big,
-    Small,
-    OnBottom,
-    Manual
-}
-
 /// <summary>
 /// Controls all academy
 /// 
@@ -65,28 +58,17 @@ public enum ObjectType
 /// </summary>
 public class RobotAcademy : Academy
 {
+    
     private static RobotAcademy mInstance;
-    public static RobotAcademy Instance
-    {
-        get
-        {
-
-            return mInstance == null ? (mInstance = GameObject.Find("Academy").GetComponent<RobotAcademy>()) : mInstance;
-        }
-    }
+    public static RobotAcademy Instance => 
+        mInstance == null ? (mInstance = FindObjectOfType<RobotAcademy>()) : mInstance;
 
     [Header("Controller settings")]
     public RobotControl control;
     public Brain learningBrain;
     public Brain learningBrainNoImage;
     public Brain playerBrain;
-    public Brain padBrain;  
-
-    /// <summary>
-    /// The object creator
-    /// </summary>
-    [Header("Objects for creating datasets")]
-    public Objects.ObjectCreator objectCreator = new Objects.ObjectCreator();
+    public Brain padBrain;
 
     [Header("Debug settings - use carefully!")]
     public bool forceDataCollection = false;
@@ -97,29 +79,62 @@ public class RobotAcademy : Academy
     public Vector2 VisualObservationResolution;
     private RobotAgent robotAgent;
 
-    /// <summary>
-    /// Called when validation.
-    /// Setting up brain control.
-    /// </summary>
-    void OnValidate()
-    {
-        SetBrainControl();
+    public UnityEvent onResetParametersChanged;
+
+    public bool IsResetParameterTrue(string parameterName){
+        return resetParameters[parameterName] != 0;
     }
 
-    void Start()
+    public float GetResetParameter(string parameterName){
+        return resetParameters[parameterName];
+    }
+
+    void OnValidate()
+    {
+        //SetBrainControl();
+    }
+
+    public virtual void Start()
     {
         VisualObservationResolution.x = learningBrain.brainParameters.cameraResolutions[0].width;
         VisualObservationResolution.y = learningBrain.brainParameters.cameraResolutions[0].height;
         SetupAcademy();
     }
 
+    void ApplyDebugSettings()
+    {
+        if (forceDataCollection)
+        {
+            resetParameters["CollectData"] = 1;
+        }
+        if (forceNoise)
+        {
+            resetParameters["EnableNoise"] = 1;
+        }
+        if (forceNegativeExamples)
+        {
+            resetParameters["ForceToSaveAsNegative"] = 1;
+        }
+    }
+
     void SetupAcademy()
     {
+        Debug.Log("Setup academy");
+        if (InitializedSettings.IsMenu == true && control == RobotControl.player)
+        {
+            resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;
+        }
+        if(InitializedSettings.IsMenu == true)
+        {
+            control = InitializedSettings.Control;
+        }
+        ApplyDebugSettings();
         SetBrainControl();
-        if ((int)resetParameters["FocusedObject"] >= objectCreator.targetObjects.Count)
+        if ((int)resetParameters["FocusedObject"] >= Target.Count())
             resetParameters["FocusedObject"] = 0;
-        SetFocusedObject((int)resetParameters["FocusedObject"]);
+        onResetParametersChanged.Invoke();
     }
+
 
     /// <summary>
     /// Specifies the academy behavior when being reset, setups academy to starting values.
@@ -139,18 +154,6 @@ public class RobotAcademy : Academy
         SetupAcademy();
     }
 
-    public void SetFocusedObject(int index)
-    {
-        for (int i = 0; i < objectCreator.targetObjects.Count; i++)
-        {
-            objectCreator.targetIsEnabled[i] = false;
-        }
-        objectCreator.targetIsEnabled[index] = true;
-
-        resetParameters["FocusedObject"] = index;
-    }
-
-
     /// <summary>
     /// Setups brains the control.
     /// </summary>
@@ -161,8 +164,8 @@ public class RobotAcademy : Academy
             RobotAgent.Instance.GiveBrain(playerBrain);
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(playerBrain);
-            RobotAgent.Instance.AgentSettings.collectObservations = false;
-            RobotAgent.Instance.AgentSettings.targetReset = true;
+            RobotAgent.Instance.agentSettings.collectObservations = false;
+            RobotAgent.Instance.agentSettings.targetReset = true;
         }
         else if (control == RobotControl.pad)
         {
@@ -170,8 +173,8 @@ public class RobotAcademy : Academy
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(padBrain);
             broadcastHub.SetControlled(padBrain, true);
-            RobotAgent.Instance.AgentSettings.collectObservations = false;
-            RobotAgent.Instance.AgentSettings.targetReset = false;
+            RobotAgent.Instance.agentSettings.collectObservations = false;
+            RobotAgent.Instance.agentSettings.targetReset = false;
         }
         else if (control == RobotControl.python)
         {
@@ -179,8 +182,8 @@ public class RobotAcademy : Academy
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(learningBrain);
             broadcastHub.SetControlled(learningBrain, true);
-            RobotAgent.Instance.AgentSettings.collectObservations = true;
-            RobotAgent.Instance.AgentSettings.targetReset = false;
+            RobotAgent.Instance.agentSettings.collectObservations = true;
+            RobotAgent.Instance.agentSettings.targetReset = false;
         }
         else if (control == RobotControl.pythonNoImage)
         {
@@ -188,8 +191,8 @@ public class RobotAcademy : Academy
             broadcastHub.broadcastingBrains.Clear();
             broadcastHub.broadcastingBrains.Add(learningBrainNoImage);
             broadcastHub.SetControlled(learningBrainNoImage, true);
-            RobotAgent.Instance.AgentSettings.collectObservations = true;
-            RobotAgent.Instance.AgentSettings.targetReset = false;
+            RobotAgent.Instance.agentSettings.collectObservations = true;
+            RobotAgent.Instance.agentSettings.targetReset = false;
         }
     }
 }

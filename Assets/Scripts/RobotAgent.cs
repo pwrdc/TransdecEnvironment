@@ -2,17 +2,10 @@
 using MLAgents;
 using System;
 using System.Collections.Generic;
-
-[System.Serializable]
-public class TargetSettings
-{
-    public GameObject target;
-    public GameObject targetAnnotation;
-    public int targetIndex;
-    public CameraType cameraType;
-    public Vector3 targetOffset = Vector3.zero;
-    public bool drawBox = false;
-}
+using Robot;
+using Robot.Functionality;
+using UnityEngine.Events;
+using System.Text;
 
 [System.Serializable]
 public class AgentSettings
@@ -26,79 +19,32 @@ public class AgentSettings
     public bool randomizeTargetObjectPositionOnEachStep = true; //Only in data collection
 }
 
-
 public class RobotAgent : Agent
 {
-    #region Fields and Properties
     //Singleton
     private static RobotAgent mInstance = null;
-    public static RobotAgent Instance
-    {
-        get
-        {
-            return mInstance == null ? (mInstance = GameObject.Find("Agent").GetComponent<RobotAgent>()) : mInstance;
-        }
-    }
+    public static RobotAgent Instance => 
+        mInstance == null ? (mInstance = FindObjectOfType<RobotAgent>()) : mInstance;
 
-    //Events
-    [HideInInspector]
-    public event Action OnDataUpdate;
-    [HideInInspector]
-    public event Action<TargetSettings> OnDataTargetUpdate;
-    [HideInInspector]
-    public event Action<Objects.ObjectConfigurationSettings> OnDataConfigurationUpdate;
-    [HideInInspector]
-    public event Action<BackgroundSettings> OnDataBackgroundUpdate;
-    [HideInInspector]
-    public event Action<AgentSettings> OnDataAgentUpdate;
-    [HideInInspector]
-    public event Action<SceneEnvironment.EnvironmentSettings> OnDataEnvironmentUpdate;
-    [HideInInspector]
-    public event Action<SceneEnvironment.EnvironmentInitValues> OnDataEnvironmentValuesUpdate;
-
-    [Header("Managers")]
-    [SerializeField]
-    private SceneEnvironment.EnvironmentManager environmentManager;
-    [SerializeField]
-    private Robot.Robot robot;
-    public Robot.Robot Robot { get { return robot; } }
-    [SerializeField]
-    private Objects.ObjectManager objectManager;
+    public UnityEvent OnDataCollection;
+    public UnityEvent OnReset;
+    
     [SerializeField]
     private TargetAnnotation annotation;
-    [SerializeField]
-    private BackgroundImageManager backgroundManager;
 
-    [Header("Camera settings")]
+    [Header("Cameras")]
     public Camera frontCamera = null;
     public Camera bottomCamera = null;
-    private Camera activeCamera = null;
-    public Camera ActiveCamera { get { return activeCamera; } }
+    public Camera ActiveCamera { get; private set; } = null;
 
-    [Header("Custom Settings")]
-    [SerializeField]
-    private TargetSettings targetSettings = new TargetSettings();
-    [SerializeField]
-    private AgentSettings agentSettings = new AgentSettings();
-    [SerializeField]
-    private Objects.ObjectConfigurationSettings objectConfigurationSettings = new Objects.ObjectConfigurationSettings();
-    [SerializeField]
-    private BackgroundSettings backgroundSettings = new BackgroundSettings();
-    [SerializeField]
-    private SceneEnvironment.EnvironmentSettings environmentSettings = new SceneEnvironment.EnvironmentSettings();
-    [SerializeField]
-    private SceneEnvironment.EnvironmentInitValues environmentValuesSettings = new SceneEnvironment.EnvironmentInitValues();
+    private Engine engine;
+    private DepthSensor depthSensor;
+    private Accelerometer accelerometer;
+    private BallGrapper ballGrapper;
+    private Torpedo torpedo;
 
-
-    public TargetSettings TargetSettings { get { return targetSettings; } }
-    public AgentSettings AgentSettings { get { return agentSettings; } }
-    public Objects.ObjectConfigurationSettings ObjectConfigurationSettings { get { return objectConfigurationSettings; } }
-    public BackgroundSettings BackgroundSettings { get { return backgroundSettings; } }
-    public SceneEnvironment.EnvironmentSettings EnvironmentSettings { get { return environmentSettings; } }
-    public SceneEnvironment.EnvironmentInitValues EnvironmentInitValues { get { return environmentValuesSettings; } }
-
-
-    Rigidbody RobotRigidbody;
+    public AgentSettings agentSettings = new AgentSettings();
+    Rigidbody body;
     Vector3 targetCenter;
     Quaternion targetRotation;
     Vector3 startPos;
@@ -108,372 +54,244 @@ public class RobotAgent : Agent
     float relativeAngle; //angle between robot and target
     Vector3 relativePosition; //position between robot and target
 
-    List<GameObject> tasksObjects = new List<GameObject>();
+    float[] lastVectorAction = null;
+    float lastReward = 0;
+    
+    public CameraType focusedCamera;
 
-    bool isInitialized = false;
-    #endregion
-
-    #region Setting up Agent
-    void OnValidate()
-    {
-        SetAgent();
+    bool initialized=false;
+    void Initialize(){
+        engine=GetComponentInChildren<Engine>();
+        depthSensor=GetComponentInChildren<DepthSensor>();
+        accelerometer=GetComponentInChildren<Accelerometer>();
+        ballGrapper=GetComponentInChildren<BallGrapper>();
+        torpedo=GetComponentInChildren<Torpedo>();
+        body = GetComponent<Rigidbody>();
+        RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
+        SetCamera();
+        AgentReset();
+        initialized = true;
     }
 
     void Awake()
     {
-        Initialization();
+        Initialize();
     }
 
-    void Start()
-    {
-        SetAgent();
-        ResetAgent();
-    }
-
-    /// <summary>
-    /// Sets agent:
-    /// Initalizes agent
-    /// Setups information from robot academy
-    /// Sets camera
-    /// Invoke all events
-    /// </summary>
-    void SetAgent()
-    {
-        Initialization();
-        SetupRobotAcademyInfo();
-        SetCamera(); 
-        InvokeAllEvents(); 
-    }
-
-    void Initialization()
-    {
-        if (isInitialized)
-            return;
-        isInitialized = true;
-
-        environmentSettings.WaterSurface = GameObject.FindWithTag("WaterSurface");
-        objectConfigurationSettings.tasksFolder = GameObject.FindWithTag("TasksFolder");
-        objectConfigurationSettings.noiseFolder = GameObject.FindWithTag("NoiseFolder");
-        //objectConfigurationSettings.noiseFolder.SetActive(false);
-        RobotRigidbody = robot.gameObject.GetComponent<Rigidbody>();
-        Utils.GetObjectsInFolder(objectConfigurationSettings.tasksFolder, out tasksObjects);
-    }
-
-    /// <summary>
-    /// Show focused camera on Display 1 and set as agentCamera
-    /// </summary>
-    /// <exception cref="Exception">Wrong camera was choosen</exception>
     void SetCamera()
     {
-        if (CameraType.frontCamera == targetSettings.cameraType)
+        if (focusedCamera==CameraType.frontCamera)
         {
             agentParameters.agentCameras[0] = frontCamera;
-            frontCamera.targetDisplay = 0;
-            bottomCamera.targetDisplay = 2;
-            activeCamera = frontCamera;
+            frontCamera.gameObject.SetActive(true);
+            bottomCamera.gameObject.SetActive(false);
+            ActiveCamera = frontCamera;
         }
-        else if (CameraType.bottomCamera == targetSettings.cameraType)
+        else if (focusedCamera==CameraType.bottomCamera)
         {
             agentParameters.agentCameras[0] = bottomCamera;
-            bottomCamera.targetDisplay = 0;
-            frontCamera.targetDisplay = 2;
-            activeCamera = bottomCamera;
+            frontCamera.gameObject.SetActive(false);
+            bottomCamera.gameObject.SetActive(true);
+            ActiveCamera = bottomCamera;
         }
         else
         {
-            Debug.LogError("Chosed wrong camera");
-            throw new Exception("Wrong camera was choosen");
+            throw new InvalidEnumValueException(focusedCamera);
         }
     }
 
-    /// <summary>
-    /// Setups robot academy info for agent
-    /// </summary>
-    void SetupRobotAcademyInfo()
-    {
-        agentParameters.maxStep = (int)RobotAcademy.Instance.resetParameters["AgentMaxSteps"];
+    void ApplyResetParameters(){
+        agentParameters.maxStep = (int)RobotAcademy.Instance.GetResetParameter("AgentMaxSteps");
 
-        agentSettings.dataCollection = RobotAcademy.Instance.resetParameters["CollectData"] == 0 ? false : true;
-        agentSettings.positiveExamples = RobotAcademy.Instance.resetParameters["Positive"] == 0 ? false : true;
-        agentSettings.forceToSaveAsNegative = RobotAcademy.Instance.resetParameters["ForceToSaveAsNegative"] == 0 ? false : true;
-
-        targetSettings.cameraType = (CameraType)RobotAcademy.Instance.resetParameters["FocusedCamera"];
-        targetSettings.targetIndex = (int)RobotAcademy.Instance.resetParameters["FocusedObject"];
-        targetSettings.target = RobotAcademy.Instance.objectCreator.targetObjects[targetSettings.targetIndex];
-        targetSettings.targetAnnotation = RobotAcademy.Instance.objectCreator.targetAnnotations[targetSettings.targetIndex];
-        targetSettings.drawBox = agentSettings.dataCollection;
-
-        backgroundSettings.isBackgroundImage = RobotAcademy.Instance.resetParameters["EnableBackgroundImage"] == 0 ? false : true;
-        
-
-        objectConfigurationSettings.addNoise = RobotAcademy.Instance.resetParameters["EnableNoise"] == 0 ? false : true;
-        objectConfigurationSettings.setFocusedObjectInCenter = RobotAcademy.Instance.resetParameters["SetFocusedObjectInCenter"] == 0 ? false : true;
-
-        environmentSettings.isCurrentEnabled = RobotAcademy.Instance.resetParameters["WaterCurrent"] == 0 ? false : true;
-    }
-    #endregion
-
-    /// <summary>
-    /// Invoke all events
-    /// </summary>
-    void InvokeAllEvents()
-    {
-        if (OnDataUpdate != null)
-            OnDataUpdate.Invoke();
-
-        if (OnDataTargetUpdate != null)
-            OnDataTargetUpdate.Invoke(targetSettings);
-
-        if (OnDataConfigurationUpdate != null)
-            OnDataConfigurationUpdate.Invoke(objectConfigurationSettings);
-
-        if (OnDataBackgroundUpdate != null)
-            OnDataBackgroundUpdate.Invoke(backgroundSettings);
-
-        if (OnDataAgentUpdate != null)
-            OnDataAgentUpdate.Invoke(agentSettings);
-
-        if (OnDataEnvironmentUpdate != null)
-            OnDataEnvironmentUpdate.Invoke(environmentSettings);
-
-        if (OnDataEnvironmentValuesUpdate != null)
-            OnDataEnvironmentValuesUpdate.Invoke(environmentValuesSettings);
-    }
-
-    /// <summary>
-    /// Clear all tasks that are not active (only for collecting data)
-    /// </summary>
-    void DisableAllInactiveTasks()
-    {
-        foreach (var obj in tasksObjects)
-        {
-            if (obj != targetSettings.target)
-                obj.SetActive(false);
-        }
-    }
-
-    /// <summary>
-    /// Set environment to normal
-    /// Tasks are active
-    /// Background is disabled
-    /// Transdec is active
-    /// Noise is disabled
-    /// </summary>
-    void OnApplicationQuit()
-    {
-
-        foreach (var obj in tasksObjects)
-        {
-            obj.SetActive(true);
-        }
-
-        objectConfigurationSettings.noiseFolder.SetActive(false);
-        backgroundManager.EnableBackgroundImage(false);
+        agentSettings.dataCollection = RobotAcademy.Instance.IsResetParameterTrue("CollectData");
+        agentSettings.positiveExamples = RobotAcademy.Instance.IsResetParameterTrue("Positive");
+        agentSettings.forceToSaveAsNegative = RobotAcademy.Instance.IsResetParameterTrue("ForceToSaveAsNegative");
+        focusedCamera = (CameraType)RobotAcademy.Instance.resetParameters["FocusedCamera"];
+        SetCamera();
     }
 
     #region Agent overrided methods
-    /// <summary>
-    /// Specifies the agent behavior when being reset, which can be due to
-    /// the agent or Academy being done (i.e. completion of local or global
-    /// episode).
-    /// </summary>
+    
     public override void AgentReset()
     {
-        ResetAgent();
+        //Reset robot
+        body.angularVelocity = Vector3.zero;
+        body.velocity = Vector3.zero;
+
+        startPos = RelativeTargetPosition();
+        startRelativeAngle = RelativeTargetAngle();
+
+        //Reset reward
+        SetReward(0);
+        if (agentSettings.dataCollection)
+        {
+            agentParameters.numberOfActionsBetweenDecisions = 1;
+        }
+        OnReset.Invoke();
     }
 
-    /// <summary>
-    /// Specifies the agent behavior at every step based on the provided
-    /// action.
-    ///     Setups environment, then target object
-    /// </summary>
-    /// <param name="vectorAction">Vector action. Note that for discrete actions, the provided array
-    /// will be of length 1.</param>
-    /// <param name="textAction">Text action.</param>
+    
+    string VectorActionsToString()
+    {
+        string[] actionNames =
+        {
+            "Longitudal",
+            "Lateral",
+            "Vertical",
+            "Yaw",
+            "Camera",
+            "Ball Grapper",
+            "Torpedo"
+        };
+        StringBuilder stringBuilder = new StringBuilder(256);
+        for (int i=0; i<actionNames.Length; i++)
+        {
+            stringBuilder.Append($"{actionNames[i]} : {lastVectorAction[i]}\n");
+        }
+        return stringBuilder.ToString();
+    }
+
+    public string GenerateDebugString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        if (lastVectorAction != null)
+        {
+            stringBuilder.Append("vector actions:\n");
+            stringBuilder.Append(VectorActionsToString());
+        }
+        stringBuilder.Append("\nobservations:\n");
+        stringBuilder.Append(GetObservations().toString());
+        stringBuilder.Append("\nreward : ");
+        stringBuilder.Append(lastReward);
+        return stringBuilder.ToString();
+    }
+
     public override void AgentAction(float[] vectorAction, string textAction)
     {
+        if (!initialized)
+        {
+            Initialize();
+        }
+
         if (agentSettings.dataCollection) //Collecting data
         {
-            //Randomize environment (Water color and light)
-            if (environmentSettings.isEnvironmentRandomized && environmentSettings.isEnvironmentInitOnEachStep)
-                environmentManager.EnvironmentRandomizedInit();
-
-            //Randomize target object position
-            if (agentSettings.randomizeTargetObjectPositionOnEachStep)  
-                objectManager.RandomizeTargetPosition();
-
-            //Randomize camera position
-            objectManager.RandomizeCameraPositionFocusedOnTarget();
-
-            //Set background
-            if (backgroundSettings.isBackgroundImage) 
-                backgroundManager.SetNewBackground();
-
+            OnDataCollection.Invoke();
         }
         else //Testing/Training software 
         {
-            robot.Engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
-            if (IsNewCameraChosed((CameraType)vectorAction[4]))
+            engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
+            if (IsNewCameraChosen((CameraType)vectorAction[4]))
             {
-                targetSettings.cameraType = (CameraType)vectorAction[4];
-                SetAgent();
+                // focusedCamera = (CameraType)vectorAction[4];
+                // SetCamera();
+            }
+            if (vectorAction[5] == 1)
+            {
+                ballGrapper.Grab();
+            }
+            if (vectorAction[6] == 1)
+            {
+                torpedo.Shoot();
             }
         }
 
-
+        Target target = Target.Focused();
         //Calculate target info for collecting data (in case of new position on each step) 
-        if (agentSettings.randomizeTargetObjectPositionOnEachStep)
+        if (agentSettings.randomizeTargetObjectPositionOnEachStep && target!=null)
         {
-            targetCenter = Utils.GetComplexBounds(targetSettings.target).center;
-            targetRotation = targetSettings.target.transform.rotation;
+            targetCenter = Utils.GetComplexBounds(target.gameObject).center;
+            targetRotation = target.transform.rotation;
         }
 
         //Collect data
-        relativePosition = GetPosition();
-        relativeAngle = GetAngle();
+        relativePosition = RelativeTargetPosition();
+        relativeAngle = RelativeTargetAngle();
         float currentReward = CalculateReward();
         SetReward(currentReward);
+        lastReward = currentReward;
+        lastVectorAction = vectorAction;
     }
 
-    /// <summary>
-    /// Collects the (vector, visual, text) observations of the agent.
-    /// The agent observation describes the current environment from the
-    /// perspective of the agent.
-    /// </summary>
-    /// <remarks>Simply, an agents observation is any environment information that helps
-    /// the Agent acheive its goal. For example, for a fighting Agent, its
-    /// observation could include distances to friends or enemies, or the
-    /// current level of ammunition at its disposal.
-    /// Recall that an Agent may attach vector, visual or textual observations.
-    /// Vector observations are added by calling the provided helper methods:
-    /// - <see cref="AddVectorObs(int)" />
-    /// - <see cref="AddVectorObs(float)" />
-    /// - <see cref="AddVectorObs(Vector3)" />
-    /// - <see cref="AddVectorObs(Vector2)" />
-    /// - <see><cref>AddVectorObs(float[])</cref></see>
-    /// - <see><cref>AddVectorObs(List{float})</cref></see>
-    /// - <see cref="AddVectorObs(Quaternion)" />
-    /// - <see cref="AddVectorObs(bool)" />
-    /// - <see cref="AddVectorObs(int, int)" />
-    /// Depending on your environment, any combination of these helpers can
-    /// be used. They just need to be used in the exact same order each time
-    /// this method is called and the resulting size of the vector observation
-    /// needs to match the vectorObservationSize attribute of the linked Brain.
-    /// Visual observations are implicitly added from the cameras attached to
-    /// the Agent.
-    /// Lastly, textual observations are added using
-    /// <see cref="SetTextObs(string)" />.</remarks>
+    public Vector3 RelativeTargetPosition(){
+        Transform target = Target.Focused()?.transform;
+        if (target == null){
+            return Vector3.zero;
+        }
+        Vector3 distToCenter = target.InverseTransformPoint(targetCenter);
+        Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter;
+        relativePos.x = Mathf.Abs(relativePos.x);
+        relativePos.y = Mathf.Abs(relativePos.y);
+        relativePos.z = Mathf.Abs(relativePos.z);
+        return relativePos;
+    }
+
+    public float RelativeTargetAngle()
+    {
+        Transform target = Target.Focused()?.transform;
+        if (target==null){
+            return 0f;
+        }
+        float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
+        relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
+        return relativeYaw;
+    }
+
+    public Observations GetObservations()
+    {
+        Observations result = new Observations(new string[]{
+            "acceleration",
+            "angular acceleration",
+            "rotation",
+            "depth",
+            "bounding box",
+            "positive/negative",
+            "relative position",
+            "grab",
+            "torpedo"
+        }, 21);
+
+        result.Set("acceleration", accelerometer.GetAcceleration());
+        result.Set("angular acceleration", accelerometer.GetAngularAcceleration());
+        result.Set("rotation", accelerometer.GetRotation());
+        result.Set("depth", depthSensor.GetDepth());
+        if (agentSettings.dataCollection && agentSettings.positiveExamples)
+            result.Set("bounding box", annotation.GetBoundingBox());
+        else
+            result.SetZeros("bounding box", 4);
+        if (agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative)
+            result.Set("positive/negative", 1.0f);
+        else
+            result.Set("positive/negative", 0.0f);
+
+        if (agentSettings.sendRelativeData)
+            result.Set("relative position", new float[]{
+                relativePosition.x,
+                relativePosition.y,
+                relativePosition.z,
+                relativeAngle
+            });
+        else
+            result.SetZeros("relative position", 4);
+
+        result.Set("grab", (int)ballGrapper.GetState());
+        result.Set("torpedo", torpedo.IsHit() ? 1 : 0);
+        result.EndSetting();
+
+        return result;
+    }
+
     public override void CollectObservations()
     {
         if (!agentSettings.collectObservations)
             return;
-
-        float[] toSend = new float[19];
-        float[] acceleration = robot.Accelerometer.GetAcceleration();
-        float[] angularAcceleration = robot.Accelerometer.GetAngularAcceleration();
-        float[] rotation = robot.Accelerometer.GetRotation();
-        // acceleration data
-        int toSendCell = 0;
-        acceleration.CopyTo(toSend, toSendCell);
-        // angular acceleration data
-        toSendCell += acceleration.Length;
-        angularAcceleration.CopyTo(toSend, toSendCell);
-        // rotation data
-        toSendCell += angularAcceleration.Length;
-        rotation.CopyTo(toSend, toSendCell);
-        // depth data
-        toSendCell += rotation.Length;
-        toSend[toSendCell] = robot.DepthSensor.GetDepth();
-        // bounding box
-        toSendCell += 1;
-        if (agentSettings.dataCollection && agentSettings.positiveExamples)
-            annotation.GetBoundingBox().CopyTo(toSend, toSendCell);
-        // positive/negative example
-        toSendCell += 4;
-        if (agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative)
-            toSend[toSendCell] = 1.0f;
-        else
-            toSend[toSendCell] = 0.0f;
-        // relative position data
-        if (agentSettings.sendRelativeData)
-        {
-            toSend[toSendCell + 1] = relativePosition.x;
-            toSend[toSendCell + 2] = relativePosition.y;
-            toSend[toSendCell + 3] = relativePosition.z;
-            toSend[toSendCell + 4] = relativeAngle;
-        }
-        AddVectorObs(toSend);
+        
+        AddVectorObs(GetObservations().ToArray());
     }
     #endregion
 
-    void ResetAgent()
+    bool IsNewCameraChosen(CameraType newMode)
     {
-        //Reset robot
-        this.RobotRigidbody.angularVelocity = Vector3.zero;
-        this.RobotRigidbody.velocity = Vector3.zero;
-
-        startPos = GetPosition();
-        startRelativeAngle = GetAngle();
-
-        //Reset reward
-        SetReward(0);
-
-        //Reset scene
-        if (environmentSettings.isEnvironmentRandomized)
-            environmentManager.EnvironmentRandomizedInit();
-        else
-            environmentManager.EnvironmentNormalInit();
-
-        if (agentSettings.dataCollection)
-        {
-            agentParameters.numberOfActionsBetweenDecisions = 1;
-            //Set only target task visibled
-            DisableAllInactiveTasks();
-
-            //Set Noise enabled/disabled
-            objectConfigurationSettings.noiseFolder.SetActive(objectConfigurationSettings.addNoise);
-
-            //Set background enabled/disabled
-            backgroundManager.EnableBackgroundImage(backgroundSettings.isBackgroundImage);
-
-            //Set target enabled/disabled
-            targetSettings.target.SetActive(agentSettings.positiveExamples);
-        }
-    }
-
-    /// <summary>
-    /// Determines whether [is new camera chosed] [the specified new mode].
-    /// </summary>
-    /// <param name="newMode">The new mode.</param>
-    /// <returns><c>true</c> if [is new camera chosed] [the specified new mode]; otherwise, <c>false</c>.</returns>
-    bool IsNewCameraChosed(CameraType newMode)
-    {
-        return newMode == targetSettings.cameraType ? false : true;
-    }
-
-    /// <summary>
-    /// Relative position between robot and target
-    /// </summary>
-    /// <returns>relative position</returns>
-    Vector3 GetPosition()
-    {
-        Vector3 distToCenter = targetSettings.target.transform.InverseTransformPoint(targetCenter);
-        Vector3 relativePos = targetSettings.target.transform.InverseTransformPoint(RobotRigidbody.position) - distToCenter - targetSettings.targetOffset;
-        relativePos.x = Math.Abs(relativePos.x);
-        relativePos.y = Math.Abs(relativePos.y);
-        relativePos.z = Math.Abs(relativePos.z);
-        return relativePos;
-    }
-
-    /// <summary>
-    /// Get angle between robot and target
-    /// </summary>
-    /// <returns>relative angle</returns>
-    float GetAngle()
-    {
-        float relativeYaw = (Quaternion.Inverse(targetRotation) * RobotRigidbody.rotation).eulerAngles.y;
-        relativeYaw = Math.Abs((relativeYaw + 180) % 360 - 180);
-        return relativeYaw;
+        return newMode != focusedCamera;
     }
 
     /// <summary>
@@ -488,7 +306,7 @@ public class RobotAgent : Agent
                         CalculateSingleReward(relativePosition.y, startPos.y) +
                         CalculateSingleReward(relativePosition.z, startPos.z) +
                         CalculateSingleReward(relativeAngle, startRelativeAngle)) / 4 -
-                        collided - robot.Engine.isAboveSurface();
+                        collided - (engine.isAboveSurface()?1:0);
         return reward;
     }
 
