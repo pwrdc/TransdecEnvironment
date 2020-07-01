@@ -13,6 +13,7 @@ namespace Robot.Functionality
         [SerializeField]
         private float range = 0.5f;
         private StateGrapper state;
+        [SerializeField]
         private GameObject ball;
 
         private void Start()

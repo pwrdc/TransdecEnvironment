@@ -5,6 +5,51 @@ public static class Utils
 {
     private static System.Random rnd = new System.Random();
 
+    public static Bounds PointsToBounds(Vector3 point1, Vector3 point2)
+    {
+        Bounds result = new Bounds(point1, Vector3.zero);
+        result.Encapsulate(point2);
+        return result;
+    }
+
+    // extendsion method for Bounds
+    public static bool Contains(this Bounds bounds, Placeable placeable)
+    {
+        Vector3 position = placeable.position;
+        return
+            position.x + placeable.RadiusInDirection(-Vector3.left) >= bounds.min.x
+         && position.y + placeable.RadiusInDirection(-Vector3.up) >= bounds.min.y
+         && position.z + placeable.RadiusInDirection(-Vector3.forward) >= bounds.min.z
+         && position.x + placeable.RadiusInDirection(-Vector3.left) <= bounds.max.x
+         && position.y + placeable.RadiusInDirection(-Vector3.up) <= bounds.max.y
+         && position.z + placeable.RadiusInDirection(-Vector3.forward) <= bounds.max.z;
+    }
+
+    // https://en.wikibooks.org/wiki/Linear_Algebra/Orthogonal_Projection_Onto_a_Line
+    public static Vector3 ProjectPointOnLine(Vector3 linePoint1, Vector3 linePoint2, Vector3 point)
+    {
+        Vector3 v = point - linePoint1;
+        Vector3 s = linePoint2 - linePoint1;
+        return linePoint1 + Vector3.Dot(v, s) / Vector3.Dot(s, s) * s;
+    }
+
+    public static Vector3 DivideVectorsFields(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
+    }
+
+    // calls action until it returns true or it is called tries times
+    // returns true if action succeded
+    public static bool Try(int tries, System.Func<bool> action)
+    {
+        while (tries > 0)
+        {
+            if (action()) return true;
+            else tries--;
+        }
+        return false;
+    }
+
     public static float GetRandom(float min, float max)
     {
         float randValue = (float)rnd.NextDouble();

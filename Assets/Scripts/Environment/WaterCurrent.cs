@@ -20,21 +20,20 @@ namespace Environment
         private float angle;
         private float radius;
         private Vector3 current;
-        [ResetParameter] private bool isEnabled = false;
+        [ResetParameter("WaterCurrent")] private bool isEnabled = false;
 
         public bool isWaterCurrent() { return isEnabled; }
         public void setWaterCurrent(bool isEnabled) { this.isEnabled = isEnabled; }
 
-
         void Start()
         {
+            ResetParameterAttribute.InitializeAll(this);
             angle = Utils.GetRandom(0, 360);
             radius = Utils.GetRandom(minVelocity, maxVelocity);
             float x = radius * Mathf.Cos(angle);
             float z = radius * Mathf.Sin(angle);
             current = new Vector3(x, 0, z);
             rbody = GameObject.Find("Robot").GetComponent<Rigidbody>();
-            RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
         }
 
         void Update()
@@ -61,10 +60,6 @@ namespace Environment
             Vector3 robotVelocity = rbody.velocity;
             Vector3 newVelocity = robotVelocity + current;
             rbody.velocity = newVelocity;
-        }
-
-        public void ApplyResetParameters(){
-            isEnabled=RobotAcademy.Instance.IsResetParameterTrue("WaterCurrent");
         }
     }
 }

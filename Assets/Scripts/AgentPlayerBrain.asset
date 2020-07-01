@@ -57,5 +57,11 @@ MonoBehaviour:
   - key: 120
     index: 6
     value: 1
+  - key: 32
+    index: 2
+    value: 1
+  - key: 304
+    index: 2
+    value: -1
   axisContinuousPlayerActions: []
   discretePlayerActions: []

@@ -13,7 +13,7 @@ public class FakeTargetAnnotation : MonoBehaviour
     [SerializeField]
     private bool drawBox = false;
     [SerializeField]
-    private Environment.WaterOpacity waterOpacity = null;
+    private Environment.UnderwaterEffects waterOpacity = null;
     private float probability = 0;
     [SerializeField]
     private int fps = 1;

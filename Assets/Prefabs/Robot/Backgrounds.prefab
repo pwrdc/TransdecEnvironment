@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8187379434561332369}
-  - component: {fileID: 8240783871626822466}
+  - component: {fileID: 2333105692569241728}
   m_Layer: 0
   m_Name: Backgrounds
   m_TagString: Untagged
@@ -111,7 +111,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8240783871626822466
+--- !u!114 &2333105692569241728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,11 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8187379434561332368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d80f13daab0ed84dac6c143a225fafa, type: 3}
+  m_Script: {fileID: 11500000, guid: d762b357db655b6488caa7b6119f6f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isBackgroundImage: 0
-  numberOfPictures: 0
+  numberOfPictures: 5
   frontCameraBackground: {fileID: 8187379435910579790}
   bottomCameraBackground: {fileID: 8187379434254110410}
   frequencyOfImageBackground: 10

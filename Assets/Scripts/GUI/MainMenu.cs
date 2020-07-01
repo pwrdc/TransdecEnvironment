@@ -8,11 +8,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Dropdown sceneDropdown;
-    [SerializeField]
     private TMP_Dropdown controllDropdown;
     [SerializeField]
     private TMP_Dropdown modeDropdown;
+    [SerializeField]
+    private TMP_Dropdown sceneDropdown;
+    [SerializeField]
+    private TMP_Dropdown targetsDropdown;
 
     private string sceneToLoad = "SAUVC";
 
@@ -34,7 +36,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void updateMenu()
+    public void UpdateMenu()
     {
         sceneToLoad = sceneDropdown.options[sceneDropdown.value].text;
         switch(controllDropdown.value)
@@ -65,5 +67,6 @@ public class MainMenu : MonoBehaviour
                 InitializedSettings.IsCollecting = false;
                 break;
         }
+        InitializedSettings.targetsFolderIndex = targetsDropdown.value;
     }
 }

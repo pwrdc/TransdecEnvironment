@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Robot;
 using Robot.Functionality;
 using UnityEngine.Events;
+using System.Text;
 
 [System.Serializable]
 public class AgentSettings
@@ -17,7 +18,6 @@ public class AgentSettings
     public bool collectObservations = false; //If agent is collecting data
     public bool randomizeTargetObjectPositionOnEachStep = true; //Only in data collection
 }
-
 
 public class RobotAgent : Agent
 {
@@ -35,8 +35,7 @@ public class RobotAgent : Agent
     [Header("Cameras")]
     public Camera frontCamera = null;
     public Camera bottomCamera = null;
-    private Camera activeCamera = null;
-    public Camera ActiveCamera { get { return activeCamera; } }
+    public Camera ActiveCamera { get; private set; } = null;
 
     private Engine engine;
     private DepthSensor depthSensor;
@@ -51,12 +50,15 @@ public class RobotAgent : Agent
     Vector3 startPos;
     float startRelativeAngle;
     int collided = 0;
-    bool isAwaked = false;
-    bool isAgentSet = false;
 
     float relativeAngle; //angle between robot and target
     Vector3 relativePosition; //position between robot and target
+
+    float[] lastVectorAction = null;
+    float lastReward = 0;
     
+    public CameraType focusedCamera;
+
     bool initialized=false;
     void Initialize(){
         engine=GetComponentInChildren<Engine>();
@@ -68,6 +70,7 @@ public class RobotAgent : Agent
         RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
         SetCamera();
         AgentReset();
+        initialized = true;
     }
 
     void Awake()
@@ -77,23 +80,23 @@ public class RobotAgent : Agent
 
     void SetCamera()
     {
-        if (CameraType.frontCamera == TargetSettings.Instance.cameraType)
+        if (focusedCamera==CameraType.frontCamera)
         {
             agentParameters.agentCameras[0] = frontCamera;
-            frontCamera.targetDisplay = 0;
-            bottomCamera.targetDisplay = 2;
-            activeCamera = frontCamera;
+            frontCamera.gameObject.SetActive(true);
+            bottomCamera.gameObject.SetActive(false);
+            ActiveCamera = frontCamera;
         }
-        else if (CameraType.bottomCamera == TargetSettings.Instance.cameraType)
+        else if (focusedCamera==CameraType.bottomCamera)
         {
             agentParameters.agentCameras[0] = bottomCamera;
-            bottomCamera.targetDisplay = 0;
-            frontCamera.targetDisplay = 2;
-            activeCamera = bottomCamera;
+            frontCamera.gameObject.SetActive(false);
+            bottomCamera.gameObject.SetActive(true);
+            ActiveCamera = bottomCamera;
         }
         else
         {
-            throw new Exception("Wrong camera was chosen");
+            throw new InvalidEnumValueException(focusedCamera);
         }
     }
 
@@ -103,6 +106,8 @@ public class RobotAgent : Agent
         agentSettings.dataCollection = RobotAcademy.Instance.IsResetParameterTrue("CollectData");
         agentSettings.positiveExamples = RobotAcademy.Instance.IsResetParameterTrue("Positive");
         agentSettings.forceToSaveAsNegative = RobotAcademy.Instance.IsResetParameterTrue("ForceToSaveAsNegative");
+        focusedCamera = (CameraType)RobotAcademy.Instance.resetParameters["FocusedCamera"];
+        SetCamera();
     }
 
     #region Agent overrided methods
@@ -125,6 +130,42 @@ public class RobotAgent : Agent
         OnReset.Invoke();
     }
 
+    
+    string VectorActionsToString()
+    {
+        string[] actionNames =
+        {
+            "Longitudal",
+            "Lateral",
+            "Vertical",
+            "Yaw",
+            "Camera",
+            "Ball Grapper",
+            "Torpedo"
+        };
+        StringBuilder stringBuilder = new StringBuilder(256);
+        for (int i=0; i<actionNames.Length; i++)
+        {
+            stringBuilder.Append($"{actionNames[i]} : {lastVectorAction[i]}\n");
+        }
+        return stringBuilder.ToString();
+    }
+
+    public string GenerateDebugString()
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        if (lastVectorAction != null)
+        {
+            stringBuilder.Append("vector actions:\n");
+            stringBuilder.Append(VectorActionsToString());
+        }
+        stringBuilder.Append("\nobservations:\n");
+        stringBuilder.Append(GetObservations().toString());
+        stringBuilder.Append("\nreward : ");
+        stringBuilder.Append(lastReward);
+        return stringBuilder.ToString();
+    }
+
     public override void AgentAction(float[] vectorAction, string textAction)
     {
         if (!initialized)
@@ -141,8 +182,8 @@ public class RobotAgent : Agent
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
             if (IsNewCameraChosen((CameraType)vectorAction[4]))
             {
-                TargetSettings.Instance.cameraType = (CameraType)vectorAction[4];
-                SetCamera();
+                // focusedCamera = (CameraType)vectorAction[4];
+                // SetCamera();
             }
             if (vectorAction[5] == 1)
             {
@@ -154,11 +195,12 @@ public class RobotAgent : Agent
             }
         }
 
+        Target target = Target.Focused();
         //Calculate target info for collecting data (in case of new position on each step) 
-        if (agentSettings.randomizeTargetObjectPositionOnEachStep)
+        if (agentSettings.randomizeTargetObjectPositionOnEachStep && target!=null)
         {
-            targetCenter = Utils.GetComplexBounds(TargetSettings.Instance.target).center;
-            targetRotation = TargetSettings.Instance.target.transform.rotation;
+            targetCenter = Utils.GetComplexBounds(target.gameObject).center;
+            targetRotation = target.transform.rotation;
         }
 
         //Collect data
@@ -166,85 +208,90 @@ public class RobotAgent : Agent
         relativeAngle = RelativeTargetAngle();
         float currentReward = CalculateReward();
         SetReward(currentReward);
+        lastReward = currentReward;
+        lastVectorAction = vectorAction;
     }
 
     public Vector3 RelativeTargetPosition(){
-        if(TargetSettings.Instance.target==null){
+        Transform target = Target.Focused()?.transform;
+        if (target == null){
             return Vector3.zero;
         }
-        Transform target=TargetSettings.Instance.target.transform;
-        Vector3 targetOffset=TargetSettings.Instance.targetOffset;
         Vector3 distToCenter = target.InverseTransformPoint(targetCenter);
-        Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter - targetOffset;
+        Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter;
         relativePos.x = Mathf.Abs(relativePos.x);
         relativePos.y = Mathf.Abs(relativePos.y);
         relativePos.z = Mathf.Abs(relativePos.z);
         return relativePos;
     }
 
-    public float RelativeTargetAngle(){
-        if(TargetSettings.Instance.target==null){
+    public float RelativeTargetAngle()
+    {
+        Transform target = Target.Focused()?.transform;
+        if (target==null){
             return 0f;
         }
-        Transform target=TargetSettings.Instance.target.transform;
         float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
         relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
         return relativeYaw;
+    }
+
+    public Observations GetObservations()
+    {
+        Observations result = new Observations(new string[]{
+            "acceleration",
+            "angular acceleration",
+            "rotation",
+            "depth",
+            "bounding box",
+            "positive/negative",
+            "relative position",
+            "grab",
+            "torpedo"
+        }, 21);
+
+        result.Set("acceleration", accelerometer.GetAcceleration());
+        result.Set("angular acceleration", accelerometer.GetAngularAcceleration());
+        result.Set("rotation", accelerometer.GetRotation());
+        result.Set("depth", depthSensor.GetDepth());
+        if (agentSettings.dataCollection && agentSettings.positiveExamples)
+            result.Set("bounding box", annotation.GetBoundingBox());
+        else
+            result.SetZeros("bounding box", 4);
+        if (agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative)
+            result.Set("positive/negative", 1.0f);
+        else
+            result.Set("positive/negative", 0.0f);
+
+        if (agentSettings.sendRelativeData)
+            result.Set("relative position", new float[]{
+                relativePosition.x,
+                relativePosition.y,
+                relativePosition.z,
+                relativeAngle
+            });
+        else
+            result.SetZeros("relative position", 4);
+
+        result.Set("grab", (int)ballGrapper.GetState());
+        result.Set("torpedo", torpedo.IsHit() ? 1 : 0);
+        result.EndSetting();
+
+        return result;
     }
 
     public override void CollectObservations()
     {
         if (!agentSettings.collectObservations)
             return;
-
-        float[] toSend = new float[21];
-        float[] acceleration = accelerometer.GetAcceleration();
-        float[] angularAcceleration = accelerometer.GetAngularAcceleration();
-        float[] rotation = accelerometer.GetRotation();
-        // acceleration data
-        int toSendCell = 0;
-        acceleration.CopyTo(toSend, toSendCell);
-        // angular acceleration data
-        toSendCell += acceleration.Length;
-        angularAcceleration.CopyTo(toSend, toSendCell);
-        // rotation data
-        toSendCell += angularAcceleration.Length;
-        rotation.CopyTo(toSend, toSendCell);
-        // depth data
-        toSendCell += rotation.Length;
-        toSend[toSendCell] = depthSensor.GetDepth();
-        // bounding box
-        toSendCell += 1;
-        if (agentSettings.dataCollection && agentSettings.positiveExamples)
-            annotation.GetBoundingBox().CopyTo(toSend, toSendCell);
-        // positive/negative example
-        toSendCell += 4;
-        if (agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative)
-            toSend[toSendCell] = 1.0f;
-        else
-            toSend[toSendCell] = 0.0f;
-        // relative position data
-        if (agentSettings.sendRelativeData)
-        {
-            toSend[toSendCell + 1] = relativePosition.x;
-            toSend[toSendCell + 2] = relativePosition.y;
-            toSend[toSendCell + 3] = relativePosition.z;
-            toSend[toSendCell + 4] = relativeAngle;
-        }
-        //Grab state
-        toSendCell += 4;
-        toSend[toSendCell] = (int)ballGrapper.GetState();
-        //Torpedo hit
-        toSendCell += 1;
-        toSend[toSendCell] = torpedo.IsHit() == true ? 1 : 0;
         
-        AddVectorObs(toSend);
+        AddVectorObs(GetObservations().ToArray());
     }
     #endregion
 
     bool IsNewCameraChosen(CameraType newMode)
     {
-        return newMode != TargetSettings.Instance.cameraType;
+        return newMode != focusedCamera;
     }
 
     /// <summary>
