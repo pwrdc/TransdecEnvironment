@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Places objects in the placing area so that they don't collide with each other.
+/// Its Place_ methods can also be provided with additional restriction that returns true 
+/// if object placement is incorrect.
+/// </summary>
 public class Placer : MonoBehaviour
 {
     public PlacingArea placingArea;
-    List<Placeable> placed=new List<Placeable>();
-    List<Placeable> instantiated = new List<Placeable>();
+    public List<Placeable> placed=new List<Placeable>();
 
     public int maxTries = 3;
 
@@ -14,7 +18,7 @@ public class Placer : MonoBehaviour
     {
         foreach (var otherPlaceable in placed)
         {
-            if (placeable !=otherPlaceable && Placeable.Overlaps(placeable, otherPlaceable))
+            if (placeable!=otherPlaceable && Placeable.Overlaps(placeable, otherPlaceable))
             {
                 return true;
             }

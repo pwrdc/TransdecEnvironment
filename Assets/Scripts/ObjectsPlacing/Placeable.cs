@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Contains settings used for placing the object on the scene 
+/// including the space it occupies.
+/// The space occupied by the object is displayed using editor gizmos.
+/// </summary>
 public class Placeable : MonoBehaviour
 {
+    // Creating two subclasses instead of this enum would make
+    // changing the shape from the editor much harder.
     public enum Shape
     {
         InfiniteCyllinder,
@@ -17,6 +24,9 @@ public class Placeable : MonoBehaviour
         OnBottom
     }
     public VerticalPlacement verticalPlacement=VerticalPlacement.OnBottom;
+    // increasing radius has same effect as increasing each scale component
+    // so the main reason behind having radius as a separate variable 
+    // is to make adjusting scale easier
     public float radius = 1;
     public Vector3 scale = Vector3.one;
     public Vector3 offset;
@@ -48,13 +58,28 @@ public class Placeable : MonoBehaviour
     [HideInInspector]
     public Vector3 probingVector = Vector3.forward;
 
+    public Vector3 position
+    {
+        get
+        {
+            return transform.position;
+        }
+        set
+        {
+            transform.position=value;
+        }
+    }
+
     public void AutoAdjust()
     {
         Bounds bounds=Utils.GetComplexBounds(gameObject);
         scale=transform.rotation*bounds.extents;
         // scale might become flipped because of rotation so here it is fixed
         scale = new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z));
-        radius = 1;
+        // make it so radius decides about the size
+        // and scale only adjusts the object to fit the bounds exactly
+        radius = scale.magnitude;
+        scale = scale.normalized;
         offset = bounds.center-transform.position;
     }
 
@@ -88,7 +113,7 @@ public class Placeable : MonoBehaviour
             direction.y = 0;
         }
         direction = Quaternion.Inverse(transform.rotation) * direction;
-        direction = Geometry.DivideVectorFields(direction, scale * radius);
+        direction = Utils.DivideVectorsFields(direction, scale * radius);
 
         direction.Normalize();
         float alpha = Vector3.Angle(Vector3.forward, direction) * Mathf.Deg2Rad;
@@ -115,7 +140,7 @@ public class Placeable : MonoBehaviour
     public void RotateRandomly()
     {
         Vector3 rotation = new Vector3();
-        // id doesn't make sense to rotate horizontally if some options are enabled
+        // id doesn't make sense to rotate the object horizontally for some options
         bool rotateHorizontally = verticalPlacement != VerticalPlacement.OnBottom && verticalPlacement != VerticalPlacement.UnderSurface && shape != Shape.InfiniteCyllinder;
         if (rotateHorizontally && randomRotation.x) rotation.x = RotateAroundAxis(randomRotation.xLimit);
         if (randomRotation.y)                       rotation.y = RotateAroundAxis(randomRotation.yLimit);
@@ -125,7 +150,7 @@ public class Placeable : MonoBehaviour
 
     // draws the area of Placeable and placing area bounds for placing this placeable
     // yellow means correct placement and red means conflict
-    void OnDrawGizmosSelected()
+    public void OnDrawGizmosSelected()
     {
         if (debugMode)
             DrawProbingVector();
@@ -135,7 +160,7 @@ public class Placeable : MonoBehaviour
             // draw bounds gimzo of placing area shows it's bounds reduced by radius in each direction
             // basically the area where the center of the object can be placed
             if(debugMode)
-                placer.placingArea.DrawBoundsGizmo(this);
+                placer.placingArea.DrawBoundsForPlaceable(this);
             if (!placer.Allowed(this))
                 Gizmos.color = Color.red;
         }
@@ -158,6 +183,8 @@ public class Placeable : MonoBehaviour
         Gizmos.matrix = saved;
     }
 
+    // draws white ray showing probing vector and yellow ray drawing
+    // leading vector of placeable shape in probing vector's direction
     void DrawProbingVector()
     {
         Gizmos.color = Color.white;

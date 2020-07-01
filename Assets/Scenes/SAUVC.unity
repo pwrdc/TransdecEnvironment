@@ -782,9 +782,9 @@ MonoBehaviour:
   resetParameters:
     resetParameters:
     - key: CollectData
-      value: 0
+      value: 1
     - key: EnableNoise
-      value: 0
+      value: 1
     - key: Positive
       value: 1
     - key: AgentMaxSteps
@@ -843,6 +843,18 @@ MonoBehaviour:
   note: "Creating a prefab of Academy breaks \nreset parameters. They get reverted
     to previous\nstate randomly. It might be an issue with custom\neditor or list
     serialization."
+--- !u!4 &561842035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4316093199950000629, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &673461117 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7870206062101644984, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &705912775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3210798632583240540, guid: 4c6bb41a6b67ae4429ac55d995539f57,
@@ -855,7 +867,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7134980805273521817}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1124247147}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
@@ -1443,6 +1455,26 @@ MonoBehaviour:
   placer: {fileID: 0}
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
+--- !u!1 &1124247147 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153791786499386264, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1124247155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124247147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb39d7c11655d4f4dbfe855a95c3d64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placer: {fileID: 1369021115}
+  target: {fileID: 0}
 --- !u!1 &1126159649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7446912147079988575, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -1750,6 +1782,18 @@ Skybox:
   m_GameObject: {fileID: 1364244376}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 0}
+--- !u!114 &1369021115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad70e02a30bde846855857aea0bdb03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1441434579 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7446912146231529606, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -3240,6 +3284,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5118742042968492889, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Name
+      value: Base
+      objectReference: {fileID: 0}
     - target: {fileID: 7446912145643666574, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -3280,10 +3329,15 @@ PrefabInstance:
       propertyPath: robot
       value: 
       objectReference: {fileID: 733650863}
-    - target: {fileID: 5118742042968492889, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    - target: {fileID: 1312181196868687928, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: m_Name
-      value: Base
+      propertyPath: visibilityChecker
+      value: 
+      objectReference: {fileID: 1124247155}
+    - target: {fileID: 1312181196868687928, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: targetAlwaysVisible
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1554607907821713677, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3582,6 +3636,56 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4.31
       objectReference: {fileID: 0}
+    - target: {fileID: 4316093199950000624, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468423867794319, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.352
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870206062101644989, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870206062101644986, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870206062101644986, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316093199950000631, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316093199950000631, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 561842035}
+    - target: {fileID: 5591691647725671790, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 673461117}
     m_RemovedComponents:
     - {fileID: 1554607908618792028, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
     - {fileID: 1554607908618792029, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

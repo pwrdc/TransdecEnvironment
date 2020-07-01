@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Represents a shape created by connecting two surfaces:
+/// one is a horizontal circle scaled according to transform scale
+/// and the other one is that circle casted down on all colliders belonging to layerMask.
+/// In addition all placeables that are placed on the bottom 
+/// are rotated to be parallel to the lower surface.
+/// </summary>
 public class CastedCirclePlacingArea : PlacingArea
 {
     public LayerMask layerMask;
@@ -12,6 +19,11 @@ public class CastedCirclePlacingArea : PlacingArea
         public Vector3 normal;
     }
 
+    /// <summary>
+    /// Casts a ray from upper surface at coordinates x and z
+    /// and returns height at which the placeable can be placed 
+    /// and the normal of the surface at this point
+    /// </summary>
     BottomPoint Bottom(float x, float z, float placeableHeight)
     {
         Vector3 position = new Vector3(x, transform.position.y - placeableHeight, z);
@@ -64,7 +76,7 @@ public class CastedCirclePlacingArea : PlacingArea
             return false;
         }
         Vector3 relativePosition = placeable.transform.position-transform.position;
-        Vector3 normalizedPosition = Geometry.DivideVectorFields(relativePosition, bounds);
+        Vector3 normalizedPosition = Utils.DivideVectorsFields(relativePosition, bounds);
         normalizedPosition.y = 0;
         return normalizedPosition.sqrMagnitude<1;
     }
@@ -84,7 +96,7 @@ public class CastedCirclePlacingArea : PlacingArea
         DrawCircle(transform.lossyScale.x, transform.lossyScale.z);
     }
 
-    public override void DrawBoundsGizmo(Placeable placeable)
+    public override void DrawBoundsForPlaceable(Placeable placeable)
     {
         Gizmos.color = Contains(placeable) ? Color.yellow : Color.red;
         Vector3 radius = new Vector3(placeable.RadiusInDirection(transform.right), 0, placeable.RadiusInDirection(transform.forward));

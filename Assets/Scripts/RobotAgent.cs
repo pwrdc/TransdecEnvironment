@@ -19,7 +19,6 @@ public class AgentSettings
     public bool randomizeTargetObjectPositionOnEachStep = true; //Only in data collection
 }
 
-
 public class RobotAgent : Agent
 {
     //Singleton
@@ -84,20 +83,20 @@ public class RobotAgent : Agent
         if (focusedCamera==CameraType.frontCamera)
         {
             agentParameters.agentCameras[0] = frontCamera;
-            frontCamera.targetDisplay = 0;
-            bottomCamera.targetDisplay = 2;
+            frontCamera.gameObject.SetActive(true);
+            bottomCamera.gameObject.SetActive(false);
             ActiveCamera = frontCamera;
         }
         else if (focusedCamera==CameraType.bottomCamera)
         {
             agentParameters.agentCameras[0] = bottomCamera;
-            bottomCamera.targetDisplay = 0;
-            frontCamera.targetDisplay = 2;
+            frontCamera.gameObject.SetActive(false);
+            bottomCamera.gameObject.SetActive(true);
             ActiveCamera = bottomCamera;
         }
         else
         {
-            throw new Exception("Wrong camera was chosen");
+            throw new InvalidEnumValueException(focusedCamera);
         }
     }
 
@@ -108,6 +107,7 @@ public class RobotAgent : Agent
         agentSettings.positiveExamples = RobotAcademy.Instance.IsResetParameterTrue("Positive");
         agentSettings.forceToSaveAsNegative = RobotAcademy.Instance.IsResetParameterTrue("ForceToSaveAsNegative");
         focusedCamera = (CameraType)RobotAcademy.Instance.resetParameters["FocusedCamera"];
+        SetCamera();
     }
 
     #region Agent overrided methods
@@ -182,8 +182,8 @@ public class RobotAgent : Agent
             engine.Move(vectorAction[0], vectorAction[1], vectorAction[2], vectorAction[3]);
             if (IsNewCameraChosen((CameraType)vectorAction[4]))
             {
-                focusedCamera = (CameraType)vectorAction[4];
-                SetCamera();
+                // focusedCamera = (CameraType)vectorAction[4];
+                // SetCamera();
             }
             if (vectorAction[5] == 1)
             {

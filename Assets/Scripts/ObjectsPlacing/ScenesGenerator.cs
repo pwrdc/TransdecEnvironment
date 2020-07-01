@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to read object placing related options from Academy
+/// and generate scenes according to them using Placer.
+/// </summary>
 [RequireComponent(typeof(Placer))]
 public class ScenesGenerator : MonoBehaviour
 {
     public Placeable robot;
     public Transform targetsFolder;
     public Transform noiseFolder;
+    public VisibilityChecker visibilityChecker;
     Placeable[] targets;
     Placeable[] noise;
     Placer placer;
@@ -70,61 +75,10 @@ public class ScenesGenerator : MonoBehaviour
             OnReset();
     }
 
-    private class Bounds
-    {
-        Vector3 min;
-        Vector3 max;
-
-        public Bounds() { }
-
-        public void ExpandToContain(Vector3 vector)
-        {
-            if (vector.x < min.x) min.x = vector.x;
-            if (vector.y < min.y) min.y = vector.y;
-            if (vector.z < min.z) min.z = vector.z;
-            if (vector.x > max.x) max.x = vector.x;
-            if (vector.y > max.y) max.y = vector.y;
-            if (vector.z > max.z) max.z = vector.z;
-        }
-
-        public bool Contains(Vector3 vector)
-        {
-            return
-                vector.x >= min.x
-             && vector.y >= min.y
-             && vector.z >= min.z
-             && vector.x <= max.x
-             && vector.y <= max.y
-             && vector.z <= max.z;
-        }
-    }
-
-    bool ObscuresView(Placeable placeable, Vector3 target)
-    {
-        if (!placeable.canObscureView || !targetAlwaysVisible)
-            return false;
-        Vector3 camera = RobotAgent.Instance.transform.position;
-
-        Vector3 placeablePosition = placeable.transform.position;
-
-        // create the smallest cuboid containing camera and target and check if placeable lies within
-        Bounds bounds = new Bounds();
-        bounds.ExpandToContain(camera);
-        bounds.ExpandToContain(target);
-        if (!bounds.Contains(placeablePosition))
-            return false;
-
-        // distance(P, l)=|AP x u|/|u| where A is a point on the line and u is line's direction 
-        Vector3 AP = placeablePosition - target;
-        Vector3 u = target - camera;
-        float distance = Vector3.Cross(AP, u).magnitude / u.magnitude;
-
-        return distance < placeable.radius;
-    }
-
     void GenerateForDataCollection()
     {
         placer.Clear();
+        // disable all targets that aren't focused
         Placeable target = targets[focusedObject];
         foreach (var otherTarget in targets)
         {
@@ -140,7 +94,12 @@ public class ScenesGenerator : MonoBehaviour
             // successfully placed both of them
             RotateRobot(target, Target.AtIndex(focusedObject));
             if (enableNoise)
-                placer.PlaceAll(noise, (Placeable placeable)=>ObscuresView(placeable, target.transform.position));
+            {
+                if (targetAlwaysVisible)
+                    placer.PlaceAll(noise, (Placeable placeable) => visibilityChecker.ObscuresView(placeable, target));
+                else
+                    placer.PlaceAll(noise);
+            }
             if (collectData && !positiveExamples)
                 target.gameObject.SetActive(false);
         }
