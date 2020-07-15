@@ -3,24 +3,16 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace Environment
 {
-
     [ExecuteInEditMode]
     public class UnderwaterEffects : Randomized
     {
-        [System.Serializable]
-        public class Randomization {
-            public float minWaterFog = 0.2f;
-            public float maxWaterFog = 0.4f;
-            public Gradient fogColor;
-            public float normalWaterFog = 0.25f;
-            public Color normalWaterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
-        }
-        public Transform target;
-        public Randomization randomization;
+        public ColorEnvironmentParameter filterColor;
+        public ColorEnvironmentParameter fogColor;
+        public FloatParameter fogDensity=new FloatParameter(0.085f, 0.05f, 0.1f);
+        public FloatParameter volumetricDensity=new FloatParameter(2, 1, 5);
+        public Aura2API.AuraVolume auraVolume;
 
-        Color waterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
-        [HideInInspector]
-        public float waterFog = 0.25f;
+        public Transform target;
         public Light robotLight;
 
         // Linear fog mode is for slowest devices, looks unrealistic
@@ -49,13 +41,25 @@ namespace Environment
         WobbleEffect[] wobbleEffects;
 
         public override void InitializeRandom(){
-            waterFog = Random.Range(randomization.minWaterFog, randomization.maxWaterFog);
-            waterColor = randomization.fogColor.Evaluate(Random.value);
+            fogDensity.Randomize();
+            fogColor.Randomize();
+            filterColor.Randomize();
+            volumetricDensity.Randomize();
         }
 
         public override void InitializeNormal(){
-            waterColor=randomization.normalWaterColor;
-            waterFog=randomization.normalWaterFog;
+            fogDensity.SetAsNormal();
+            fogColor.SetAsNormal();
+            filterColor.SetAsNormal();
+            volumetricDensity.SetAsNormal();
+        }
+
+        public void Preview()
+        {
+            fogDensity.Preview();
+            fogColor.Preview();
+            filterColor.Preview();
+            volumetricDensity.Preview();
         }
 
         public override void Start()
@@ -91,9 +95,16 @@ namespace Environment
             }
             if (robotLight != null) robotLight.enabled = active;
             RenderSettings.fog = active;
-            RenderSettings.fogColor = waterColor;
-            RenderSettings.fogDensity = waterFog;
+            RenderSettings.fogColor = fogColor.value;
+            RenderSettings.fogDensity = fogDensity.value;
             RenderSettings.fogMode = ExponentailFogModeToFogMode(fogMode);
+            if (auraVolume != null)
+            {
+                auraVolume.densityInjection.strength = volumetricDensity.value;
+                auraVolume.scatteringInjection.strength = volumetricDensity.value / 10;
+            }
+            ColorGrading colorGrading = volume.sharedProfile.GetSetting<ColorGrading>();
+            colorGrading.colorFilter.value = filterColor.value;
 
             // preview water opacity in the edit mode
             if (Application.isEditor && !Application.isPlaying)
@@ -105,6 +116,8 @@ namespace Environment
         void Update()
         {
             bool underwater = target != null && Environment.Instance.waterSurface != null && target.position.y < Environment.Instance.waterSurface.position.y;
+            if (!Application.isPlaying)
+                Preview();
             UpdateEffects(underwater);
         }
     }
