@@ -5,24 +5,16 @@ using UnityEngine;
 namespace Environment
 {
     [System.Serializable]
-    public abstract class EnvironmentParameter<T>
+    public abstract class LinearParameter<T> : RandomizedParameter
     {
         [HideInInspector]
         public T value;
-
-        public abstract void Randomize();
-        public abstract void SetAsNormal();
-        public abstract void Preview();
-    }
-
-    [System.Serializable]
-    public abstract class LinearEnvironmentParameter<T> : EnvironmentParameter<T>
-    {
+        
         public T normal;
         public T min;
         public T max;
 
-        public LinearEnvironmentParameter(T normal, T min, T max)
+        public LinearParameter(T normal, T min, T max)
         {
             this.normal = normal;
             this.min = min;
@@ -37,6 +29,8 @@ namespace Environment
             Max,
             Percentage
         }
+
+        [Header("Edit Mode Preview")]
         public PreviewMode previewMode;
         public float previewPercentage;
 
@@ -75,7 +69,7 @@ namespace Environment
     }
 
     [System.Serializable]
-    public class FloatParameter : LinearEnvironmentParameter<float>
+    public class FloatParameter : LinearParameter<float>
     {
         public FloatParameter(float normal, float min, float max) : base(normal, min, max) { }
 
@@ -86,7 +80,7 @@ namespace Environment
     }
 
     [System.Serializable]
-    public class IntParameter : LinearEnvironmentParameter<int>
+    public class IntParameter : LinearParameter<int>
     {
         public IntParameter(int normal, int min, int max) : base(normal, min, max) { }
 

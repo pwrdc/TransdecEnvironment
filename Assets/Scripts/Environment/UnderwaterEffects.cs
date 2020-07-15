@@ -6,11 +6,12 @@ namespace Environment
     [ExecuteInEditMode]
     public class UnderwaterEffects : Randomized
     {
-        public ColorEnvironmentParameter filterColor;
-        public ColorEnvironmentParameter fogColor;
+        public ColorParameter filterColor;
+        public ColorParameter fogColor;
         public FloatParameter fogDensity=new FloatParameter(0.085f, 0.05f, 0.1f);
         public FloatParameter volumetricDensity=new FloatParameter(2, 1, 5);
         public Aura2API.AuraVolume auraVolume;
+        public PostProcessVolume postProcessVolume;
 
         public Transform target;
         public Light robotLight;
@@ -37,37 +38,17 @@ namespace Environment
         }
         public ExponentialFogMode fogMode=ExponentialFogMode.ExponentialSquared;
 
-        PostProcessVolume volume;
         WobbleEffect[] wobbleEffects;
-
-        public override void InitializeRandom(){
-            fogDensity.Randomize();
-            fogColor.Randomize();
-            filterColor.Randomize();
-            volumetricDensity.Randomize();
-        }
-
-        public override void InitializeNormal(){
-            fogDensity.SetAsNormal();
-            fogColor.SetAsNormal();
-            filterColor.SetAsNormal();
-            volumetricDensity.SetAsNormal();
-        }
-
-        public void Preview()
-        {
-            fogDensity.Preview();
-            fogColor.Preview();
-            filterColor.Preview();
-            volumetricDensity.Preview();
-        }
 
         public override void Start()
         {
-            volume = GetComponent<PostProcessVolume>();
+            base.Start();
+            parameters.Add(filterColor);
+            parameters.Add(fogColor);
+            parameters.Add(fogDensity);
+            parameters.Add(volumetricDensity);
             // wobble effects must be attached directly to each camera
             wobbleEffects = FindObjectsOfType<WobbleEffect>();
-            base.Start();
         }
 
         void OnDisable()
@@ -87,11 +68,11 @@ namespace Environment
             {
                 wobbleEffect.enabled = active;
             }
-            if (volume != null)
+            if (postProcessVolume != null)
             {
                 // Unity's implementation of PostProcessVolume is buggy
                 // and disabling volume through enabled causes bunch of NullPointerExceptions
-                volume.weight = active ? 1 : 0;
+                postProcessVolume.weight = active ? 1 : 0;
             }
             if (robotLight != null) robotLight.enabled = active;
             RenderSettings.fog = active;
@@ -103,8 +84,11 @@ namespace Environment
                 auraVolume.densityInjection.strength = volumetricDensity.value;
                 auraVolume.scatteringInjection.strength = volumetricDensity.value / 10;
             }
-            ColorGrading colorGrading = volume.sharedProfile.GetSetting<ColorGrading>();
-            colorGrading.colorFilter.value = filterColor.value;
+            if (postProcessVolume != null)
+            {
+                ColorGrading colorGrading = postProcessVolume.sharedProfile.GetSetting<ColorGrading>();
+                colorGrading.colorFilter.value = filterColor.value;
+            }
 
             // preview water opacity in the edit mode
             if (Application.isEditor && !Application.isPlaying)
@@ -113,11 +97,10 @@ namespace Environment
             }
         }
 
-        void Update()
+        public override void Update()
         {
+            base.Update();
             bool underwater = target != null && Environment.Instance.waterSurface != null && target.position.y < Environment.Instance.waterSurface.position.y;
-            if (!Application.isPlaying)
-                Preview();
             UpdateEffects(underwater);
         }
     }

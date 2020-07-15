@@ -7,36 +7,34 @@ namespace Environment
     {
         public IntParameter angle = new IntParameter(80, 60, 120);
         public FloatParameter intensity = new FloatParameter(1.2f, 0.5f, 2f);
-        new private Light light;
+        new Light light;
+        float yAngle;
+
+        public override void InitializeRandom()
+        {
+            base.InitializeRandom();
+            yAngle = Random.Range(0, 360);
+        }
+
+        public override void InitializeNormal()
+        {
+            base.InitializeNormal();
+            yAngle = 0;
+        }
 
         public override void Start()
         {
             base.Start();
+            parameters.Add(angle);
+            parameters.Add(intensity);
             light = GetComponent<Light>();
         }
 
-        public override void InitializeNormal(){
-            angle.SetAsNormal();
-            intensity.SetAsNormal();
-        }
-
-        public override void InitializeRandom(){
-            angle.Randomize();
-            intensity.Randomize();
-        }
-
-        public void Preview()
+        public override void Update()
         {
-            angle.Preview();
-            intensity.Preview();
-        }
-
-        public void Update()
-        {
-            if (!Application.isPlaying)
-                Preview();
+            base.Update();
             light.intensity = intensity.value;
-            light.transform.rotation = Quaternion.Euler(angle.value, -90, 0);
+            light.transform.rotation = Quaternion.Euler(angle.value, yAngle, 0);
         }
     }
 }

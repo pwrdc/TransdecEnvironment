@@ -6,14 +6,40 @@ namespace Environment
 {
     public abstract class Randomized : MonoBehaviour
     {
-        public abstract void InitializeNormal();
-        public abstract void InitializeRandom();
+        protected List<RandomizedParameter> parameters=new List<RandomizedParameter>();
+        public virtual void InitializeNormal()
+        {
+            foreach(var parameter in parameters)
+            {
+                parameter.SetAsNormal();
+            }
+        }
+        public virtual void InitializeRandom()
+        {
+            foreach (var parameter in parameters)
+            {
+                parameter.Randomize();
+            }
+        }
+
+        public void Preview()
+        {
+            foreach (var parameter in parameters)
+            {
+                parameter.Preview();
+            }
+        }
 
         public virtual void Start()
         {
             Environment.Instance.OnNormalInit += InitializeNormal;
             Environment.Instance.OnRandomizedInit += InitializeRandom;
         }
-
+        
+        public virtual void Update()
+        {
+            if (!Application.isPlaying)
+                Preview();
+        }
     }
 }
