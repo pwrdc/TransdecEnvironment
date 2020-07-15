@@ -38,7 +38,7 @@ Having done all of the above steps, double-click `RoboSub2018` scene in `Assets/
 
 # Optional Paid Assets
 
-![image](https://i.ibb.co/8Pm1gQp/volumetric-3.gif)
+![image](https://i.imgur.com/5xr5I3y.gif)
 
 *Aura 2* is a paid asset used in the project for more realistic lightning. We can't post it in this repository as it would be against the license.
 
