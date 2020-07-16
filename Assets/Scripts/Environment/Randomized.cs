@@ -22,7 +22,7 @@ namespace Environment
             }
         }
 
-        public void Preview()
+        public virtual void Preview()
         {
             foreach (var parameter in parameters)
             {

@@ -22,6 +22,12 @@ namespace Environment
             yAngle = 0;
         }
 
+        public override void Preview()
+        {
+            base.Preview();
+            yAngle = 0;
+        }
+
         public override void Start()
         {
             base.Start();
