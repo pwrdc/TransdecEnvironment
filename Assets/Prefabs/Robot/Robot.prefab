@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 481749329}
   - component: {fileID: 481749331}
   - component: {fileID: 481749330}
+  - component: {fileID: 1579565060186167750}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: WaterParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4753,6 +4754,32 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1579565060186167750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481749328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c5efc20758d4f43b95c058304cccdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color:
+    value: {r: 0, g: 0, b: 0, a: 0}
+    normal: {r: 0, g: 0, b: 0, a: 0}
+    colorPoints: []
+    previewMode: 0
+    previewIndex: 0
+  rate:
+    value: 0
+    normal: 200
+    min: 50
+    max: 300
+    previewMode: 0
+    previewPercentage: 0
+  opacityRange: 20
 --- !u!1 &1622391349318724193
 GameObject:
   m_ObjectHideFlags: 0
@@ -5337,6 +5364,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &1124247155

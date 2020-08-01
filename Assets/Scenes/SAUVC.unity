@@ -1244,8 +1244,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915012531}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 28.48, y: 4.422, z: -4.355}
+  m_LocalRotation: {x: 0.035824243, y: 0.60199714, z: 0.026211282, w: -0.7972635}
+  m_LocalPosition: {x: 28.354706, y: 4.338555, z: -5.532153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1328,8 +1328,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941852666}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 28.48, y: 4.422, z: -4.355}
+  m_LocalRotation: {x: 0.0024614453, y: 0.11705948, z: -0.00039034098, w: -0.9931218}
+  m_LocalPosition: {x: 7.1439157, y: 4.4868946, z: -5.334445}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2950,6 +2950,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1.0335e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.02e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: placingArea
@@ -3113,5 +3133,40 @@ PrefabInstance:
       propertyPath: root
       value: 
       objectReference: {fileID: 2118598489}
+    - target: {fileID: 2588017285344456537, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588017285344456537, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588017285344456537, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2588017285344456537, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
+      value: 0.100000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891604926483390412, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: rate.previewMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891604926483390412, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: rate.value
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891604926483390412, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: rate.max
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

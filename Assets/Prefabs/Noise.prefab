@@ -72,8 +72,8 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   randomRotation:
     x: 0
-    y: 1
-    z: 0
+    y: 0
+    z: 1
     xLimit:
       enabled: 0
       min: 0
@@ -88,6 +88,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &8134976736916607181
@@ -190,6 +193,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &123158578107027868
@@ -337,6 +343,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &123158578186609041
@@ -710,6 +719,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &123158578429198659
@@ -793,6 +805,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0.8, y: 0, z: 1}
 --- !u!1 &123158578441578230
@@ -909,6 +924,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &123158578975466344
@@ -1056,6 +1074,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &123158579126023497
@@ -1206,6 +1227,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &123158579154382210
@@ -1289,6 +1313,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &123158579334309763
@@ -1595,6 +1622,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &123158579572837002
@@ -1760,6 +1790,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &123158579728886850
@@ -2033,6 +2066,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!1 &123158580148853919
@@ -2250,6 +2286,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &762679330783759449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943013245404109824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90eb5c046681e2341bb2ffa10d8da828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 5
 --- !u!114 &3629612021023037790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,21 +2334,11 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 1.12, z: 0}
---- !u!114 &762679330783759449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8943013245404109824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90eb5c046681e2341bb2ffa10d8da828, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 5
 --- !u!1 &8957695018934842291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,6 +2427,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &4856822854576040830
@@ -2415,6 +2457,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8957695018934842291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90eb5c046681e2341bb2ffa10d8da828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 5
+--- !u!114 &298032197119152813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063754559948386964}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90eb5c046681e2341bb2ffa10d8da828, type: 3}
@@ -2456,21 +2511,11 @@ MonoBehaviour:
       max: 0
   canObscureView: 0
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 1.12, z: 0}
---- !u!114 &298032197119152813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9063754559948386964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90eb5c046681e2341bb2ffa10d8da828, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 5
 --- !u!1001 &837841858409000106
 PrefabInstance:
   m_ObjectHideFlags: 0
