@@ -29,6 +29,8 @@ public class Placeable : MonoBehaviour
     public float radius = 1;
     public Vector3 scale = Vector3.one;
     public Vector3 offset;
+    [HideInInspector]
+    public Quaternion initialRotation;
     [System.Serializable]
     public class Limit
     {
@@ -69,6 +71,11 @@ public class Placeable : MonoBehaviour
         {
             transform.position=value;
         }
+    }
+
+    private void Start()
+    {
+        initialRotation = transform.rotation;
     }
 
     public void AutoAdjust()
@@ -146,7 +153,7 @@ public class Placeable : MonoBehaviour
         if (rotateHorizontally && randomRotation.x) rotation.x = RotateAroundAxis(randomRotation.xLimit);
         if (randomRotation.y)                       rotation.y = RotateAroundAxis(randomRotation.yLimit);
         if (rotateHorizontally && randomRotation.z) rotation.z = RotateAroundAxis(randomRotation.zLimit);
-        transform.rotation *= Quaternion.Euler(rotation);
+        transform.rotation = initialRotation * Quaternion.Euler(rotation);
     }
 
     // draws the area of Placeable and placing area bounds for placing this placeable

@@ -59,7 +59,7 @@ public class CastedCirclePlacingArea : PlacingArea
                 case Placeable.VerticalPlacement.OnBottom:
                     position.y = bottom.height;
                     // rotate the placeable to make it parallel to the ground in this point
-                    placeable.transform.rotation =Quaternion.LookRotation(bottom.normal) * Quaternion.Euler(90, 0, 0) * placeable.transform.rotation;
+                    placeable.transform.rotation =Quaternion.LookRotation(bottom.normal) * Quaternion.Euler(90, 0, 0) * placeable.initialRotation;
                     break;
             }
         }
