@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.07609469, g: 0.13232465, b: 0.16981131, a: 1}
+  m_FogColor: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.085
   m_LinearFogStart: 0
@@ -478,8 +478,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603983576}
-  m_LocalRotation: {x: 0, y: 0.9930263, z: 0, w: -0.11789287}
-  m_LocalPosition: {x: 29.78465, y: 11.828, z: -4.7172008}
+  m_LocalRotation: {x: 0.013454098, y: 0.9847139, z: 0.08523652, w: -0.1513019}
+  m_LocalPosition: {x: -12.248325, y: 16.055546, z: -4.5849795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -497,26 +497,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
-    - target: {fileID: 5911264045817291277, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: verticalPlacement
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: placingArea
       value: 
       objectReference: {fileID: 5202359784257071919}
-    - target: {fileID: 1554607907821713677, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: folder
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1554607907821713664, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: tasksFolder
-      value: 
-      objectReference: {fileID: 3705333199070647809}
     - target: {fileID: 128274322474526282, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
@@ -592,109 +577,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2464539755930589609, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 698801369, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
-      propertyPath: noiseFolder
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: objectCreator.targetCameraModes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: objectCreator.targetObjectTypes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: objectCreator.targetObjects.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: objectCreator.targetAnnotations.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: objectCreator.targetIsEnabled.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: resetParameters.resetParameters.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: objectCreator.targetObjectTypes.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: forceDataCollection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: objectCreator.targetObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 4282235253200172265}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: objectCreator.targetAnnotations.Array.data[0]
-      value: 
-      objectReference: {fileID: 4282235253200172265}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: forceNoise
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: forceNegativeExamples
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448798042914339907, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 681370832179773151, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602040655634571275, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: randomization.normalWaterColor.r
-      value: 0.07609469
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602040655634571275, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: randomization.normalWaterColor.g
-      value: 0.13232465
-      objectReference: {fileID: 0}
-    - target: {fileID: 6602040655634571275, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: randomization.normalWaterColor.b
-      value: 0.16981131
-      objectReference: {fileID: 0}
     - target: {fileID: 239825200, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
       propertyPath: volumeShape.shape
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1964955644754354723, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 239825200, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
+      propertyPath: densityInjection.strength
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 239825200, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
+      propertyPath: scatteringInjection.strength
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324626794042129589, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c6ee14a1387e414587eed047e94b330, type: 2}
+    - target: {fileID: 4700573452294315818, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c6ee14a1387e414587eed047e94b330, type: 2}
+    - target: {fileID: 5701321586187636838, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c6ee14a1387e414587eed047e94b330, type: 2}
+    - target: {fileID: 5717848696525223800, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c6ee14a1387e414587eed047e94b330, type: 2}
+    - target: {fileID: 7461778839070272687, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c6ee14a1387e414587eed047e94b330, type: 2}
+    - target: {fileID: 8693865206035487739, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c6ee14a1387e414587eed047e94b330, type: 2}
     - target: {fileID: 9153791786499386259, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -767,19 +691,89 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.7000122
       objectReference: {fileID: 0}
+    - target: {fileID: 2448798042914339907, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3328227218160330, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286683334503124144, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: selected
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7194256184341607373, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4058802390758448656, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058802390758448656, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.688
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058802390758448656, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058802390758448656, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.92128724
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058802390758448656, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058802390758448656, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.38888288
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058802390758448656, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -134.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911264045817291277, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: verticalPlacement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464539755930589609, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5591691647725671790, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272180667411508266, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1964955644754354723, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 681370832179773151, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -801,6 +795,95 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d66df07210f47704e83e7987adc89e0e, type: 2}
+    - target: {fileID: 1554607907821713677, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: folder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907821713664, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: tasksFolder
+      value: 
+      objectReference: {fileID: 3705333199070647809}
+    - target: {fileID: 698801369, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
+      propertyPath: noiseFolder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: objectCreator.targetCameraModes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: objectCreator.targetObjectTypes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: objectCreator.targetObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: objectCreator.targetAnnotations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: objectCreator.targetIsEnabled.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: resetParameters.resetParameters.Array.data[1].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: objectCreator.targetObjectTypes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: forceDataCollection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: objectCreator.targetObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 4282235253200172265}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: objectCreator.targetAnnotations.Array.data[0]
+      value: 
+      objectReference: {fileID: 4282235253200172265}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: forceNoise
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003095561944296178, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: forceNegativeExamples
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602040655634571275, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: randomization.normalWaterColor.r
+      value: 0.07609469
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602040655634571275, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: randomization.normalWaterColor.g
+      value: 0.13232465
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602040655634571275, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: randomization.normalWaterColor.b
+      value: 0.16981131
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1211506624, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
@@ -862,7 +945,7 @@ MonoBehaviour:
   resetParameters:
     resetParameters:
     - key: CollectData
-      value: 0
+      value: 1
     - key: EnableNoise
       value: 1
     - key: Positive
@@ -874,7 +957,7 @@ MonoBehaviour:
     - key: WaterCurrent
       value: 0
     - key: FocusedObject
-      value: 0
+      value: 1
     - key: EnableBackgroundImage
       value: 0
     - key: SetFocusedObjectInCenter

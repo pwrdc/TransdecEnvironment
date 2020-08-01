@@ -24,6 +24,12 @@ namespace Environment
             RobotAgent.Instance.OnReset.AddListener(OnReset);
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.N) && randomized)
+                EnvironmentRandomizedInit();
+        }
+
         public void OnReset(){
             if (randomized)
                 EnvironmentRandomizedInit();

@@ -105,7 +105,7 @@
 					// this adds the voronoi noise texture
 					float surfaceTexture = underwater_surface(float3(_Time[0] * _Speed, noisePosition*_Scale), _Sharpness);
 					// mix all of the values in alpha channel
-					result.a = surfaceTexture * _Opacity * fading(i.uvFalloff.x) * lightness * i.opacity;
+					result.a = surfaceTexture * _Opacity * fading(i.uvFalloff.x) * lightness;// *i.opacity;
 
 					UNITY_APPLY_FOG_COLOR(i.fogCoord, result, fixed4(0, 0, 0, 0));
 					return result;
