@@ -31,6 +31,13 @@ public class Placer : MonoBehaviour
         return placingArea.Contains(placeable) && !OverlapsWithAnother(placeable);
     }
 
+    void FinalizePlacing(Placeable toPlace)
+    {
+        placed.Add(toPlace);
+        toPlace.placer = this;
+        toPlace.OnPlaced?.Invoke();
+    }
+
     public bool Place(Placeable toPlace, System.Func<Placeable, bool> restriction=null)
     {
         placed.Remove(toPlace);
@@ -41,8 +48,7 @@ public class Placer : MonoBehaviour
             bool restrictionSatisifed = restriction == null || !restriction(toPlace);
             if (restrictionSatisifed && !OverlapsWithAnother(toPlace))
             {
-                placed.Add(toPlace);
-                toPlace.placer = this;
+                FinalizePlacing(toPlace);
                 return true;
             }
             else return false;
@@ -58,7 +64,7 @@ public class Placer : MonoBehaviour
             toPlace.transform.position = other.transform.position + Random.onUnitSphere*range.GetRandom();
             if ((restriction == null || !restriction(toPlace)) && !OverlapsWithAnother(toPlace) && placingArea.Contains(toPlace))
             {
-                placed.Add(toPlace);
+                FinalizePlacing(toPlace);
                 return true;
             }
             else return false;

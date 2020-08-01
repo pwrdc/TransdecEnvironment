@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Contains settings used for placing the object on the scene 
@@ -52,6 +51,8 @@ public class Placeable : MonoBehaviour
 
     [HideInInspector]
     public Placer placer;
+
+    public UnityEvent OnPlaced;
 
     public bool debugMode;
 

@@ -24,7 +24,8 @@ namespace Environment
             {
                 Color color = underwaterEffect.fogColor.value;
                 color.a = opacity;
-                particleSystem.sharedMaterial.color=color;
+                if(particleSystem.sharedMaterial!=null)
+                    particleSystem.sharedMaterial.color=color;
             }
         }
     }
