@@ -22,31 +22,22 @@ Shader "Projector/Alpha Blended" {
 				#pragma multi_compile_fog
 				#include "UnityCG.cginc"
 
-				struct a2v
-				{
-					float4 vertex : POSITION;
-					float3 normal : NORMAL;
-				};
-
 				struct v2f {
 					float4 uvShadow : TEXCOORD0;
 					float4 uvFalloff : TEXCOORD1;
 					UNITY_FOG_COORDS(2)
-					float opacity : TEXCOORD3;
 					float4 pos : SV_POSITION;
 				};
 
 				float4x4 unity_Projector;
 				float4x4 unity_ProjectorClip;
 
-				v2f vert(a2v v)
+				v2f vert(float4 vertex : POSITION)
 				{
 					v2f o;
-					o.pos = UnityObjectToClipPos(v.vertex);
-					o.uvShadow = mul(unity_Projector, v.vertex);
-					o.uvFalloff = mul(unity_ProjectorClip, v.vertex);
-					float3 relativeNormal = mul(unity_Projector, v.normal);
-					o.opacity = abs(dot(float3(0, 0, 1), relativeNormal));
+					o.pos = UnityObjectToClipPos(vertex);
+					o.uvShadow = mul(unity_Projector, vertex);
+					o.uvFalloff = mul(unity_ProjectorClip, vertex);
 					UNITY_TRANSFER_FOG(o, o.pos);
 					return o;
 				}
@@ -58,15 +49,11 @@ Shader "Projector/Alpha Blended" {
 				fixed4 frag(v2f i) : SV_Target
 				{
 					fixed4 texS = tex2Dproj(_ShadowTex, UNITY_PROJ_COORD(i.uvShadow));
-					texS *= _Color;
-					// texS *= i.opacity;
-					// texS.a = 1.0 - texS.a;
-
-					// fixed4 texF = tex2Dproj(_FalloffTex, UNITY_PROJ_COORD(i.uvFalloff));
-					// fixed4 res = texS * texF.a;
+					fixed4 texF = tex2Dproj(_FalloffTex, UNITY_PROJ_COORD(i.uvFalloff));
+					fixed4 res = texS * texF.a* _Color;
 
 					UNITY_APPLY_FOG_COLOR(i.fogCoord, texS, fixed4(0,0,0,0));
-					return texS;
+					return res;
 				}
 				ENDCG
 			}

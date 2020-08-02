@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4125827866003331749}
   - component: {fileID: 8134976736916607181}
   - component: {fileID: 3879195154522232090}
+  - component: {fileID: 1139262745212289630}
+  - component: {fileID: 2280246757585623005}
   m_Layer: 0
   m_Name: FloorProjector
   m_TagString: Untagged
@@ -67,9 +69,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
-  radius: 1
+  horizontalPlacement: 0
+  radius: 1.05
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
     y: 0
@@ -123,6 +127,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   count: 5
+--- !u!114 &1139262745212289630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010803318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: "Placeable radius should be slightly larger \nthan projector ortographic size,
+    else the projector\nwill create lines on perpendicular walls."
+--- !u!114 &2280246757585623005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010803318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff8ef54adab62b44b96b6f955e5e612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &123158578068418797
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,9 +202,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 1
+  horizontalPlacement: 0
   radius: 0.7
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: -0.5}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -322,9 +354,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 0.5
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -698,9 +732,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 1
+  horizontalPlacement: 0
   radius: 0.6
   scale: {x: 0.82, y: 0.82, z: 0.14}
   offset: {x: 0, y: 0.083, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -784,9 +820,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 0.3
   scale: {x: 1, y: 1, z: 5.5}
   offset: {x: 0.1, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -903,9 +941,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 0.06
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -1053,9 +1093,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 1
   scale: {x: 0.25, y: 0.1, z: 0.2}
   offset: {x: -0.022000313, y: 0.1, z: 0.06999999}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -1206,9 +1248,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 1
   scale: {x: 0.07, y: 0.040000003, z: 0.11025262}
   offset: {x: -0.069999695, y: 0.03999999, z: 0.11025262}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -1292,9 +1336,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 1
   scale: {x: 0.10000008, y: 0.50722665, z: 0.22493024}
   offset: {x: -0.17506981, y: 0.061226577, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -1601,9 +1647,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 1
   scale: {x: 0.42500517, y: 0.3048, z: 0.20874974}
   offset: {x: -0.098750114, y: 0.3048, z: -0.025604963}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -1769,9 +1817,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 0
+  horizontalPlacement: 0
   radius: 0.27
   scale: {x: 1, y: 1, z: 3}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -2045,9 +2095,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 0.45
   scale: {x: 1, y: 0.5, z: 1.3}
   offset: {x: 0, y: 0.2, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 1
     y: 1
@@ -2313,9 +2365,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 0
   verticalPlacement: 0
+  horizontalPlacement: 0
   radius: 1.75
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
     y: 0
@@ -2352,6 +2406,8 @@ GameObject:
   - component: {fileID: 8473548456255497993}
   - component: {fileID: 4856822854576040830}
   - component: {fileID: 4400866941526382559}
+  - component: {fileID: 7566508634016194042}
+  - component: {fileID: 6814662987099514832}
   m_Layer: 0
   m_Name: WallProjector
   m_TagString: Untagged
@@ -2406,9 +2462,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
-  radius: 1
+  horizontalPlacement: 0
+  radius: 1.05
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
     y: 1
@@ -2463,6 +2521,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   count: 5
+--- !u!114 &7566508634016194042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957695018934842291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: "Placeable radius should be slightly larger \nthan projector ortographic size,
+    else the projector\nwill create lines on perpendicular walls."
+--- !u!114 &6814662987099514832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957695018934842291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff8ef54adab62b44b96b6f955e5e612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &298032197119152813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2490,9 +2574,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 0
   verticalPlacement: 2
+  horizontalPlacement: 0
   radius: 1.75
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
     y: 0
@@ -2582,6 +2668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7662702481833978584, guid: f33893641ce045a44abf0fda12687a1d,
+        type: 3}
+      propertyPath: opacity
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f33893641ce045a44abf0fda12687a1d, type: 3}
