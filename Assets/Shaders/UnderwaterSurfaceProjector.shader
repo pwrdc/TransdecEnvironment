@@ -5,7 +5,8 @@
 		_Sharpness("Sharpness", Float) = 3.0
 		_Speed("Speed", Float) = 1.0
 		_Scale("Scale", Float) = 1.0
-		_Fading("Fading", Float) = 30
+		_OpacityByDepth("Opacity By Depth", Float) = 50
+		_OpacityByDistance("Opacity By Distance", Float) = 25
 	}
 
 	Subshader{
@@ -17,6 +18,10 @@
 			Offset -1, -1
 
 			CGPROGRAM
+
+			// IMPORTANT: comment out line below if you don't have Aura 2
+			#define HAVE_AURA_2
+
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma multi_compile_fog
@@ -35,7 +40,8 @@
 				float4 uvFalloff : TEXCOORD1;
 				float4 worldPosition : TEXCOORD2;
 				UNITY_FOG_COORDS(3)
-				float opacity : TEXCOORD4;
+				float cameraDistance : TEXCOORD4;
+				float3 frustrumSpacePosition : TEXCOORD5;
 				float4 pos : SV_POSITION;
 			};
 
@@ -43,7 +49,8 @@
 			float _Sharpness;
 			float _Speed;
 			float _Scale;
-			float _Fading;
+			float _OpacityByDepth;
+			float _OpacityByDistance;
 			fixed4 _Color;
 			uniform float4 _LightColor0;
 
@@ -57,16 +64,21 @@
 				o.pos = UnityObjectToClipPos(v.vertex);
 				o.uvShadow = mul(unity_Projector, v.vertex);
 				o.uvFalloff = mul(unity_ProjectorClip, v.vertex);
-				o.opacity = clamp(dot(float3(0, 1, 0), v.normal), 0, 1);
+				o.cameraDistance = length(_WorldSpaceCameraPos - o.worldPosition);
 				UNITY_TRANSFER_FOG(o, o.pos);
 				return o;
 			}
 
-			// this function is used to fade out the texture 
-			// for the faces that are far away from the water surface
-			float fading(float x) {
-				float transformed = x * _Fading + 1;
+			float depthFading(float x) {
+				float transformed = x * _OpacityByDepth + 1;
 				return 1 / transformed;
+			}
+
+			// using aura fog generates something like waves of light
+			// so this is a bug-free approximation
+			float distanceFading(float x) {
+				float result = x / _OpacityByDistance;
+				return 1 / result;
 			}
 
 			bool isValidUv(float4 uv) {
@@ -105,7 +117,7 @@
 					// this adds the voronoi noise texture
 					float surfaceTexture = underwater_surface(float3(_Time[0] * _Speed, noisePosition*_Scale), _Sharpness);
 					// mix all of the values in alpha channel
-					result.a = surfaceTexture * _Opacity * fading(i.uvFalloff.x) * lightness * i.opacity;
+					result.a = surfaceTexture * _Opacity * depthFading(i.uvFalloff.x) * lightness * distanceFading(i.cameraDistance);
 
 					UNITY_APPLY_FOG_COLOR(i.fogCoord, result, fixed4(0, 0, 0, 0));
 					return result;

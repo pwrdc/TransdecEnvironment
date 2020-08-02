@@ -76,7 +76,9 @@ Material:
     - _Mode: 0
     - _Numerator: 1
     - _OcclusionStrength: 1
-    - _Opacity: 0.75
+    - _Opacity: 0.6
+    - _OpacityByDepth: 100
+    - _OpacityByDistance: 25
     - _Parallax: 0.02
     - _Scale: 3.5
     - _Sharpness: 5.5
