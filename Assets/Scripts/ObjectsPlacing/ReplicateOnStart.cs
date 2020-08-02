@@ -21,7 +21,7 @@ public class ReplicateOnStart : MonoBehaviour
         enabled = false;
         for (int i = 0; i < count; i++)
         {
-            Instantiate(this, transform.parent);
+            Instantiate(this, transform.position, transform.rotation, transform.parent);
         }
     }
 }

@@ -7,7 +7,42 @@ public class CubePlacingArea : PlacingArea
     public override void Place(Placeable placeable)
     {
         Vector3 bounds = CalculateBoundsSize(placeable);
-        Vector3 position = transform.position + new Vector3(Random.Range(-bounds.x, bounds.x), 0, Random.Range(-bounds.z, bounds.z));
+        Vector3 position;
+        switch (placeable.horizontalPlacement)
+        {
+            case Placeable.HorizontalPlacement.InTheMiddle:
+                position = transform.position + new Vector3(Random.Range(-bounds.x, bounds.x), 0, Random.Range(-bounds.z, bounds.z));
+                break;
+            case Placeable.HorizontalPlacement.OnWall:
+                {
+                    int side = Random.Range(0, 3);
+                    switch (side)
+                    {
+                        case 0:
+                            position = transform.position + new Vector3(bounds.x, 0, Random.Range(-bounds.z, bounds.z));
+                            placeable.transform.rotation = Quaternion.LookRotation(transform.right, transform.up);
+                            break;
+                        case 1:
+                            position = transform.position + new Vector3(-bounds.x, 0, Random.Range(-bounds.z, bounds.z));
+                            placeable.transform.rotation = Quaternion.LookRotation(-transform.right, transform.up);
+                            break;
+                        case 2:
+                            position = transform.position + new Vector3(Random.Range(-bounds.x, bounds.x), 0, bounds.z);
+                            placeable.transform.rotation = Quaternion.LookRotation(transform.forward, transform.up);
+                            break;
+                        case 3:
+                            position = transform.position + new Vector3(Random.Range(-bounds.x, bounds.x), 0, -bounds.z);
+                            placeable.transform.rotation = Quaternion.LookRotation(-transform.forward, transform.up);
+                            break;
+                        default:
+                            // getting there would be a bug
+                            throw new System.InvalidOperationException();
+                    }
+                    break;
+                }
+            default:
+                throw new InvalidEnumValueException(placeable.horizontalPlacement);
+        }
         switch (placeable.verticalPlacement)
         {
             case Placeable.VerticalPlacement.UnderSurface:
@@ -19,6 +54,8 @@ public class CubePlacingArea : PlacingArea
             case Placeable.VerticalPlacement.OnBottom:
                 position.y = transform.position.y - bounds.y;
                 break;
+            default:
+                throw new InvalidEnumValueException(placeable.horizontalPlacement);
         }
         placeable.transform.position=position-placeable.offset;
     }
