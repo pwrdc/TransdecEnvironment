@@ -47,27 +47,33 @@ public class CastedCirclePlacingArea : PlacingArea
         switch (placeable.horizontalPlacement)
         {
             case Placeable.HorizontalPlacement.Inside:
-                position = Random.insideUnitSphere;
+                // choose random point on a sphere
+                Vector3 unitSpherePoint= Random.insideUnitSphere;
+                position.x = unitSpherePoint.x * bounds.x;
+                position.z = unitSpherePoint.z * bounds.z;
+                // ignore the y component and simply place the placeable under the surface
                 position.y = -placeableHeight;
-                position.x *= bounds.x;
-                position.z *= bounds.z;
                 position += transform.position;
                 break;
             case Placeable.HorizontalPlacement.OnWall:
+                // choose random angle
                 float angle = Random.Range(0, 2 * Mathf.PI);
+                Vector3 unitCircleCoordinates = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+                // get a point on the circle at this angle
+                position.x = bounds.x * unitCircleCoordinates.x;
+                position.z = bounds.z * unitCircleCoordinates.z;
                 position.y = -placeableHeight;
-                Vector3 unitCoordinates = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
-                position.x = bounds.x * unitCoordinates.x;
-                position.z = bounds.z * unitCoordinates.z;
-                placeable.transform.rotation = Quaternion.LookRotation(unitCoordinates) * placeable.transform.rotation;
+                position += transform.position;
+                // rotate the placeable towards the angle
+                placeable.transform.rotation = Quaternion.LookRotation(unitCircleCoordinates) * placeable.transform.rotation;
                 break;
-            default: throw new InvalidEnumValueException(placeable.horizontalPlacement);
+            default:
+                throw new InvalidEnumValueException(placeable.horizontalPlacement);
         }
 
         if (placeable.verticalPlacement != Placeable.VerticalPlacement.UnderSurface)
         {
             BottomPoint bottom = Bottom(position.x, position.z, placeableHeight);
-
             switch (placeable.verticalPlacement)
             {
                 case Placeable.VerticalPlacement.InTheMiddle:
@@ -78,7 +84,11 @@ public class CastedCirclePlacingArea : PlacingArea
                     // rotate the placeable to make it parallel to the ground in this point
                     placeable.transform.rotation =Quaternion.LookRotation(bottom.normal) * Quaternion.Euler(90, 0, 0) * placeable.transform.rotation;
                     break;
-                default: throw new InvalidEnumValueException(placeable.verticalPlacement);
+                case Placeable.VerticalPlacement.UnderSurface:
+                    position.y = -placeableHeight;
+                    break;
+                default:
+                    throw new InvalidEnumValueException(placeable.verticalPlacement);
             }
         }
         placeable.transform.position=position- placeable.offset;

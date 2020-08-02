@@ -135,13 +135,13 @@ public class RobotAgent : Agent
     {
         string[] actionNames =
         {
-            "Longitudal",
-            "Lateral",
-            "Vertical",
-            "Yaw",
-            "Camera",
-            "Ball Grapper",
-            "Torpedo"
+            "longitudal",
+            "lateral",
+            "vertical",
+            "yaw",
+            "camera",
+            "ball grapper",
+            "torpedo"
         };
         StringBuilder stringBuilder = new StringBuilder(256);
         for (int i=0; i<actionNames.Length; i++)

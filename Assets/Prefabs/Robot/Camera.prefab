@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frustumSettings:
     baseSettings: {fileID: 11400000, guid: 6e2a2a5a93204ca4a83401a43d3ee5f0, type: 2}
-    qualitySettings: {fileID: 0}
+    qualitySettings: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845, type: 2}
 --- !u!114 &8977843416370945323
 MonoBehaviour:
   m_ObjectHideFlags: 0

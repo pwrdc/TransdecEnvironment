@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8134976736916607181}
   - component: {fileID: 3879195154522232090}
   - component: {fileID: 1139262745212289630}
-  - component: {fileID: 2280246757585623005}
   m_Layer: 0
   m_Name: FloorProjector
   m_TagString: Untagged
@@ -141,18 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   note: "Placeable radius should be slightly larger \nthan projector ortographic size,
     else the projector\nwill create lines on perpendicular walls."
---- !u!114 &2280246757585623005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010803318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ff8ef54adab62b44b96b6f955e5e612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &123158578068418797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2407,7 +2394,6 @@ GameObject:
   - component: {fileID: 4856822854576040830}
   - component: {fileID: 4400866941526382559}
   - component: {fileID: 7566508634016194042}
-  - component: {fileID: 6814662987099514832}
   m_Layer: 0
   m_Name: WallProjector
   m_TagString: Untagged
@@ -2535,18 +2521,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   note: "Placeable radius should be slightly larger \nthan projector ortographic size,
     else the projector\nwill create lines on perpendicular walls."
---- !u!114 &6814662987099514832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8957695018934842291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ff8ef54adab62b44b96b6f955e5e612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &298032197119152813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2792,15 +2766,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
---- !u!1 &8943013245404109824 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5639931482307560736, guid: 6514bc9f39efd1440b47da1cce31b6f8,
-    type: 3}
-  m_PrefabInstance: {fileID: 3629612021023037728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8943013245404109829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5639931482307560741, guid: 6514bc9f39efd1440b47da1cce31b6f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3629612021023037728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8943013245404109824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5639931482307560736, guid: 6514bc9f39efd1440b47da1cce31b6f8,
     type: 3}
   m_PrefabInstance: {fileID: 3629612021023037728}
   m_PrefabAsset: {fileID: 0}
@@ -2873,15 +2847,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
---- !u!1 &9063754559948386964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5639931482307560736, guid: 6514bc9f39efd1440b47da1cce31b6f8,
-    type: 3}
-  m_PrefabInstance: {fileID: 3714874913386985396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9063754559948386961 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5639931482307560741, guid: 6514bc9f39efd1440b47da1cce31b6f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3714874913386985396}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9063754559948386964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5639931482307560736, guid: 6514bc9f39efd1440b47da1cce31b6f8,
     type: 3}
   m_PrefabInstance: {fileID: 3714874913386985396}
   m_PrefabAsset: {fileID: 0}

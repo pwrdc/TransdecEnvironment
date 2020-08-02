@@ -1595,7 +1595,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 0.25}
+    - _Color: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 0.2}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
@@ -3228,11 +3228,6 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
         type: 2}
     - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: volumeTrigger
-      value: 
-      objectReference: {fileID: 1568292018}
-    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: volumeTrigger
       value: 

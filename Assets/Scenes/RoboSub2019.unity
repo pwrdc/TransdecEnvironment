@@ -120,49 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &148844213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8334a49e76cafef4da22976db1613959, type: 3}
-  m_Name: Default Aura Quality Settings
-  m_EditorClassIdentifier: 
-  displayVolumetricLightingBuffer: 0
-  frustumGridResolution: {x: 160, y: 88, z: 128}
-  enableAutomaticStereoResizing: 1
-  farClipPlaneDistance: 128
-  depthBiasCoefficient: 0.35
-  enableVolumes: 1
-  enableVolumesTexture2DMask: 1
-  enableVolumesTexture3DMask: 1
-  enableVolumesNoiseMask: 1
-  enableAmbientLighting: 1
-  enableDirectionalLights: 1
-  enableDirectionalLightsShadows: 1
-  enableSpotLights: 1
-  enableSpotLightsShadows: 1
-  enablePointLights: 1
-  enablePointLightsShadows: 1
-  enableLightsCookies: 1
-  enableDithering: 1
-  texture3DFiltering: 1
-  EXPERIMENTAL_enableDenoisingFilter: 0
-  EXPERIMENTAL_denoisingFilterRange: 0
-  EXPERIMENTAL_enableBlurFilter: 0
-  EXPERIMENTAL_blurFilterRange: 0
-  EXPERIMENTAL_blurFilterType: 0
-  EXPERIMENTAL_blurFilterGaussianDeviation: 0.0025
-  enableTemporalReprojection: 1
-  temporalReprojectionFactor: 0.95
-  enableOcclusionCulling: 1
-  debugOcclusionCulling: 0
-  occlusionCullingAccuracy: 0
-  enableLightProbes: 0
 --- !u!4 &171367951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3210798632583240540, guid: 4c6bb41a6b67ae4429ac55d995539f57,
@@ -253,6 +210,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1134660860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8334a49e76cafef4da22976db1613959, type: 3}
+  m_Name: Default Aura Quality Settings
+  m_EditorClassIdentifier: 
+  displayVolumetricLightingBuffer: 0
+  frustumGridResolution: {x: 160, y: 88, z: 128}
+  enableAutomaticStereoResizing: 1
+  farClipPlaneDistance: 128
+  depthBiasCoefficient: 0.35
+  enableVolumes: 1
+  enableVolumesTexture2DMask: 1
+  enableVolumesTexture3DMask: 1
+  enableVolumesNoiseMask: 1
+  enableAmbientLighting: 1
+  enableDirectionalLights: 1
+  enableDirectionalLightsShadows: 1
+  enableSpotLights: 1
+  enableSpotLightsShadows: 1
+  enablePointLights: 1
+  enablePointLightsShadows: 1
+  enableLightsCookies: 1
+  enableDithering: 1
+  texture3DFiltering: 1
+  EXPERIMENTAL_enableDenoisingFilter: 0
+  EXPERIMENTAL_denoisingFilterRange: 0
+  EXPERIMENTAL_enableBlurFilter: 0
+  EXPERIMENTAL_blurFilterRange: 0
+  EXPERIMENTAL_blurFilterType: 0
+  EXPERIMENTAL_blurFilterGaussianDeviation: 0.0025
+  enableTemporalReprojection: 1
+  temporalReprojectionFactor: 0.95
+  enableOcclusionCulling: 1
+  debugOcclusionCulling: 0
+  occlusionCullingAccuracy: 0
+  enableLightProbes: 0
 --- !u!1 &1312285019
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1603983578}
   - component: {fileID: 1603983577}
+  - component: {fileID: 1603983579}
   m_Layer: 0
   m_Name: UpperSurfaceReflectionSceneCamera
   m_TagString: Untagged
@@ -485,6 +486,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1603983579
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603983576}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1001 &1897788417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -506,7 +516,7 @@ PrefabInstance:
         type: 3}
       propertyPath: frustumSettings.qualitySettings
       value: 
-      objectReference: {fileID: 148844213}
+      objectReference: {fileID: 1134660860}
     - target: {fileID: 6185550624271084111, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: waterSurface
@@ -616,9 +626,29 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1c6ee14a1387e414587eed047e94b330, type: 2}
     - target: {fileID: 8693865206035487739, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
+      propertyPath: m_VertexStreams.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487739, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1c6ee14a1387e414587eed047e94b330, type: 2}
+    - target: {fileID: 8693865206035487739, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487739, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487739, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_VertexStreams.Array.data[3]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5286683334503124144, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: selected
@@ -644,6 +674,11 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 0.100000024
       objectReference: {fileID: 0}
+    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 1897788419}
     - target: {fileID: 9153791786499386259, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -684,6 +719,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 193.54099
       objectReference: {fileID: 0}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 1897788419}
+    - target: {fileID: 4316093199950000624, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 239825201, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9318676
@@ -707,6 +752,11 @@ PrefabInstance:
     - target: {fileID: 239825201, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
       propertyPath: m_LocalScale.y
       value: 12.310869
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870206062101644989, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5911264045817291277, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -905,6 +955,12 @@ PrefabInstance:
 --- !u!108 &1897788418 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1897788417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1897788419 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7870206062101644984, guid: 43af792d632711a79a7b7f029cbcd5fc,
     type: 3}
   m_PrefabInstance: {fileID: 1897788417}
   m_PrefabAsset: {fileID: 0}
