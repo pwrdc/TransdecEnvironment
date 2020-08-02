@@ -17,11 +17,18 @@
 			Offset -1, -1
 
 			CGPROGRAM
+
+			// IMPORTANT: comment out line below if you don't have Aura 2
+			#define HAVE_AURA_2
+
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma multi_compile_fog
 			#include "UnityCG.cginc"
 			#include "UnderwaterSurface.cginc"
+			#ifdef HAVE_AURA_2
+				#include "../Aura 2/Core/Code/Shaders/Aura.cginc"
+			#endif
 
 			struct a2v
 			{
@@ -36,6 +43,7 @@
 				float4 worldPosition : TEXCOORD2;
 				UNITY_FOG_COORDS(3)
 				float opacity : TEXCOORD4;
+				float3 frustrumSpacePosition : TEXCOORD5;
 				float4 pos : SV_POSITION;
 			};
 
@@ -59,6 +67,9 @@
 				o.uvFalloff = mul(unity_ProjectorClip, v.vertex);
 				o.opacity = clamp(dot(float3(0, 1, 0), v.normal), 0, 1);
 				UNITY_TRANSFER_FOG(o, o.pos);
+				#ifdef HAVE_AURA_2
+					o.frustrumSpacePosition = Aura2_GetFrustumSpaceCoordinates(v.vertex);
+				#endif
 				return o;
 			}
 
@@ -85,6 +96,10 @@
 				return float3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 			}
 
+			float4 over(float4 a, float4 b) {
+				return float4((a.rgb*a.a + b.rgb*b.a*(1 - a.a)) / (a.a + b.a*(1 - a.a)), a.a*b.a);
+			}
+
 			fixed4 frag(v2f i) : SV_Target
 			{
 				fixed4 uv = UNITY_PROJ_COORD(i.uvShadow);
@@ -108,6 +123,9 @@
 					result.a = surfaceTexture * _Opacity * fading(i.uvFalloff.x) * lightness;// *i.opacity;
 
 					UNITY_APPLY_FOG_COLOR(i.fogCoord, result, fixed4(0, 0, 0, 0));
+					#ifdef HAVE_AURA_2
+						Aura2_ApplyFog(result, i.frustrumSpacePosition);
+					#endif
 					return result;
 				}
 			}

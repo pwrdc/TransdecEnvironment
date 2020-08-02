@@ -17,15 +17,23 @@ Shader "Projector/Alpha Blended" {
 				Offset -1, -1
 
 				CGPROGRAM
+
+				// IMPORTANT: comment out line below if you don't have Aura 2
+				#define HAVE_AURA_2
+
 				#pragma vertex vert
 				#pragma fragment frag
 				#pragma multi_compile_fog
 				#include "UnityCG.cginc"
+				#ifdef HAVE_AURA_2
+					#include "../Aura 2/Core/Code/Shaders/Aura.cginc"
+				#endif
 
 				struct v2f {
 					float4 uvShadow : TEXCOORD0;
 					float4 uvFalloff : TEXCOORD1;
 					UNITY_FOG_COORDS(2)
+					float3 frustrumSpacePosition : TEXCOORD3;
 					float4 pos : SV_POSITION;
 				};
 
@@ -39,6 +47,9 @@ Shader "Projector/Alpha Blended" {
 					o.uvShadow = mul(unity_Projector, vertex);
 					o.uvFalloff = mul(unity_ProjectorClip, vertex);
 					UNITY_TRANSFER_FOG(o, o.pos);
+					#ifdef HAVE_AURA_2
+						o.frustrumSpacePosition = Aura2_GetFrustumSpaceCoordinates(vertex);
+					#endif
 					return o;
 				}
 
@@ -53,6 +64,9 @@ Shader "Projector/Alpha Blended" {
 					fixed4 res = texS * texF.a* _Color;
 
 					UNITY_APPLY_FOG_COLOR(i.fogCoord, texS, fixed4(0,0,0,0));
+					#ifdef HAVE_AURA_2
+						Aura2_ApplyFog(res, i.frustrumSpacePosition);
+					#endif
 					return res;
 				}
 				ENDCG

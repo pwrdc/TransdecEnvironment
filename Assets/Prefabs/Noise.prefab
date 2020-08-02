@@ -70,7 +70,7 @@ MonoBehaviour:
   shape: 1
   verticalPlacement: 2
   horizontalPlacement: 0
-  radius: 1.05
+  radius: 1.1
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -2463,7 +2463,7 @@ MonoBehaviour:
   shape: 1
   verticalPlacement: 2
   horizontalPlacement: 0
-  radius: 1.05
+  radius: 1.1
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -2851,6 +2851,54 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.arc.value
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.type
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.length
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.randomDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
