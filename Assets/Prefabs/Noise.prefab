@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90eb5c046681e2341bb2ffa10d8da828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 5
+  count: 10
 --- !u!114 &1139262745212289630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2363,11 +2363,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shape: 0
+  shape: 1
   verticalPlacement: 0
   horizontalPlacement: 0
-  radius: 1.75
-  scale: {x: 1, y: 1, z: 1}
+  radius: 0.25
+  scale: {x: 1, y: 0.00001, z: 1}
   offset: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
@@ -2462,7 +2462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 2
-  horizontalPlacement: 0
+  horizontalPlacement: 1
   radius: 1.1
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
@@ -2520,7 +2520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90eb5c046681e2341bb2ffa10d8da828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 5
+  count: 10
 --- !u!114 &7566508634016194042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2559,7 +2559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90eb5c046681e2341bb2ffa10d8da828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 5
+  count: 10
 --- !u!114 &3157945983721622019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2575,7 +2575,7 @@ MonoBehaviour:
   shape: 0
   verticalPlacement: 2
   horizontalPlacement: 0
-  radius: 1.75
+  radius: 0.7
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -2669,11 +2669,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7662702481833978584, guid: f33893641ce045a44abf0fda12687a1d,
-        type: 3}
-      propertyPath: opacity
-      value: 0.25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f33893641ce045a44abf0fda12687a1d, type: 3}
 --- !u!4 &766255805689655693 stripped
@@ -2765,11 +2760,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 0.05
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.type
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: VelocityModule.y.scalar
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
@@ -2851,54 +2870,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.arc.value
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.type
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.angle
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.length
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.alignToDirection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.sphericalDirectionAmount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: CollisionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.randomDirectionAmount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1927128227, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}

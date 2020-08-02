@@ -33,7 +33,7 @@ MonoBehaviour:
   texture3DFiltering: 1
   EXPERIMENTAL_enableDenoisingFilter: 1
   EXPERIMENTAL_denoisingFilterRange: 0
-  EXPERIMENTAL_enableBlurFilter: 1
+  EXPERIMENTAL_enableBlurFilter: 0
   EXPERIMENTAL_blurFilterRange: 0
   EXPERIMENTAL_blurFilterType: 0
   EXPERIMENTAL_blurFilterGaussianDeviation: 0.0025

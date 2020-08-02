@@ -59,7 +59,12 @@ Shader "Projector/Alpha Blended" {
 
 				fixed4 frag(v2f i) : SV_Target
 				{
+					// this prevents drawing on walls behind the projector
+					if (i.uvFalloff.x < 0) {
+						return fixed4(0, 0, 0, 0);
+					}
 					fixed4 texS = tex2Dproj(_ShadowTex, UNITY_PROJ_COORD(i.uvShadow));
+					
 					fixed4 texF = tex2Dproj(_FalloffTex, UNITY_PROJ_COORD(i.uvFalloff));
 					fixed4 res = texS * texF.a* _Color;
 

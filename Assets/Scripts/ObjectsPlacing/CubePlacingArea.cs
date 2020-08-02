@@ -10,7 +10,7 @@ public class CubePlacingArea : PlacingArea
         Vector3 position;
         switch (placeable.horizontalPlacement)
         {
-            case Placeable.HorizontalPlacement.InTheMiddle:
+            case Placeable.HorizontalPlacement.Inside:
                 position = transform.position + new Vector3(Random.Range(-bounds.x, bounds.x), 0, Random.Range(-bounds.z, bounds.z));
                 break;
             case Placeable.HorizontalPlacement.OnWall:

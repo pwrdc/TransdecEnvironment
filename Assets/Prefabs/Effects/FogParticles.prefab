@@ -4769,9 +4769,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 0
   verticalPlacement: 1
+  horizontalPlacement: 0
   radius: 1.5
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
     y: 0
@@ -4790,6 +4792,9 @@ MonoBehaviour:
       max: 0
   canObscureView: 1
   placer: {fileID: 0}
+  OnPlaced:
+    m_PersistentCalls:
+      m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
 --- !u!114 &-7662702481833978584
@@ -4804,4 +4809,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c231e907c6c8b4f88e88fa275330eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opacity: 0.35
+  opacity: 0.2

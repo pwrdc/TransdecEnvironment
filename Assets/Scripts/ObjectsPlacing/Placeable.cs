@@ -25,10 +25,10 @@ public class Placeable : MonoBehaviour
     public VerticalPlacement verticalPlacement=VerticalPlacement.OnBottom;
     public enum HorizontalPlacement
     {
-        InTheMiddle,
+        Inside,
         OnWall
     }
-    public HorizontalPlacement horizontalPlacement = HorizontalPlacement.InTheMiddle;
+    public HorizontalPlacement horizontalPlacement = HorizontalPlacement.Inside;
     // increasing radius has same effect as increasing each scale component
     // so the main reason behind having radius as a separate variable 
     // is to make adjusting scale easier
