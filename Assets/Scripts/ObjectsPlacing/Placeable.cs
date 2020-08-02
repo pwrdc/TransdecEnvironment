@@ -35,7 +35,7 @@ public class Placeable : MonoBehaviour
     public float radius = 1;
     public Vector3 scale = Vector3.one;
     public Vector3 offset;
-    [HideInInspector]
+    // [HideInInspector]
     public Quaternion initialRotation;
     [System.Serializable]
     public class Limit
@@ -79,7 +79,7 @@ public class Placeable : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         initialRotation = transform.rotation;
     }
