@@ -14,11 +14,8 @@ public class BackgroundImages : MonoBehaviour
 
     private int numOfImageToDisplay = 0;
     private int numOfDisplayedImage = 0;
-
-    // suppress variable is never assigned warning
-    #pragma warning disable 0649
-    [ResetParameter] CameraType focusedCamera;
-    #pragma warning restore 0649
+    
+    [ResetParameter] CameraType focusedCamera=CameraType.frontCamera;
 
     private string[] fileNames;
 

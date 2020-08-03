@@ -22,15 +22,13 @@ public class ScenesGenerator : MonoBehaviour
 
     public bool targetAlwaysVisible;
 
-    // suppress variable is never assigned warning
-    #pragma warning disable 0649
-    [ResetParameter] bool enableNoise;
-    [ResetParameter] bool collectData;
-    [ResetParameter] int focusedObject;
-    [ResetParameter] bool setFocusedObjectInCenter;
-    [ResetParameter("Positive")] bool positiveExamples;
-    [ResetParameter] CameraType focusedCamera;
-    #pragma warning restore 0649
+    [ResetParameter] bool enableNoise=false;
+    [ResetParameter] bool collectData=false;
+    [ResetParameter] int focusedObject=0;
+    [ResetParameter] bool setFocusedObjectInCenter=false;
+    [ResetParameter("Positive")] bool positiveExamples=false;
+    [ResetParameter] CameraType focusedCamera=CameraType.frontCamera;
+
 
     void Start()
     {
@@ -59,7 +57,7 @@ public class ScenesGenerator : MonoBehaviour
     void RotateRobot(Placeable targetPlaceable, Target target)
     {
         Quaternion rotation=Quaternion.LookRotation(targetPlaceable.transform.position - robot.transform.position);
-        if(RobotAgent.Instance.focusedCamera == CameraType.bottomCamera || target.cameraType==CameraType.bottomCamera)
+        if(focusedCamera == CameraType.bottomCamera || target.cameraType==CameraType.bottomCamera)
         {
             // rotate the robot 90 degrees up
             rotation *= Quaternion.Euler(-90, 0, 0);
