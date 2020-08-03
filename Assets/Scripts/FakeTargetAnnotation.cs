@@ -9,7 +9,7 @@ public class FakeTargetAnnotation : MonoBehaviour
     [SerializeField]
     private float margin = 10.0f;
     [SerializeField]
-    private Texture2D background;
+    private Texture2D background=null;
     [SerializeField]
     private bool drawBox = false;
     [SerializeField]

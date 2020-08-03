@@ -30,7 +30,7 @@ public class RobotAgent : Agent
     public UnityEvent OnReset;
     
     [SerializeField]
-    private TargetAnnotation annotation;
+    private TargetAnnotation annotation=null;
 
     [Header("Cameras")]
     public Camera frontCamera = null;

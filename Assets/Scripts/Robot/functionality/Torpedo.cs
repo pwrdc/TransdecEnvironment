@@ -7,9 +7,9 @@ namespace Robot.Functionality
         [SerializeField]
         private float range = 10f;
         [SerializeField]
-        private Transform fpsPosition;
+        private Transform fpsPosition=null;
         [SerializeField]
-        private LayerMask mask;
+        private LayerMask mask=0;
 
         private bool _isHit = false;
 

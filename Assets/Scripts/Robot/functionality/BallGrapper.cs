@@ -7,9 +7,9 @@ namespace Robot.Functionality
     {
 
         [SerializeField]
-        private LayerMask mask;
+        private LayerMask mask=0;
         [SerializeField]
-        private Vector3 offSet;
+        private Vector3 offSet=Vector3.zero;
         [SerializeField]
         private float range = 0.5f;
         private StateGrapper state;
