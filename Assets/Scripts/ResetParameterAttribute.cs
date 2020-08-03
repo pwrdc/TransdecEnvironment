@@ -2,24 +2,48 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Reflection;
-using UnityEngine.Events;
 
-/*
-Usage example:
-
-class MyClass {
-    [ResetParameter] bool collectData;
-    [ResetParameter("CollectData")] 
-    bool collectingData;
-    [ResetParameter] float speed;
-
-    void Start(){
-        // without this call fields will be unassigned
-        ResetParameterAttribute.InitializeAll(this);
-    }
-}
-*/
-
+/// <summary>
+/// Attribute that simplyfies working with ML-Agents Academy reset parameters.
+/// It replaces error-prone synchronizing functions with one call to a static function
+/// that searches through the fields and connects marked ones to the academy reset parameters.
+/// </summary>
+/// <example>
+/// This example illustrates all usage cases and practices.
+/// <code>
+/// class Example {
+///     // assigning default values to variables 
+///     // will prevent "variable never assigned" warnings
+///     
+///     // basic example
+///     // this field will be synchronized with 
+///     // "CollectData" in the academy reset parameters
+///     [ResetParameter] bool collectData = false;
+///     
+///     // reset parameter name different than the variable name
+///     [ResetParameter("CollectData")]
+///     bool collectingData = false;
+///     
+///     // different variable types
+///     [ResetParameter] float speed = 0;
+///     [ResetParameter] int count = 0;
+///     [ResetParameter] bool valid = 0;
+///     public enum Side
+///     {
+///         Left,
+///         Right
+///     }
+///     [ResetParameter] Side side = Side.Left;
+///     
+///     void Start()
+///     {
+///         // IMPORTANT: without this call fields will be unassigned
+///         // it connects the class instance to the academy
+///         ResetParameterAttribute.InitializeAll(this);
+///     }
+/// }
+/// </code>
+/// </example>
 [AttributeUsage(AttributeTargets.Field)]
 public class ResetParameterAttribute : Attribute {
     // if you want to field under name different than field name set this field
@@ -41,7 +65,7 @@ public class ResetParameterAttribute : Attribute {
             return char.ToUpper(str[0]) + str.Substring(1);
     }
 
-    public void Assign(System.Object obj, FieldInfo field)
+    public void Assign(object obj, FieldInfo field)
     {
         RobotAcademy academy = RobotAcademy.Instance;
         if (academy == null)
@@ -92,7 +116,7 @@ public class ResetParameterAttribute : Attribute {
     }
     static Dictionary<Type, List<AttributeAndField>> cached = new Dictionary<Type, List<AttributeAndField>>();
 
-    public static void InitializeAll(System.Object obj)
+    public static void InitializeAll(object obj)
     {
         RobotAcademy academy = RobotAcademy.Instance;
         if (academy == null)
@@ -104,7 +128,7 @@ public class ResetParameterAttribute : Attribute {
         academy.onResetParametersChanged.AddListener(() => AssignAll(obj));
     }
 
-    static void AssignAll(System.Object obj)
+    private static void AssignAll(object obj)
     {
         Type type = obj.GetType();
         if (cached.ContainsKey(type))
