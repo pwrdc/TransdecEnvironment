@@ -11,8 +11,11 @@ using System.Text;
 public class AgentSettings
 {
     public bool sendRelativeData = false;
+    [ResetParameter("CollectData")]
     public bool dataCollection = false;
+    [ResetParameter("Positive")]
     public bool positiveExamples = true;
+    [ResetParameter]
     public bool forceToSaveAsNegative = true;
     public bool targetReset = false;
     public bool collectObservations = false; //If agent is collecting data
@@ -61,6 +64,7 @@ public class RobotAgent : Agent
 
     bool initialized=false;
     void Initialize(){
+        ResetParameterAttribute.InitializeAll(agentSettings);
         engine=GetComponentInChildren<Engine>();
         depthSensor=GetComponentInChildren<DepthSensor>();
         accelerometer=GetComponentInChildren<Accelerometer>();
@@ -102,10 +106,6 @@ public class RobotAgent : Agent
 
     void ApplyResetParameters(){
         agentParameters.maxStep = (int)RobotAcademy.Instance.GetResetParameter("AgentMaxSteps");
-
-        agentSettings.dataCollection = RobotAcademy.Instance.IsResetParameterTrue("CollectData");
-        agentSettings.positiveExamples = RobotAcademy.Instance.IsResetParameterTrue("Positive");
-        agentSettings.forceToSaveAsNegative = RobotAcademy.Instance.IsResetParameterTrue("ForceToSaveAsNegative");
         focusedCamera = (CameraType)RobotAcademy.Instance.resetParameters["FocusedCamera"];
         SetCamera();
     }
