@@ -112,33 +112,33 @@ public class VectorActions {
 	public override string ToString(){
 		StringBuilder sb = new StringBuilder(256);
 		
-			sb.Append("longitudal : ");
-			sb.Append(longitudal.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("longitudal : ");
+		sb.Append(array[0].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("lateral : ");
-			sb.Append(lateral.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("lateral : ");
+		sb.Append(array[1].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("vertical : ");
-			sb.Append(vertical.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("vertical : ");
+		sb.Append(array[2].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("yaw : ");
-			sb.Append(yaw.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("yaw : ");
+		sb.Append(array[3].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("camera : ");
-			sb.Append(camera.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("camera : ");
+		sb.Append(array[4].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("ball_grapper : ");
-			sb.Append(ball_grapper.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("ball grapper : ");
+		sb.Append(array[5].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("torpedo : ");
-			sb.Append(torpedo.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("torpedo : ");
+		sb.Append(array[6].ToString("0.##"));
+		sb.Append("\n");
 		
 		return sb.ToString();
 	}

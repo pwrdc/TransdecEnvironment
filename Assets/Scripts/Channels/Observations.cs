@@ -167,41 +167,41 @@ public class Observations {
 	public override string ToString(){
 		StringBuilder sb = new StringBuilder(256);
 		
-			sb.Append("acceleration : ");
-			SliceToString(sb, 0, 3);
-			sb.Append("\n");
+		sb.Append("acceleration : ");
+		SliceToString(sb, 0, 3);
+		sb.Append("\n");
 		
-			sb.Append("angular_acceleration : ");
-			SliceToString(sb, 3, 3);
-			sb.Append("\n");
+		sb.Append("angular acceleration : ");
+		SliceToString(sb, 3, 3);
+		sb.Append("\n");
 		
-			sb.Append("rotation : ");
-			SliceToString(sb, 6, 3);
-			sb.Append("\n");
+		sb.Append("rotation : ");
+		SliceToString(sb, 6, 3);
+		sb.Append("\n");
 		
-			sb.Append("depth : ");
-			sb.Append(depth.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("depth : ");
+		sb.Append(array[9].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("bounding_box : ");
-			SliceToString(sb, 10, 4);
-			sb.Append("\n");
+		sb.Append("bounding box : ");
+		SliceToString(sb, 10, 4);
+		sb.Append("\n");
 		
-			sb.Append("positive_negative : ");
-			sb.Append(positive_negative.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("positive/negative : ");
+		sb.Append(array[14].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("relative_position : ");
-			SliceToString(sb, 15, 4);
-			sb.Append("\n");
+		sb.Append("relative position : ");
+		SliceToString(sb, 15, 4);
+		sb.Append("\n");
 		
-			sb.Append("grab : ");
-			sb.Append(grab.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("grab : ");
+		sb.Append(array[19].ToString("0.##"));
+		sb.Append("\n");
 		
-			sb.Append("torpedo : ");
-			sb.Append(torpedo.ToString("0.##"));
-			sb.Append("\n");
+		sb.Append("torpedo : ");
+		sb.Append(array[20].ToString("0.##"));
+		sb.Append("\n");
 		
 		return sb.ToString();
 	}

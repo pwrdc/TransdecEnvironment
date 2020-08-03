@@ -58,23 +58,30 @@ def translate(input_file, output_file, path, name):
 			count=int(splitted[1])
 		else:
 			count=1
-		# write proper property block and add line to toString function
+		# write proper property block
 		if count==1:
 			output_file.write(make_float_property(name, index))	
-			to_string_lines.append(f'''
-			sb.Append("{name+" : "}");
-			sb.Append({name}.ToString("0.##"));
-			sb.Append("\\n");''')
 		else:
 			output_file.write(make_array_property(name, index, count))
-			to_string_lines.append(f'''
-			sb.Append("{name+" : "}");
-			SliceToString(sb, {index}, {count});
-			sb.Append("\\n");''')
+		# here the not normalized name is passed, because it isn't used as variable name
+		# and it looks better
+		to_string_lines.append(make_to_string_line(splitted[0].strip(), index, count))
 		index+=count
 
 	output_file.write(make_to_string_function(to_string_lines))
 	output_file.write(make_footer(index))
+
+def make_to_string_line(name, index, count):
+	if count==1:
+		return f'''
+		sb.Append("{name+" : "}");
+		sb.Append(array[{index}].ToString("0.##"));
+		sb.Append("\\n");'''
+	else:
+		return f'''
+		sb.Append("{name+" : "}");
+		SliceToString(sb, {index}, {count});
+		sb.Append("\\n");'''
 
 def make_header(name, path):
 	return f'''using System;
