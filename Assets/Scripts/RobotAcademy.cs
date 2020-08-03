@@ -130,7 +130,7 @@ public class RobotAcademy : Academy
         }
         ApplyDebugSettings();
         SetBrainControl();
-        if ((int)resetParameters["FocusedObject"] >= Target.Count())
+        if ((int)resetParameters["FocusedObject"] >= Targets.Count)
             resetParameters["FocusedObject"] = 0;
         onResetParametersChanged.Invoke();
     }

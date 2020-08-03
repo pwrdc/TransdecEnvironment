@@ -92,7 +92,7 @@ public class ScenesGenerator : MonoBehaviour
             ))
         {
             // successfully placed both of them
-            RotateRobot(target, Target.AtIndex(focusedObject));
+            RotateRobot(target, Targets.Focused);
             if (enableNoise)
             {
                 if (targetAlwaysVisible)

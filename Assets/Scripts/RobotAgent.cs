@@ -195,7 +195,7 @@ public class RobotAgent : Agent
             }
         }
 
-        Target target = Target.Focused();
+        Target target = Targets.Focused;
         //Calculate target info for collecting data (in case of new position on each step) 
         if (agentSettings.randomizeTargetObjectPositionOnEachStep && target!=null)
         {
@@ -213,7 +213,7 @@ public class RobotAgent : Agent
     }
 
     public Vector3 RelativeTargetPosition(){
-        Transform target = Target.Focused()?.transform;
+        Transform target = Targets.Focused?.transform;
         if (target == null){
             return Vector3.zero;
         }
@@ -227,7 +227,7 @@ public class RobotAgent : Agent
 
     public float RelativeTargetAngle()
     {
-        Transform target = Target.Focused()?.transform;
+        Transform target = Targets.Focused?.transform;
         if (target==null){
             return 0f;
         }
