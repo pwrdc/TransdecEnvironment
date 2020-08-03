@@ -41,9 +41,6 @@ def main():
 	input_file.close()
 	output_file.close()
 
-def normalize_name(name):
-	return name.strip().replace(' ', '_').replace('/', '_')
-
 def translate(input_file, output_file, path, name):
 	index=0
 	output_file.write(make_header(name, path))
@@ -64,24 +61,15 @@ def translate(input_file, output_file, path, name):
 		else:
 			output_file.write(make_array_property(name, index, count))
 		# here the not normalized name is passed, because it isn't used as variable name
-		# and it looks better
+		# and it looks better not normalized
 		to_string_lines.append(make_to_string_line(splitted[0].strip(), index, count))
 		index+=count
 
 	output_file.write(make_to_string_function(to_string_lines))
 	output_file.write(make_footer(index))
 
-def make_to_string_line(name, index, count):
-	if count==1:
-		return f'''
-		sb.Append("{name+" : "}");
-		sb.Append(array[{index}].ToString("0.##"));
-		sb.Append("\\n");'''
-	else:
-		return f'''
-		sb.Append("{name+" : "}");
-		SliceToString(sb, {index}, {count});
-		sb.Append("\\n");'''
+def normalize_name(name):
+	return name.strip().replace(' ', '_').replace('/', '_')
 
 def make_header(name, path):
 	return f'''using System;
@@ -90,7 +78,7 @@ using System.Text;
 /// <summary>
 /// This class wraps an array of floats and gives its parts 
 /// meaningful names along with static and dynamic checks.
-/// It also provides a toString function printing all of the fields.
+/// It also provides a ToString function printing all of the fields.
 /// There are two constructors, one wraps existing array
 /// and the other is used to create a new one.
 /// </summary>
@@ -158,6 +146,18 @@ def make_array_property(name, index, count):
 		}}
 	}}
 '''
+
+def make_to_string_line(name, index, count):
+	if count==1:
+		return f'''
+		sb.Append("{name+" : "}");
+		sb.Append(array[{index}].ToString("0.##"));
+		sb.Append("\\n");'''
+	else:
+		return f'''
+		sb.Append("{name+" : "}");
+		SliceToString(sb, {index}, {count});
+		sb.Append("\\n");'''
 
 def make_to_string_function(to_string_lines):
 	newline='\n		'

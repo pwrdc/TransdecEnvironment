@@ -4,7 +4,7 @@ using System.Text;
 /// <summary>
 /// This class wraps an array of floats and gives its parts 
 /// meaningful names along with static and dynamic checks.
-/// It also provides a toString function printing all of the fields.
+/// It also provides a ToString function printing all of the fields.
 /// There are two constructors, one wraps existing array
 /// and the other is used to create a new one.
 /// </summary>
