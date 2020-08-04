@@ -45,7 +45,7 @@ public class FakeTargetAnnotation : MonoBehaviour
         {
             probability = CalculateProbability();
 
-            if (Utils.GetRandom(0.0f, 1.0f) < probability && probability > 0.7f)
+            if (Random.value < probability && probability > 0.7f)
                 isAnnotated = true;
             else
                 isAnnotated = false;
@@ -85,7 +85,7 @@ public class FakeTargetAnnotation : MonoBehaviour
         {
             if (IsPointInCameraViewport(pts[i]))
             {
-                if (IsPointVisible(points[i], Utils.GetDistance(cam.transform.position, pts[i])))
+                if (IsPointVisible(points[i], Vector3.Distance(cam.transform.position, pts[i])))
                 {
                     float score = GetScoreForPoint(pts[i]);
                     if (score > 0)
