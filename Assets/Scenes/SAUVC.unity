@@ -2997,26 +2997,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 1.0335e-41
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 1.02e-43
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: placingArea
@@ -3095,12 +3075,6 @@ PrefabInstance:
       propertyPath: scatteringInjection.strength
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: frustumSettings.qualitySettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
-        type: 2}
     - target: {fileID: 3324626794042129589, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3134,53 +3108,13 @@ PrefabInstance:
     - target: {fileID: 5286683334503124144, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: selected
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1312181196868687928, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153791786621299410, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 681370832179773151, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9153791788269740630, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8687739453299484201, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 1607031181}
-    - target: {fileID: 5699196361134144943, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 1230035538}
-    - target: {fileID: 8513575141454870749, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 1829554557}
-    - target: {fileID: 5174973243221557098, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 1084200022}
-    - target: {fileID: 1501946065088082865, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 2118598489}
     - target: {fileID: 2588017285344456537, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -3201,6 +3135,57 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 0.100000024
       objectReference: {fileID: 0}
+    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 1568292018}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: frustumSettings.qualitySettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
+        type: 2}
+    - target: {fileID: 693367129780153580, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 693367129780153580, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offSet.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 693367129780153580, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offSet.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 693367129780153580, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offSet.y
+      value: -0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3891604926483390412, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: rate.previewMode
@@ -3216,22 +3201,37 @@ PrefabInstance:
       propertyPath: rate.max
       value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: volumetricDensity.previewMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4983974148862889467, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
         type: 2}
-    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    - target: {fileID: 9153791786621299410, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: volumeTrigger
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153791788269740630, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumetricDensity.previewMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312181196868687928, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687739453299484201, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
       value: 
-      objectReference: {fileID: 1568292018}
+      objectReference: {fileID: 1607031181}
     - target: {fileID: 548470083916320121, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: verticalPlacement
@@ -3247,6 +3247,16 @@ PrefabInstance:
       propertyPath: radius
       value: 1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5699196361134144943, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 1230035538}
+    - target: {fileID: 8513575141454870749, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 1829554557}
     - target: {fileID: 5423876953090339029, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: randomRotation.z
@@ -3256,6 +3266,26 @@ PrefabInstance:
         type: 3}
       propertyPath: randomRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174973243221557098, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 1084200022}
+    - target: {fileID: 1501946065088082865, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 2118598489}
+    - target: {fileID: 7678950975005705844, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.420044
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678950975005705844, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.600006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

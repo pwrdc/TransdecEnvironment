@@ -43,6 +43,7 @@ public class Collision : MonoBehaviour
         {
             colliders.Add(co);
         }
+        EventsLogger.Log("Collision with an object.");
     }
 
     public float getDistance()

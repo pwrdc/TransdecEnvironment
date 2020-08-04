@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class DataLabel : MonoBehaviour
+public class DataText : MonoBehaviour
 {
     Text text;
 

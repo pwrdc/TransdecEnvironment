@@ -118,6 +118,7 @@
 					float surfaceTexture = underwater_surface(float3(_Time[0] * _Speed, noisePosition*_Scale), _Sharpness);
 					// mix all of the values in alpha channel
 					result.a = surfaceTexture * _Opacity * depthFading(i.uvFalloff.x) * lightness * distanceFading(i.cameraDistance);
+					result.a = clamp(result.a, 0, 1);
 
 					UNITY_APPLY_FOG_COLOR(i.fogCoord, result, fixed4(0, 0, 0, 0));
 					return result;

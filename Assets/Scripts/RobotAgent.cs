@@ -238,7 +238,7 @@ public class RobotAgent : Agent
             };
 
         observations.grab = (int)ballGrapper.GetState();
-        observations.torpedo = torpedo.IsHit() ? 1 : 0;
+        observations.torpedo = torpedo.lastTorpedoHit ? 1 : 0;
 
         return observations;
     }

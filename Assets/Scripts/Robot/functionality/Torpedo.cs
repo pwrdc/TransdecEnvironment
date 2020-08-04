@@ -11,18 +11,20 @@ namespace Robot.Functionality
         [SerializeField]
         private LayerMask mask=0;
 
-        private bool _isHit = false;
-
-        public bool IsHit() { return _isHit; }
+        public bool lastTorpedoHit { get; private set; } = false;
 
         public void Shoot()
         {
             RaycastHit hit;
             if (Physics.Raycast(fpsPosition.transform.position, fpsPosition.transform.forward, out hit, range, mask))
             {
-                _isHit = true;
+                EventsLogger.Log("Torpedo hit an object.");
+                lastTorpedoHit = true;
+            } else
+            {
+                EventsLogger.Log("Torpedo missed.");
+                lastTorpedoHit = false;
             }
-            _isHit = false;
         }
     }
 }
