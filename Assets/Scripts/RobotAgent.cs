@@ -160,17 +160,17 @@ public class RobotAgent : Agent
         }
         else // Testing/Training software 
         {
-            engine.Move(lastVectorAction.longitudinal, lastVectorAction.lateral, lastVectorAction.vertical, lastVectorAction.yaw);
-            if (IsNewCameraChosen((CameraType)lastVectorAction.camera))
+            engine.Move(lastVectorAction.Longitudinal, lastVectorAction.Lateral, lastVectorAction.Vertical, lastVectorAction.Yaw);
+            if (IsNewCameraChosen((CameraType)lastVectorAction.Camera))
             {
                 focusedCamera = (CameraType)vectorAction[4];
                 SetCamera();
             }
-            if (lastVectorAction.grabber != 0)
+            if (lastVectorAction.Grabber != 0)
             {
                 ballGrapper.Grab();
             }
-            if (lastVectorAction.torpedo != 0)
+            if (lastVectorAction.Torpedo != 0)
             {
                 torpedo.Shoot();
             }
@@ -220,26 +220,26 @@ public class RobotAgent : Agent
     {
         Observations observations=new Observations();
 
-        observations.acceleration = accelerometer.GetAcceleration();
-        observations.angular_acceleration = accelerometer.GetAngularAcceleration();
-        observations.rotation = accelerometer.GetRotation();
-        observations.depth = depthSensor.GetDepth();
+        observations.Acceleration = accelerometer.GetAcceleration();
+        observations.AngularAcceleration = accelerometer.GetAngularAcceleration();
+        observations.Rotation = accelerometer.GetRotation();
+        observations.Depth = depthSensor.GetDepth();
 
         if ((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData)
-            observations.bounding_box= annotation.GetBoundingBox();
+            observations.BoundingBox= annotation.GetBoundingBox();
         if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
-            observations.positive_negative = 1.0f;
+            observations.PositiveNegative = 1.0f;
 
         if (agentSettings.sendRelativeData || agentSettings.sendAllData)
-            observations.relative_position=new float[]{
+            observations.RelativePosition=new float[]{
                 relativePosition.x,
                 relativePosition.y,
                 relativePosition.z,
                 relativeAngle
             };
 
-        observations.grabbing_state = (int)ballGrapper.GetState();
-        observations.torpedo = torpedo.lastTorpedoHit ? 1 : 0;
+        observations.GrabbingState = (int)ballGrapper.GetState();
+        observations.Torpedo = torpedo.lastTorpedoHit ? 1 : 0;
 
         return observations;
     }

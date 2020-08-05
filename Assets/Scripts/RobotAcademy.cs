@@ -113,7 +113,6 @@ public class RobotAcademy : Academy
 
     void SetupAcademy()
     {
-        Debug.Log("Setup academy");
         if (InitializedSettings.IsMenu == true && control == RobotControl.player)
         {
             resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;

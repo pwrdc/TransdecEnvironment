@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+import string
 
 # Usage:
 # Pass a file containing fields as an argument.
@@ -10,6 +11,7 @@ from pathlib import Path
 #
 # Source file schema
 # It should contain field names separated by new line characters.
+# Currently names can contain whitespaces other than newline, letters and '/' characters.
 # Optionally a name can be followed with ':' and a number of array cells.
 # (By default it is one.)
 # Empty lines are allowed.
@@ -19,9 +21,18 @@ from pathlib import Path
 # safety, efficiency and readability.
 # Also the source files can be reused on the other side of ML-Agents.
 #
+# Discarded alternatives 
+# Indexing array directly - generates a lot of bugs and confusing source code. 
+# The resulting machine code from the generated classes should look exactly the same, 
+# because modern optimizers can easily inline properties. 
+# Using dictionary - this code runs at every frame and dictionaries aren't very fast. 
+# Each assignment would cost key.length integer comparisons (where key is string key) plus writing to the array. 
+# Also all of the checking would happen at runtime as opposed to static type checking in this solution. 
+#
 # Why Python
 # It works better than C# as a scripting and text processing language.
 # It is also used a lot in other parts of the project.
+# 
 
 def main():
 	if len(sys.argv)<2:
@@ -42,14 +53,17 @@ def main():
 	output_file.close()
 
 def translate(input_file, output_file, path, name):
-	index=0
 	output_file.write(make_header(name, path))
+	# current index in the array
+	index=0
+	# this lines will be placed inside of class's ToString method
 	to_string_lines=[]
 	for line in input_file:
+		# ignore empty lines
 		if line=="":
 			continue
 		splitted=line.split(':')
-		name=normalize_name(splitted[0])
+		name=to_valid_csharp_identifier(splitted[0])
 		# get count
 		if len(splitted)>1:
 			count=int(splitted[1])
@@ -60,16 +74,26 @@ def translate(input_file, output_file, path, name):
 			output_file.write(make_float_property(name, index))	
 		else:
 			output_file.write(make_array_property(name, index, count))
-		# here the not normalized name is passed, because it isn't used as variable name
-		# and it looks better not normalized
+		# here the original name is passed, because it isn't used as variable name
+		# and it looks better in debug view this way
 		to_string_lines.append(make_to_string_line(splitted[0].strip(), index, count))
 		index+=count
 
 	output_file.write(make_to_string_function(to_string_lines))
 	output_file.write(make_footer(index))
 
-def normalize_name(name):
-	return name.strip().replace(' ', '_').replace('/', '_')
+def to_valid_csharp_identifier(name):
+	# here all of the characters 
+	# that can exist in channels names 
+	# but can't exist in C# identifiers 
+	# must be replaced to spaces
+	preprocessed=name.replace('/', ' ')
+	# split the text into separate words and capitalize each one
+	# properties names in C# start with a capital letter by convention
+	capitalized_words=[word.capitalize() for word in preprocessed.split()]
+	# join the words into one string
+	return ''.join(capitalized_words)
+		
 
 def make_header(name, path):
 	return f'''using System;
@@ -101,6 +125,10 @@ public class {name} {{
 		array=new float[length];
 	}}
 
+	/// <summary>
+	/// Takes part of the array starting at start and containing count 
+	/// elements and writes its string representation to StringBuilder.
+	/// </summary>
 	void SliceToString(StringBuilder sb, int start, int count)
     {{
         bool first = true;

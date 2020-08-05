@@ -27,6 +27,10 @@ public class VectorActions {
 		array=new float[length];
 	}
 
+	/// <summary>
+	/// Takes part of the array starting at start and containing count 
+	/// elements and writes its string representation to StringBuilder.
+	/// </summary>
 	void SliceToString(StringBuilder sb, int start, int count)
     {
         bool first = true;
@@ -39,7 +43,7 @@ public class VectorActions {
         }
     }
 
-	public float longitudinal 
+	public float Longitudinal 
 	{
 		get {
 			return array[0];
@@ -49,7 +53,7 @@ public class VectorActions {
 		}
 	}
 
-	public float lateral 
+	public float Lateral 
 	{
 		get {
 			return array[1];
@@ -59,7 +63,7 @@ public class VectorActions {
 		}
 	}
 
-	public float vertical 
+	public float Vertical 
 	{
 		get {
 			return array[2];
@@ -69,7 +73,7 @@ public class VectorActions {
 		}
 	}
 
-	public float yaw 
+	public float Yaw 
 	{
 		get {
 			return array[3];
@@ -79,7 +83,7 @@ public class VectorActions {
 		}
 	}
 
-	public float camera 
+	public float Camera 
 	{
 		get {
 			return array[4];
@@ -89,7 +93,7 @@ public class VectorActions {
 		}
 	}
 
-	public float grabber 
+	public float Grabber 
 	{
 		get {
 			return array[5];
@@ -99,7 +103,7 @@ public class VectorActions {
 		}
 	}
 
-	public float torpedo 
+	public float Torpedo 
 	{
 		get {
 			return array[6];

@@ -27,6 +27,10 @@ public class Observations {
 		array=new float[length];
 	}
 
+	/// <summary>
+	/// Takes part of the array starting at start and containing count 
+	/// elements and writes its string representation to StringBuilder.
+	/// </summary>
 	void SliceToString(StringBuilder sb, int start, int count)
     {
         bool first = true;
@@ -39,7 +43,7 @@ public class Observations {
         }
     }
 
-	public float[] acceleration 
+	public float[] Acceleration 
 	{
 		get {
 			float[] result=new float[3];
@@ -56,7 +60,7 @@ public class Observations {
 		}
 	}
 
-	public float[] angular_acceleration 
+	public float[] AngularAcceleration 
 	{
 		get {
 			float[] result=new float[3];
@@ -73,7 +77,7 @@ public class Observations {
 		}
 	}
 
-	public float[] rotation 
+	public float[] Rotation 
 	{
 		get {
 			float[] result=new float[3];
@@ -90,7 +94,7 @@ public class Observations {
 		}
 	}
 
-	public float depth 
+	public float Depth 
 	{
 		get {
 			return array[9];
@@ -100,7 +104,7 @@ public class Observations {
 		}
 	}
 
-	public float[] bounding_box 
+	public float[] BoundingBox 
 	{
 		get {
 			float[] result=new float[4];
@@ -117,7 +121,7 @@ public class Observations {
 		}
 	}
 
-	public float positive_negative 
+	public float PositiveNegative 
 	{
 		get {
 			return array[14];
@@ -127,7 +131,7 @@ public class Observations {
 		}
 	}
 
-	public float[] relative_position 
+	public float[] RelativePosition 
 	{
 		get {
 			float[] result=new float[4];
@@ -144,7 +148,7 @@ public class Observations {
 		}
 	}
 
-	public float grabbing_state 
+	public float GrabbingState 
 	{
 		get {
 			return array[19];
@@ -154,7 +158,7 @@ public class Observations {
 		}
 	}
 
-	public float torpedo 
+	public float Torpedo 
 	{
 		get {
 			return array[20];
