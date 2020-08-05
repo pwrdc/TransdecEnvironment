@@ -17,6 +17,7 @@ public class AgentSettings
     public bool positiveExamples = true;
     [ResetParameter]
     public bool forceToSaveAsNegative = true;
+    public bool sendAllData = false;
     public bool targetReset = false;
     public bool collectObservations = false; //If agent is collecting data
     public bool randomizeTargetObjectPositionOnEachStep = true; //Only in data collection
@@ -159,13 +160,13 @@ public class RobotAgent : Agent
         }
         else //Testing/Training software 
         {
-            engine.Move(lastVectorAction.longitudal, lastVectorAction.lateral, lastVectorAction.vertical, lastVectorAction.yaw);
+            engine.Move(lastVectorAction.longitudinal, lastVectorAction.lateral, lastVectorAction.vertical, lastVectorAction.yaw);
             if (IsNewCameraChosen((CameraType)lastVectorAction.camera))
             {
                 // focusedCamera = (CameraType)vectorAction[4];
                 // SetCamera();
             }
-            if (lastVectorAction.ball_grapper != 0)
+            if (lastVectorAction.grabber != 0)
             {
                 ballGrapper.Grab();
             }
@@ -224,12 +225,12 @@ public class RobotAgent : Agent
         observations.rotation = accelerometer.GetRotation();
         observations.depth = depthSensor.GetDepth();
 
-        if (agentSettings.dataCollection && agentSettings.positiveExamples)
+        if ((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData)
             observations.bounding_box= annotation.GetBoundingBox();
-        if (agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative)
+        if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
             observations.positive_negative = 1.0f;
 
-        if (agentSettings.sendRelativeData)
+        if (agentSettings.sendRelativeData || agentSettings.sendAllData)
             observations.relative_position=new float[]{
                 relativePosition.x,
                 relativePosition.y,
@@ -237,7 +238,7 @@ public class RobotAgent : Agent
                 relativeAngle
             };
 
-        observations.grab = (int)ballGrapper.GetState();
+        observations.grabbing_state = (int)ballGrapper.GetState();
         observations.torpedo = torpedo.lastTorpedoHit ? 1 : 0;
 
         return observations;

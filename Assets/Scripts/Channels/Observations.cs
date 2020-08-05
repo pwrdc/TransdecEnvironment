@@ -144,7 +144,7 @@ public class Observations {
 		}
 	}
 
-	public float grab 
+	public float grabbing_state 
 	{
 		get {
 			return array[19];
@@ -195,7 +195,7 @@ public class Observations {
 		SliceToString(sb, 15, 4);
 		sb.Append("\n");
 		
-		sb.Append("grab : ");
+		sb.Append("grabbing state : ");
 		sb.Append(array[19].ToString("0.##"));
 		sb.Append("\n");
 		

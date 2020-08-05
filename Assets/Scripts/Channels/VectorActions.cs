@@ -39,7 +39,7 @@ public class VectorActions {
         }
     }
 
-	public float longitudal 
+	public float longitudinal 
 	{
 		get {
 			return array[0];
@@ -89,7 +89,7 @@ public class VectorActions {
 		}
 	}
 
-	public float ball_grapper 
+	public float grabber 
 	{
 		get {
 			return array[5];
@@ -112,7 +112,7 @@ public class VectorActions {
 	public override string ToString(){
 		StringBuilder sb = new StringBuilder(256);
 		
-		sb.Append("longitudal : ");
+		sb.Append("longitudinal : ");
 		sb.Append(array[0].ToString("0.##"));
 		sb.Append("\n");
 		
@@ -132,7 +132,7 @@ public class VectorActions {
 		sb.Append(array[4].ToString("0.##"));
 		sb.Append("\n");
 		
-		sb.Append("ball grapper : ");
+		sb.Append("grabber : ");
 		sb.Append(array[5].ToString("0.##"));
 		sb.Append("\n");
 		

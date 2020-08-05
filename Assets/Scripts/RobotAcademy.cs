@@ -12,14 +12,8 @@
 // <summary></summary>
 // ***********************************************************************
 using MLAgents;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 /// <summary>
 /// Robot control

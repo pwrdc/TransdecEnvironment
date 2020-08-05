@@ -1,7 +1,7 @@
-longitudal
+longitudinal
 lateral
 vertical
 yaw
 camera
-ball grapper
+grabber
 torpedo
