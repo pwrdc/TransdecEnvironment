@@ -81,6 +81,25 @@ public class ScenesGenerator : MonoBehaviour
 
     void GenerateForDataCollection()
     {
+        if (collectData && !positiveExamples)
+            GenerateNegativeExample();
+        else
+            GeneratePositiveExample();
+    }
+
+    void GenerateNegativeExample()
+    {
+        placer.Clear();
+        foreach (var target in targets)
+        {
+            target.gameObject.SetActive(false);
+        }
+        placer.Place(robot);
+        placer.PlaceAll(noise);
+    }
+
+    void GeneratePositiveExample()
+    {
         placer.Clear();
         // disable all targets that aren't focused
         Placeable target = targets[focusedObject];

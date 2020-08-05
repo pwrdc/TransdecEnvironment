@@ -30,63 +30,60 @@ public class TargetAnnotation : MonoBehaviour
 
     private bool activate = true;
 
-    private float[] boxCoord = new float[4];
+    public float[] boundingBox { get; private set; } = new float[4];
     private GUIStyle style = null;
-    private Vector3[] pts = new Vector3[8];
 
     public void OnGUI()
     {
-        if (activate)
+        if (style == null)
         {
-            if (style == null)
-            {
-                style = new GUIStyle(GUI.skin.box);
-                style.normal.background = background;
-            }
-            Bounds bounds = Utils.GetComplexBounds(Targets.Focused.gameObject);
-            // object is not visible
-            if (RobotAgent.Instance.ActiveCamera.WorldToScreenPoint(bounds.center).z < 0) return;
+            style = new GUIStyle(GUI.skin.box);
+            style.normal.background = background;
+        }
+        Target focused = Targets.Focused;
+        if (focused == null)
+            return;
+        Camera camera = RobotAgent.Instance.ActiveCamera;
+        Bounds bounds = Utils.GetComplexBounds(focused.gameObject);
+        // object is not visible
+        if (camera.WorldToScreenPoint(bounds.center).z < 0)
+            return;
 
-            // 8 coordinates 
-            //TODO: Change to Viewport, and adjust changes in pyTransdec
-            Camera cam=RobotAgent.Instance.ActiveCamera;
-            pts[0] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
-            pts[1] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
-            pts[2] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
-            pts[3] = cam.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
-            pts[4] = cam.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
-            pts[5] = cam.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
-            pts[6] = cam.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
-            pts[7] = cam.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
-            // calculate coordinate for game view
-            for (int i = 0; i < pts.Length; i++) pts[i].y = 1 - pts[i].y;
+        Vector3[] points = new Vector3[8];
+        points[0] = camera.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
+        points[1] = camera.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
+        points[2] = camera.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
+        points[3] = camera.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
+        points[4] = camera.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
+        points[5] = camera.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
+        points[6] = camera.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
+        points[7] = camera.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
+        // flip Y coordinates
+        for (int i = 0; i < points.Length; i++) points[i].y = 1 - points[i].y;
 
-            // calculate max and min values for drawing box
-            Vector3 min = pts[0];
-            Vector3 max = pts[0];
-            for (int i = 1; i < pts.Length; i++)
-            {
-                min = Vector3.Min(min, pts[i]);
-                max = Vector3.Max(max, pts[i]);
-            }
+        // calculate bounding box's min and max coordinates
+        Vector3 min = points[0];
+        Vector3 max = points[0];
+        for (int i = 1; i < points.Length; i++)
+        {
+            min = Vector3.Min(min, points[i]);
+            max = Vector3.Max(max, points[i]);
+        }
 
-            boxCoord[0] = min.x;
-            boxCoord[1] = min.y;
-            boxCoord[2] = max.x;
-            boxCoord[3] = max.y;
-            
-            if (drawBox)
-            {
-                Rect r = Rect.MinMaxRect(min.x * Screen.width, min.y * Screen.height, max.x * Screen.width, max.y * Screen.height);
-                r.xMin -= margin;
-                r.xMax += margin;
-                r.yMin -= margin;
-                r.yMax += margin;
-                // 'box'
-                GUI.Box(r, "", style);
-            }
+        boundingBox[0] = min.x;
+        boundingBox[1] = min.y;
+        boundingBox[2] = max.x;
+        boundingBox[3] = max.y;
+        
+        if (drawBox)
+        {
+            Rect r = Rect.MinMaxRect(min.x * Screen.width, min.y * Screen.height, max.x * Screen.width, max.y * Screen.height);
+            r.xMin -= margin;
+            r.xMax += margin;
+            r.yMin -= margin;
+            r.yMax += margin;
+            // draw GUI box
+            GUI.Box(r, "", style);
         }
     }
-
-    public float[] GetBoundingBox() { return boxCoord; }
 }

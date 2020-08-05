@@ -226,7 +226,7 @@ public class RobotAgent : Agent
         observations.Depth = depthSensor.GetDepth();
 
         if ((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData)
-            observations.BoundingBox= annotation.GetBoundingBox();
+            observations.BoundingBox= annotation.boundingBox;
         if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
             observations.PositiveNegative = 1.0f;
 
