@@ -83,6 +83,7 @@ namespace Robot.Functionality
 
         private void OnDrawGizmosSelected()
         {
+            Gizmos.color = Color.gray;
             Gizmos.DrawWireSphere(transform.position, range);
         }
     }

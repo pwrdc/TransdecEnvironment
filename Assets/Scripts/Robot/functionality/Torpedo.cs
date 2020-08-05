@@ -18,7 +18,7 @@ namespace Robot.Functionality
             RaycastHit hit;
             if (Physics.Raycast(fpsPosition.transform.position, fpsPosition.transform.forward, out hit, range, mask))
             {
-                EventsLogger.Log("Torpedo hit an object.");
+                EventsLogger.Log("Torpedo hit an object marked as torpedo target.");
                 lastTorpedoHit = true;
             } else
             {

@@ -4766,20 +4766,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c5efc20758d4f43b95c058304cccdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color:
-    value: {r: 0, g: 0, b: 0, a: 0}
-    normal: {r: 0, g: 0, b: 0, a: 0}
-    colorPoints: []
-    previewMode: 0
-    previewIndex: 0
-  rate:
+  emissionRate:
     value: 0
     normal: 200
     min: 50
     max: 300
     previewMode: 0
     previewPercentage: 0
-  opacityRange: 20
 --- !u!1 &1622391349318724193
 GameObject:
   m_ObjectHideFlags: 0
@@ -4927,7 +4920,7 @@ GameObject:
   - component: {fileID: 3059397397827971813}
   - component: {fileID: 3059397397827971814}
   m_Layer: 0
-  m_Name: BallGrapper
+  m_Name: BallGrabber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4964,7 +4957,7 @@ MonoBehaviour:
     m_Bits: 512
   offSet: {x: 1, y: 0, z: 1}
   range: 0.5
-  ball: {fileID: 0}
+  holdingTimeot: 0.5
 --- !u!1 &3059397398044678525
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,6 +5304,7 @@ MonoBehaviour:
     dataCollection: 0
     positiveExamples: 1
     forceToSaveAsNegative: 0
+    sendAllData: 0
     targetReset: 1
     collectObservations: 0
     randomizeTargetObjectPositionOnEachStep: 1
@@ -5343,9 +5337,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: 1
   verticalPlacement: 1
+  horizontalPlacement: 0
   radius: 0.3
   scale: {x: 1, y: 1, z: 1}
   offset: {x: 0, y: 0, z: 0}
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
     y: 1

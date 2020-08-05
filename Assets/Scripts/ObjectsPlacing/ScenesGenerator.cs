@@ -34,10 +34,16 @@ public class ScenesGenerator : MonoBehaviour
     {
         ResetParameterAttribute.InitializeAll(this);
         placer = GetComponent<Placer>();
-        RobotAgent.Instance.OnReset.AddListener(OnReset);
+        RobotAgent.Instance.OnReset.AddListener(GenerateScene);
         RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
         targets = targetsFolder.GetComponentsInChildren<Placeable>();
         noise = noiseFolder.GetComponentsInChildren<Placeable>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            GenerateScene();
     }
 
     void RandomizeRobotRotation(Placeable target)
@@ -70,7 +76,7 @@ public class ScenesGenerator : MonoBehaviour
     private void OnDataCollection()
     {
         if (RobotAgent.Instance.agentSettings.randomizeTargetObjectPositionOnEachStep)
-            OnReset();
+            GenerateScene();
     }
 
     void GenerateForDataCollection()
@@ -84,6 +90,8 @@ public class ScenesGenerator : MonoBehaviour
                 otherTarget.gameObject.SetActive(false);
         }
         // try putting target 10 times and every time target is placed try placing camera near it 10 times
+        // 10*10 is just a very big tries count that we don't expect to reach, 
+        // because placeables volume is a small percent of total placing area volume.
         if (Utils.Try(10, () =>
             placer.Place(target)
             && Utils.Try(10, () => placer.PlaceNear(robot, target, cameraRange))
@@ -116,7 +124,7 @@ public class ScenesGenerator : MonoBehaviour
             placer.PlaceAll(noise);
     }
 
-    void OnReset()
+    void GenerateScene()
     {
         if (collectData)
         {

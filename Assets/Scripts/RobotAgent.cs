@@ -158,13 +158,13 @@ public class RobotAgent : Agent
         {
             OnDataCollection.Invoke();
         }
-        else //Testing/Training software 
+        else // Testing/Training software 
         {
             engine.Move(lastVectorAction.longitudinal, lastVectorAction.lateral, lastVectorAction.vertical, lastVectorAction.yaw);
             if (IsNewCameraChosen((CameraType)lastVectorAction.camera))
             {
-                // focusedCamera = (CameraType)vectorAction[4];
-                // SetCamera();
+                focusedCamera = (CameraType)vectorAction[4];
+                SetCamera();
             }
             if (lastVectorAction.grabber != 0)
             {
@@ -177,14 +177,14 @@ public class RobotAgent : Agent
         }
 
         Target target = Targets.Focused;
-        //Calculate target info for collecting data (in case of new position on each step) 
+        // Calculate target info for collecting data (in case of new position on each step) 
         if (agentSettings.randomizeTargetObjectPositionOnEachStep && target!=null)
         {
             targetCenter = Utils.GetComplexBounds(target.gameObject).center;
             targetRotation = target.transform.rotation;
         }
 
-        //Collect data
+        // Collect data
         relativePosition = RelativeTargetPosition();
         relativeAngle = RelativeTargetAngle();
         float currentReward = CalculateReward();
