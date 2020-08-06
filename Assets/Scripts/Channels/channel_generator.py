@@ -25,9 +25,9 @@ import string
 # Indexing array directly - generates a lot of bugs and confusing source code. 
 # The resulting machine code from the generated classes should look exactly the same, 
 # because modern optimizers can easily inline properties. 
-# Using dictionary - this code runs at every frame and dictionaries aren't very fast. 
-# Each assignment would cost key.length integer comparisons (where key is string key) plus writing to the array. 
-# Also all of the checking would happen at runtime as opposed to static type checking in this solution. 
+# Using dictionary - the code accessing the channels runs at every frame and dictionaries aren't very fast. 
+# Each assignment would cost key.length integer comparisons (where key is a string key) plus writing to the array. 
+# Also all of the checking would happen at runtime as opposed to this solution being partly checked at compile time. 
 #
 # Why Python
 # It works better than C# as a scripting and text processing language.
@@ -86,7 +86,7 @@ def to_valid_csharp_identifier(name):
 	# here all of the characters 
 	# that can exist in channels names 
 	# but can't exist in C# identifiers 
-	# must be replaced to spaces
+	# must be replaced with spaces
 	preprocessed=name.replace('/', ' ')
 	# split the text into separate words and capitalize each one
 	# properties names in C# start with a capital letter by convention

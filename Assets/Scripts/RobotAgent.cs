@@ -34,7 +34,7 @@ public class RobotAgent : Agent
     public UnityEvent OnReset;
     
     [SerializeField]
-    private BoundingBox boundingBox=null;
+    private TargetLocator targetLocator=null;
 
     [Header("Cameras")]
     public Camera frontCamera = null;
@@ -51,12 +51,9 @@ public class RobotAgent : Agent
     Rigidbody body;
     Vector3 targetCenter;
     Quaternion targetRotation;
-    Vector3 startPos;
+    Vector3 startRelativePosition;
     float startRelativeAngle;
     int collided = 0;
-
-    float relativeAngle; //angle between robot and target
-    Vector3 relativePosition; //position between robot and target
 
     VectorActions lastVectorAction = null;
     float lastReward = 0;
@@ -119,8 +116,9 @@ public class RobotAgent : Agent
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
 
-        startPos = RelativeTargetPosition();
-        startRelativeAngle = RelativeTargetAngle();
+        targetLocator.UpdateValues();
+        startRelativePosition = targetLocator.RelativePosition;
+        startRelativeAngle = targetLocator.RelativeAngle;
 
         //Reset reward
         SetReward(0);
@@ -146,13 +144,29 @@ public class RobotAgent : Agent
         return stringBuilder.ToString();
     }
 
+    void ApplyVectorAction(VectorActions vectorAction)
+    {
+        engine.Move(vectorAction.Longitudinal, vectorAction.Lateral, vectorAction.Vertical, vectorAction.Yaw);
+        if ((CameraType)vectorAction.Camera != focusedCamera)
+        {
+            focusedCamera = (CameraType)vectorAction.Camera;
+            SetCamera();
+        }
+        if (vectorAction.Grabber != 0)
+        {
+            ballGrapper.Grab();
+        }
+        if (vectorAction.Torpedo != 0)
+        {
+            torpedo.Shoot();
+        }
+        lastVectorAction = vectorAction;
+    }
+
     public override void AgentAction(float[] vectorAction, string textAction)
     {
-        lastVectorAction = new VectorActions(vectorAction);
         if (!initialized)
         {
-            // Start function of this class and its subcomponents hasn't been called.
-            // The best we can do here is return an uninitiadlized object.
             Initialize();
         }
 
@@ -162,20 +176,7 @@ public class RobotAgent : Agent
         }
         else // Testing/Training software 
         {
-            engine.Move(lastVectorAction.Longitudinal, lastVectorAction.Lateral, lastVectorAction.Vertical, lastVectorAction.Yaw);
-            if (IsNewCameraChosen((CameraType)lastVectorAction.Camera))
-            {
-                focusedCamera = (CameraType)vectorAction[4];
-                SetCamera();
-            }
-            if (lastVectorAction.Grabber != 0)
-            {
-                ballGrapper.Grab();
-            }
-            if (lastVectorAction.Torpedo != 0)
-            {
-                torpedo.Shoot();
-            }
+            ApplyVectorAction(new VectorActions(vectorAction));
         }
 
         Target target = Targets.Focused;
@@ -185,49 +186,23 @@ public class RobotAgent : Agent
             targetCenter = Utils.GetComplexBounds(target.gameObject).center;
             targetRotation = target.transform.rotation;
         }
-
-        // Collect data
-        relativePosition = RelativeTargetPosition();
-        relativeAngle = RelativeTargetAngle();
+        
         float currentReward = CalculateReward();
         SetReward(currentReward);
         lastReward = currentReward;
     }
 
-    public Vector3 RelativeTargetPosition(){
-        Transform target = Targets.Focused?.transform;
-        if (target == null){
-            return Vector3.zero;
-        }
-        Vector3 distToCenter = target.InverseTransformPoint(targetCenter);
-        Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter;
-        relativePos.x = Mathf.Abs(relativePos.x);
-        relativePos.y = Mathf.Abs(relativePos.y);
-        relativePos.z = Mathf.Abs(relativePos.z);
-        return relativePos;
-    }
-
-    public float RelativeTargetAngle()
+    float[] EncodeBoundingBox(Rect boundingBox)
     {
-        Transform target = Targets.Focused?.transform;
-        if (target==null){
-            return 0f;
-        }
-        float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
-        relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
-        return relativeYaw;
-    }
-
-    float[] GetBoundingBox()
-    {
-        Rect rect = boundingBox.rect;
         // sent bounding box needs to be flipped vertically
         return new float[]
         {
-            rect.xMin,
-            1-rect.yMax,
-            rect.xMax,
-            1-rect.yMin
+            // min point:
+            boundingBox.xMin,
+            1-boundingBox.yMax,
+            // max point:
+            boundingBox.xMax,
+            1-boundingBox.yMin
         };
     }
 
@@ -235,7 +210,11 @@ public class RobotAgent : Agent
     {
         Observations observations=new Observations();
         if (!initialized)
+        {
+            // Start function of this class and its subcomponents hasn't been called.
+            // The best we can do here is return an uninitialized object.
             return observations;
+        }
 
         observations.Acceleration = accelerometer.GetAcceleration();
         observations.AngularAcceleration = accelerometer.GetAngularAcceleration();
@@ -243,16 +222,18 @@ public class RobotAgent : Agent
         observations.Depth = depthSensor.GetDepth();
 
         if ((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData)
-            observations.BoundingBox=GetBoundingBox();
+            observations.BoundingBox=EncodeBoundingBox(targetLocator.ScreenRect);
         if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
             observations.PositiveNegative = 1.0f;
 
+        targetLocator.UpdateValues();
+        Vector3 relativePosition = targetLocator.RelativePosition;
         if (agentSettings.sendRelativeData || agentSettings.sendAllData)
             observations.RelativePosition=new float[]{
                 relativePosition.x,
                 relativePosition.y,
                 relativePosition.z,
-                relativeAngle
+                targetLocator.RelativeAngle
             };
 
         observations.GrabbingState = (int)ballGrapper.GetState();
@@ -270,11 +251,6 @@ public class RobotAgent : Agent
     }
     #endregion
 
-    bool IsNewCameraChosen(CameraType newMode)
-    {
-        return newMode != focusedCamera;
-    }
-
     /// <summary>
     /// reward function, which is a normalized sum of expressions:
     /// -sqrt(1 / a_0* a) + 1
@@ -283,10 +259,12 @@ public class RobotAgent : Agent
     /// <returns>reward</returns>
     float CalculateReward()
     {
-        float reward = (CalculateSingleReward(relativePosition.x, startPos.x) +
-                        CalculateSingleReward(relativePosition.y, startPos.y) +
-                        CalculateSingleReward(relativePosition.z, startPos.z) +
-                        CalculateSingleReward(relativeAngle, startRelativeAngle)) / 4 -
+        targetLocator.UpdateValues();
+        Vector3 relativePosition = targetLocator.RelativePosition;
+        float reward = (CalculateSingleReward(relativePosition.x, startRelativePosition.x) +
+                        CalculateSingleReward(relativePosition.y, startRelativePosition.y) +
+                        CalculateSingleReward(relativePosition.z, startRelativePosition.z) +
+                        CalculateSingleReward(targetLocator.RelativeAngle, startRelativeAngle)) / 4 -
                         collided - (engine.isAboveSurface()?1:0);
         return reward;
     }

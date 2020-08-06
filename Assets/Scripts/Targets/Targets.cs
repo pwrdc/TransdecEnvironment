@@ -46,7 +46,7 @@ public class Targets : MonoBehaviour
     {
         targets.Clear();
         // it is important to obtain targets in their order in the scene hierarchy
-        // there is no such guarantee in FinObjectsOfType function
+        // there is no such guarantee in FindObjectsOfType function
         for (int i = 0; i < folder.childCount; i++)
         {
             Transform child = folder.GetChild(i);

@@ -1,15 +1,59 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class BoundingBox : MonoBehaviour
+public class TargetLocator : MonoBehaviour
 {
-    public Rect rect { get; private set; } = Rect.zero;
+    Transform target;
+    public Rect ScreenRect { get; private set; } = Rect.zero;
+    public Vector3 RelativePosition { get; private set; } = Vector3.zero;
+    public float RelativeAngle { get; private set; }
 
-    void Update()
+    public void UpdateValues()
     {
-        rect = CalculateRect();
+        target = Targets.Focused?.transform;
+        if (target != null)
+        {
+            ScreenRect = CalculateScreenRect();
+            RelativePosition=CalculateRelativePosition();
+            RelativePosition = CalculateRelativePosition();
+            RelativeAngle=CalculateRelativeAngle();
+        } else
+        {
+            ScreenRect = Rect.zero;
+            RelativePosition = Vector3.zero;
+            RelativeAngle = 0.0f;
+        }
     }
 
-    Rect CalculateRect()
+    public Vector3 CalculateRelativePosition()
+    {
+        Transform target = Targets.Focused?.transform;
+        if (target == null)
+        {
+            return Vector3.zero;
+        }
+        Vector3 distToCenter = target.InverseTransformPoint(target.position);
+        Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter;
+        relativePos.x = Mathf.Abs(relativePos.x);
+        relativePos.y = Mathf.Abs(relativePos.y);
+        relativePos.z = Mathf.Abs(relativePos.z);
+        return relativePos;
+    }
+
+    public float CalculateRelativeAngle()
+    {
+        Transform target = Targets.Focused?.transform;
+        if (target == null)
+        {
+            return 0f;
+        }
+        float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
+        relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
+        return relativeYaw;
+    }
+
+    Rect CalculateScreenRect()
     {
         Target focused = Targets.Focused;
         if (focused == null)
@@ -29,8 +73,6 @@ public class BoundingBox : MonoBehaviour
         points[5] = camera.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z - bounds.extents.z));
         points[6] = camera.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z + bounds.extents.z));
         points[7] = camera.WorldToViewportPoint(new Vector3(bounds.center.x - bounds.extents.x, bounds.center.y - bounds.extents.y, bounds.center.z - bounds.extents.z));
-        // flip Y coordinates
-        // for (int i = 0; i < points.Length; i++) points[i].y = 1 - points[i].y;
 
         // calculate bounding box's min and max coordinates
         Vector3 min = points[0];
