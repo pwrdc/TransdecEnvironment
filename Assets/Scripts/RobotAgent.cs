@@ -55,7 +55,8 @@ public class RobotAgent : Agent
     float startRelativeAngle;
     int collided = 0;
 
-    VectorActions lastVectorAction = null;
+    VectorAction lastVectorAction = null;
+    Observations lastObservations = null;
     float lastReward = 0;
     
     public CameraType focusedCamera;
@@ -137,14 +138,17 @@ public class RobotAgent : Agent
             stringBuilder.Append("vector actions:\n");
             stringBuilder.Append(lastVectorAction.ToString());
         }
-        stringBuilder.Append("\nobservations:\n");
-        stringBuilder.Append(GetObservations().ToString());
+        if (lastObservations != null)
+        {
+            stringBuilder.Append("\nobservations:\n");
+            stringBuilder.Append(lastObservations.ToString());
+        }
         stringBuilder.Append("\nreward : ");
         stringBuilder.Append(lastReward);
         return stringBuilder.ToString();
     }
 
-    void ApplyVectorAction(VectorActions vectorAction)
+    void ApplyVectorAction(VectorAction vectorAction)
     {
         engine.Move(vectorAction.Longitudinal, vectorAction.Lateral, vectorAction.Vertical, vectorAction.Yaw);
         if ((CameraType)vectorAction.Camera != focusedCamera)
@@ -176,7 +180,7 @@ public class RobotAgent : Agent
         }
         else // Testing/Training software 
         {
-            ApplyVectorAction(new VectorActions(vectorAction));
+            ApplyVectorAction(new VectorAction(vectorAction));
         }
 
         Target target = Targets.Focused;
@@ -209,12 +213,6 @@ public class RobotAgent : Agent
     public Observations GetObservations()
     {
         Observations observations=new Observations();
-        if (!initialized)
-        {
-            // Start function of this class and its subcomponents hasn't been called.
-            // The best we can do here is return an uninitialized object.
-            return observations;
-        }
 
         observations.Acceleration = accelerometer.GetAcceleration();
         observations.AngularAcceleration = accelerometer.GetAngularAcceleration();
@@ -239,15 +237,16 @@ public class RobotAgent : Agent
         observations.GrabbingState = (int)ballGrapper.GetState();
         observations.Torpedo = torpedo.lastTorpedoHit ? 1 : 0;
 
+        lastObservations = observations;
         return observations;
     }
 
     public override void CollectObservations()
     {
-        if (!agentSettings.collectObservations)
-            return;
-        
-        AddVectorObs(GetObservations().array);
+        Observations observations = GetObservations();
+
+        if (agentSettings.collectObservations)
+            AddVectorObs(observations.array);
     }
     #endregion
 
