@@ -20,18 +20,34 @@ Feel free to add tests here or edit them according to your judgement, just remem
 - A scene should open.
 - Check if you're inside of the pool, you can see upper water surface and you can recognise that you're under water by camera effects.
 - Check if following controls work:
+- Basic movement:
 	- `wasd` to move forwards, left, backwards and right
 	- `qe` to rotate left and right
-	- `rf` to move upwards and downwards
-	- go to an object on layer *ball*, press and hold `t`, it should follow the boat
-	- torpedo is left out for now as it has no visual indication
-Debug screen:
+	- `space/shift` to move upwards and downwards
+- Debug screen:
 	- Press `b` button while moving.
-	- It should pause the simulation and display debug screen with the data exchanged with python. 
+	- It should pause the simulation and display debug screen with data exchanged with python. 
 	- Judge if the values there are correct. 
-	- Press `v' to close debug screen and resume the simulation.
+	- Press `v` to close debug screen and resume the simulation.
 	- Do it five times while moving around.
+- Grabber:
+	- Go to an object on layer *GrabberTargets*\*
+	- Press and hold `g`, the object should follow the AUV.
+- Torpedos:
+	- Open the debug screen.
+	- Press `t` while aiming at an empty wall.
+	- There should be an information about missing the target on the debug screen.
+	- Go to an object on layer *TorpedoTargets*\*
+	- Aim at its collider and press `t`, 
+	- There should be information about hitting the target on the debug screen.
 - Go to step one and select different scene, test for each scene.
+\* Finding an object on a layer:
+	- In the upper right corner find a button named *Layers*.
+	- Click it and in the opened window press an eye icon next to *Nothing*.
+	- Everything in the scene view should disappear.
+	- Now click an eye icon next to the desired layer name.
+	- Now only objects on this layer are visible and selectable in the scene view.
+	- Click and locate one of them.
 
 ## Data collection mode
 - Open Scenes/MainMenu.unity file.
