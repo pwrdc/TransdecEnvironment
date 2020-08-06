@@ -41,6 +41,7 @@ Feel free to add tests here or edit them according to your judgement, just remem
 	- Aim at its collider and press `t`, 
 	- There should be information about hitting the target on the debug screen.
 - Go to step one and select different scene, test for each scene.
+
 \* Finding an object on a layer:
 	- In the upper right corner find a button named *Layers*.
 	- Click it and in the opened window press an eye icon next to *Nothing*.
