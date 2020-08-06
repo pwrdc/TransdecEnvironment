@@ -43,12 +43,12 @@ Feel free to add tests here or edit them according to your judgement, just remem
 - Go to step one and select different scene, test for each scene.
 
 \* Finding an object on a layer:
-	- In the upper right corner find a button named *Layers*.
-	- Click it and in the opened window press an eye icon next to *Nothing*.
-	- Everything in the scene view should disappear.
-	- Now click an eye icon next to the desired layer name.
-	- Now only objects on this layer are visible and selectable in the scene view.
-	- Click and locate one of them.
+- In the upper right corner find a button named *Layers*.
+- Click it and in the opened window press an eye icon next to *Nothing*.
+- Everything in the scene view should disappear.
+- Now click an eye icon next to the desired layer name.
+- Now only objects on this layer are visible and selectable in the scene view.
+- Click and locate one of them.
 
 ## Data collection mode
 - Open Scenes/MainMenu.unity file.
