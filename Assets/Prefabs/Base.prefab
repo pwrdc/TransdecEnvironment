@@ -647,6 +647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6048218709992607357}
   - component: {fileID: 1653295314683915710}
+  - component: {fileID: 637986528944324146}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -693,6 +694,19 @@ MonoBehaviour:
     either assign placingArea field in Placer \nor disable ObjectPlacing object altogether,\nBe
     careful with prefab overrides as they \ncan break other scenes. You shouldn't
     override \nscene specific fields."
+--- !u!114 &637986528944324146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118742042968492889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d26d4235c39bd48900255d107bf48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuSceneName: Menu
 --- !u!1 &5253650590857290871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,18 +1667,6 @@ Light:
     type: 3}
   m_PrefabInstance: {fileID: 2588017285137434122}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2588017284080640121 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1124247155, guid: b522b6efb5ec849dca481532bc053825,
-    type: 3}
-  m_PrefabInstance: {fileID: 2588017285137434122}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9153791786499386264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb39d7c11655d4f4dbfe855a95c3d64d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5911264045817291277 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8206538558807892999, guid: b522b6efb5ec849dca481532bc053825,
@@ -1675,6 +1677,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fdeb99cb63ad4264f94a0dc6475ac28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2588017284080640121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1124247155, guid: b522b6efb5ec849dca481532bc053825,
+    type: 3}
+  m_PrefabInstance: {fileID: 2588017285137434122}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153791786499386264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb39d7c11655d4f4dbfe855a95c3d64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9153791786499386264 stripped
