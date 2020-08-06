@@ -137,10 +137,11 @@ public class RobotAgent : Agent
         {
             stringBuilder.Append("vector actions:\n");
             stringBuilder.Append(lastVectorAction.ToString());
+            stringBuilder.Append("\n");
         }
         if (lastObservations != null)
         {
-            stringBuilder.Append("\nobservations:\n");
+            stringBuilder.Append("observations:\n");
             stringBuilder.Append(lastObservations.ToString());
         }
         stringBuilder.Append("\nreward : ");

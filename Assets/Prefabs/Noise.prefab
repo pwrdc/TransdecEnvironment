@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123158578068418802}
   - component: {fileID: 123158578068418794}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Dices
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 123158578107027555}
   - component: {fileID: 123158578107027554}
   - component: {fileID: 123158578107027866}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Robot_2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 123158578186609046}
   - component: {fileID: 123158578186609044}
   - component: {fileID: 123158578186609047}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 123158578321794482}
   - component: {fileID: 123158578321794477}
   - component: {fileID: 123158578321794474}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Dice6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 123158578400130498}
   - component: {fileID: 123158578400130496}
   - component: {fileID: 123158578400130499}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Block1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 123158578429198666}
   - component: {fileID: 123158578429198658}
   - component: {fileID: 123158578429198659}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Roulette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123158579622473654}
   - component: {fileID: 123158578435384394}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: rura_podwodna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 123158578441578229}
   - component: {fileID: 123158578441578228}
   - component: {fileID: 123158578441578231}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 123158578975466345}
   - component: {fileID: 123158578975466351}
   - component: {fileID: 123158578975466350}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123158578173319469}
   - component: {fileID: 123158579108338060}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: walizka_z_pingerem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 123158579126023502}
   - component: {fileID: 123158579126023500}
   - component: {fileID: 123158579126023503}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Block1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1199,7 @@ GameObject:
   - component: {fileID: 123158578586154410}
   - component: {fileID: 123158579154382213}
   - component: {fileID: 123158579154382210}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: torba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1287,7 +1287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123158579265284834}
   - component: {fileID: 123158579265284634}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CoinDispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1362,7 +1362,7 @@ GameObject:
   - component: {fileID: 123158579334309760}
   - component: {fileID: 123158579334309766}
   - component: {fileID: 123158579334309761}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Block3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,7 +1441,7 @@ GameObject:
   - component: {fileID: 123158579384948031}
   - component: {fileID: 123158579384948029}
   - component: {fileID: 123158579384948028}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1519,7 +1519,7 @@ GameObject:
   - component: {fileID: 123158579536755311}
   - component: {fileID: 123158579536755309}
   - component: {fileID: 123158579536755308}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1596,7 +1596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123158578299443395}
   - component: {fileID: 123158579552436294}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SlotMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,7 +1674,7 @@ GameObject:
   - component: {fileID: 123158579572837000}
   - component: {fileID: 123158579572837003}
   - component: {fileID: 123158579572837001}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Dice2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1768,7 +1768,7 @@ GameObject:
   - component: {fileID: 123158580177055434}
   - component: {fileID: 123158579728886853}
   - component: {fileID: 123158579728886850}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: rura_nadwodna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1858,7 +1858,7 @@ GameObject:
   - component: {fileID: 123158579857582470}
   - component: {fileID: 123158579857582465}
   - component: {fileID: 123158579857582526}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Dice1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1953,7 +1953,7 @@ GameObject:
   - component: {fileID: 123158579864643960}
   - component: {fileID: 123158579864643963}
   - component: {fileID: 123158579864643961}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Dice5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2046,7 +2046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123158578780252398}
   - component: {fileID: 123158580023822345}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: ogien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2121,7 +2121,7 @@ GameObject:
   - component: {fileID: 123158580148853916}
   - component: {fileID: 123158580148854626}
   - component: {fileID: 123158580148853917}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2199,7 +2199,7 @@ GameObject:
   - component: {fileID: 123158580174840754}
   - component: {fileID: 123158580174840752}
   - component: {fileID: 123158580174840755}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Block2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

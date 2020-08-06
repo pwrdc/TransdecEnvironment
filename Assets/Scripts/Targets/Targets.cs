@@ -42,6 +42,11 @@ public class Targets : MonoBehaviour
         }
     }
 
+    public class NoTargetsException : System.Exception {
+        public NoTargetsException()
+            : base("The selected targets folder needs to contain at least on target component instance.") { }
+    }
+
     static void ListTargets(Transform folder)
     {
         targets.Clear();
@@ -57,6 +62,8 @@ public class Targets : MonoBehaviour
                     targets.Add(target);
             }
         }
+        if (targets.Count == 0)
+            throw new NoTargetsException();
     }
 
     public static Target Focused

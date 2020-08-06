@@ -64,9 +64,12 @@ namespace Environment
 
         void UpdateEffects(bool active)
         {
-            foreach (var wobbleEffect in wobbleEffects)
+            if (wobbleEffects != null)
             {
-                wobbleEffect.enabled = active;
+                foreach (var wobbleEffect in wobbleEffects)
+                {
+                    wobbleEffect.enabled = active;
+                }
             }
             if (postProcessVolume != null)
             {

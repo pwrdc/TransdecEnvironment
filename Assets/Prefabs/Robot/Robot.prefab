@@ -4955,8 +4955,8 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
-  offSet: {x: 1, y: 0, z: 1}
-  range: 0.5
+  offSet: {x: 0.35, y: -0.3, z: 0.7}
+  range: 1
   holdingTimeot: 0.5
 --- !u!1 &3059397398044678525
 GameObject:
@@ -5296,7 +5296,7 @@ MonoBehaviour:
   OnReset:
     m_PersistentCalls:
       m_Calls: []
-  annotation: {fileID: 0}
+  targetLocator: {fileID: 0}
   frontCamera: {fileID: 6693106762273889356}
   bottomCamera: {fileID: 5679860144947708080}
   agentSettings:
@@ -5322,7 +5322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  annotation: {fileID: 0}
 --- !u!114 &8206538558807892999
 MonoBehaviour:
   m_ObjectHideFlags: 0

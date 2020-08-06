@@ -105,8 +105,7 @@ public class ScenesGenerator : MonoBehaviour
         Placeable target = targets[focusedObject];
         foreach (var otherTarget in targets)
         {
-            if(otherTarget!=target)
-                otherTarget.gameObject.SetActive(false);
+            otherTarget.gameObject.SetActive(otherTarget == target);
         }
         // try putting target 10 times and every time target is placed try placing camera near it 10 times
         // 10*10 is just a very big tries count that we don't expect to reach, 
@@ -115,7 +114,7 @@ public class ScenesGenerator : MonoBehaviour
             placer.Place(target)
             && Utils.Try(10, () => placer.PlaceNear(robot, target, cameraRange))
             ))
-        {
+        {       
             // successfully placed both of them
             RotateRobot(target, Targets.Focused);
             if (enableNoise)
@@ -125,8 +124,6 @@ public class ScenesGenerator : MonoBehaviour
                 else
                     placer.PlaceAll(noise);
             }
-            if (collectData && !positiveExamples)
-                target.gameObject.SetActive(false);
         }
         else
         {

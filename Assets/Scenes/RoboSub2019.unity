@@ -959,6 +959,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.8660254
       objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232971, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5817767860845673101, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_LocalScale.z
@@ -1041,7 +1046,7 @@ MonoBehaviour:
     - key: FocusedCamera
       value: 0
     - key: WaterCurrent
-      value: 0
+      value: 1
     - key: FocusedObject
       value: 1
     - key: EnableBackgroundImage
