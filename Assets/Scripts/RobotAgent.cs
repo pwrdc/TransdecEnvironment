@@ -34,7 +34,7 @@ public class RobotAgent : Agent
     public UnityEvent OnReset;
     
     [SerializeField]
-    private TargetAnnotation annotation=null;
+    private BoundingBox boundingBox=null;
 
     [Header("Cameras")]
     public Camera frontCamera = null;
@@ -151,6 +151,8 @@ public class RobotAgent : Agent
         lastVectorAction = new VectorActions(vectorAction);
         if (!initialized)
         {
+            // Start function of this class and its subcomponents hasn't been called.
+            // The best we can do here is return an uninitiadlized object.
             Initialize();
         }
 
@@ -216,9 +218,24 @@ public class RobotAgent : Agent
         return relativeYaw;
     }
 
+    float[] GetBoundingBox()
+    {
+        Rect rect = boundingBox.rect;
+        // sent bounding box needs to be flipped vertically
+        return new float[]
+        {
+            rect.xMin,
+            1-rect.yMax,
+            rect.xMax,
+            1-rect.yMin
+        };
+    }
+
     public Observations GetObservations()
     {
         Observations observations=new Observations();
+        if (!initialized)
+            return observations;
 
         observations.Acceleration = accelerometer.GetAcceleration();
         observations.AngularAcceleration = accelerometer.GetAngularAcceleration();
@@ -226,7 +243,7 @@ public class RobotAgent : Agent
         observations.Depth = depthSensor.GetDepth();
 
         if ((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData)
-            observations.BoundingBox= annotation.boundingBox;
+            observations.BoundingBox=GetBoundingBox();
         if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
             observations.PositiveNegative = 1.0f;
 
