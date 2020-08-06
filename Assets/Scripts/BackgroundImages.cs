@@ -6,7 +6,7 @@ using UnityEngine;
 public class BackgroundImages : MonoBehaviour
 {
     [ResetParameter("EnableBackgroundImage")]
-    public bool isEnabled = false;
+    bool isEnabled = false;
     public int numberOfPictures;
     public GameObject frontCameraBackground = null;
     public GameObject bottomCameraBackground = null;

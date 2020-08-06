@@ -2,8 +2,8 @@
 using UnityEngine;
 
 /// <summary>
-/// This class is meant for
-/// logging simulation events for the used.
+/// This class is meant for logging simulation events
+/// that are meant to by seen by the user
 /// Adding new logger requires implementing EventsLogReceiver 
 /// and calling EventsLogger.AddReceiver on class instance.
 /// </summary>
