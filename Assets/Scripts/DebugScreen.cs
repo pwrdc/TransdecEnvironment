@@ -6,13 +6,11 @@ using UnityEngine;
 public class DebugScreen : MonoBehaviour
 {
     public GameObject canvas;
-    public TargetAnnotation annotation;
 
     bool active;
     void Switch(bool newActive)
     {
         canvas.SetActive(newActive);
-        annotation.enabled = newActive;
         active = newActive;
     }
 

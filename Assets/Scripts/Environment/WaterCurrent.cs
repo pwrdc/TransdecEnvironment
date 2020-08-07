@@ -28,8 +28,8 @@ namespace Environment
         void Start()
         {
             ResetParameterAttribute.InitializeAll(this);
-            angle = Utils.GetRandom(0, 360);
-            radius = Utils.GetRandom(minVelocity, maxVelocity);
+            angle = Random.Range(0, 360);
+            radius = Random.Range(minVelocity, maxVelocity);
             float x = radius * Mathf.Cos(angle);
             float z = radius * Mathf.Sin(angle);
             current = new Vector3(x, 0, z);
@@ -41,8 +41,8 @@ namespace Environment
             if (!isEnabled)
                 return;
 
-            float radiusChange = Utils.GetRandom(-maxVelocityChange, maxVelocityChange);
-            float angleChange = Utils.GetRandom(-maxAngleChange, maxAngleChange);
+            float radiusChange = Random.Range(-maxVelocityChange, maxVelocityChange);
+            float angleChange = Random.Range(-maxAngleChange, maxAngleChange);
 
             radius += radiusChange;
             if (radius > maxVelocity)

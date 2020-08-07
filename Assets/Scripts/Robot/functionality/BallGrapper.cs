@@ -1,83 +1,90 @@
 ﻿using UnityEngine;
 
-
 namespace Robot.Functionality
 {
     public class BallGrapper : MonoBehaviour
     {
-
-        [SerializeField]
-        private LayerMask mask;
-        [SerializeField]
-        private Vector3 offSet;
-        [SerializeField]
-        private float range = 0.5f;
-        private StateGrapper state;
-        [SerializeField]
-        private GameObject ball;
-
-        private void Start()
+        public LayerMask mask = 0;
+        public Vector3 offSet = Vector3.zero;
+        public float range = 0.5f;
+        public enum State
         {
-            state = StateGrapper.CANT_HOLD;
+            Holding, ObjectInReach, NoObjectsInReach
         }
+        State state = State.NoObjectsInReach;
+        Transform objectInReach;
+        public float holdingTimeot = 0.5f;
+        bool grabHeld = false;
 
         public void Grab()
         {
-            var actualState = GetState();
-
-            if (actualState == StateGrapper.IS_HOLDING)
+            grabHeld = true;
+            UpdateReachingState();
+            if (state == State.NoObjectsInReach)
             {
-                actualState = StateGrapper.CANT_HOLD;
+                EventsLogger.Log("Attempted to grab something.");
             }
-
-            if (actualState == StateGrapper.CAN_HOLD)
+            if (state == State.ObjectInReach)
             {
-                actualState = StateGrapper.IS_HOLDING;
-            }
-
-            if (actualState == StateGrapper.IS_HOLDING)
-            {
-                var degree = Mathf.Deg2Rad * transform.parent.rotation.eulerAngles.y;
-                Vector3 pos = new Vector3(Mathf.Sin(degree) * offSet.x, offSet.y, Mathf.Cos(degree) * offSet.z) + transform.parent.position;
-                ball.transform.position = pos;
+                state = State.Holding;
+                EventsLogger.Log("Started holding an object.");
             }
         }
 
-        public StateGrapper GetState() 
+        public State GetState()
         {
-            Logic();
+            UpdateReachingState();
             return state;
         }
 
-        private void Logic() 
+        private void Update()
         {
-            
-            if (state != StateGrapper.IS_HOLDING)
+            if (state == State.Holding)
             {
-
-                Collider[] coll = Physics.OverlapSphere(transform.position, range, mask);
-
-                float distance = range;
-                foreach (Collider i in coll)
-                {
-                    if (Vector3.Distance(i.gameObject.transform.position, transform.position) < distance)
-                    {
-                        distance = Vector3.Distance(i.gameObject.transform.position, transform.position);
-                        ball = i.gameObject;
-                    }
-
-                }
-
-
-                if (distance < range)
-                {
-                    state = StateGrapper.CAN_HOLD;
-                }
+                if (grabHeld)
+                    objectInReach.position = Vector3.Lerp(objectInReach.position, transform.position + transform.TransformDirection(offSet), 0.5f);
                 else
                 {
-                    state = StateGrapper.CANT_HOLD;
+                    state = State.NoObjectsInReach;
+                    EventsLogger.Log("Stopped holding an object.");
+                }
+                grabHeld = false;
+            }
+        }
+
+        // Finds closest object in range
+        Transform FindObjectToHold()
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range, mask);
+            float closestDistance = range;
+            Collider closest = null;
+            foreach (var collider in colliders)
+            {
+                float distance = Vector3.Distance(collider.transform.position, transform.position);
+                if (distance < closestDistance)
+                {
+                    closest = collider;
+                    closestDistance = distance;
                 }
             }
+            return closest?.transform;
+        }
+
+        private void UpdateReachingState()
+        {
+            if (state == State.Holding)
+                return;
+            objectInReach = FindObjectToHold();
+            if (objectInReach != null)
+                state = State.ObjectInReach;
+            else
+                state = State.NoObjectsInReach;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.gray;
+            Gizmos.DrawWireSphere(transform.position, range);
         }
     }
 }

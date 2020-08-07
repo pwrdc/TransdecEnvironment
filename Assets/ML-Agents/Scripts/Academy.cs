@@ -116,7 +116,7 @@ namespace MLAgents
                  "values correspond to episodes without a maximum number of \n" +
                  "steps. Once the step counter reaches this maximum value, the " +
                  "environment will reset.")]
-        int maxSteps;
+        int maxSteps=0;
 
         [SerializeField]
         [Tooltip("The engine-level settings which correspond to rendering " +

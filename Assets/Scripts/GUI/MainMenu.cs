@@ -8,13 +8,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Dropdown controllDropdown;
+    private TMP_Dropdown controllDropdown = null;
     [SerializeField]
-    private TMP_Dropdown modeDropdown;
+    private TMP_Dropdown modeDropdown = null;
     [SerializeField]
-    private TMP_Dropdown sceneDropdown;
+    private TMP_Dropdown sceneDropdown = null;
     [SerializeField]
-    private TMP_Dropdown targetsDropdown;
+    private TMP_Dropdown targetsDropdown = null;
 
     private string sceneToLoad = "SAUVC";
 

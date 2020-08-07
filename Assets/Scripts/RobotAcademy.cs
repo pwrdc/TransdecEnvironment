@@ -12,14 +12,8 @@
 // <summary></summary>
 // ***********************************************************************
 using MLAgents;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 /// <summary>
 /// Robot control
@@ -119,7 +113,6 @@ public class RobotAcademy : Academy
 
     void SetupAcademy()
     {
-        Debug.Log("Setup academy");
         if (InitializedSettings.IsMenu == true && control == RobotControl.player)
         {
             resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;
@@ -130,7 +123,7 @@ public class RobotAcademy : Academy
         }
         ApplyDebugSettings();
         SetBrainControl();
-        if ((int)resetParameters["FocusedObject"] >= Target.Count())
+        if ((int)resetParameters["FocusedObject"] >= Targets.Count)
             resetParameters["FocusedObject"] = 0;
         onResetParametersChanged.Invoke();
     }

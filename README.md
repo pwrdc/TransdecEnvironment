@@ -80,8 +80,9 @@ Click it to show its properties in the Inspector:
     * `Control` - agent steering method (`Player` for keyboard steering, `Python` for Python API controller); if `Control == Player` use keyboard for steering:
       * `W` - `S`: longitudinal movement (front-backward)
       * `A` - `D`: lateral movement (left-right)
-      * `R` - `F`: vertical movement (upward-downward)
       * `Q` - `E`: yaw rotation (turn left-turn right)
+      * `space` - `shift`: vertical movement (upward-downward)
+      * `C`: switch to bottom camera
     * `Learning Brain`, `Player Brain` - ML-Agents Brain objects (correctly set by default)
     
   * **Start position settings** - starting position drawing settings:
@@ -101,6 +102,8 @@ Click it to show its properties in the Inspector:
 # Debugging Controls
   * `B` to pause the simulation in editor and display debug screen
   * `V` to toggle debug screen on and off
+  * `1` randomize environment parameters (lighting, water etc.)
+  * `2` randomize scene
     
 ## Updating
 In order to update TransdecEnvironment you need to reset your changes by executing:

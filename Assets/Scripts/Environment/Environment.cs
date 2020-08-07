@@ -26,7 +26,7 @@ namespace Environment
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.N) && randomized)
+            if (Input.GetKeyDown(KeyCode.Alpha1) && randomized)
                 EnvironmentRandomizedInit();
         }
 
