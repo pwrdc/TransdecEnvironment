@@ -534,7 +534,7 @@ MonoBehaviour:
   resetParameters:
     resetParameters:
     - key: CollectData
-      value: 0
+      value: 1
     - key: EnableNoise
       value: 0
     - key: Positive
@@ -546,7 +546,7 @@ MonoBehaviour:
     - key: WaterCurrent
       value: 0
     - key: FocusedObject
-      value: 2
+      value: 0
     - key: EnableBackgroundImage
       value: 0
     - key: SetFocusedObjectInCenter
@@ -1245,8 +1245,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915012531}
-  m_LocalRotation: {x: 0.0027104714, y: -0.7621841, z: 0.003195989, w: 0.64734685}
-  m_LocalPosition: {x: 30.594952, y: 4.8809633, z: -8.937184}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: 28.48, y: 4.422, z: -4.355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1329,8 +1329,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941852666}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 28.48, y: 4.422, z: -4.355}
+  m_LocalRotation: {x: -0.07092868, y: 0.7289128, z: 0.076345205, w: 0.67662895}
+  m_LocalPosition: {x: 25.147879, y: 3.973845, z: -17.129154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2998,25 +2998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Base
       objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    - target: {fileID: 5118742042968492889, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 1.0335e-41
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 1.02e-43
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 0
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3096,12 +3081,6 @@ PrefabInstance:
       propertyPath: scatteringInjection.strength
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: frustumSettings.qualitySettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
-        type: 2}
     - target: {fileID: 3324626794042129589, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3135,16 +3114,6 @@ PrefabInstance:
     - target: {fileID: 5286683334503124144, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: selected
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1312181196868687928, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153791786621299410, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 681370832179773151, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -3152,36 +3121,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9153791788269740630, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8687739453299484201, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 1607031181}
-    - target: {fileID: 5699196361134144943, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 1230035538}
-    - target: {fileID: 8513575141454870749, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 1829554557}
-    - target: {fileID: 5174973243221557098, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 1084200022}
-    - target: {fileID: 1501946065088082865, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: root
-      value: 
-      objectReference: {fileID: 2118598489}
     - target: {fileID: 2588017285344456537, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -3202,6 +3141,71 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].probability
       value: 0.100000024
       objectReference: {fileID: 0}
+    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 1568292018}
+    - target: {fileID: 542129641, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464539755930589609, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194256184341607373, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1.7859842e+31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.7077776e+19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 2.772428e+20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1.6926164e+22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: frustumSettings.qualitySettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
+        type: 2}
+    - target: {fileID: 7958329949215969571, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958329949215969571, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8660254
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720795853025857661, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: boundingBox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424594566828438024, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: annotation
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3891604926483390412, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: rate.previewMode
@@ -3217,22 +3221,62 @@ PrefabInstance:
       propertyPath: rate.max
       value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: volumetricDensity.previewMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4983974148862889467, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
         type: 2}
-    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    - target: {fileID: 9153791786621299410, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: volumeTrigger
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153791788269740630, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumetricDensity.previewMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417134329603099249, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312181196868687928, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253650590857290871, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Name
+      value: EventsLog
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678950975005705844, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.420044
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678950975005705844, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 24.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678950975005705844, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 28.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687739453299484201, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
       value: 
-      objectReference: {fileID: 1568292018}
+      objectReference: {fileID: 1607031181}
     - target: {fileID: 548470083916320121, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: verticalPlacement
@@ -3248,6 +3292,16 @@ PrefabInstance:
       propertyPath: radius
       value: 1.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5699196361134144943, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 1230035538}
+    - target: {fileID: 8513575141454870749, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 1829554557}
     - target: {fileID: 5423876953090339029, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: randomRotation.z
@@ -3256,6 +3310,26 @@ PrefabInstance:
     - target: {fileID: 5423876953090339029, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: randomRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174973243221557098, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 1084200022}
+    - target: {fileID: 1501946065088082865, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 2118598489}
+    - target: {fileID: 1554607908618792025, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607908618792025, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: margin
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -20,21 +20,43 @@ Feel free to add tests here or edit them according to your judgement, just remem
 - A scene should open.
 - Check if you're inside of the pool, you can see upper water surface and you can recognise that you're under water by camera effects.
 - Check if following controls work:
+- Basic controls:
 	- `wasd` to move forwards, left, backwards and right
 	- `qe` to rotate left and right
-	- `rf` to move upwards and downwards
-	- go to an object on layer *ball*, press and hold `t`, it should follow the boat
-	- torpedo is left out for now as it has no visual indication
-Debug screen:
+	- `space/shift` to move upwards and downwards
+	- `c` to switch to bottom camera
+- Debug screen:
 	- Press `b` button while moving.
-	- It should pause the simulation and display debug screen with the data exchanged with python. 
-	- Judge if the values there are correct. 
-	- Press `v' to close debug screen and resume the simulation.
+	- It should pause the simulation and display debug screen with data exchanged with python. 
+	- Make sure that "Send All Data" is checked RobotAgent's Agent Settings.
+	- Judge if the values shown on debug screen are correct. 
+	- Resume the simulation by clicking play in the editor.
+	- Press `v` to close debug screen.
 	- Do it five times while moving around.
+- Grabber:
+	- Go to an object on layer *GrabberTargets*\*
+	- If there is no such object in this targets folder skip the next step.
+	- Press and hold `g`, the object should follow the AUV.
+- Torpedos:
+	- Open the debug screen.
+	- Press `t` while aiming at an empty wall.
+	- There should be an information about missing the target on the debug screen.
+	- Go to an object on layer *TorpedoTargets*\*
+	- If there is no such object in this targets folder skip the next two steps.
+	- Aim at its collider and press `t`, 
+	- There should be information about hitting the target on the debug screen.
 - Go to step one and select different scene, test for each scene.
 
+\* Finding an object on layer:
+- In the upper right corner find a button named *Layers*.
+- Click it and in the opened window press an eye icon next to *Nothing*.
+- Everything in the scene view should disappear.
+- Now click an eye icon next to the desired layer name.
+- Now only objects on this layer are visible and selectable in the scene view.
+- Click and locate one of them.
+
 ## Data collection mode
-- Open Scenes/MainMenu.unity file.
+- Open *Scenes/MainMenu.unity* file.
 - Set mode to *player* and simulation mode to *data collection* in settings.
 - Go back and click *start*.
 - A scene should open.
@@ -44,14 +66,15 @@ Debug screen:
 	- Check if you're inside of the pool, you can see upper water surface and you can recognise that you're under water by camera effects.
 	- You should see a green rectangle around an object.
 	- Verify that the rectangle approximates the area covered by the object on screen. 
-	- Check if the object is a target in academy.
-	- Judge if the floating point values displayed on the screen are correct. 
+	- Judge if the 4 floating point values on debug screen after "bounding box" represent rectangle's minX, minY, maxX and maxY
+	  (it should be flipped vertically relative to Unity's UI coordinates).
+	- Check if the object has a target component. 
 	- Resume the simulation.
 	- Click `b` 4 more times and repeat the previous checks.
 - Go to step one and select different scene, test for each scene and targets.
 
 ## Academy settings
-- Open one of the simulation scenes.
+- Open one of the simulation scenes in *Scenes* folder.
 - Open academy object.
 - Set FocusedCamera and CollectData to one and open the scene.
 - Run the scene and check if the generated scene views are correct.

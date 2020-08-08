@@ -22,24 +22,28 @@ public class ScenesGenerator : MonoBehaviour
 
     public bool targetAlwaysVisible;
 
-    // suppress variable is never assigned warning
-    #pragma warning disable 0649
-    [ResetParameter] bool enableNoise;
-    [ResetParameter] bool collectData;
-    [ResetParameter] int focusedObject;
-    [ResetParameter] bool setFocusedObjectInCenter;
-    [ResetParameter("Positive")] bool positiveExamples;
-    [ResetParameter] CameraType focusedCamera;
-    #pragma warning restore 0649
+    [ResetParameter] bool enableNoise=false;
+    [ResetParameter] bool collectData=false;
+    [ResetParameter] int focusedObject=0;
+    [ResetParameter] bool setFocusedObjectInCenter=false;
+    [ResetParameter("Positive")] bool positiveExamples=false;
+    [ResetParameter] CameraType focusedCamera=CameraType.frontCamera;
+
 
     void Start()
     {
         ResetParameterAttribute.InitializeAll(this);
         placer = GetComponent<Placer>();
-        RobotAgent.Instance.OnReset.AddListener(OnReset);
+        RobotAgent.Instance.OnReset.AddListener(GenerateScene);
         RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
         targets = targetsFolder.GetComponentsInChildren<Placeable>();
         noise = noiseFolder.GetComponentsInChildren<Placeable>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            GenerateScene();
     }
 
     void RandomizeRobotRotation(Placeable target)
@@ -59,7 +63,7 @@ public class ScenesGenerator : MonoBehaviour
     void RotateRobot(Placeable targetPlaceable, Target target)
     {
         Quaternion rotation=Quaternion.LookRotation(targetPlaceable.transform.position - robot.transform.position);
-        if(RobotAgent.Instance.focusedCamera == CameraType.bottomCamera || target.cameraType==CameraType.bottomCamera)
+        if(focusedCamera == CameraType.bottomCamera || target.cameraType==CameraType.bottomCamera)
         {
             // rotate the robot 90 degrees up
             rotation *= Quaternion.Euler(-90, 0, 0);
@@ -72,27 +76,47 @@ public class ScenesGenerator : MonoBehaviour
     private void OnDataCollection()
     {
         if (RobotAgent.Instance.agentSettings.randomizeTargetObjectPositionOnEachStep)
-            OnReset();
+            GenerateScene();
     }
 
     void GenerateForDataCollection()
+    {
+        if (collectData && !positiveExamples)
+            GenerateNegativeExample();
+        else
+            GeneratePositiveExample();
+    }
+
+    void GenerateNegativeExample()
+    {
+        placer.Clear();
+        foreach (var target in targets)
+        {
+            target.gameObject.SetActive(false);
+        }
+        placer.Place(robot);
+        placer.PlaceAll(noise);
+    }
+
+    void GeneratePositiveExample()
     {
         placer.Clear();
         // disable all targets that aren't focused
         Placeable target = targets[focusedObject];
         foreach (var otherTarget in targets)
         {
-            if(otherTarget!=target)
-                otherTarget.gameObject.SetActive(false);
+            otherTarget.gameObject.SetActive(otherTarget == target);
         }
         // try putting target 10 times and every time target is placed try placing camera near it 10 times
+        // 10*10 is just a very big tries count that we don't expect to reach, 
+        // because placeables volume is a small percent of total placing area volume.
         if (Utils.Try(10, () =>
             placer.Place(target)
             && Utils.Try(10, () => placer.PlaceNear(robot, target, cameraRange))
             ))
-        {
+        {       
             // successfully placed both of them
-            RotateRobot(target, Target.AtIndex(focusedObject));
+            RotateRobot(target, Targets.Focused);
             if (enableNoise)
             {
                 if (targetAlwaysVisible)
@@ -100,8 +124,6 @@ public class ScenesGenerator : MonoBehaviour
                 else
                     placer.PlaceAll(noise);
             }
-            if (collectData && !positiveExamples)
-                target.gameObject.SetActive(false);
         }
         else
         {
@@ -118,7 +140,7 @@ public class ScenesGenerator : MonoBehaviour
             placer.PlaceAll(noise);
     }
 
-    void OnReset()
+    void GenerateScene()
     {
         if (collectData)
         {

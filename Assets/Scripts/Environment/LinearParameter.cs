@@ -32,6 +32,7 @@ namespace Environment
 
         [Header("Edit Mode Preview")]
         public PreviewMode previewMode;
+        [Range(0, 1)]
         public float previewPercentage;
 
         public override void Randomize()
