@@ -68,12 +68,12 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Metallic: 0.818
+    - _Metallic: 0.334
     - _Mode: 0
     - _NoiseFrequency: 1
     - _NoiseScale: 1
     - _OcclusionStrength: 1
-    - _Parallax: 0.0322
+    - _Parallax: 0.0221
     - _Shininess: 0.078125
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

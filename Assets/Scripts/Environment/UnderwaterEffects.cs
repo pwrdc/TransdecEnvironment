@@ -3,24 +3,17 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace Environment
 {
-
     [ExecuteInEditMode]
     public class UnderwaterEffects : Randomized
     {
-        [System.Serializable]
-        public class Randomization {
-            public float minWaterFog = 0.2f;
-            public float maxWaterFog = 0.4f;
-            public Gradient fogColor;
-            public float normalWaterFog = 0.25f;
-            public Color normalWaterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
-        }
-        public Transform target;
-        public Randomization randomization;
+        public ColorParameter filterColor;
+        public ColorParameter fogColor;
+        public FloatParameter fogDensity=new FloatParameter(0.085f, 0.05f, 0.1f);
+        public FloatParameter volumetricDensity=new FloatParameter(2, 1, 5);
+        public Aura2API.AuraVolume auraVolume;
+        public PostProcessVolume postProcessVolume;
 
-        Color waterColor = new Color(0.22f, 0.65f, 0.65f, 0.5f);
-        [HideInInspector]
-        public float waterFog = 0.25f;
+        public Transform target;
         public Light robotLight;
 
         // Linear fog mode is for slowest devices, looks unrealistic
@@ -45,25 +38,17 @@ namespace Environment
         }
         public ExponentialFogMode fogMode=ExponentialFogMode.ExponentialSquared;
 
-        PostProcessVolume volume;
         WobbleEffect[] wobbleEffects;
-
-        public override void InitializeRandom(){
-            waterFog = Random.Range(randomization.minWaterFog, randomization.maxWaterFog);
-            waterColor = randomization.fogColor.Evaluate(Random.value);
-        }
-
-        public override void InitializeNormal(){
-            waterColor=randomization.normalWaterColor;
-            waterFog=randomization.normalWaterFog;
-        }
 
         public override void Start()
         {
-            volume = GetComponent<PostProcessVolume>();
+            base.Start();
+            parameters.Add(filterColor);
+            parameters.Add(fogColor);
+            parameters.Add(fogDensity);
+            parameters.Add(volumetricDensity);
             // wobble effects must be attached directly to each camera
             wobbleEffects = FindObjectsOfType<WobbleEffect>();
-            base.Start();
         }
 
         void OnDisable()
@@ -83,17 +68,27 @@ namespace Environment
             {
                 wobbleEffect.enabled = active;
             }
-            if (volume != null)
+            if (postProcessVolume != null)
             {
                 // Unity's implementation of PostProcessVolume is buggy
                 // and disabling volume through enabled causes bunch of NullPointerExceptions
-                volume.weight = active ? 1 : 0;
+                postProcessVolume.weight = active ? 1 : 0;
             }
             if (robotLight != null) robotLight.enabled = active;
             RenderSettings.fog = active;
-            RenderSettings.fogColor = waterColor;
-            RenderSettings.fogDensity = waterFog;
+            RenderSettings.fogColor = fogColor.value;
+            RenderSettings.fogDensity = fogDensity.value;
             RenderSettings.fogMode = ExponentailFogModeToFogMode(fogMode);
+            if (auraVolume != null)
+            {
+                auraVolume.densityInjection.strength = volumetricDensity.value;
+                auraVolume.scatteringInjection.strength = volumetricDensity.value / 10;
+            }
+            if (postProcessVolume != null)
+            {
+                ColorGrading colorGrading = postProcessVolume.sharedProfile.GetSetting<ColorGrading>();
+                colorGrading.colorFilter.value = filterColor.value;
+            }
 
             // preview water opacity in the edit mode
             if (Application.isEditor && !Application.isPlaying)
@@ -102,8 +97,9 @@ namespace Environment
             }
         }
 
-        void Update()
+        public override void Update()
         {
+            base.Update();
             bool underwater = target != null && Environment.Instance.waterSurface != null && target.position.y < Environment.Instance.waterSurface.position.y;
             UpdateEffects(underwater);
         }

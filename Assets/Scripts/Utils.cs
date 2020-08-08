@@ -61,6 +61,12 @@ public static class Utils
         return rnd.Next(min, max);
     }
 
+    public static T RandomChoice<T>(T[] array)
+    {
+        if (array.Length == 0) return default(T);
+        else return array[(uint)Random.Range(0, array.Length)];
+    }
+
     public static Bounds GetComplexBounds(GameObject obj)
     {
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();

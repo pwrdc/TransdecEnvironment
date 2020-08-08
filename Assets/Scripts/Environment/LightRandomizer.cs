@@ -2,36 +2,45 @@
 
 namespace Environment
 {
+    [ExecuteInEditMode]
     public class LightRandomizer : Randomized
     {
-        public int normalLightAngle = 80;
-        public float normalLightIntensivity = 0.6f;
-        private Light light;
-        public int minLightAngle = 60;
-        public int maxLightAngle = 120;
-        public float minIntensivity = 1.0f;
-        public float maxIntensivity = 1.4f;
+        public IntParameter angle = new IntParameter(80, 60, 120);
+        public FloatParameter intensity = new FloatParameter(1.2f, 0.5f, 2f);
+        new Light light;
+        float yAngle;
+
+        public override void InitializeRandom()
+        {
+            base.InitializeRandom();
+            yAngle = Random.Range(0, 360);
+        }
+
+        public override void InitializeNormal()
+        {
+            base.InitializeNormal();
+            yAngle = 0;
+        }
+
+        public override void Preview()
+        {
+            base.Preview();
+            yAngle = 0;
+        }
 
         public override void Start()
         {
             base.Start();
+            parameters.Add(angle);
+            parameters.Add(intensity);
             light = GetComponent<Light>();
         }
 
-        public override void InitializeNormal(){
-            InitializeLight(normalLightAngle, normalLightIntensivity);
-        }
-
-        public override void InitializeRandom(){
-            float angle = Utils.GetRandom(minLightAngle, maxLightAngle);
-            float intensitivity = Utils.GetRandom(minIntensivity, maxIntensivity);
-            InitializeLight(angle, intensitivity);
-        }
-
-        public void InitializeLight(float angle, float intensitivity)
+        public override void Update()
         {
-            light.intensity = intensitivity;
-            light.transform.rotation = Quaternion.Euler(angle, -90, 0);
+            base.Update();
+            light.intensity = intensity.value;
+            light.transform.rotation = Quaternion.Euler(angle.value, yAngle, 0);
         }
     }
 }

@@ -102,7 +102,7 @@ public class FakeTargetAnnotation : MonoBehaviour
 
     private float GetScoreForPoint(Vector3 point)
     {
-        float waterFog = waterOpacity.waterFog;
+        float waterFog = waterOpacity.fogDensity.value;
         float maxDistance = 16.61f - 20.351f * waterFog;
         float minDistThatObjectIsVisible = 0.6f;
         float dist = point.z;

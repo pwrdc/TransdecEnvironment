@@ -92,5 +92,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   note: "This object creates holes for the light \nto go through and create light
-    rays in the water.\nIt's texture is created by the material shader.\nAura respects
+    rays in the water.\nIts texture is created by the material shader.\nAura respects
     opacity only for cutoff shaders."
