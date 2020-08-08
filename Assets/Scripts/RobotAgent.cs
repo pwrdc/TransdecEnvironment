@@ -220,12 +220,12 @@ public class RobotAgent : Agent
         observations.Rotation = accelerometer.GetRotation();
         observations.Depth = depthSensor.GetDepth();
 
-        if ((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData)
+        targetLocator.UpdateValues();
+        if (((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData) && targetLocator.Visible)
             observations.BoundingBox=EncodeBoundingBox(targetLocator.ScreenRect);
         if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
-            observations.PositiveNegative = 1.0f;
+            observations.PositiveNegative = targetLocator.Visible ? 1 : 0;
 
-        targetLocator.UpdateValues();
         Vector3 relativePosition = targetLocator.RelativePosition;
         if (agentSettings.sendRelativeData || agentSettings.sendAllData)
             observations.RelativePosition=new float[]{

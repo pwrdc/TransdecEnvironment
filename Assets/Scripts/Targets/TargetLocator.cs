@@ -8,14 +8,17 @@ public class TargetLocator : MonoBehaviour
     public Rect ScreenRect { get; private set; } = Rect.zero;
     public Vector3 RelativePosition { get; private set; } = Vector3.zero;
     public float RelativeAngle { get; private set; }
+    public bool Visible { get; private set; }
 
     public void UpdateValues()
     {
         target = Targets.Focused?.transform;
         if (target != null)
         {
-            ScreenRect = CalculateScreenRect();
-            RelativePosition=CalculateRelativePosition();
+            Rect? calculateScreenRectResult = CalculateScreenRect();
+            Visible = calculateScreenRectResult.HasValue;
+            ScreenRect = calculateScreenRectResult.GetValueOrDefault(Rect.zero);
+            RelativePosition =CalculateRelativePosition();
             RelativePosition = CalculateRelativePosition();
             RelativeAngle=CalculateRelativeAngle();
         } else
@@ -23,6 +26,7 @@ public class TargetLocator : MonoBehaviour
             ScreenRect = Rect.zero;
             RelativePosition = Vector3.zero;
             RelativeAngle = 0.0f;
+            Visible = false;
         }
     }
 
@@ -53,16 +57,17 @@ public class TargetLocator : MonoBehaviour
         return relativeYaw;
     }
 
-    Rect CalculateScreenRect()
+    Rect? CalculateScreenRect()
     {
         Target focused = Targets.Focused;
         if (focused == null)
-            return Rect.zero;
+            return null;
         Camera camera = RobotAgent.Instance.ActiveCamera;
         Bounds bounds = Utils.GetComplexBounds(focused.gameObject);
         // object is not visible
-        if (camera.WorldToScreenPoint(bounds.center).z < 0)
-            return Rect.zero;
+        if (camera.WorldToScreenPoint(bounds.center).z < 0 ||!GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(camera), bounds))
+            return null;
+
 
         Vector3[] points = new Vector3[8];
         points[0] = camera.WorldToViewportPoint(new Vector3(bounds.center.x + bounds.extents.x, bounds.center.y + bounds.extents.y, bounds.center.z + bounds.extents.z));
