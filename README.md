@@ -36,7 +36,7 @@ Having done all of the above steps, double-click `RoboSub2018` scene in `Assets/
 
 ![image](https://user-images.githubusercontent.com/23311513/53694507-296c1b80-3db0-11e9-87df-822953e76585.png)
 
-# Optional Paid Assets
+### Optional Paid Assets
 
 ![image](https://i.imgur.com/5xr5I3y.gif)
 
@@ -98,9 +98,9 @@ Click it to show its properties in the Inspector:
     * `Force Noise` - execute noised data collection
     * `Force Negative Examples` - execute negative examples data collection
 
-# Debugging Controls
-  * `B` to pause the simulation in editor and display debug screen
-  * `V` to toggle debug screen on and off
+### Debug Controls
+ * `B` to pause the simulation in editor and display debug screen
+ * `V` to toggle debug screen on and off
     
 ## Updating
 In order to update TransdecEnvironment you need to reset your changes by executing:
