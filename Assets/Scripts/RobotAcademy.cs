@@ -83,6 +83,12 @@ public class RobotAcademy : Academy
         return resetParameters[parameterName];
     }
 
+    public void SetResetParameter(string parameterName, float value)
+    {
+        resetParameters[parameterName] = value;
+        onResetParametersChanged.Invoke();
+    }
+
     void OnValidate()
     {
         //SetBrainControl();
@@ -124,7 +130,15 @@ public class RobotAcademy : Academy
         ApplyDebugSettings();
         SetBrainControl();
         if ((int)resetParameters["FocusedObject"] >= Targets.Count)
+        {
+            resetParameters["FocusedObject"] = Targets.Count-1;
+            Debug.LogWarning("\"FocusedObject\" reset parameter is larger than targets count.");
+        }
+        if ((int)resetParameters["FocusedObject"] < 0)
+        {
             resetParameters["FocusedObject"] = 0;
+            Debug.LogWarning("\"FocusedObject\" reset parameter is less than zero.");
+        }
         onResetParametersChanged.Invoke();
     }
 

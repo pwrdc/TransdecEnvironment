@@ -32,11 +32,6 @@ public class TargetLocator : MonoBehaviour
 
     public Vector3 CalculateRelativePosition()
     {
-        Transform target = Targets.Focused?.transform;
-        if (target == null)
-        {
-            return Vector3.zero;
-        }
         Vector3 distToCenter = target.InverseTransformPoint(target.position);
         Vector3 relativePos = target.InverseTransformPoint(transform.position) - distToCenter;
         relativePos.x = Mathf.Abs(relativePos.x);
@@ -47,14 +42,13 @@ public class TargetLocator : MonoBehaviour
 
     public float CalculateRelativeAngle()
     {
-        Transform target = Targets.Focused?.transform;
-        if (target == null)
-        {
-            return 0f;
-        }
+        
         float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
         relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
-        return relativeYaw;
+        Vector3 toTarget = target.position - transform.position;
+        Vector3 robotDirection = RobotAgent.Instance.transform.position;
+        toTarget.y = robotDirection.y = 0;// we are only intereseted in the angle on the XZ plane
+        return Vector3.Angle(toTarget, robotDirection);
     }
 
     Rect? CalculateScreenRect()

@@ -168,11 +168,20 @@ public class RobotAgent : Agent
         lastVectorAction = vectorAction;
     }
 
+    void SwitchTarget(string targetName)
+    {
+        Targets.SwitchToTarget(targetName);
+    }
+
     public override void AgentAction(float[] vectorAction, string textAction)
     {
         if (!initialized)
         {
             Initialize();
+        }
+        if (textAction != null && textAction!="")
+        {
+            SwitchTarget(textAction);
         }
 
         if (agentSettings.dataCollection) //Collecting data
