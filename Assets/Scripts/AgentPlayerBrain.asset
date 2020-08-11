@@ -15,7 +15,7 @@ MonoBehaviour:
   brainParameters:
     vectorObservationSize: 0
     numStackedVectorObservations: 1
-    vectorActionSize: 07000000
+    vectorActionSize: 09000000
     cameraResolutions: []
     vectorActionDescriptions:
     - movementLongitudinal
@@ -24,6 +24,8 @@ MonoBehaviour:
     - movementYaw
     - cameraFocus
     - grab
+    - torpedo
+    - torpedo
     - torpedo
     vectorActionSpaceType: 1
   keyContinuousPlayerActions:

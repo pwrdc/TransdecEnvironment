@@ -553,7 +553,7 @@ MonoBehaviour:
       value: 0
     - key: ForceToSaveAsNegative
       value: 0
-  control: 0
+  control: 1
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   learningBrainNoImage: {fileID: 11400000, guid: 5c0ad1927b376ee4f8b2e59267225618,
     type: 2}
@@ -2997,26 +2997,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 0.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 0.125
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 0.0234375
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: -0.05078125
-      objectReference: {fileID: 0}
     - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: placingArea
@@ -3174,12 +3154,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: frustumSettings.qualitySettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
-        type: 2}
     - target: {fileID: 7958329949215969571, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -3190,6 +3164,32 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.8660254
       objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0.0234375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -0.05078125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: frustumSettings.qualitySettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
+        type: 2}
     - target: {fileID: 1720795853025857661, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: boundingBox
@@ -3204,6 +3204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: agentSettings.randomizeTargetObjectPositionOnEachStep
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1720795853025857661, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: agentParameters.numberOfActionsBetweenDecisions
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3424594566828438024, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}

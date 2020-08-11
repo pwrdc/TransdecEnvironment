@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AgentLearningBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 21
+    vectorObservationSize: 24
     numStackedVectorObservations: 1
-    vectorActionSize: 07000000
+    vectorActionSize: 09000000
     cameraResolutions:
     - width: 1280
       height: 720
@@ -27,6 +27,8 @@ MonoBehaviour:
     - movementYaw
     - cameraFocus
     - grab
+    - torpedo
+    - torpedo
     - torpedo
     vectorActionSpaceType: 1
   model: {fileID: 0}

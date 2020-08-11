@@ -113,6 +113,26 @@ public class VectorAction {
 		}
 	}
 
+	public float MarkerDropper 
+	{
+		get {
+			return array[7];
+		}
+		set {
+			array[7]=value;
+		}
+	}
+
+	public float HydrophoneFrequency 
+	{
+		get {
+			return array[8];
+		}
+		set {
+			array[8]=value;
+		}
+	}
+
 	public override string ToString(){
 		StringBuilder sb = new StringBuilder(256);
 		
@@ -144,7 +164,15 @@ public class VectorAction {
 		sb.Append(array[6].ToString("0.##"));
 		sb.Append("\n");
 		
+		sb.Append("marker dropper : ");
+		sb.Append(array[7].ToString("0.##"));
+		sb.Append("\n");
+		
+		sb.Append("hydrophone frequency : ");
+		sb.Append(array[8].ToString("0.##"));
+		sb.Append("\n");
+		
 		return sb.ToString();
 	}
-	const int length=7;
+	const int length=9;
 }

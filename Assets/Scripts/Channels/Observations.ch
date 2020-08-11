@@ -6,4 +6,7 @@ bounding box : 4
 positive/negative
 relative position : 4
 grabbing state
-torpedo
+torpedo hit
+torpedo ready
+front distance
+hydrophone angle

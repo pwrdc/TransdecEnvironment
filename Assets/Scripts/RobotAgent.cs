@@ -158,13 +158,11 @@ public class RobotAgent : Agent
             SetCamera();
         }
         if (vectorAction.Grabber != 0)
-        {
             ballGrapper.Grab();
-        }
         if (vectorAction.Torpedo != 0)
-        {
             torpedo.Shoot();
-        }
+        if (vectorAction.MarkerDropper != 0)
+            EventsLogger.Log("Marker dropped");
         lastVectorAction = vectorAction;
     }
 
@@ -234,6 +232,7 @@ public class RobotAgent : Agent
             observations.BoundingBox=EncodeBoundingBox(targetLocator.ScreenRect);
         if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
             observations.PositiveNegative = targetLocator.Visible ? 1 : 0;
+        observations.HydrophoneAngle = targetLocator.RelativeAngle;
 
         Vector3 relativePosition = targetLocator.RelativePosition;
         if (agentSettings.sendRelativeData || agentSettings.sendAllData)
@@ -245,8 +244,8 @@ public class RobotAgent : Agent
             };
 
         observations.GrabbingState = (int)ballGrapper.GetState();
-        observations.Torpedo = torpedo.lastTorpedoHit ? 1 : 0;
-
+        observations.TorpedoHit = torpedo.lastTorpedoHit ? 1 : 0;
+        
         lastObservations = observations;
         return observations;
     }

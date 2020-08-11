@@ -158,13 +158,43 @@ public class Observations {
 		}
 	}
 
-	public float Torpedo 
+	public float TorpedoHit 
 	{
 		get {
 			return array[20];
 		}
 		set {
 			array[20]=value;
+		}
+	}
+
+	public float TorpedoReady 
+	{
+		get {
+			return array[21];
+		}
+		set {
+			array[21]=value;
+		}
+	}
+
+	public float FrontDistance 
+	{
+		get {
+			return array[22];
+		}
+		set {
+			array[22]=value;
+		}
+	}
+
+	public float HydrophoneAngle 
+	{
+		get {
+			return array[23];
+		}
+		set {
+			array[23]=value;
 		}
 	}
 
@@ -203,11 +233,23 @@ public class Observations {
 		sb.Append(array[19].ToString("0.##"));
 		sb.Append("\n");
 		
-		sb.Append("torpedo : ");
+		sb.Append("torpedo hit : ");
 		sb.Append(array[20].ToString("0.##"));
+		sb.Append("\n");
+		
+		sb.Append("torpedo ready : ");
+		sb.Append(array[21].ToString("0.##"));
+		sb.Append("\n");
+		
+		sb.Append("front distance : ");
+		sb.Append(array[22].ToString("0.##"));
+		sb.Append("\n");
+		
+		sb.Append("hydrophone angle : ");
+		sb.Append(array[23].ToString("0.##"));
 		sb.Append("\n");
 		
 		return sb.ToString();
 	}
-	const int length=21;
+	const int length=24;
 }
