@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Globalization;
 
 /// <summary>
 /// This class wraps an array of floats and gives its parts 
@@ -31,14 +32,14 @@ public class Observations {
 	/// Takes part of the array starting at start and containing count 
 	/// elements and writes its string representation to StringBuilder.
 	/// </summary>
-	void SliceToString(StringBuilder sb, int start, int count)
+	void SliceToString(StringBuilder sb, int start, int count, CultureInfo culture)
     {
         bool first = true;
         for (int i=0; i < count; i++)
         {
             if (!first)
                 sb.Append(", ");
-            sb.Append(array[start+i].ToString("0.##"));
+            sb.Append(array[start+i].ToString("0.##", culture));
             first = false;
         }
     }
@@ -200,53 +201,57 @@ public class Observations {
 
 	public override string ToString(){
 		StringBuilder sb = new StringBuilder(256);
+		// Without passing this class floats like "Infinity"
+		// would be displayed in your system language.
+        CultureInfo culture= CultureInfo.CreateSpecificCulture("en-US");
+
 		
 		sb.Append("acceleration : ");
-		SliceToString(sb, 0, 3);
+		SliceToString(sb, 0, 3, culture);
 		sb.Append("\n");
 		
 		sb.Append("angular acceleration : ");
-		SliceToString(sb, 3, 3);
+		SliceToString(sb, 3, 3, culture);
 		sb.Append("\n");
 		
 		sb.Append("rotation : ");
-		SliceToString(sb, 6, 3);
+		SliceToString(sb, 6, 3, culture);
 		sb.Append("\n");
 		
 		sb.Append("depth : ");
-		sb.Append(array[9].ToString("0.##"));
+		sb.Append(array[9].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("bounding box : ");
-		SliceToString(sb, 10, 4);
+		SliceToString(sb, 10, 4, culture);
 		sb.Append("\n");
 		
 		sb.Append("positive/negative : ");
-		sb.Append(array[14].ToString("0.##"));
+		sb.Append(array[14].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("relative position : ");
-		SliceToString(sb, 15, 4);
+		SliceToString(sb, 15, 4, culture);
 		sb.Append("\n");
 		
 		sb.Append("grabbing state : ");
-		sb.Append(array[19].ToString("0.##"));
+		sb.Append(array[19].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("torpedo hit : ");
-		sb.Append(array[20].ToString("0.##"));
+		sb.Append(array[20].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("torpedo ready : ");
-		sb.Append(array[21].ToString("0.##"));
+		sb.Append(array[21].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("front distance : ");
-		sb.Append(array[22].ToString("0.##"));
+		sb.Append(array[22].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("hydrophone angle : ");
-		sb.Append(array[23].ToString("0.##"));
+		sb.Append(array[23].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		return sb.ToString();

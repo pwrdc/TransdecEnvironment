@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Globalization;
 
 /// <summary>
 /// This class wraps an array of floats and gives its parts 
@@ -31,14 +32,14 @@ public class VectorAction {
 	/// Takes part of the array starting at start and containing count 
 	/// elements and writes its string representation to StringBuilder.
 	/// </summary>
-	void SliceToString(StringBuilder sb, int start, int count)
+	void SliceToString(StringBuilder sb, int start, int count, CultureInfo culture)
     {
         bool first = true;
         for (int i=0; i < count; i++)
         {
             if (!first)
                 sb.Append(", ");
-            sb.Append(array[start+i].ToString("0.##"));
+            sb.Append(array[start+i].ToString("0.##", culture));
             first = false;
         }
     }
@@ -135,41 +136,45 @@ public class VectorAction {
 
 	public override string ToString(){
 		StringBuilder sb = new StringBuilder(256);
+		// Without passing this class floats like "Infinity"
+		// would be displayed in your system language.
+        CultureInfo culture= CultureInfo.CreateSpecificCulture("en-US");
+
 		
 		sb.Append("longitudinal : ");
-		sb.Append(array[0].ToString("0.##"));
+		sb.Append(array[0].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("lateral : ");
-		sb.Append(array[1].ToString("0.##"));
+		sb.Append(array[1].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("vertical : ");
-		sb.Append(array[2].ToString("0.##"));
+		sb.Append(array[2].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("yaw : ");
-		sb.Append(array[3].ToString("0.##"));
+		sb.Append(array[3].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("camera : ");
-		sb.Append(array[4].ToString("0.##"));
+		sb.Append(array[4].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("grabber : ");
-		sb.Append(array[5].ToString("0.##"));
+		sb.Append(array[5].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("torpedo : ");
-		sb.Append(array[6].ToString("0.##"));
+		sb.Append(array[6].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("marker dropper : ");
-		sb.Append(array[7].ToString("0.##"));
+		sb.Append(array[7].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		sb.Append("hydrophone frequency : ");
-		sb.Append(array[8].ToString("0.##"));
+		sb.Append(array[8].ToString("0.##", culture));
 		sb.Append("\n");
 		
 		return sb.ToString();

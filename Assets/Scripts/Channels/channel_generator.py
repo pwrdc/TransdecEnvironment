@@ -98,6 +98,7 @@ def to_valid_csharp_identifier(name):
 def make_header(name, path):
 	return f'''using System;
 using System.Text;
+using System.Globalization;
 
 /// <summary>
 /// This class wraps an array of floats and gives its parts 
@@ -129,14 +130,14 @@ public class {name} {{
 	/// Takes part of the array starting at start and containing count 
 	/// elements and writes its string representation to StringBuilder.
 	/// </summary>
-	void SliceToString(StringBuilder sb, int start, int count)
+	void SliceToString(StringBuilder sb, int start, int count, CultureInfo culture)
     {{
         bool first = true;
         for (int i=0; i < count; i++)
         {{
             if (!first)
                 sb.Append(", ");
-            sb.Append(array[start+i].ToString("0.##"));
+            sb.Append(array[start+i].ToString("0.##", culture));
             first = false;
         }}
     }}
@@ -179,12 +180,12 @@ def make_to_string_line(name, index, count):
 	if count==1:
 		return f'''
 		sb.Append("{name+" : "}");
-		sb.Append(array[{index}].ToString("0.##"));
+		sb.Append(array[{index}].ToString("0.##", culture));
 		sb.Append("\\n");'''
 	else:
 		return f'''
 		sb.Append("{name+" : "}");
-		SliceToString(sb, {index}, {count});
+		SliceToString(sb, {index}, {count}, culture);
 		sb.Append("\\n");'''
 
 def make_to_string_function(to_string_lines):
@@ -192,6 +193,10 @@ def make_to_string_function(to_string_lines):
 	return f'''
 	public override string ToString(){{
 		StringBuilder sb = new StringBuilder(256);
+		// Without passing this class floats like "Infinity"
+		// would be displayed in your system language.
+        CultureInfo culture= CultureInfo.CreateSpecificCulture("en-US");
+
 		{newline.join(to_string_lines)}
 		
 		return sb.ToString();
