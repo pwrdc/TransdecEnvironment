@@ -861,6 +861,7 @@ MonoBehaviour:
     max: 10
   cameraRotationRange: {x: 20, y: 20, z: 20}
   targetAlwaysVisible: 1
+  targetsRange: 10
 --- !u!114 &1696120367845300761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,7 +876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placingArea: {fileID: 0}
   placed: []
-  maxTries: 3
+  maxTries: 5
 --- !u!114 &5286683334503124144
 MonoBehaviour:
   m_ObjectHideFlags: 0

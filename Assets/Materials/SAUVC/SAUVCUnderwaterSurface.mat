@@ -77,7 +77,7 @@ Material:
     - _Numerator: 1
     - _OcclusionStrength: 1
     - _Opacity: 0.6
-    - _OpacityByDepth: 100
+    - _OpacityByDepth: 150
     - _OpacityByDistance: 25
     - _Parallax: 0.02
     - _Scale: 3.5

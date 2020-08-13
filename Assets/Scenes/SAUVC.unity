@@ -553,7 +553,7 @@ MonoBehaviour:
       value: 0
     - key: ForceToSaveAsNegative
       value: 0
-  control: 1
+  control: 0
   learningBrain: {fileID: 11400000, guid: 1db808f27a05b4698a73b192e1dc15a1, type: 2}
   learningBrainNoImage: {fileID: 11400000, guid: 5c0ad1927b376ee4f8b2e59267225618,
     type: 2}
@@ -1245,8 +1245,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915012531}
-  m_LocalRotation: {x: 0.027871193, y: 0.03986593, z: 0.0011435901, w: -0.9988156}
-  m_LocalPosition: {x: 7.7174892, y: 5.498199, z: -19.374924}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: 28.48, y: 4.422, z: -4.355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1329,8 +1329,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941852666}
-  m_LocalRotation: {x: 0.16215296, y: -0.76662135, z: -0.21287234, w: -0.583681}
-  m_LocalPosition: {x: 19.125086, y: 5.1810465, z: -20.822039}
+  m_LocalRotation: {x: 0.05214662, y: 0.71040803, z: 0.052968666, w: -0.6998539}
+  m_LocalPosition: {x: 14.980766, y: 5.455348, z: -6.169981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3002,6 +3002,11 @@ PrefabInstance:
       propertyPath: placingArea
       value: 
       objectReference: {fileID: 5202359785850059096}
+    - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: maxTries
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 128274322474526282, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
@@ -3258,8 +3263,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1312181196868687928, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: freeMovementTargetsRange
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5253650590857290871, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}

@@ -13,14 +13,19 @@ public class ScenesGenerator : MonoBehaviour
     public Transform targetsFolder;
     public Transform noiseFolder;
     public VisibilityChecker visibilityChecker;
+    
+    [Tooltip("Range of distance between camera and target in data collection mode.")]
+    public FloatRange cameraRange=new FloatRange(3, 10);
+    public Vector3 cameraRotationRange = new Vector3(20, 20, 20);
+    public bool targetAlwaysVisible;
+    [Tooltip("How far targets can be placed in free movement mode.")]
+    public float targetsRange = 10;
+    [Tooltip("How many tries to place each target can be made in free movement mode.")]
+    public int targetsMaxTries = 25;
+
     Placeable[] targets;
     Placeable[] noise;
     Placer placer;
-    
-    public FloatRange cameraRange=new FloatRange(3, 10);
-    public Vector3 cameraRotationRange = new Vector3(20, 20, 20);
-
-    public bool targetAlwaysVisible;
 
     [ResetParameter] bool enableNoise=false;
     [ResetParameter] bool collectData=false;
@@ -134,9 +139,14 @@ public class ScenesGenerator : MonoBehaviour
     void GenerateForFreeMovement()
     {
         placer.Clear();
-        placer.PlaceAll(targets);
         placer.Place(robot);
-        if(enableNoise)
+        // place targets in close range to the agent so that they can be found using the camera
+        System.Func<Placeable, bool> inRange = placable => 
+            Vector3.Distance(robot.transform.position, placable.position) > targetsRange;
+        // Here we give the placer more tries because the restriction will reject a lot of placements
+        // and also the object placing will be usually done only once per run as oposed to data collection mode.
+        placer.PlaceAll(targets, inRange, targetsMaxTries);
+        if (enableNoise)
             placer.PlaceAll(noise);
     }
 
