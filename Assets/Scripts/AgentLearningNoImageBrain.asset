@@ -28,8 +28,8 @@ MonoBehaviour:
     - cameraFocus
     - grab
     - torpedo
-    - torpedo
-    - torpedo
+    - marker dropper
+    - hydrophone frequency
     vectorActionSpaceType: 1
   model: {fileID: 0}
   inferenceDevice: 0

@@ -12,6 +12,7 @@ namespace Robot.Functionality
         private LayerMask mask = 0;
 
         public bool lastTorpedoHit { get; private set; } = false;
+        public bool ready => true;
 
         public void Shoot()
         {

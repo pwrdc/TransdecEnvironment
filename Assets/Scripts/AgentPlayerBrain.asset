@@ -25,8 +25,8 @@ MonoBehaviour:
     - cameraFocus
     - grab
     - torpedo
-    - torpedo
-    - torpedo
+    - marker dropper
+    - hydrophone frequency
     vectorActionSpaceType: 1
   keyContinuousPlayerActions:
   - key: 119
@@ -67,6 +67,9 @@ MonoBehaviour:
     value: -1
   - key: 99
     index: 4
+    value: 1
+  - key: 109
+    index: 7
     value: 1
   axisContinuousPlayerActions: []
   discretePlayerActions: []

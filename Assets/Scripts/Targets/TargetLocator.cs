@@ -42,11 +42,8 @@ public class TargetLocator : MonoBehaviour
 
     public float CalculateRelativeAngle()
     {
-        
-        float relativeYaw = (Quaternion.Inverse(target.rotation) * transform.rotation).eulerAngles.y;
-        relativeYaw = Mathf.Abs((relativeYaw + 180) % 360 - 180);
         Vector3 toTarget = target.position - transform.position;
-        Vector3 robotDirection = RobotAgent.Instance.transform.position;
+        Vector3 robotDirection = transform.forward;
         toTarget.y = robotDirection.y = 0;// we are only intereseted in the angle on the XZ plane
         return Vector3.Angle(toTarget, robotDirection);
     }

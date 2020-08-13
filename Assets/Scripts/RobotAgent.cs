@@ -35,6 +35,12 @@ public class RobotAgent : Agent
     
     [SerializeField]
     private TargetLocator targetLocator=null;
+    [SerializeField]
+    private Hydrophone hydrophone = null;
+    [SerializeField]
+    private DistanceSensor depthSensor = null;
+    [SerializeField]
+    private DistanceSensor frontDistanceSensor = null;
 
     [Header("Cameras")]
     public Camera frontCamera = null;
@@ -42,7 +48,6 @@ public class RobotAgent : Agent
     public Camera ActiveCamera { get; private set; } = null;
 
     private Engine engine;
-    private DepthSensor depthSensor;
     private Accelerometer accelerometer;
     private BallGrapper ballGrapper;
     private Torpedo torpedo;
@@ -65,7 +70,6 @@ public class RobotAgent : Agent
     void Initialize(){
         ResetParameterAttribute.InitializeAll(agentSettings);
         engine=GetComponentInChildren<Engine>();
-        depthSensor=GetComponentInChildren<DepthSensor>();
         accelerometer=GetComponentInChildren<Accelerometer>();
         ballGrapper=GetComponentInChildren<BallGrapper>();
         torpedo=GetComponentInChildren<Torpedo>();
@@ -163,6 +167,8 @@ public class RobotAgent : Agent
             torpedo.Shoot();
         if (vectorAction.MarkerDropper != 0)
             EventsLogger.Log("Marker dropped");
+        if(vectorAction.HydrophoneFrequency!=0)
+            hydrophone.SetFrequency(vectorAction.HydrophoneFrequency);
         lastVectorAction = vectorAction;
     }
 
@@ -198,7 +204,6 @@ public class RobotAgent : Agent
             targetCenter = Utils.GetComplexBounds(target.gameObject).center;
             targetRotation = target.transform.rotation;
         }
-        
         float currentReward = CalculateReward();
         SetReward(currentReward);
         lastReward = currentReward;
@@ -225,14 +230,15 @@ public class RobotAgent : Agent
         observations.Acceleration = accelerometer.GetAcceleration();
         observations.AngularAcceleration = accelerometer.GetAngularAcceleration();
         observations.Rotation = accelerometer.GetRotation();
-        observations.Depth = depthSensor.GetDepth();
+        observations.Depth = depthSensor.GetDistance();
+        observations.FrontDistance = frontDistanceSensor.GetDistance();
 
         targetLocator.UpdateValues();
         if (((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData) && targetLocator.Visible)
             observations.BoundingBox=EncodeBoundingBox(targetLocator.ScreenRect);
         if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
             observations.PositiveNegative = targetLocator.Visible ? 1 : 0;
-        observations.HydrophoneAngle = targetLocator.RelativeAngle;
+        observations.HydrophoneAngle = hydrophone.GetAngle();
 
         Vector3 relativePosition = targetLocator.RelativePosition;
         if (agentSettings.sendRelativeData || agentSettings.sendAllData)
@@ -245,7 +251,8 @@ public class RobotAgent : Agent
 
         observations.GrabbingState = (int)ballGrapper.GetState();
         observations.TorpedoHit = torpedo.lastTorpedoHit ? 1 : 0;
-        
+        observations.TorpedoReady= torpedo.ready ? 1 : 0;
+
         lastObservations = observations;
         return observations;
     }
