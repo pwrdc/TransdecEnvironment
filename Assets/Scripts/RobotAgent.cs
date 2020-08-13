@@ -34,8 +34,6 @@ public class RobotAgent : Agent
     public UnityEvent OnReset;
     
     [SerializeField]
-    private TargetLocator targetLocator=null;
-    [SerializeField]
     private Hydrophone hydrophone = null;
     [SerializeField]
     private DistanceSensor depthSensor = null;
@@ -51,6 +49,9 @@ public class RobotAgent : Agent
     private Accelerometer accelerometer;
     private BallGrapper ballGrapper;
     private Torpedo torpedo;
+    TargetSelector targetsSelector;
+    TargetLocator targetLocator;
+    bool selectingClosestTarget = false;
 
     public AgentSettings agentSettings = new AgentSettings();
     Rigidbody body;
@@ -61,6 +62,7 @@ public class RobotAgent : Agent
     int collided = 0;
 
     VectorAction lastVectorAction = null;
+    string lastTextAction = "";
     Observations lastObservations = null;
     float lastReward = 0;
     
@@ -74,6 +76,8 @@ public class RobotAgent : Agent
         ballGrapper=GetComponentInChildren<BallGrapper>();
         torpedo=GetComponentInChildren<Torpedo>();
         body = GetComponent<Rigidbody>();
+        targetsSelector = GetComponent<TargetSelector>();
+        targetLocator = GetComponent<TargetLocator>();
         RobotAcademy.Instance.onResetParametersChanged.AddListener(ApplyResetParameters);
         SetCamera();
         AgentReset();
@@ -131,6 +135,7 @@ public class RobotAgent : Agent
         {
             agentParameters.numberOfActionsBetweenDecisions = 1;
         }
+        selectingClosestTarget = false;
         OnReset.Invoke();
     }
 
@@ -143,6 +148,9 @@ public class RobotAgent : Agent
             stringBuilder.Append(lastVectorAction.ToString());
             stringBuilder.Append("\n");
         }
+        stringBuilder.Append("text action: ");
+        stringBuilder.Append(lastTextAction);
+        stringBuilder.Append("\n\n");
         if (lastObservations != null)
         {
             stringBuilder.Append("observations:\n");
@@ -172,11 +180,6 @@ public class RobotAgent : Agent
         lastVectorAction = vectorAction;
     }
 
-    void SwitchTarget(string targetName)
-    {
-        Targets.SwitchToTarget(targetName);
-    }
-
     public override void AgentAction(float[] vectorAction, string textAction)
     {
         if (!initialized)
@@ -185,7 +188,18 @@ public class RobotAgent : Agent
         }
         if (textAction != null && textAction!="")
         {
-            SwitchTarget(textAction);
+            /* Here the python script requests to fake object detection
+               using in-Unity bounding box calculations.
+               It is important to switch target to the closest one 
+               because the robot can also use hydrophones,
+               so they must both refer to the same (closest) object. */
+            EventsLogger.Log($"Started faking object detection for target \"{textAction}\".");
+            targetsSelector.ChangeTarget(textAction);
+            selectingClosestTarget = true;
+            lastTextAction = textAction;
+        } else
+        {
+            lastTextAction = "";
         }
 
         if (agentSettings.dataCollection) //Collecting data
@@ -233,6 +247,8 @@ public class RobotAgent : Agent
         observations.Depth = depthSensor.GetDistance();
         observations.FrontDistance = frontDistanceSensor.GetDistance();
 
+        if(selectingClosestTarget)
+            targetsSelector.SwitchToClosestTarget();
         targetLocator.UpdateValues();
         if (((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData) && targetLocator.Visible)
             observations.BoundingBox=EncodeBoundingBox(targetLocator.ScreenRect);

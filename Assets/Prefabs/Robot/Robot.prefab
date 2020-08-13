@@ -5208,6 +5208,7 @@ GameObject:
   - component: {fileID: 1124247155}
   - component: {fileID: 8616279192032855075}
   - component: {fileID: 1342625658465686315}
+  - component: {fileID: 4429669503229586782}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Player
@@ -5344,7 +5345,6 @@ MonoBehaviour:
   OnReset:
     m_PersistentCalls:
       m_Calls: []
-  targetLocator: {fileID: 1342625658465686315}
   hydrophone: {fileID: 8616279192032855075}
   depthSensor: {fileID: 6693106763123120823}
   frontDistanceSensor: {fileID: 7488458919584955536}
@@ -5451,6 +5451,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28bcb313ad81e5547ae8b17558879721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4429669503229586782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693106763582877074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290454854a416c3489a3c6aef32b32c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6693106763860638544
@@ -5751,15 +5763,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab07cd0d49b41c4088575f290e8df775, type: 3}
---- !u!20 &5679860144947708080 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5993714480178439800, guid: ab07cd0d49b41c4088575f290e8df775,
-    type: 3}
-  m_PrefabInstance: {fileID: 2161473993497339592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5679860144947708082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+    type: 3}
+  m_PrefabInstance: {fileID: 2161473993497339592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &5679860144947708080 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5993714480178439800, guid: ab07cd0d49b41c4088575f290e8df775,
     type: 3}
   m_PrefabInstance: {fileID: 2161473993497339592}
   m_PrefabAsset: {fileID: 0}

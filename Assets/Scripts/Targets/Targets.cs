@@ -34,25 +34,15 @@ public class Targets : MonoBehaviour
         ListTargets(folder);
     }
 
-    static int? FindTargetIndex(string targetName)
+    public static List<Target> FindTargetsByName(string name)
     {
-        for (int i = 0; i < targets.Count; i++)
+        List<Target> result=new List<Target>();
+        foreach (var target in targets)
         {
-            if (targets[i].name==targetName)
-                return i;
+            if (target.name == name)
+                result.Add(target);
         }
-        return null;
-    }
-
-    public static void SwitchToTarget(string targetName)
-    {
-        int? foundTarget = FindTargetIndex(targetName);
-        if (foundTarget != null) {
-            RobotAcademy.Instance.SetResetParameter("FocusedObject", foundTarget.Value);
-        } else
-        {
-            Debug.LogWarning($"The target named \"{targetName}\" doesn't exist in current targets folder.");
-        }
+        return result;
     }
 
     void SetFoldersActivation()
@@ -80,7 +70,10 @@ public class Targets : MonoBehaviour
             {
                 Target target = child.GetComponent<Target>();
                 if (target != null)
+                {
+                    target.index = targets.Count;
                     targets.Add(target);
+                }
             }
         }
         if (targets.Count == 0)

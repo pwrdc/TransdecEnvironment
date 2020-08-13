@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Hydrophone : MonoBehaviour
 {
-    Transform pinger;
+    List<Pinger> pingersOnFrequency;
 
     public void SetFrequency(float frequency)
     {
-        pinger = Pinger.FindPinger(frequency)?.transform;
+        pingersOnFrequency = Pinger.FindPingers(frequency);
     }
     
     public float GetAngle()
     {
+        Transform pinger = null;
+        if(pingersOnFrequency!=null)
+            pinger=Utils.FindClosest(pingersOnFrequency, transform.position)?.transform;
         if (pinger == null)
             return float.PositiveInfinity;
         Vector3 toTarget = pinger.position - transform.position;

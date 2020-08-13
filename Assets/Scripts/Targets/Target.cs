@@ -6,6 +6,8 @@ public class Target : MonoBehaviour
 {
     public CameraType cameraType;
     public GameObject annotation;
+    [Header("This variable is set by Targets class")]
+    public int index;
 
     private void Start()
     {

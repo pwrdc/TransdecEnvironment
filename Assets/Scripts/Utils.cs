@@ -11,6 +11,23 @@ public static class Utils
         result.Encapsulate(point2);
         return result;
     }
+    
+    // Finds instance of component in instances list closest to position.
+    public static T FindClosest<T>(IEnumerable<T> instances, Vector3 position) where T : MonoBehaviour
+    {
+        T closest = null;
+        float closestDistance = float.PositiveInfinity;
+        foreach (var instance in instances)
+        {
+            float distance = Vector3.Distance(instance.transform.position, position);
+            if (distance < closestDistance)
+            {
+                closest = instance;
+                closestDistance = distance;
+            }
+        }
+        return closest;
+    }
 
     // extendsion method for Bounds
     public static bool Contains(this Bounds bounds, Placeable placeable)
