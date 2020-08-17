@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 public class DebugScreen : MonoBehaviour
@@ -20,7 +18,9 @@ public class DebugScreen : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B) && Application.isEditor)
         {
             Switch(true);
-            EditorApplication.isPaused = true;
+            #if UNITY_EDITOR
+                EditorApplication.isPaused = true;
+            #endif
         }
         if (Input.GetKeyDown(KeyCode.V))
         {

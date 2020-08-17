@@ -18,12 +18,14 @@ public class LightBillboard : MonoBehaviour
 
     Vector3 GetObserver()
     {
-        if (Application.isEditor && !Application.isPlaying)
-        {
-            // in edit mode rotate towards editor camera
-            return SceneView.lastActiveSceneView.camera.transform.position;
-        }
-        else
+        #if UNITY_EDITOR
+            if (Application.isEditor && !Application.isPlaying)
+            {
+                // in edit mode rotate towards editor camera
+                return SceneView.lastActiveSceneView.camera.transform.position;
+            }
+            else
+        #endif
         {
             return Camera.current.transform.position;
         }

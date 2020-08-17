@@ -25,8 +25,8 @@ public class Targets : MonoBehaviour
         instance = this;
 
         ResetParameterAttribute.InitializeAll(this);
-        if (InitializedSettings.IsMenu)
-            selected = InitializedSettings.targetsFolderIndex;
+        if (Settings.Used)
+            selected = Settings.TargetsFolderIndex;
         SetFoldersActivation();
 
         Transform folder = targetsFolders[selected].transform;

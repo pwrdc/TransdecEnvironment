@@ -119,13 +119,13 @@ public class RobotAcademy : Academy
 
     void SetupAcademy()
     {
-        if (InitializedSettings.IsMenu == true && control == RobotControl.player)
+        if (Settings.Used == true)
         {
-            resetParameters["CollectData"] = InitializedSettings.IsCollecting ? 1 : 0;
-        }
-        if(InitializedSettings.IsMenu == true)
-        {
-            control = InitializedSettings.Control;
+            if (control == RobotControl.player)
+            {
+                resetParameters["CollectData"] = (Settings.Mode == SimulationMode.DataCollection) ? 1 : 0;
+            }
+            control = Settings.Control;
         }
         ApplyDebugSettings();
         SetBrainControl();
