@@ -94,15 +94,15 @@ public class RobotAgent : Agent
         if (focusedCamera==CameraType.frontCamera)
         {
             agentParameters.agentCameras[0] = frontCamera;
-            frontCamera.gameObject.SetActive(true);
-            bottomCamera.gameObject.SetActive(false);
+            frontCamera.depth = 0;
+            bottomCamera.depth = -1;
             ActiveCamera = frontCamera;
         }
         else if (focusedCamera==CameraType.bottomCamera)
         {
             agentParameters.agentCameras[0] = bottomCamera;
-            frontCamera.gameObject.SetActive(false);
-            bottomCamera.gameObject.SetActive(true);
+            frontCamera.depth = -1;
+            bottomCamera.depth = 0;
             ActiveCamera = bottomCamera;
         }
         else
