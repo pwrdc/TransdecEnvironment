@@ -48,7 +48,7 @@ public class RobotAgent : Agent
     private Engine engine;
     private Accelerometer accelerometer;
     private BallGrapper ballGrapper;
-    private Torpedo torpedo;
+    private TorpedoLauncher torpedo;
     TargetSelector targetsSelector;
     TargetLocator targetLocator;
     bool selectingClosestTarget = false;
@@ -74,7 +74,7 @@ public class RobotAgent : Agent
         engine=GetComponentInChildren<Engine>();
         accelerometer=GetComponentInChildren<Accelerometer>();
         ballGrapper=GetComponentInChildren<BallGrapper>();
-        torpedo=GetComponentInChildren<Torpedo>();
+        torpedo=GetComponentInChildren<TorpedoLauncher>();
         body = GetComponent<Rigidbody>();
         targetsSelector = GetComponent<TargetSelector>();
         targetLocator = GetComponent<TargetLocator>();

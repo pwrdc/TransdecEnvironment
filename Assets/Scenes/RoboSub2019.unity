@@ -263,6 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312285021}
   - component: {fileID: 1312285020}
+  - component: {fileID: 1312285022}
   m_Layer: 0
   m_Name: UpperSurfaceReflectionFrontLeftCamera
   m_TagString: Untagged
@@ -327,6 +328,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1312285022
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312285019}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!1 &1360851985
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +809,7 @@ PrefabInstance:
     - target: {fileID: 1964955644754354723, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2448798042914339907, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -968,6 +978,16 @@ PrefabInstance:
         type: 3}
       propertyPath: randomization.normalWaterColor.b
       value: 0.16981131
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075817934722209456, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745976425692413371, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: weight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1211506624, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

@@ -4,29 +4,29 @@ namespace Robot.Functionality
 {
     public class Torpedo : MonoBehaviour
     {
-        [SerializeField]
-        private float range = 10f;
-        [SerializeField]
-        private Transform fpsPosition = null;
-        [SerializeField]
-        private LayerMask mask = 0;
+        public float force = 100;
+        public float timeToDestroyAfterHit=1f;
 
-        public bool lastTorpedoHit { get; private set; } = false;
-        public bool ready => true;
+        [HideInInspector]
+        public System.Action OnHit;
+        [HideInInspector]
+        public LayerMask mask = 0;
 
-        public void Shoot()
+        void Start()
         {
-            RaycastHit hit;
-            if (Physics.Raycast(fpsPosition.transform.position, fpsPosition.transform.forward, out hit, range, mask))
+            // add initial force to the torpedo
+            GetComponent<Rigidbody>().AddRelativeForce(0, force, 0, ForceMode.Impulse);
+        }
+
+        void OnCollisionEnter(UnityEngine.Collision collision)
+        {
+            // check against mask
+            if ((mask & 1<<collision.gameObject.layer) != 0)
             {
-                EventsLogger.Log("Torpedo hit an object marked as torpedo target.");
-                lastTorpedoHit = true;
+                // this action is set by the object instantiating torpedos
+                OnHit?.Invoke();
             }
-            else
-            {
-                EventsLogger.Log("Torpedo missed.");
-                lastTorpedoHit = false;
-            }
+            Destroy(gameObject, timeToDestroyAfterHit);
         }
     }
 }

@@ -4879,36 +4879,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   note: "This doesn't represent actual robot part, \nit is used to simulate light
     from far away \nbeing absorbed by the water particles."
---- !u!1 &3059397396436043322
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3059397396436043323}
-  m_Layer: 0
-  m_Name: ray
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3059397396436043323
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3059397396436043322}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.64}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3059397398044678526}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3059397397827971812
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,7 +4939,7 @@ GameObject:
   - component: {fileID: 3059397398044678526}
   - component: {fileID: 3059397398044678527}
   m_Layer: 0
-  m_Name: Torpedo
+  m_Name: TorpedoLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4985,8 +4955,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3059397396436043323}
+  m_Children: []
   m_Father: {fileID: 6693106763582877081}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5002,11 +4971,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e2ca5310f45444eb68bfae3697e8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
-  fpsPosition: {fileID: 3059397396436043323}
   mask:
     serializedVersion: 2
     m_Bits: 1024
+  torpedo: {fileID: 6254057963683646536, guid: 57e4814384745a54cbaea0260410a0ba, type: 3}
+  offset: {x: 0, y: 0, z: 3}
+  rate: 0.3
 --- !u!1 &3268507636071255334
 GameObject:
   m_ObjectHideFlags: 0
@@ -5768,15 +5738,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab07cd0d49b41c4088575f290e8df775, type: 3}
---- !u!4 &5679860144947708082 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
-    type: 3}
-  m_PrefabInstance: {fileID: 2161473993497339592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &5679860144947708080 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5993714480178439800, guid: ab07cd0d49b41c4088575f290e8df775,
+    type: 3}
+  m_PrefabInstance: {fileID: 2161473993497339592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5679860144947708082 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
     type: 3}
   m_PrefabInstance: {fileID: 2161473993497339592}
   m_PrefabAsset: {fileID: 0}
