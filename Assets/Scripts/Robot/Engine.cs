@@ -25,7 +25,7 @@ namespace Robot
 
         void Start()
         {
-            Physics.gravity = new Vector3(0, -5.0f, 0);
+            // Physics.gravity = new Vector3(0, -5.0f, 0);
             rbody = this.transform.parent.gameObject.GetComponent<Rigidbody>();
         }
 

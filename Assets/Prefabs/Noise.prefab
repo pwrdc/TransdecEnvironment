@@ -395,8 +395,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123158578186609041}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 352, y: -341, z: -762}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.337, y: -0.346, z: -0.756}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children: []
   m_Father: {fileID: 123158580177055434}
   m_RootOrder: 0
@@ -1767,7 +1767,6 @@ GameObject:
   m_Component:
   - component: {fileID: 123158580177055434}
   - component: {fileID: 123158579728886853}
-  - component: {fileID: 123158579728886850}
   m_Layer: 0
   m_Name: rura_nadwodna
   m_TagString: Untagged
@@ -1832,20 +1831,6 @@ MonoBehaviour:
       m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
---- !u!114 &123158579728886850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123158579728886852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b64053c85bd6b40a06095451752390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 0.02
-  speed: 0.8
 --- !u!1 &123158579857582464
 GameObject:
   m_ObjectHideFlags: 0
