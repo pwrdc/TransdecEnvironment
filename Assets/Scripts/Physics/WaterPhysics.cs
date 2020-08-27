@@ -7,6 +7,7 @@ public class WaterPhysics : MonoBehaviour
 {
     public Bounds bounds;
     public float volume;
+    public ForceMode forceMode;
     Rigidbody body;
 
     void Reset()
@@ -20,9 +21,9 @@ public class WaterPhysics : MonoBehaviour
         body = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        body.AddForce(Vector3.up*BuoyancyForce.Instance.GetForce(transform.position, volume));
+        body.AddForce(Vector3.up*BuoyancyForce.Instance.GetForce(transform.position, volume), forceMode);
     }
 
     private void OnDrawGizmosSelected()
