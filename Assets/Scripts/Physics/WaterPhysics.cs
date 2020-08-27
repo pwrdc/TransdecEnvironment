@@ -7,7 +7,6 @@ public class WaterPhysics : MonoBehaviour
 {
     public Bounds bounds;
     public float volume;
-    public ForceMode forceMode;
     Rigidbody body;
 
     void Reset()
@@ -19,11 +18,33 @@ public class WaterPhysics : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody>();
+        body.drag = 1f;
+        body.angularDrag = 1f;
+    }
+
+    void AddBuoyancyForce(Vector3 offset, float volumePart)
+    {
+        Vector3 position = transform.TransformPoint(offset);
+        body.AddForceAtPosition(Vector3.up * BuoyancyForce.Instance.GetForce(position, volumePart), position);
     }
 
     void FixedUpdate()
     {
-        body.AddForce(Vector3.up*BuoyancyForce.Instance.GetForce(transform.position, volume), forceMode);
+        // add forces to 9 points on the bounds casted onto local XZ plane
+
+        float volumePart = volume / 9;
+
+        AddBuoyancyForce(Vector3.zero, volumePart);
+
+        AddBuoyancyForce(new Vector3(bounds.size.x, 0, bounds.size.z), volumePart);
+        AddBuoyancyForce(new Vector3(-bounds.size.x, 0, bounds.size.z), volumePart);
+        AddBuoyancyForce(new Vector3(bounds.size.x, 0, -bounds.size.z), volumePart);
+        AddBuoyancyForce(new Vector3(-bounds.size.x, 0, -bounds.size.z), volumePart);
+        
+        AddBuoyancyForce(new Vector3(bounds.size.x, 0, 0), volumePart);
+        AddBuoyancyForce(new Vector3(0, 0, bounds.size.z), volumePart);
+        AddBuoyancyForce(new Vector3(-bounds.size.x, 0, 0), volumePart);
+        AddBuoyancyForce(new Vector3(0, 0, -bounds.size.z), volumePart);
     }
 
     private void OnDrawGizmosSelected()

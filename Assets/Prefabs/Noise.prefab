@@ -634,7 +634,6 @@ GameObject:
   - component: {fileID: 123158578429198667}
   - component: {fileID: 123158578429198666}
   - component: {fileID: 123158578429198658}
-  - component: {fileID: 123158578429198659}
   m_Layer: 0
   m_Name: Roulette
   m_TagString: Untagged
@@ -747,20 +746,6 @@ MonoBehaviour:
       m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
---- !u!114 &123158578429198659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123158578429198661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b64053c85bd6b40a06095451752390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 0.02
-  speed: 0.8
 --- !u!1 &123158578435384397
 GameObject:
   m_ObjectHideFlags: 0
