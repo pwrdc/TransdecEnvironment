@@ -25,7 +25,10 @@ public class WaterPhysics : MonoBehaviour
     void AddBuoyancyForce(Vector3 offset, float volumePart)
     {
         Vector3 position = transform.TransformPoint(offset);
-        body.AddForceAtPosition(Vector3.up * BuoyancyForce.Instance.GetForce(position, volumePart), position);
+        if (Environment.Environment.Instance.isUnderwater(position.y))
+        {
+            body.AddForceAtPosition(Vector3.up * BuoyancyForce.Instance.GetForce(position, volumePart), position);
+        }
     }
 
     void FixedUpdate()
@@ -45,6 +48,9 @@ public class WaterPhysics : MonoBehaviour
         AddBuoyancyForce(new Vector3(0, 0, bounds.size.z), volumePart);
         AddBuoyancyForce(new Vector3(-bounds.size.x, 0, 0), volumePart);
         AddBuoyancyForce(new Vector3(0, 0, -bounds.size.z), volumePart);
+
+        if(WaterCurrent.Instance.isEnabled && Environment.Environment.Instance.isUnderwater(transform.position.y))
+            body.AddForce(WaterCurrent.Instance.GetForce());
     }
 
     private void OnDrawGizmosSelected()

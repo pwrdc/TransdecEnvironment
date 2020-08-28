@@ -845,12 +845,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcae345454ed1a42b785b5494a3dd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionStep: 1
+  positionStep: 0.5
   timeStep: 1
-  waterDensity: 1
+  waterDensity: 997
+  noiseInfluence: 0.2
+  waterSurface: {fileID: 0}
   visualisation:
     gridSize: 30
     pointsOffset: 0.3
+    referenceVolume: 0.0001
 --- !u!1 &8022603783278907239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,6 +1641,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086602655649962732, guid: 4515cee7c0bc5b662a1ce31ceecd4c9e,
+        type: 3}
+      propertyPath: minVelocity
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086602655649962732, guid: 4515cee7c0bc5b662a1ce31ceecd4c9e,
+        type: 3}
+      propertyPath: maxVelocity
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3497664987440190588, guid: 4515cee7c0bc5b662a1ce31ceecd4c9e,
         type: 3}

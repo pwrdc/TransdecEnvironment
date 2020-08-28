@@ -40,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4086602655649962728}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 330edb049d31ea848a42401b9368f9e7, type: 3}
   m_Name: 
@@ -49,6 +49,7 @@ MonoBehaviour:
   maxVelocity: 0.005
   maxVelocityChange: 0.0005
   maxAngleChange: 0.08
+  isEnabled: 0
 --- !u!114 &8715284777462405288
 MonoBehaviour:
   m_ObjectHideFlags: 0

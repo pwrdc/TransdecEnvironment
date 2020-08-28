@@ -3216,7 +3216,7 @@ PrefabInstance:
     - target: {fileID: 5286683334503124144, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: selected
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 681370832179773151, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3498,6 +3498,16 @@ PrefabInstance:
         type: 3}
       propertyPath: noiseInfluence
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: visualisation.rayLengthDivider
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: visualisation.referenceVolume
+      value: 0.0001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

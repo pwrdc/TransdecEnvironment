@@ -296,7 +296,7 @@ public class RobotAgent : Agent
                         CalculateSingleReward(relativePosition.y, startRelativePosition.y) +
                         CalculateSingleReward(relativePosition.z, startRelativePosition.z) +
                         CalculateSingleReward(targetLocator.RelativeAngle, startRelativeAngle)) / 4 -
-                        collided - (engine.isAboveSurface()?1:0);
+                        collided - (Environment.Environment.Instance.isUnderwater(transform.position.y) ? 1:0);
         return reward;
     }
 

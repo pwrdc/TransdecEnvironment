@@ -32,7 +32,7 @@ namespace Robot
         void Update()
         {
             selfLevel();
-            if (isAboveSurface())
+            if (!Environment.Environment.Instance.isUnderwater(transform.position.y))
                 rbody.useGravity = true;
             else
                 rbody.useGravity = false;
@@ -40,11 +40,6 @@ namespace Robot
                 rbody.drag = drag;
             if (rbody.angularDrag != angularDrag)
                 rbody.angularDrag = angularDrag;
-        }
-
-        public bool isAboveSurface()
-        {
-            return rbody.position.y >= Environment.Environment.Instance.waterSurface.position.y;
         }
 
         public void Move(float Longitudinal, float Lateral, float Vertical, float Yaw)

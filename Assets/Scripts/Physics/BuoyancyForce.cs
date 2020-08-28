@@ -13,35 +13,18 @@ public class BuoyancyForce : MonoBehaviour
     public float timeStep = 1f;
     public float waterDensity=997f;
     public float noiseInfluence = 0.1f;
-    public Transform waterSurface;
 
     [System.Serializable]
     public class Visualisation
     {
         public int gridSize=10;
         public float pointsOffset = 10f;
+        public float referenceVolume = 0.01f;
     }
     public Visualisation visualisation;
 
-    float WaterSurfaceY()
-    {
-        if (waterSurface != null)
-        {
-            return waterSurface.transform.position.y;
-        } else
-        {
-            return 0;
-        }
-    }
-
     public float GetForce(Vector3 position, float volume)
     {
-        float waterSurfaceY = WaterSurfaceY();
-        if (position.y > waterSurfaceY)
-        {
-            // position is outside of water
-            return 0f;
-        }
         float noiseValue = Perlin.Noise(position.x * positionStep, position.z * positionStep, Time.time * timeStep);
         // transform noise value from range <-1, 1> to <0, 1>
         noiseValue=(1+noiseValue)/ 2;
@@ -58,7 +41,7 @@ public class BuoyancyForce : MonoBehaviour
             for (int z = -halfGridSize; z < halfGridSize; z++)
             {
                 Vector3 position = new Vector3(x, 0, z) * visualisation.pointsOffset;
-                Gizmos.DrawRay(transform.position + position, Vector3.up*GetForce(position, 1));
+                Gizmos.DrawRay(transform.position + position, Vector3.up*GetForce(position, visualisation.referenceVolume));
             }
         }
     }

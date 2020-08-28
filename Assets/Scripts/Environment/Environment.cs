@@ -18,6 +18,11 @@ namespace Environment
         public event Action OnNormalInit;
         public event Action OnRandomizedInit;
 
+        public bool isUnderwater(float y)
+        {
+            return waterSurface != null && y < waterSurface.position.y;
+        }
+
         void Start()
         {
             RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
