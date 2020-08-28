@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.coffee.softmask-for-ugui": "https://github.com/mob-sakai/SoftMaskForUGUI.git",
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.analytics": "3.3.2",
     "com.unity.collab-proxy": "1.2.16",
@@ -49,6 +50,10 @@
     "com.coffee.softmask-for-ugui": {
       "hash": "03a7b84fa229fb20dbe67f69971cb0f481509acf",
       "revision": "HEAD"
+    },
+    "com.dbrizov.naughtyattributes": {
+      "hash": "d0be92615128a89f2d6b95b8e3435630d5432b9d",
+      "revision": "upm"
     }
   }
 }

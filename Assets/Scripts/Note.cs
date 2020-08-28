@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using NaughtyAttributes;
 
 public class Note : MonoBehaviour
 {
-    [Multiline(20)]
+    [ResizableTextArea]
     public string note;
 }

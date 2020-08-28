@@ -115,7 +115,11 @@ public class ResetParameterAttribute : Attribute {
         public FieldInfo field;
     }
     static Dictionary<Type, List<AttributeAndField>> cached = new Dictionary<Type, List<AttributeAndField>>();
-
+    
+    /// <summary>
+    /// Enables all ResetParameter attributes in the object.
+    /// Without this call they have no effect.
+    /// </summary>
     public static void InitializeAll(object obj)
     {
         RobotAcademy academy = RobotAcademy.Instance;

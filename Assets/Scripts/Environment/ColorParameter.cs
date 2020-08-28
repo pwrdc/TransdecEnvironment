@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 namespace Environment
 {
@@ -17,9 +18,10 @@ namespace Environment
             Normal,
             ColorPointIndex
         }
-
-        [Header("Edit Mode Preview")]
+        
         public PreviewMode previewMode;
+        bool ShowPreviewIndex => previewMode == PreviewMode.ColorPointIndex;
+        [AllowNesting, ShowIf("ShowPreviewIndex")]
         public int previewIndex = 0;
 
         public override void Preview()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 namespace Environment
 {
@@ -29,11 +30,11 @@ namespace Environment
             Max,
             Percentage
         }
-
-        [Header("Edit Mode Preview")]
+        
         public PreviewMode previewMode;
-        [Range(0, 1)]
-        public float previewPercentage;
+        bool ShowPreviewPercentage => previewMode == PreviewMode.Percentage;
+        [ShowIf("ShowPreviewPercentage"), MinValue(0), MaxValue(100), AllowNesting]
+        public int previewPercentage;
 
         public override void Randomize()
         {
@@ -61,7 +62,7 @@ namespace Environment
                     value = normal;
                     break;
                 case PreviewMode.Percentage:
-                    value = Blend(previewPercentage);
+                    value = Blend((float)previewPercentage/100);
                     break;
                 default:
                     throw new InvalidEnumValueException(previewMode);

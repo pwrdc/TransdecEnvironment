@@ -9,7 +9,6 @@ namespace Robot
     public class Engine : MonoBehaviour
     {
         private Rigidbody rbody;
-        private GameObject robot;
 
         public float drag = 2.0f;
         public float angularDrag = 2.0f;
@@ -18,24 +17,17 @@ namespace Robot
         public float maxForceLateral = 50;
         public float maxTorqueYaw = 0.5f;
 
-        private float longitudinal = 0;
-        private float lateral = 0;
-        private float yaw = 0;
-        private float vertical = 0;
+        bool isUnderwater = true;
 
         void Start()
         {
-            // Physics.gravity = new Vector3(0, -5.0f, 0);
-            rbody = this.transform.parent.gameObject.GetComponent<Rigidbody>();
+            rbody = transform.parent.GetComponent<Rigidbody>();
         }
 
         void Update()
         {
-            selfLevel();
-            if (!Environment.Environment.Instance.isUnderwater(transform.position.y))
-                rbody.useGravity = true;
-            else
-                rbody.useGravity = false;
+            isUnderwater = Environment.Environment.Instance.isUnderwater(transform.position.y);
+            LevelSelf();
             if (rbody.drag != drag)
                 rbody.drag = drag;
             if (rbody.angularDrag != angularDrag)
@@ -44,18 +36,14 @@ namespace Robot
 
         public void Move(float Longitudinal, float Lateral, float Vertical, float Yaw)
         {
-            lateral = Lateral;
-            longitudinal = Longitudinal;
-            vertical = Vertical;
-            yaw = Yaw;
-            if (!rbody.useGravity)
+            if (isUnderwater)
             {
-                rbody.AddRelativeForce(maxForceLateral * lateral, maxForceVertical * vertical, maxForceLongitudinal * longitudinal);
-                rbody.AddRelativeTorque(0, maxTorqueYaw * yaw, 0);
+                rbody.AddRelativeForce(maxForceLateral * Lateral, maxForceVertical * Vertical, maxForceLongitudinal * Longitudinal);
+                rbody.AddRelativeTorque(0, maxTorqueYaw * Yaw, 0);
             }
         }
 
-        void selfLevel()
+        void LevelSelf()
         {
             rbody.AddRelativeTorque((float)(-Math.Sin(rbody.rotation.eulerAngles.x * (Math.PI / 180))),
                                     0,
