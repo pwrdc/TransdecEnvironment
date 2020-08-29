@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 49.746418, y: 6.6776495, z: 25}
   m_Children: []
   m_Father: {fileID: 6048218709992607357}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &239825200
 MonoBehaviour:
@@ -321,7 +321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6048218709992607357}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &520323846
 MonoBehaviour:
@@ -392,7 +392,7 @@ RectTransform:
   - {fileID: 7579108822326772969}
   - {fileID: 4278572401779038065}
   m_Father: {fileID: 6048218709992607357}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -637,6 +637,70 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLocator: {fileID: 3552085487900169505}
+--- !u!1 &2448798042914339907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8695719222620578788}
+  - component: {fileID: 8745976425692413371}
+  - component: {fileID: 5392271835517823745}
+  m_Layer: 8
+  m_Name: UnderWaterPostProcessVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8695719222620578788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2448798042914339907}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6048218709992607357}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8745976425692413371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2448798042914339907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 087d561de5cb80045a1d6b13d23eea49, type: 2}
+  isGlobal: 1
+  blendDistance: 10
+  weight: 1
+  priority: 0
+--- !u!114 &5392271835517823745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2448798042914339907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: 'To disable effects disable UnderwaterEffects script.
+
+    It also disables them if robot is above water surface.'
 --- !u!1 &5118742042968492889
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +733,7 @@ Transform:
   - {fileID: 1554607907624232974}
   - {fileID: 6032483588387419548}
   - {fileID: 8695719222620578788}
+  - {fileID: 7213751949230074877}
   - {fileID: 9153791786499386259}
   - {fileID: 542129642}
   - {fileID: 520323844}
@@ -802,6 +867,70 @@ MonoBehaviour:
   m_PartOfParent: 0
   m_IgnoreSelfGraphic: 0
   m_IgnoreSelfStencil: 0
+--- !u!1 &6318986921663315468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7213751949230074877}
+  - component: {fileID: 2639304700508741602}
+  - component: {fileID: 3487370751864555722}
+  m_Layer: 8
+  m_Name: AboveWaterPostProcessVolume (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7213751949230074877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318986921663315468}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6048218709992607357}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2639304700508741602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318986921663315468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 9f0db7593ae78ca40b42a77016ee189b, type: 2}
+  isGlobal: 1
+  blendDistance: 10
+  weight: 1
+  priority: -1
+--- !u!114 &3487370751864555722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318986921663315468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  note: 'To disable effects disable UnderwaterEffects script.
+
+    It also disables them if robot is above water surface.'
 --- !u!1 &7485516083926059147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1250,7 @@ PrefabInstance:
     - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
         type: 3}
@@ -1312,7 +1441,7 @@ PrefabInstance:
     - target: {fileID: 6693106763582877081, guid: b522b6efb5ec849dca481532bc053825,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6693106763582877081, guid: b522b6efb5ec849dca481532bc053825,
         type: 3}
@@ -1724,98 +1853,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3253169933074019047}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4003016195473869540
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6048218709992607357}
-    m_Modifications:
-    - target: {fileID: 1618607413287433895, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_Name
-      value: PostProcessVolume
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5679708998078379871, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-        type: 3}
-      propertyPath: weight
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c73e3c29a531be14ea2ef0f2447d2ca7, type: 3}
---- !u!114 &8745976425692413371 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5679708998078379871, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4003016195473869540}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &8695719222620578788 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5701826006014159104, guid: c73e3c29a531be14ea2ef0f2447d2ca7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4003016195473869540}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4600140698006951741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1866,7 +1903,7 @@ PrefabInstance:
     - target: {fileID: 1884117610604628327, guid: 3a41682b75a6dd84ba39a02b026ae6a6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1884117610604628327, guid: 3a41682b75a6dd84ba39a02b026ae6a6,
         type: 3}

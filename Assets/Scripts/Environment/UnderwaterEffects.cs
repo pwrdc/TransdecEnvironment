@@ -12,6 +12,7 @@ namespace Environment
         public FloatParameter volumetricDensity=new FloatParameter(2, 1, 5);
         public Aura2API.AuraVolume auraVolume;
         public PostProcessVolume postProcessVolume;
+        public float waterLevelOffset = -1f;
 
         public Transform target;
         public Light robotLight;
@@ -53,17 +54,34 @@ namespace Environment
 
         void OnDisable()
         {
-            UpdateEffects(false);
+            UpdateEffects(0f);
         }
 
         void OnEnable()
         {
             Start();
-            UpdateEffects(true);
+            UpdateEffects(1f);
         }
 
-        void UpdateEffects(bool active)
+        float Cube(float x)
         {
+            return x * x *x;
+        }
+
+        float CalculateEffectsWeight()
+        {
+            Camera camera = RobotAgent.Instance.ActiveCamera;
+            if (camera == null)
+                return 1f;
+            Vector3 screenBottom = camera.ViewportToWorldPoint(new Vector3(0.5f, 0, camera.nearClipPlane));
+            Vector3 screenTop = camera.ViewportToWorldPoint(new Vector3(0.5f, 1, camera.nearClipPlane));
+            return Cube(Mathf.InverseLerp(screenBottom.y, screenTop.y, Environment.Instance.GetWaterY() + waterLevelOffset));
+        }
+
+        void UpdateEffects(float weight)
+        {
+            float activeThreshold = 0.1f;
+            bool active = weight < activeThreshold;
             if (wobbleEffects != null)
             {
                 foreach (var wobbleEffect in wobbleEffects)
@@ -75,7 +93,7 @@ namespace Environment
             {
                 // Unity's implementation of PostProcessVolume is buggy
                 // and disabling volume through enabled causes bunch of NullPointerExceptions
-                postProcessVolume.weight = active ? 1 : 0;
+                postProcessVolume.weight = weight;
             }
             if (robotLight != null) robotLight.enabled = active;
             RenderSettings.fog = active;
@@ -104,7 +122,7 @@ namespace Environment
         {
             base.Update();
             bool underwater = target != null && Environment.Instance.IsUnderWater(target.position.y);
-            UpdateEffects(underwater);
+            UpdateEffects(CalculateEffectsWeight());
         }
     }
 }

@@ -18,6 +18,17 @@ namespace Environment
         public event Action OnNormalInit;
         public event Action OnRandomizedInit;
 
+        public float GetWaterY()
+        {
+            if (waterSurface == null)
+            {
+                return Mathf.Infinity;
+            } else
+            {
+                return waterSurface.transform.position.y;
+            }
+        }
+
         public bool IsUnderWater(float y)
         {
             return waterSurface != null && y < waterSurface.position.y;

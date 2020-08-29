@@ -43,7 +43,8 @@ public class RobotAgent : Agent
     [Header("Cameras")]
     public Camera frontCamera = null;
     public Camera bottomCamera = null;
-    public Camera ActiveCamera { get; private set; } = null;
+    public CameraType focusedCamera;
+    public Camera ActiveCamera => (focusedCamera==CameraType.frontCamera) ? frontCamera : bottomCamera;
 
     private Engine engine;
     private Accelerometer accelerometer;
@@ -65,8 +66,6 @@ public class RobotAgent : Agent
     string lastTextAction = "";
     Observations lastObservations = null;
     float lastReward = 0;
-    
-    public CameraType focusedCamera;
 
     bool initialized=false;
     void Initialize(){
@@ -96,14 +95,12 @@ public class RobotAgent : Agent
             agentParameters.agentCameras[0] = frontCamera;
             frontCamera.depth = 0;
             bottomCamera.depth = -1;
-            ActiveCamera = frontCamera;
         }
         else if (focusedCamera==CameraType.bottomCamera)
         {
             agentParameters.agentCameras[0] = bottomCamera;
             frontCamera.depth = -1;
             bottomCamera.depth = 0;
-            ActiveCamera = bottomCamera;
         }
         else
         {
