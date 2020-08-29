@@ -634,6 +634,9 @@ GameObject:
   - component: {fileID: 123158578429198667}
   - component: {fileID: 123158578429198666}
   - component: {fileID: 123158578429198658}
+  - component: {fileID: 3496483178084515134}
+  - component: {fileID: 3038306533152478275}
+  - component: {fileID: 9186556866179774240}
   m_Layer: 0
   m_Name: Roulette
   m_TagString: Untagged
@@ -746,6 +749,58 @@ MonoBehaviour:
       m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
+--- !u!64 &3496483178084515134
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123158578429198661}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 41460cdb52d51dd48b14f74d60039971, type: 3}
+--- !u!54 &3038306533152478275
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123158578429198661}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &9186556866179774240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123158578429198661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8437b3e0732464f42969b155594524d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyForceMode: 0
+  bounds:
+    m_Center: {x: 0.0000038146973, y: 0.0767001, z: 0.000026240776}
+    m_Extent: {x: 1, y: 0.15, z: 1}
+  boundsFillLevel: 0.25
+  fluctuationsMagnitude: 0
+  waterCurrentEnabled: 1
+  deduceMassFromVolume: 1
+  density: 700
+  densityManual: 1175
 --- !u!1 &123158578435384397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1807,9 @@ GameObject:
   m_Component:
   - component: {fileID: 123158580177055434}
   - component: {fileID: 123158579728886853}
+  - component: {fileID: 3182222786262626790}
+  - component: {fileID: 7326049777489705760}
+  - component: {fileID: 495183797449802557}
   m_Layer: 0
   m_Name: rura_nadwodna
   m_TagString: Untagged
@@ -1767,8 +1825,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123158579728886852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.12, y: 0.005, z: 0}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalPosition: {x: -5.12, y: 0.005, z: 0.003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 123158578186609046}
   m_Father: {fileID: 3629612021137547543}
@@ -1816,6 +1874,58 @@ MonoBehaviour:
       m_Calls: []
   debugMode: 0
   probingVector: {x: 0, y: 0, z: 1}
+--- !u!54 &3182222786262626790
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123158579728886852}
+  serializedVersion: 2
+  m_Mass: 400
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &7326049777489705760
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123158579728886852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.27
+  m_Height: 1.55
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &495183797449802557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123158579728886852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8437b3e0732464f42969b155594524d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyForceMode: 0
+  bounds:
+    m_Center: {x: -0.013000488, y: 0.0040000333, z: -0.005999902}
+    m_Extent: {x: 0.5, y: 0.5, z: 1.5}
+  boundsFillLevel: 0.25
+  fluctuationsMagnitude: 0
+  waterCurrentEnabled: 1
+  deduceMassFromVolume: 1
+  density: 700
+  densityManual: 1175
 --- !u!1 &123158579857582464
 GameObject:
   m_ObjectHideFlags: 0

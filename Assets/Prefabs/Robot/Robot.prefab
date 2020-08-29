@@ -5321,6 +5321,7 @@ MonoBehaviour:
   frontDistanceSensor: {fileID: 7488458919584955536}
   frontCamera: {fileID: 6693106762273889356}
   bottomCamera: {fileID: 5679860144947708080}
+  focusedCamera: 0
   agentSettings:
     sendRelativeData: 0
     dataCollection: 0
@@ -5330,7 +5331,6 @@ MonoBehaviour:
     targetReset: 1
     collectObservations: 0
     randomizeTargetObjectPositionOnEachStep: 1
-  focusedCamera: 0
 --- !u!114 &895343998506021890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5451,10 +5451,13 @@ MonoBehaviour:
   buoyancyForceMode: 1
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 2, y: 2, z: 2}
-  volume: 0.02
+    m_Extent: {x: 0.24, y: 0.12, z: 0.3}
+  boundsFillLevel: 1
   fluctuationsMagnitude: 0.05
   waterCurrentEnabled: 1
+  deduceMassFromVolume: 0
+  density: 1175
+  densityManual: 1175
 --- !u!1 &6693106763860638544
 GameObject:
   m_ObjectHideFlags: 0

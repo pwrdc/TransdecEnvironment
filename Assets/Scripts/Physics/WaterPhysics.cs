@@ -6,28 +6,57 @@ public class WaterPhysics : MonoBehaviour
 {
     public enum BuoyancyForceMode
     {
-        FullySimulated=0,
+        FullySimulated,
         FluctuationsOnly,
         Disabled
     }
-    [HelpBox("This component will modify some of rigidbody's properties.\nSee docstring for more information.", HelpBoxMessageType.Info)]
+    [HelpBox("This component will control rigidbody properties like \ndrag, mass and gravity and add additional forces.", HelpBoxMessageType.Info)]
     public BuoyancyForceMode buoyancyForceMode;
     bool FullySimulated => buoyancyForceMode == BuoyancyForceMode.FullySimulated;
     bool FluctuationsOnly => buoyancyForceMode == BuoyancyForceMode.FluctuationsOnly;
-    [ShowIf("FullySimulated")]
+
     public Bounds bounds;
-    [ShowIf("FullySimulated")]
-    public float volume;
+    [ShowIf(EConditionOperator.Or, "FullySimulated", "deduceMassFromVolume")]
+    [Range(0f, 1f), Tooltip("How much of the volume inside of the bounds is filled by the material.")]
+    public float boundsFillLevel = 0.25f;
     [ShowIf("FluctuationsOnly")]
     public float fluctuationsMagnitude=1f;
-    Rigidbody body;
-
     public bool waterCurrentEnabled = true;
 
+    public bool deduceMassFromVolume=true;
+    // Selected densities for different materials 
+    // taken from https://en.wikipedia.org/wiki/Density#Densities
+    public enum Density
+    {
+        Wood =700,
+        Plastic= 1175,
+        Concrete=2400,
+        Aluminium=2700,
+        Iron=7870,
+        Air = 1,
+        Water= 997,
+        SetManually=0
+    }
+    [ShowIf("deduceMassFromVolume")]
+    public Density density=Density.Plastic;
+    bool SetDensityManually => density == Density.SetManually;
+    [ShowIf(EConditionOperator.And, "SetDensityManually", "deduceMassFromVolume")]
+    public float densityManual = (float)Density.Plastic;
+
+    [ShowNativeProperty]
+    float Volume => bounds.size.x * bounds.size.y * bounds.size.z * boundsFillLevel;
+    [ShowNativeProperty]
+    float ActualDensity => SetDensityManually ? densityManual : (float)density;
+    [ShowNativeProperty]
+    float DeducedMass => Volume * ActualDensity;
+
+    Rigidbody body;
+
+    [Button("Recalculate Bounds")]
     void Reset()
     {
         bounds = Utils.GetComplexBounds(gameObject);
-        volume = bounds.size.x * bounds.size.y * bounds.size.z;
+        bounds.center -= transform.position;
     }
 
     bool IsUnderWater(Vector3 position) => Environment.Environment.Instance.IsUnderWater(position.y);
@@ -73,7 +102,7 @@ public class WaterPhysics : MonoBehaviour
     void UpdateBuoyancyForces()
     {
         // add forces to 9 points on the bounds casted onto local XZ plane
-        float volumePart = volume / 9;
+        float volumePart = Volume / 9;
 
         AddBuoyancyForce(Vector3.zero, volumePart);
 
@@ -96,6 +125,8 @@ public class WaterPhysics : MonoBehaviour
     void FixedUpdate()
     {
         SetGravity();
+        if (deduceMassFromVolume)
+            body.mass = DeducedMass;
 
         if (buoyancyForceMode != BuoyancyForceMode.Disabled)
         {
@@ -109,6 +140,6 @@ public class WaterPhysics : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(bounds.center, bounds.extents);
+        Gizmos.DrawWireCube(transform.position+bounds.center, bounds.extents);
     }
 }
