@@ -849,7 +849,6 @@ MonoBehaviour:
   timeStep: 1
   waterDensity: 997
   noiseInfluence: 0.2
-  waterSurface: {fileID: 0}
   visualisation:
     gridSize: 30
     pointsOffset: 0.3

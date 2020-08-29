@@ -543,7 +543,7 @@ MonoBehaviour:
     - key: FocusedCamera
       value: 0
     - key: WaterCurrent
-      value: 0
+      value: 1
     - key: FocusedObject
       value: 0
     - key: EnableBackgroundImage
@@ -924,10 +924,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8437b3e0732464f42969b155594524d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buoyancyForceMode: 0
   bounds:
     m_Center: {x: -56.003, y: 0.009000033, z: -0.0029999018}
     m_Extent: {x: 0.35000002, y: 0.34995008, z: 0.75000006}
   volume: 0.5
+  fluctuationsMagnitude: 0
+  waterCurrentEnabled: 1
 --- !u!54 &780770451
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1381,7 +1384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941852666}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 28.48, y: 4.422, z: -4.355}
+  m_LocalPosition: {x: 28.48, y: 4.322, z: -4.355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2086,10 +2089,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8437b3e0732464f42969b155594524d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buoyancyForceMode: 0
   bounds:
     m_Center: {x: -49.639996, y: 0.0767001, z: 0.000026240776}
     m_Extent: {x: 0.49529797, y: 0.07670016, z: 0.4951514}
   volume: 0.15048416
+  fluctuationsMagnitude: 0
+  waterCurrentEnabled: 1
 --- !u!54 &1557601770
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2536,6 +2542,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3210798631874036938, guid: 4c6bb41a6b67ae4429ac55d995539f57,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3210798632440615195, guid: 4c6bb41a6b67ae4429ac55d995539f57,
         type: 3}
@@ -3275,22 +3286,22 @@ PrefabInstance:
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 697.58484
+      value: 4.3063386e+21
       objectReference: {fileID: 0}
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 4.2325485e+21
+      value: 6.799896e-33
       objectReference: {fileID: 0}
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 254211900
+      value: 1.3563156e-19
       objectReference: {fileID: 0}
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 1.18664444e+27
+      value: 1.7086692e+19
       objectReference: {fileID: 0}
     - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3358,6 +3369,31 @@ PrefabInstance:
         type: 3}
       propertyPath: volumetricDensity.previewMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: filterColor.previewMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: fogDensity.previewMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: filterColor.previewIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: fogDensity.previewPercentage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: fogColor.previewMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8417134329603099249, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3476,38 +3512,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: positionStep
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: timeStep
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 705912775}
     - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: waterDensity
-      value: 997
-      objectReference: {fileID: 0}
-    - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: noiseInfluence
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
       propertyPath: visualisation.rayLengthDivider
       value: 10000
       objectReference: {fileID: 0}
-    - target: {fileID: 572782763996562853, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    - target: {fileID: 9153791788086511115, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: visualisation.referenceVolume
-      value: 0.0001
+      propertyPath: maxForceLongitudinal
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153791788086511115, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: maxForceVertical
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153791788086511115, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: maxForceLateral
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232971, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: minVelocity
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232971, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: maxVelocity
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232971, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: maxVelocityChange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232971, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: maxAngleChange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223312607730672299, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163576519835035533, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: priority
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

@@ -5179,6 +5179,7 @@ GameObject:
   - component: {fileID: 8616279192032855075}
   - component: {fileID: 1342625658465686315}
   - component: {fileID: 4429669503229586782}
+  - component: {fileID: 1453021736677013615}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Player
@@ -5280,7 +5281,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6693106763582877074}
   serializedVersion: 2
-  m_Mass: 17
+  m_Mass: 20
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -5435,6 +5436,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290454854a416c3489a3c6aef32b32c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1453021736677013615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693106763582877074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8437b3e0732464f42969b155594524d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancyForceMode: 1
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 2, y: 2, z: 2}
+  volume: 0.02
+  fluctuationsMagnitude: 0.05
+  waterCurrentEnabled: 1
 --- !u!1 &6693106763860638544
 GameObject:
   m_ObjectHideFlags: 0
@@ -5738,15 +5758,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab07cd0d49b41c4088575f290e8df775, type: 3}
---- !u!20 &5679860144947708080 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5993714480178439800, guid: ab07cd0d49b41c4088575f290e8df775,
-    type: 3}
-  m_PrefabInstance: {fileID: 2161473993497339592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5679860144947708082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5993714480178439802, guid: ab07cd0d49b41c4088575f290e8df775,
+    type: 3}
+  m_PrefabInstance: {fileID: 2161473993497339592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &5679860144947708080 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5993714480178439800, guid: ab07cd0d49b41c4088575f290e8df775,
     type: 3}
   m_PrefabInstance: {fileID: 2161473993497339592}
   m_PrefabAsset: {fileID: 0}

@@ -1,23 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using NaughtyAttributes;
 
 [RequireComponent(typeof(Rigidbody))]
 public class WaterPhysics : MonoBehaviour
 {
-    [HelpBox("This component will modify some of rigidbody's properties.\nSee docstring for more information.", HelpBoxMessageType.Info)]
-    public Bounds bounds;
-    public float volume;
-    Rigidbody body;
-
-    public bool waterCurrentEnabled = true;
     public enum BuoyancyForceMode
     {
-        FullySimulated,
+        FullySimulated=0,
         FluctuationsOnly,
         Disabled
     }
+    [HelpBox("This component will modify some of rigidbody's properties.\nSee docstring for more information.", HelpBoxMessageType.Info)]
     public BuoyancyForceMode buoyancyForceMode;
+    bool FullySimulated => buoyancyForceMode == BuoyancyForceMode.FullySimulated;
+    bool FluctuationsOnly => buoyancyForceMode == BuoyancyForceMode.FluctuationsOnly;
+    [ShowIf("FullySimulated")]
+    public Bounds bounds;
+    [ShowIf("FullySimulated")]
+    public float volume;
+    [ShowIf("FluctuationsOnly")]
+    public float fluctuationsMagnitude=1f;
+    Rigidbody body;
+
+    public bool waterCurrentEnabled = true;
 
     void Reset()
     {
@@ -25,10 +30,14 @@ public class WaterPhysics : MonoBehaviour
         volume = bounds.size.x * bounds.size.y * bounds.size.z;
     }
 
+    bool IsUnderWater(Vector3 position) => Environment.Environment.Instance.IsUnderWater(position.y);
+
     void SetGravity()
     {
-        if (buoyancyForceMode == BuoyancyForceMode.FluctuationsOnly)
+        if (buoyancyForceMode == BuoyancyForceMode.FluctuationsOnly && IsUnderWater(transform.position))
             body.useGravity = false;
+        else
+            body.useGravity = true;
     }
     
     void Start()
@@ -42,7 +51,7 @@ public class WaterPhysics : MonoBehaviour
     void AddBuoyancyForce(Vector3 offset, float volumePart)
     {
         Vector3 position = transform.TransformPoint(offset);
-        if (Environment.Environment.Instance.isUnderwater(position.y))
+        if (IsUnderWater(position))
         {
             float force;
             switch (buoyancyForceMode) {
@@ -50,7 +59,7 @@ public class WaterPhysics : MonoBehaviour
                     force = BuoyancyForce.Instance.GetForce(position, volumePart);
                     break;
                 case BuoyancyForceMode.FluctuationsOnly:
-                    force = BuoyancyForce.Instance.GetForce(position, volumePart);
+                    force = BuoyancyForce.Instance.GetFluctuations(position)*fluctuationsMagnitude;
                     break;
                 case BuoyancyForceMode.Disabled:
                     throw new UnreachableCodeException();
@@ -81,7 +90,7 @@ public class WaterPhysics : MonoBehaviour
 
     void AddCurrent()
     {
-        body.AddForce(WaterCurrent.Instance.GetForce());
+        body.AddForce(Environment.WaterCurrent.Instance.GetForce());
     }
 
     void FixedUpdate()
@@ -93,7 +102,7 @@ public class WaterPhysics : MonoBehaviour
             UpdateBuoyancyForces();
         }
 
-        if (WaterCurrent.Instance.isEnabled && waterCurrentEnabled && Environment.Environment.Instance.isUnderwater(transform.position.y))
+        if (Environment.WaterCurrent.Instance.isEnabled && waterCurrentEnabled && IsUnderWater(transform.position))
             AddCurrent ();
     }
 

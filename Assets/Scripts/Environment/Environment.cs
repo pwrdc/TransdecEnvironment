@@ -18,7 +18,7 @@ namespace Environment
         public event Action OnNormalInit;
         public event Action OnRandomizedInit;
 
-        public bool isUnderwater(float y)
+        public bool IsUnderWater(float y)
         {
             return waterSurface != null && y < waterSurface.position.y;
         }

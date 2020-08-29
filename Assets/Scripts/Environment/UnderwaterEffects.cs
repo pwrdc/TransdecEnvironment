@@ -103,7 +103,7 @@ namespace Environment
         public override void Update()
         {
             base.Update();
-            bool underwater = target != null && Environment.Instance.isUnderwater(target.position.y);
+            bool underwater = target != null && Environment.Instance.IsUnderWater(target.position.y);
             UpdateEffects(underwater);
         }
     }

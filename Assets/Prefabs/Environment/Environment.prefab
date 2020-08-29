@@ -45,10 +45,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 330edb049d31ea848a42401b9368f9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minVelocity: 0.001
-  maxVelocity: 0.005
-  maxVelocityChange: 0.0005
-  maxAngleChange: 0.08
+  forceRange:
+    value: 0
+    normal: 20
+    min: 10
+    max: 40
+    previewMode: 0
+    previewPercentage: 0
+  velocityChange:
+    value: 0
+    normal: 2
+    min: 1
+    max: 5
+    previewMode: 0
+    previewPercentage: 0
+  angleChange:
+    value: 0
+    normal: 5
+    min: 1
+    max: 10
+    previewMode: 0
+    previewPercentage: 0
+  force: {x: 0, y: 0, z: 0}
   isEnabled: 0
 --- !u!114 &8715284777462405288
 MonoBehaviour:

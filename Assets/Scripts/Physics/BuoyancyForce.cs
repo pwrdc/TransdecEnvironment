@@ -23,7 +23,7 @@ public class BuoyancyForce : MonoBehaviour
     }
     public Visualisation visualisation;
 
-    public float GetFluctuations(Vector3 position, float volume)
+    public float GetFluctuations(Vector3 position)
     {
         float noiseValue = Perlin.Noise(position.x * positionStep, position.z * positionStep, Time.time * timeStep);
         // transform noise value from range <-1, 1> to <0, 1>
@@ -33,7 +33,7 @@ public class BuoyancyForce : MonoBehaviour
 
     public float GetForce(Vector3 position, float volume)
     {
-        return Mathf.Lerp(1f, GetFluctuations(position, volume), noiseInfluence) * volume * waterDensity * (-Physics.gravity.y);
+        return Mathf.Lerp(1f, GetFluctuations(position), noiseInfluence) * volume * waterDensity * (-Physics.gravity.y);
     }
 
     void OnDrawGizmosSelected()

@@ -20,6 +20,7 @@ namespace Environment
             {
                 parameter.Randomize();
             }
+            ApplyParameters();
         }
 
         public virtual void Preview()
@@ -28,6 +29,12 @@ namespace Environment
             {
                 parameter.Preview();
             }
+            ApplyParameters();
+        }
+
+        public virtual void ApplyParameters()
+        {
+
         }
 
         public virtual void Start()

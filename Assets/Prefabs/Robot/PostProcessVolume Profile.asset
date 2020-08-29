@@ -1,33 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8885170589246292854
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15729d99364feed4cbd500889bf4972b, type: 3}
-  m_Name: Blur
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  Mode:
-    overrideState: 1
-    value: 0
-  Downsample:
-    overrideState: 1
-    value: 0
-  BlurIterations:
-    overrideState: 1
-    value: 0
-  BlurSize:
-    overrideState: 1
-    value: 0.1
 --- !u!114 &-6383538822207847091
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -168,7 +140,7 @@ MonoBehaviour:
   - {fileID: 8493261731072966750}
   - {fileID: -171328452762449647}
   - {fileID: 3558088746121376456}
-  - {fileID: -8885170589246292854}
+  - {fileID: 2682484056270709580}
   - {fileID: -4716941706110369674}
   - {fileID: -6383538822207847091}
 --- !u!114 &1272614395257349740
@@ -208,6 +180,34 @@ MonoBehaviour:
   vignette:
     overrideState: 0
     value: 0.5
+--- !u!114 &2682484056270709580
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15729d99364feed4cbd500889bf4972b, type: 3}
+  m_Name: Blur
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  Mode:
+    overrideState: 0
+    value: 0
+  Downsample:
+    overrideState: 1
+    value: 0
+  BlurIterations:
+    overrideState: 1
+    value: 1
+  BlurSize:
+    overrideState: 1
+    value: 0.1
 --- !u!114 &3558088746121376456
 MonoBehaviour:
   m_ObjectHideFlags: 3

@@ -26,7 +26,7 @@ namespace Robot
 
         void Update()
         {
-            isUnderwater = Environment.Environment.Instance.isUnderwater(transform.position.y);
+            isUnderwater = Environment.Environment.Instance.IsUnderWater(transform.position.y);
             LevelSelf();
             if (rbody.drag != drag)
                 rbody.drag = drag;
