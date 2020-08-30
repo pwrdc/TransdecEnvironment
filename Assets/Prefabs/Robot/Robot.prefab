@@ -5449,11 +5449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buoyancyForceMode: 1
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.24, y: 0.12, z: 0.3}
   boundsFillLevel: 1
-  fluctuationsMagnitude: 0.1
+  fluctuationsMagnitude: 0.2
   waterCurrentEnabled: 1
   deduceMassFromVolume: 0
   density: 1175

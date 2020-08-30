@@ -12,12 +12,16 @@ public class WaterPhysics : MonoBehaviour
         FluctuationsOnly,
         Disabled
     }
-    [HelpBox("This component will control rigidbody's properties like \ndrag, mass and gravity and add additional forces.", HelpBoxMessageType.Info)]
+    [HelpBox("This component will control rigidbody's properties like \n"
+            +"drag, mass and gravity and add additional forces.\n"
+            +"Body volume is calculated from the collider bounds and multiplied by Bounds Fill Level.", 
+            HelpBoxMessageType.Info)]
     public BuoyancyForceMode buoyancyForceMode;
     bool FullySimulated => buoyancyForceMode == BuoyancyForceMode.FullySimulated;
     bool FluctuationsOnly => buoyancyForceMode == BuoyancyForceMode.FluctuationsOnly;
 
-    public Bounds bounds;
+    new Collider collider;
+    public Bounds bounds=>collider!=null ? collider.bounds : new Bounds();
     [ShowIf(EConditionOperator.Or, "FullySimulated", "deduceMassFromVolume")]
     [Range(0f, 1f), Tooltip("How much of the volume inside of the bounds is filled by the material.")]
     public float boundsFillLevel = 0.25f;
@@ -55,13 +59,6 @@ public class WaterPhysics : MonoBehaviour
 
     Rigidbody body;
 
-    [Button("Recalculate Bounds")]
-    void Reset()
-    {
-        bounds = Utils.GetComplexBounds(gameObject);
-        bounds.center -= transform.position;
-    }
-
     bool IsUnderWater(Vector3 position) => Environment.Environment.Instance.IsUnderWater(position.y);
 
     void SetGravity()
@@ -74,6 +71,7 @@ public class WaterPhysics : MonoBehaviour
     
     void Start()
     {
+        collider = GetComponentInChildren<Collider>();
         body = GetComponent<Rigidbody>();
         body.drag = 1f;
         body.angularDrag = 1f;
@@ -127,7 +125,7 @@ public class WaterPhysics : MonoBehaviour
         new Vector3(0, 0, 1),
         new Vector3(-1, 0, 0),
         new Vector3(0, 0, -1)
-    }.Select(offset=>transform.position+Utils.MultiplyVectorsFields(offset, bounds.extents) + bounds.center);
+    }.Select(offset=>Utils.MultiplyVectorsFields(offset, bounds.extents) + bounds.center);
     float VolumePerOffset=> Volume / 9;
 
     void UpdateBuoyancyForces()
@@ -160,8 +158,12 @@ public class WaterPhysics : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if (collider == null)
+        {
+            collider = GetComponentInChildren<Collider>();
+        }
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position+bounds.center, bounds.size);
+        Gizmos.DrawWireCube(bounds.center, bounds.size);
 
         foreach (var position in ForcePositions)
         {
