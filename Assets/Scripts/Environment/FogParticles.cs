@@ -8,14 +8,26 @@ namespace Environment
     public class FogParticles : MonoBehaviour
     {
         public float opacity = 0.2f;
-        new ParticleSystemRenderer particleSystem;
+        ParticleSystemRenderer particleSystemRenderer;
+        new ParticleSystem particleSystem;
         UnderwaterEffects underwaterEffect;
 
         // Start is called before the first frame update
         void Start()
         {
             underwaterEffect = FindObjectOfType<UnderwaterEffects>();
-            particleSystem = GetComponent<ParticleSystemRenderer>();
+            particleSystemRenderer = GetComponent<ParticleSystemRenderer>();
+            particleSystem = GetComponent<ParticleSystem>();
+        }
+
+        Color TransferAlpha(Color colorSource, Color alphaSource)
+        {
+            return new Color(colorSource.r, colorSource.g, colorSource.b, alphaSource.a);
+        }
+
+        Color ToGrayscale(Color color)
+        {
+            return new Color(color.grayscale, color.grayscale, color.grayscale, color.a);
         }
 
         void Update()
@@ -24,8 +36,10 @@ namespace Environment
             {
                 Color color = underwaterEffect.fogColor.value;
                 color.a = opacity;
-                if(particleSystem.sharedMaterial!=null)
-                    particleSystem.sharedMaterial.color=color;
+                if(particleSystemRenderer.sharedMaterial!=null)
+                    particleSystemRenderer.sharedMaterial.color= ToGrayscale(color);
+                ParticleSystem.MainModule main = particleSystem.main;
+                main.startColor = new ParticleSystem.MinMaxGradient(TransferAlpha(color, main.startColor.colorMin), TransferAlpha(color, main.startColor.colorMax));
             }
         }
     }

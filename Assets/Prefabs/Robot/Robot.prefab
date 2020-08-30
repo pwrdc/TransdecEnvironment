@@ -5110,9 +5110,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drag: 2
   angularDrag: 2
-  maxForceLongitudinal: 50
-  maxForceVertical: 50
-  maxForceLateral: 50
+  maxForceLongitudinal: 65
+  maxForceVertical: 65
+  maxForceLateral: 65
   maxTorqueYaw: 0.5
 --- !u!1 &6693106763123120821
 GameObject:
@@ -5453,7 +5453,7 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.24, y: 0.12, z: 0.3}
   boundsFillLevel: 1
-  fluctuationsMagnitude: 0.05
+  fluctuationsMagnitude: 0.1
   waterCurrentEnabled: 1
   deduceMassFromVolume: 0
   density: 1175

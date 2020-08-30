@@ -23,17 +23,31 @@ public class BuoyancyForce : MonoBehaviour
     }
     public Visualisation visualisation;
 
+    /// <summary>
+    /// Returns buoyancy force fluctuations at given postion.
+    /// </summary>
+    /// <param name="position">World position of the point.</param>
+    /// <returns>Force in range -1 to 1,</returns>
     public float GetFluctuations(Vector3 position)
     {
-        float noiseValue = Perlin.Noise(position.x * positionStep, position.z * positionStep, Time.time * timeStep);
-        // transform noise value from range <-1, 1> to <0, 1>
-        noiseValue = (1 + noiseValue) / 2;
-        return noiseValue;
+        return Perlin.Noise(position.x * positionStep, position.z * positionStep, Time.time * timeStep);
     }
 
+    // transforms noise value from range <-1, 1> to <0, 1>
+    float ToZeroOneRange(float value)
+    {
+        return value = (1 + value) / 2;
+    }
+
+    /// <summary>
+    /// Returns buayancy force for a body located in water.
+    /// </summary>
+    /// <param name="position">World position of the body.</param>
+    /// <param name="volume">Volume of the body.</param>
+    /// <returns></returns>
     public float GetForce(Vector3 position, float volume)
     {
-        return Mathf.Lerp(1f, GetFluctuations(position), noiseInfluence) * volume * waterDensity * (-Physics.gravity.y);
+        return Mathf.Lerp(1f, ToZeroOneRange(GetFluctuations(position)), noiseInfluence) * volume * waterDensity * (-Physics.gravity.y);
     }
 
     void OnDrawGizmosSelected()

@@ -10,7 +10,7 @@ public class WaterPhysics : MonoBehaviour
         FluctuationsOnly,
         Disabled
     }
-    [HelpBox("This component will control rigidbody properties like \ndrag, mass and gravity and add additional forces.", HelpBoxMessageType.Info)]
+    [HelpBox("This component will control rigidbody's properties like \ndrag, mass and gravity and add additional forces.", HelpBoxMessageType.Info)]
     public BuoyancyForceMode buoyancyForceMode;
     bool FullySimulated => buoyancyForceMode == BuoyancyForceMode.FullySimulated;
     bool FluctuationsOnly => buoyancyForceMode == BuoyancyForceMode.FluctuationsOnly;
@@ -28,14 +28,15 @@ public class WaterPhysics : MonoBehaviour
     // taken from https://en.wikipedia.org/wiki/Density#Densities
     public enum Density
     {
-        Wood =700,
-        Plastic= 1175,
-        Concrete=2400,
-        Aluminium=2700,
-        Iron=7870,
+        Wood = 700,
+        Plastic = 1175,
+        Styrofoam = 75,
+        Concrete = 2400,
+        Aluminium = 2700,
+        Iron = 7870,
         Air = 1,
-        Water= 997,
-        SetManually=0
+        Water = 997,
+        SetManually = 0
     }
     [ShowIf("deduceMassFromVolume")]
     public Density density=Density.Plastic;
