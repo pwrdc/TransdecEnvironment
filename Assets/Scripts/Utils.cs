@@ -55,6 +55,11 @@ public static class Utils
         return new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
     }
 
+    public static Vector3 MultiplyVectorsFields(Vector3 a, Vector3 b)
+    {
+        return new Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
+    }
+
     // calls action until it returns true or it is called tries times
     // returns true if action succeded
     public static bool Try(int tries, System.Func<bool> action)

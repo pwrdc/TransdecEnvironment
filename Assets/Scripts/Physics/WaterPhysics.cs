@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using NaughtyAttributes;
+using System.Linq;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
 public class WaterPhysics : MonoBehaviour
@@ -78,44 +80,62 @@ public class WaterPhysics : MonoBehaviour
         SetGravity();
     }
 
-    void AddBuoyancyForce(Vector3 offset, float volumePart)
+    float VolumeInWater(Vector3 point)
     {
-        Vector3 position = transform.TransformPoint(offset);
-        if (IsUnderWater(position))
+        Vector3 lower = point + Vector3.up * bounds.extents.y;
+        Vector3 upper = point - Vector3.up * bounds.extents.y;
+        return 1f-Mathf.InverseLerp(lower.y, upper.y, Environment.Environment.Instance.GetWaterY());
+    }
+
+    float CalculateBuoyancyForce(Vector3 position, float volumePart)
+    {
+        if (!IsUnderWater(position))
+        return 0f;
+        float force;
+        switch (buoyancyForceMode)
         {
-            float force;
-            switch (buoyancyForceMode) {
-                case BuoyancyForceMode.FullySimulated:
-                    force = BuoyancyForce.Instance.GetForce(position, volumePart);
-                    break;
-                case BuoyancyForceMode.FluctuationsOnly:
-                    force = BuoyancyForce.Instance.GetFluctuations(position)*fluctuationsMagnitude;
-                    break;
-                case BuoyancyForceMode.Disabled:
-                    throw new UnreachableCodeException();
-                default:
-                    throw new InvalidEnumValueException(buoyancyForceMode);
-            }
-            body.AddForceAtPosition(Vector3.up * force, position);
+            case BuoyancyForceMode.FullySimulated:
+                force = BuoyancyForce.Instance.GetForce(position, volumePart);
+                break;
+            case BuoyancyForceMode.FluctuationsOnly:
+                force = BuoyancyForce.Instance.GetFluctuations(position) * fluctuationsMagnitude;
+                break;
+            case BuoyancyForceMode.Disabled:
+                throw new UnreachableCodeException();
+            default:
+                throw new InvalidEnumValueException(buoyancyForceMode);
+        }
+        return force * VolumeInWater(position);
+    }
+
+    void AddBuoyancyForce(Vector3 position, float volumePart)
+    {
+        if (IsUnderWater(position))// this additional check ensures that we won't add zero force
+        {
+            body.AddForceAtPosition(Vector3.up * CalculateBuoyancyForce(position, volumePart), position);
         }
     }
 
+    IEnumerable<Vector3> ForcePositions => new Vector3[]
+    {
+        Vector3.zero,
+        new Vector3(1, 0, 1),
+        new Vector3(-1, 0, 1),
+        new Vector3(1, 0, -1),
+        new Vector3(-1, 0, -1),
+        new Vector3(1, 0, 0),
+        new Vector3(0, 0, 1),
+        new Vector3(-1, 0, 0),
+        new Vector3(0, 0, -1)
+    }.Select(offset=>transform.position+Utils.MultiplyVectorsFields(offset, bounds.extents) + bounds.center);
+    float VolumePerOffset=> Volume / 9;
+
     void UpdateBuoyancyForces()
     {
-        // add forces to 9 points on the bounds casted onto local XZ plane
-        float volumePart = Volume / 9;
-
-        AddBuoyancyForce(Vector3.zero, volumePart);
-
-        AddBuoyancyForce(new Vector3(bounds.size.x, 0, bounds.size.z), volumePart);
-        AddBuoyancyForce(new Vector3(-bounds.size.x, 0, bounds.size.z), volumePart);
-        AddBuoyancyForce(new Vector3(bounds.size.x, 0, -bounds.size.z), volumePart);
-        AddBuoyancyForce(new Vector3(-bounds.size.x, 0, -bounds.size.z), volumePart);
-
-        AddBuoyancyForce(new Vector3(bounds.size.x, 0, 0), volumePart);
-        AddBuoyancyForce(new Vector3(0, 0, bounds.size.z), volumePart);
-        AddBuoyancyForce(new Vector3(-bounds.size.x, 0, 0), volumePart);
-        AddBuoyancyForce(new Vector3(0, 0, -bounds.size.z), volumePart);
+        foreach(var offset in ForcePositions)
+        {
+            AddBuoyancyForce(offset, VolumePerOffset);
+        }
     }
 
     void AddCurrent()
@@ -141,6 +161,11 @@ public class WaterPhysics : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireCube(transform.position+bounds.center, bounds.extents);
+        Gizmos.DrawWireCube(transform.position+bounds.center, bounds.size);
+
+        foreach (var position in ForcePositions)
+        {
+            Gizmos.DrawRay(position, Vector3.up * CalculateBuoyancyForce(position, VolumePerOffset));
+        }
     }
 }
