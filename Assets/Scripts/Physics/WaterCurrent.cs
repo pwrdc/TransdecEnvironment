@@ -7,10 +7,8 @@ namespace Environment
 
     public class WaterCurrent : Randomized
     {
-        //Singleton
-        private static WaterCurrent mInstance = null;
-        public static WaterCurrent Instance =>
-            mInstance == null ? (mInstance = FindObjectOfType<WaterCurrent>()) : mInstance;
+        static WaterCurrent instance = null;
+        public static WaterCurrent Instance => Singleton.GetInstance(ref instance);
 
         public FloatParameter forceRange = new FloatParameter(50, 20, 100);
         public FloatParameter velocityChange = new FloatParameter(2, 1, 5);
@@ -34,6 +32,7 @@ namespace Environment
         public override void Start()
         {
             base.Start();
+            Singleton.Initialize(this, ref instance);
             ResetParameterAttribute.InitializeAll(this);
             parameters.Add(forceRange);
             parameters.Add(velocityChange);

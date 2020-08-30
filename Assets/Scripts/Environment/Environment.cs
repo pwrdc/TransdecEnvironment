@@ -6,9 +6,8 @@ namespace Environment
     public class Environment : MonoBehaviour
     {
         //Singleton
-        private static Environment mInstance = null;
-        public static Environment Instance => 
-            mInstance == null ? (mInstance = FindObjectOfType<Environment>()) : mInstance;
+        private static Environment instance = null;
+        public static Environment Instance => Singleton.GetInstance(ref instance);
 
         public Transform waterSurface;
         
@@ -36,6 +35,7 @@ namespace Environment
 
         void Start()
         {
+            Singleton.Initialize(this, ref instance);
             RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
             RobotAgent.Instance.OnReset.AddListener(OnReset);
         }

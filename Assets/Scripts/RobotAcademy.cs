@@ -52,10 +52,8 @@ public enum CameraType
 /// </summary>
 public class RobotAcademy : Academy
 {
-    
-    private static RobotAcademy mInstance;
-    public static RobotAcademy Instance => 
-        mInstance == null ? (mInstance = FindObjectOfType<RobotAcademy>()) : mInstance;
+    static RobotAcademy instance;
+    public static RobotAcademy Instance => Singleton.GetInstance(ref instance);
 
     [Header("Controller settings")]
     public RobotControl control;
@@ -96,6 +94,7 @@ public class RobotAcademy : Academy
 
     public virtual void Start()
     {
+        Singleton.Initialize(this, ref instance);
         VisualObservationResolution.x = learningBrain.brainParameters.cameraResolutions[0].width;
         VisualObservationResolution.y = learningBrain.brainParameters.cameraResolutions[0].height;
         SetupAcademy();

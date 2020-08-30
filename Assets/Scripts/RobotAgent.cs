@@ -25,10 +25,8 @@ public class AgentSettings
 
 public class RobotAgent : Agent
 {
-    //Singleton
-    private static RobotAgent mInstance = null;
-    public static RobotAgent Instance => 
-        mInstance == null ? (mInstance = FindObjectOfType<RobotAgent>()) : mInstance;
+    static RobotAgent instance;
+    public static RobotAgent Instance => Singleton.GetInstance(ref instance);
 
     public UnityEvent OnDataCollection;
     public UnityEvent OnReset;

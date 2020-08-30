@@ -5,25 +5,26 @@ using UnityEngine;
 [RequireComponent(typeof(ScenesGenerator))]
 public class Targets : MonoBehaviour
 {
+    static Targets instance;
+    public static Targets Instance=> Singleton.GetInstance(ref instance, instance => instance.Initialize());
+
     public GameObject[] targetsFolders;
     public int selected;
     public bool useSettings = true;
     
-    // these are static to simplify the static methods
-    [ResetParameter] static bool collectData = false;
-    [ResetParameter] static int focusedObject = 0;
-    [ResetParameter("Positive")] static bool positiveExamples = false;
-    static List<Target> targets=new List<Target>();
-    static Targets instance=null;
+    [ResetParameter] bool collectData = false;
+    [ResetParameter] int focusedObject = 0;
+    [ResetParameter("Positive")] bool positiveExamples = false;
+    List<Target> targets=new List<Target>();
 
-    private void Awake()
+    void Awake()
     {
-        if (instance != null)
-        {
-            throw new MultipleInstancesException();
-        }
-        instance = this;
+        Singleton.Initialize(this, ref instance);
+        Initialize();
+    }
 
+    void Initialize()
+    {
         ResetParameterAttribute.InitializeAll(this);
         if (Settings.Used)
             selected = Settings.TargetsFolderIndex;
@@ -32,17 +33,6 @@ public class Targets : MonoBehaviour
         Transform folder = targetsFolders[selected].transform;
         GetComponent<ScenesGenerator>().targetsFolder = folder;
         ListTargets(folder);
-    }
-
-    public static List<Target> FindTargetsByName(string name)
-    {
-        List<Target> result=new List<Target>();
-        foreach (var target in targets)
-        {
-            if (target.name == name)
-                result.Add(target);
-        }
-        return result;
     }
 
     void SetFoldersActivation()
@@ -58,7 +48,7 @@ public class Targets : MonoBehaviour
             : base("The selected targets folder needs to contain at least on target component instance.") { }
     }
 
-    static void ListTargets(Transform folder)
+    void ListTargets(Transform folder)
     {
         targets.Clear();
         // it is important to obtain targets in their order in the scene hierarchy
@@ -80,18 +70,31 @@ public class Targets : MonoBehaviour
             throw new NoTargetsException();
     }
 
-    public static Target Focused
+    public static List<Target> FindTargetsByName(string name)
     {
-        get
+        List<Target> result = new List<Target>();
+        foreach (var target in Instance.targets)
         {
-             if (collectData && !positiveExamples)
-                 return null;
-             if (focusedObject >= 0 && focusedObject < targets.Count)
-                 return targets[focusedObject];
-             else
-                 return null;
+            if (target.name == name)
+                result.Add(target);
         }
+        return result;
     }
 
-    public static int Count=> targets.Count;
+    Target GetFocused()
+    {
+        if (collectData && !positiveExamples)
+            return null;
+        if (focusedObject >= 0 && focusedObject < Instance.targets.Count)
+            return Instance.targets[focusedObject];
+        else
+            return null;
+    }
+
+    /// <summary>
+    /// Returns currently focused target or null.
+    /// </summary>
+    public static Target Focused => Instance.GetFocused();
+
+    public static int Count=> Instance.targets.Count;
 }
