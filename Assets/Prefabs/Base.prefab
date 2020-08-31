@@ -647,7 +647,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8695719222620578788}
   - component: {fileID: 8745976425692413371}
-  - component: {fileID: 5392271835517823745}
   m_Layer: 8
   m_Name: UnderWaterPostProcessVolume
   m_TagString: Untagged
@@ -686,21 +685,6 @@ MonoBehaviour:
   blendDistance: 10
   weight: 1
   priority: 0
---- !u!114 &5392271835517823745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2448798042914339907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note: 'To disable effects disable UnderwaterEffects script.
-
-    It also disables them if robot is above water surface.'
 --- !u!1 &5118742042968492889
 GameObject:
   m_ObjectHideFlags: 0

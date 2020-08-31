@@ -713,6 +713,71 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.8660254
       objectReference: {fileID: 0}
+    - target: {fileID: 1964955644754354723, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554607907624232971, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: randomRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: randomRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: verticalPlacement
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075817934722209456, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139112065810966171, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487738, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.11213955
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487738, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.2264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487738, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.2061404
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487738, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.11213955
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487738, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.2264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693865206035487738, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.2061404
+      objectReference: {fileID: 0}
     - target: {fileID: 9153791786499386259, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -755,9 +820,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
+      propertyPath: m_AfterStackBundles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 1897788419}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[1].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.DepthReader, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
     - target: {fileID: 4316093199950000624, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_IsActive
@@ -801,24 +877,35 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1964955644754354723, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_AfterStackBundles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[1].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.DepthReader, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     - target: {fileID: 2448798042914339907, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1554607907624232971, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3328227218160330, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745976425692413371, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745976425692413371, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4058802390758448656, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -859,21 +946,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: randomRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: randomRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8336468422656879410, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: verticalPlacement
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5817767860845673101, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -974,18 +1046,7 @@ PrefabInstance:
       propertyPath: randomization.normalWaterColor.b
       value: 0.16981131
       objectReference: {fileID: 0}
-    - target: {fileID: 7075817934722209456, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745976425692413371, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: weight
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1211506624, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
 --- !u!108 &1897788418 stripped
 Light:
