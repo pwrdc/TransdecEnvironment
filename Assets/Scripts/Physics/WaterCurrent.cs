@@ -19,11 +19,12 @@ namespace Environment
         public Vector3 force;
 
         [ResetParameter("WaterCurrent"), HideInInspector]
-        public bool isEnabled = false;
+        public bool enabledInAcademy = false;
+        bool ActuallyEnabled => enabled && enabledInAcademy;
 
         public Vector3 GetForce()
         {
-            if (isEnabled)
+            if (ActuallyEnabled)
                 return force;
             else
                 return Vector3.zero;
@@ -52,7 +53,7 @@ namespace Environment
         public override void Update()
         {
             base.Update();
-            if (isEnabled)
+            if (ActuallyEnabled)
             {
                 // using delta time here ensures that the speed of change will be the same for different frame rates
                 radius += Random.Range(-velocityChange.value, velocityChange.value) * Time.deltaTime;

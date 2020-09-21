@@ -152,7 +152,7 @@ public class WaterPhysics : MonoBehaviour
             UpdateBuoyancyForces();
         }
 
-        if (Environment.WaterCurrent.Instance.isEnabled && waterCurrentEnabled && IsUnderWater(transform.position))
+        if (Environment.WaterCurrent.Instance.enabledInAcademy && waterCurrentEnabled && IsUnderWater(transform.position))
             AddCurrent ();
     }
 
