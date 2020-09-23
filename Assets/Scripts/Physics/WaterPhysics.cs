@@ -14,22 +14,22 @@ public class WaterPhysics : MonoBehaviour
         Disabled
     }
     [HelpBox("This component will control rigidbody's properties like \n"
-            +"drag, mass and gravity and add additional forces.\n"
-            +"Body volume is calculated from the collider bounds and multiplied by Bounds Fill Level.", 
+            + "drag, mass and gravity and add additional forces.\n"
+            + "Body volume is calculated from the collider bounds and multiplied by Bounds Fill Level.",
             HelpBoxMessageType.Info)]
     public BuoyancyForceMode buoyancyForceMode;
     bool FullySimulated => buoyancyForceMode == BuoyancyForceMode.FullySimulated;
     bool FluctuationsOnly => buoyancyForceMode == BuoyancyForceMode.FluctuationsOnly;
-    
+
     public Bounds bounds;
     [ShowIf(EConditionOperator.Or, "FullySimulated", "deduceMassFromVolume")]
     [Range(0f, 1f), Tooltip("How much of the volume inside of the bounds is filled by the material.")]
     public float boundsFillLevel = 0.25f;
     [ShowIf("FluctuationsOnly")]
-    public float fluctuationsMagnitude=1f;
+    public float fluctuationsMagnitude = 1f;
     public bool waterCurrentEnabled = true;
 
-    public bool deduceMassFromVolume=true;
+    public bool deduceMassFromVolume = true;
     // Selected densities for different materials 
     // taken from https://en.wikipedia.org/wiki/Density#Densities
     public enum Density
@@ -45,10 +45,15 @@ public class WaterPhysics : MonoBehaviour
         SetManually = 0
     }
     [ShowIf("deduceMassFromVolume")]
-    public Density density=Density.Plastic;
+    public Density density = Density.Plastic;
     bool SetDensityManually => density == Density.SetManually;
     [ShowIf(EConditionOperator.And, "SetDensityManually", "deduceMassFromVolume")]
     public float densityManual = (float)Density.Plastic;
+
+    [Tooltip("The higher this value is the better the quality of the simulation will be.\n"+
+             "9 is sensible default, 4 can be used for smaller objects.\n"+
+             "For centrally symmetrical objects (like spheres) there is no need for more than 1.")]
+    public int voxelsPerDimension = 3;
 
     [ShowNativeProperty]
     float Volume => bounds.size.x * bounds.size.y * bounds.size.z * boundsFillLevel;
@@ -56,6 +61,8 @@ public class WaterPhysics : MonoBehaviour
     float ActualDensity => SetDensityManually ? densityManual : (float)density;
     [ShowNativeProperty]
     float DeducedMass => Volume * ActualDensity;
+    [ShowNativeProperty]
+    int VoxelsCount => voxelsPerDimension * voxelsPerDimension * voxelsPerDimension;
 
     #endregion
 
@@ -122,8 +129,8 @@ public class WaterPhysics : MonoBehaviour
         {
             // transform cube corner into bounds corner 
             corner = Utils.MultiplyVectorsFields(corner, bounds.extents);
-            // there are three voxels in each direction, we use central one as a reference
-            corner /= 3;
+            // there are voxelsPerDimension voxels in each direction, we use central one as a reference
+            corner /= voxelsPerDimension;
             // rotate the corner (this is the key step)
             corner = transform.rotation * corner;
 
@@ -142,7 +149,7 @@ public class WaterPhysics : MonoBehaviour
     {
         Vector3 lower = point + Vector3.up * verticalBounds.lower;
         Vector3 upper = point - Vector3.up * verticalBounds.higher;
-        return 1f-Mathf.InverseLerp(lower.y, upper.y, Environment.Environment.Instance.GetWaterY());
+        return 1f - Mathf.InverseLerp(lower.y, upper.y, Environment.Environment.Instance.GetWaterY());
     }
 
     float CalculateBuoyancyForce(Vector3 position, float volumePart, VerticalBounds verticalBounds)
@@ -174,48 +181,45 @@ public class WaterPhysics : MonoBehaviour
             body.AddForceAtPosition(Vector3.up * CalculateBuoyancyForce(position, volumePart, verticalBounds), position);
         }
     }
-
-    // these points are analogous to rubic cube's parts' centers
-    IEnumerable<Vector3> ForcePositions => new Vector3[]
+    
+    Vector3[] GetForcePositions()
     {
-        new Vector3(0, -1, 0),
-        new Vector3(1, -1, 1),
-        new Vector3(-1, -1, 1),
-        new Vector3(1, -1, -1),
-        new Vector3(-1, -1, -1),
-        new Vector3(1, -1, 0),
-        new Vector3(0, -1, 1),
-        new Vector3(-1, -1, 0),
-        new Vector3(0, -1, -1),
+        // there is no caching because the positions depend on constantly changing rotation
+        // iterating over them and transforing them would have the same cost as creating them from scratch
+        Vector3[] result = new Vector3[VoxelsCount];
+        int index = 0;
+        IterateAxis(bounds.size.x, voxelsPerDimension, x =>
+            IterateAxis(bounds.size.y, voxelsPerDimension, y =>
+                IterateAxis(bounds.size.z, voxelsPerDimension, z =>
+                    result[index++] = ProcessForcePoint(new Vector3(x, y, z)))));
+        return result;
+    }
 
-        new Vector3(0, 0, 0),
-        new Vector3(1, 0, 1),
-        new Vector3(-1, 0, 1),
-        new Vector3(1, 0, -1),
-        new Vector3(-1, 0, -1),
-        new Vector3(1, 0, 0),
-        new Vector3(0, 0, 1),
-        new Vector3(-1, 0, 0),
-        new Vector3(0, 0, -1),
+    // for loop for iterating over force positions is very complicated
+    // so here it is extracted into a separate function
+    void IterateAxis(float size, int divider, System.Action<float> body)
+    {
+        float step = size / divider;
+        float start = -size / 2 + step / 2;
+        for (int i = 0; i < divider; i++)
+        {
+            body(start + i * step);
+        }
+    }
 
-        new Vector3(0, 1, 0),
-        new Vector3(1, 1, 1),
-        new Vector3(-1, 1, 1),
-        new Vector3(1, 1, -1),
-        new Vector3(-1, 1, -1),
-        new Vector3(1, 1, 0),
-        new Vector3(0, 1, 1),
-        new Vector3(-1, 1, 0),
-        new Vector3(0, 1, -1)
-    }.Select(offset=>transform.TransformPoint(Utils.MultiplyVectorsFields(offset, bounds.extents*(2f/3f)) + bounds.center));
-    float VolumePerOffset=> Volume / 27;
+    Vector3 ProcessForcePoint(Vector3 offset)
+    {
+        return transform.TransformPoint(offset + bounds.center);
+    }
+
+    float VolumePerForcePosition=> Volume / VoxelsCount;
 
     void UpdateBuoyancyForces()
     {
         VerticalBounds verticalBounds = GetVerticalBounds();
-        foreach(var offset in ForcePositions)
+        foreach(var offset in GetForcePositions())
         {
-            AddBuoyancyForce(offset, VolumePerOffset, verticalBounds);
+            AddBuoyancyForce(offset, VolumePerForcePosition, verticalBounds);
         }
     }
 
@@ -258,10 +262,10 @@ public class WaterPhysics : MonoBehaviour
         if (buoyancyForceMode != BuoyancyForceMode.Disabled)
         {
             VerticalBounds verticalBounds = GetVerticalBounds();
-            foreach (var position in ForcePositions)
+            foreach (var position in GetForcePositions())
             {
                 // draw the buoyancy force
-                Gizmos.DrawRay(position, Vector3.up * CalculateBuoyancyForce(position, VolumePerOffset, verticalBounds));
+                Gizmos.DrawRay(position, Vector3.up * CalculateBuoyancyForce(position, VolumePerForcePosition, verticalBounds));
                 // draw lower and upper bounds of the voxel
                 Gizmos.color = Color.magenta;
                 Gizmos.DrawLine(position + Vector3.up * verticalBounds.lower, position + Vector3.up * verticalBounds.higher);

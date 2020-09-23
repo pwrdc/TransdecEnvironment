@@ -3547,6 +3547,16 @@ PrefabInstance:
       propertyPath: bounds.m_Center.y
       value: 0.004000038
       objectReference: {fileID: 0}
+    - target: {fileID: 8420507297539664205, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: forcesPerDimension
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420507297539664205, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: voxelsPerDimension
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1501946065088082865, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: root
