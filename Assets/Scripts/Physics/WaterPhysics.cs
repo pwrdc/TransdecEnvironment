@@ -23,7 +23,7 @@ public class WaterPhysics : BuoyancyPhysics
         Air = 1,
         // the simulation isn't perfect and it's impossible to balance gravity with buoyancy force
         // so for bodies suspended in water use BuoyancyForceMode.FluctuationsOnly
-        // this density can be used for bodies mostly filled by water
+        // this density can be used for bodies mostly filled by water but not for water itself
         Water = 997,
         // this option will show densityManual variable and allow setting density directly as a number
         SetManually = 0

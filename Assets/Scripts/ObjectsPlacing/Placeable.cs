@@ -79,9 +79,14 @@ public class Placeable : MonoBehaviour
         }
     }
 
-    private void Awake()
+    void Awake()
     {
         initialRotation = transform.rotation;
+    }
+
+    void Start()
+    {
+        // adding this function causes the "enabled" checkbox to show up in the inspector
     }
 
     public void AutoAdjust()
@@ -166,6 +171,8 @@ public class Placeable : MonoBehaviour
     // yellow means correct placement and red means conflict
     public void OnDrawGizmosSelected()
     {
+        if (!enabled)
+            return;
         if (debugMode)
             DrawProbingVector();
         Gizmos.color = Color.yellow;

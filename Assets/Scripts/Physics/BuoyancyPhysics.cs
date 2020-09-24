@@ -226,9 +226,13 @@ public abstract class BuoyancyPhysics : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if (!enabled)
+            return;
+
         EnsureBounds();
 
-        Gizmos.color = Color.cyan;
+        Color mainColor = Color.cyan;
+        Gizmos.color = mainColor;
 
         // rotate and translate the matrix to draw the bounds
         Matrix4x4 saved = Gizmos.matrix;
@@ -248,7 +252,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
                 Gizmos.color = Color.magenta;
                 Gizmos.DrawLine(position + Vector3.up * verticalBounds.lower, position + Vector3.up * verticalBounds.higher);
                 // restore the color
-                Gizmos.color = Color.cyan;
+                Gizmos.color = mainColor;
             }
         }
     }
