@@ -167,17 +167,22 @@ public abstract class BuoyancyPhysics : MonoBehaviour
 
     protected bool IsUnderWater(Vector3 position) => Environment.Environment.Instance.IsUnderWater(position.y);
 
-    Vector3[] GetForcePositions()
+    Vector3[] cachedPoints;
+    int lastVoxelsPerDimension;
+    IEnumerable<Vector3> GetForcePositions()
     {
-        // there is no caching because the positions depend on constantly changing rotation
-        // iterating over them and transforing them would have the same cost as creating them from scratch
-        Vector3[] result = new Vector3[VoxelsCount];
-        int index = 0;
-        IterateAxis(bounds.size.x, voxelsPerDimension, x =>
-            IterateAxis(bounds.size.y, voxelsPerDimension, y =>
-                IterateAxis(bounds.size.z, voxelsPerDimension, z =>
-                    result[index++] = ProcessForcePoint(new Vector3(x, y, z)))));
-        return result;
+        if (cachedPoints == null || voxelsPerDimension!=lastVoxelsPerDimension)
+        {
+            cachedPoints = new Vector3[VoxelsCount];
+            int index = 0;
+            IterateAxis(bounds.size.x, voxelsPerDimension, x =>
+                IterateAxis(bounds.size.y, voxelsPerDimension, y =>
+                    IterateAxis(bounds.size.z, voxelsPerDimension, z =>
+                        cachedPoints[index++] = new Vector3(x, y, z))));
+            lastVoxelsPerDimension = voxelsPerDimension;
+        }
+        // iterating over cached points should be slightly faster than doing three nested loops every time
+        return cachedPoints.Select(ProcessForcePoint);
     }
 
     // for loop for iterating over force positions is very complicated
@@ -185,6 +190,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
     void IterateAxis(float size, int divider, System.Action<float> body)
     {
         float step = size / divider;
+        // step / 2 is here because the iteration is over voxel centers not their beginnings
         float start = -size / 2 + step / 2;
         for (int i = 0; i < divider; i++)
         {

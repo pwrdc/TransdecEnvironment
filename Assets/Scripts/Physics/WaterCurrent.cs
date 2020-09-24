@@ -18,9 +18,9 @@ namespace Environment
         float radius;
         public Vector3 force;
 
-        [ResetParameter("WaterCurrent"), HideInInspector]
-        public bool enabledInAcademy = false;
-        bool ActuallyEnabled => enabled && enabledInAcademy;
+        [ResetParameter("WaterCurrent")]
+        bool enabledInAcademy = false;
+        public bool ActuallyEnabled => enabled && enabledInAcademy;
 
         public Vector3 GetForce()
         {
