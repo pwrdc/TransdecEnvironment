@@ -14,6 +14,7 @@
 using MLAgents;
 using UnityEngine;
 using UnityEngine.Events;
+using NaughtyAttributes;
 
 /// <summary>
 /// Robot control
@@ -72,6 +73,9 @@ public class RobotAcademy : Academy
     private RobotAgent robotAgent;
 
     public UnityEvent onResetParametersChanged;
+
+    [Button]
+    void ApplyResetParameters() => onResetParametersChanged.Invoke();
 
     public bool IsResetParameterTrue(string parameterName){
         return resetParameters[parameterName] != 0;
