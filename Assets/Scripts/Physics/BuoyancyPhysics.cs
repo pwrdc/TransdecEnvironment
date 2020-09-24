@@ -66,8 +66,10 @@ public abstract class BuoyancyPhysics : MonoBehaviour
     {
         Collider collider = GetComponentInChildren<Collider>();
         bounds = collider != null ? collider.bounds : new Bounds();
-        bounds.center -= transform.position;
-        bounds.size = Utils.DivideVectorsFields(bounds.size, transform.lossyScale);
+        bounds.center = transform.InverseTransformPoint(bounds.center);
+        bounds.size = transform.InverseTransformDirection(bounds.size);
+        // this avoids setting volume as negative
+        bounds.size = new Vector3(Mathf.Abs(bounds.size.x), Mathf.Abs(bounds.size.y), Mathf.Abs(bounds.size.z));
     }
 
     void Reset()
@@ -113,7 +115,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
             // there are voxelsPerDimension voxels in each direction, we use central one as a reference
             corner /= voxelsPerDimension;
             // rotate the corner (this is the key step)
-            corner = transform.rotation * corner;
+            corner = transform.TransformPoint(corner);
 
             return corner;
         }
@@ -121,8 +123,8 @@ public abstract class BuoyancyPhysics : MonoBehaviour
 
         return new VerticalBounds
         {
-            higher = centralVoxelCorners.Max(corner => corner.y),
-            lower = centralVoxelCorners.Min(corner => corner.y)
+            higher = centralVoxelCorners.Max(corner => corner.y) - transform.position.y,
+            lower = centralVoxelCorners.Min(corner => corner.y) - transform.position.y
         };
     }
 
@@ -224,9 +226,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
 
         // rotate and translate the matrix to draw the bounds
         Matrix4x4 saved = Gizmos.matrix;
-        Gizmos.matrix *= Matrix4x4.Translate(transform.position + bounds.center);
-        Gizmos.matrix *= Matrix4x4.Rotate(transform.rotation);
-        Gizmos.matrix *= Matrix4x4.Scale(transform.lossyScale);
+        Gizmos.matrix *= transform.localToWorldMatrix;
         Gizmos.DrawWireCube(bounds.center, bounds.size);
         // restore the matrix
         Gizmos.matrix = saved;
