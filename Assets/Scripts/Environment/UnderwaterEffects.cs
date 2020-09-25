@@ -109,6 +109,9 @@ namespace Environment
             {
                 ColorGrading colorGrading = postProcessVolume.sharedProfile.GetSetting<ColorGrading>();
                 colorGrading.colorFilter.value = filterColor.value;
+
+                VaryingBlur varyingBlur = postProcessVolume.sharedProfile.GetSetting<VaryingBlur>();
+                varyingBlur.Color.value = fogColor.value;
             }
 
             // preview water opacity in the edit mode

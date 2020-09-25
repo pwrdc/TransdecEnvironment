@@ -16,6 +16,8 @@ Shader "Hidden/Legacy/VaryingBlur"
 
 	float _NoiseScale;
 	float _NoiseChangeRate;
+	float4 _Color;
+	float _ColorIntensity;
 
 	// Weight Curves..
 	static const half curve[7] = { 0.0205, 0.0855, 0.232, 0.324, 0.232, 0.0855, 0.0205 };
@@ -52,6 +54,15 @@ Shader "Hidden/Legacy/VaryingBlur"
 
 	float SimplexNoise(float3 pos) {
 		return (snoise(pos)+1) / 2;
+	}
+
+	float4 AddVariation(float2 uv, float4 blurredColor) {
+		float4 originalColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
+		float noiseValue = SimplexNoise(float3(uv.x*_NoiseScale, uv.y*_NoiseScale, _Time[0] * _NoiseChangeRate));
+		float4 noiseAndOriginal = lerp(originalColor, blurredColor, noiseValue);
+		float4 noiseOriginalAndColor = lerp(noiseAndOriginal, _Color, noiseValue*_ColorIntensity);
+
+		return noiseOriginalAndColor;
 	}
 
 	VaryingsDownsample VertDownsample(AttributesDefault v)
@@ -132,7 +143,7 @@ Shader "Hidden/Legacy/VaryingBlur"
 		float4 originalColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
 		float noiseValue = SimplexNoise(float3(uv.x*_NoiseScale, uv.y*_NoiseScale, _Time[0] * _NoiseChangeRate));
 
-		return lerp(originalColor, color, noiseValue);
+		return AddVariation(uv, color);
 	}
 
 	VaryingsBlurCoordsSGX VertBlurHorizontalSGX(AttributesDefault v)
@@ -186,10 +197,7 @@ Shader "Hidden/Legacy/VaryingBlur"
 			color += (tapA + tapB) * curve4[l];
 		}
 
-		float4 originalColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
-		float noiseValue = SimplexNoise(float3(uv.x*_NoiseScale, uv.y*_NoiseScale, _Time[0] * _NoiseChangeRate));
-
-		return lerp(originalColor, color, noiseValue);
+		return AddVariation(uv, color);
 	}
 
 	ENDHLSL

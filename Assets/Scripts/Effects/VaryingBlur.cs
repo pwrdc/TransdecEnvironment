@@ -11,9 +11,11 @@ namespace UnityEngine.Rendering.PostProcessing
         public IntParameter BlurIterations = new IntParameter { value = 1 };
         public FloatParameter BlurSize = new FloatParameter { value = 3.0f };
 
-        public ColorParameter NoiseColor = new ColorParameter { value = Color.black };
         public FloatParameter NoiseScale = new FloatParameter { value = 5f };
         public FloatParameter NoiseChangeRate = new FloatParameter { value = 2f };
+        public ColorParameter Color = new ColorParameter { value = UnityEngine.Color.black };
+        [Range(0, 1)]
+        public FloatParameter ColorIntensity = new FloatParameter { value = 0f };
     }
 
     [Serializable]
@@ -54,9 +56,11 @@ namespace UnityEngine.Rendering.PostProcessing
             PropertySheet sheet = context.propertySheets.Get(Shader.Find("Hidden/Legacy/VaryingBlur"));
             sheet.properties.Clear();
             sheet.properties.SetVector("_Parameter", new Vector4(blurSize * widthMod, -blurSize * widthMod, 0.0f, 0.0f));
-            sheet.properties.SetColor("_Color", settings.NoiseColor);
+            
             sheet.properties.SetFloat("_NoiseScale", settings.NoiseScale);
             sheet.properties.SetFloat("_NoiseChangeRate", settings.NoiseChangeRate);
+            sheet.properties.SetColor("_Color", settings.Color);
+            sheet.properties.SetFloat("_ColorIntensity", settings.ColorIntensity);
 
             int blurId = Shader.PropertyToID("_BlurPostProcessEffect");
             command.GetTemporaryRT(blurId, rtW, rtH, 0, FilterMode.Bilinear);
