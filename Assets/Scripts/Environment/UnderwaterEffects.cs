@@ -81,7 +81,7 @@ namespace Environment
         void UpdateEffects(float weight)
         {
             float activeThreshold = 0.1f;
-            bool active = weight < activeThreshold;
+            bool active = weight > activeThreshold;
             if (wobbleEffects != null)
             {
                 foreach (var wobbleEffect in wobbleEffects)

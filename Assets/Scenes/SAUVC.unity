@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.085
@@ -3122,7 +3122,7 @@ PrefabInstance:
     - target: {fileID: 681370832179773151, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2588017285344456537, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3156,7 +3156,7 @@ PrefabInstance:
     - target: {fileID: 2464539755930589609, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7194256184341607373, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3176,7 +3176,7 @@ PrefabInstance:
     - target: {fileID: 1964955644754354723, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1554607907624232971, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3281,7 +3281,7 @@ PrefabInstance:
     - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_AfterStackBundles.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3289,15 +3289,27 @@ PrefabInstance:
       value: UnityEngine.Rendering.PostProcessing.DepthReader, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[2].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.VaryingBlur, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
     - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_AfterStackBundles.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_AfterStackBundles.Array.data[1].assemblyQualifiedName
       value: UnityEngine.Rendering.PostProcessing.DepthReader, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[2].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.VaryingBlur, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -3552,84 +3564,9 @@ PrefabInstance:
       propertyPath: root
       value: 
       objectReference: {fileID: 1084200022}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Extent.x
-      value: 4.9530034
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Extent.y
-      value: 4.9515147
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Extent.z
-      value: 0.7670045
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Center.y
-      value: -0.0002629307
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: fluctuationsMagnitude
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: density
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Center.x
-      value: 0.000028610233
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Center.z
-      value: 0.76700044
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: buoyancyForceMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 970997425998912848, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420507297539664205, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Extent.x
-      value: 0.35000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420507297539664205, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Extent.y
-      value: 0.34995008
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420507297539664205, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Extent.z
-      value: 0.75000006
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420507297539664205, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: bounds.m_Center.y
-      value: 0.004000038
-      objectReference: {fileID: 0}
     - target: {fileID: 8420507297539664205, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: forcesPerDimension
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8420507297539664205, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: voxelsPerDimension
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1501946065088082865, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -3657,12 +3594,57 @@ PrefabInstance:
       propertyPath: priority
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 8336468422649384506, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422649384506, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: radius
+      value: 1.6661271
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422649384506, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: scale.x
+      value: 0.20858859
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422649384506, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: scale.y
+      value: 0.21001357
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422649384506, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: scale.z
+      value: 0.9551885
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422649384506, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offset.x
+      value: 0.09806824
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422649384506, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offset.y
+      value: -0.01999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468422649384506, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offset.z
+      value: 0.0018225098
+      objectReference: {fileID: 0}
     - target: {fileID: 8336468422656879418, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4792561330474374990, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336468423368361525, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
       value: 1

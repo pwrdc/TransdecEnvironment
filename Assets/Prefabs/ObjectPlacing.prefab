@@ -502,6 +502,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9186556866179774240, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Center.x
+      value: 0.000028610233
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186556866179774240, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Center.y
+      value: -0.0002629307
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186556866179774240, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Center.z
+      value: 0.76700044
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186556866179774240, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Extent.x
+      value: 4.9530034
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186556866179774240, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Extent.y
+      value: 4.9515147
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186556866179774240, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Extent.z
+      value: 0.7670045
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186556866179774240, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: fluctuationsMagnitude
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 766255805689655691, guid: 1383cae3ebd403a468062148e87afb7e,
         type: 3}
       propertyPath: m_VertexStreams.Array.size
@@ -526,6 +561,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VertexStreams.Array.data[2]
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 495183797449802557, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Center.y
+      value: 0.004000038
+      objectReference: {fileID: 0}
+    - target: {fileID: 495183797449802557, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Extent.x
+      value: 0.35000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 495183797449802557, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Extent.y
+      value: 0.34995008
+      objectReference: {fileID: 0}
+    - target: {fileID: 495183797449802557, guid: 1383cae3ebd403a468062148e87afb7e,
+        type: 3}
+      propertyPath: bounds.m_Extent.z
+      value: 0.75000006
       objectReference: {fileID: 0}
     - target: {fileID: 6640535367970297541, guid: 1383cae3ebd403a468062148e87afb7e,
         type: 3}
