@@ -96,6 +96,25 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
+--- !u!114 &-1787771297504053464
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b20f348b05ae074983d7bd436f27a19, type: 3}
+  m_Name: VaryingBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  NoiseColor:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &-171328452762449647
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -143,6 +162,7 @@ MonoBehaviour:
   - {fileID: 2682484056270709580}
   - {fileID: -4716941706110369674}
   - {fileID: -6383538822207847091}
+  - {fileID: -1787771297504053464}
 --- !u!114 &1272614395257349740
 MonoBehaviour:
   m_ObjectHideFlags: 3

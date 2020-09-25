@@ -14,7 +14,8 @@ public abstract class BuoyancyPhysics : MonoBehaviour
     public enum BuoyancyForceMode
     {
         FullySimulated,
-        // use this mode for bodies suspended in water (not moving up or down due to gravity and buoyancy being balanced)
+        // use this mode for bodies suspended in water 
+        // (not moving up or down due to gravity and buoyancy being balanced)
         FluctuationsOnly,
         Disabled
     }
@@ -34,7 +35,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
     public float fluctuationsMagnitude = 1f;
 
     [Tooltip("The higher this value is the better the quality of the simulation will be.\n" +
-             "9 is sensible default, 4 can be used for smaller objects.\n" +
+             "3 is sensible default, 2 can be used for smaller objects.\n" +
              "For centrally symmetrical objects (like spheres) there is no need for more than 1.")]
     public int voxelsPerDimension = 3;
 
@@ -114,7 +115,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
             corner = Utils.MultiplyVectorsFields(corner, bounds.extents);
             // there are voxelsPerDimension voxels in each direction, we use central one as a reference
             corner /= voxelsPerDimension;
-            // rotate the corner (this is the key step)
+            // transform the corner (this is the key step that allows proper handling of rotated objects)
             corner = transform.TransformPoint(corner);
 
             return corner;
@@ -190,7 +191,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
     void IterateAxis(float size, int divider, System.Action<float> body)
     {
         float step = size / divider;
-        // step / 2 is here because the iteration is over voxel centers not their beginnings
+        // `+ step / 2` is here because the iteration is over voxel centers not their beginnings
         float start = -size / 2 + step / 2;
         for (int i = 0; i < divider; i++)
         {
@@ -247,7 +248,8 @@ public abstract class BuoyancyPhysics : MonoBehaviour
             foreach (var position in GetForcePositions())
             {
                 // draw the buoyancy force
-                Gizmos.DrawRay(position, Vector3.up * CalculateBuoyancyForce(position, VolumePerForcePosition, verticalBounds));
+                float rayScale = 0.01f;// defined here to not litter the inspector
+                Gizmos.DrawRay(position, Vector3.up * CalculateBuoyancyForce(position, VolumePerForcePosition, verticalBounds)* rayScale);
                 // draw lower and upper bounds of the voxel
                 Gizmos.color = Color.magenta;
                 Gizmos.DrawLine(position + Vector3.up * verticalBounds.lower, position + Vector3.up * verticalBounds.higher);
