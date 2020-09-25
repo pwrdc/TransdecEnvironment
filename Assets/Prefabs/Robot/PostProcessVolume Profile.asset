@@ -138,7 +138,7 @@ MonoBehaviour:
     value: 0.1
   BlurredPart:
     overrideState: 1
-    value: 0.4
+    value: 0.45
 --- !u!114 &-171328452762449647
 MonoBehaviour:
   m_ObjectHideFlags: 3

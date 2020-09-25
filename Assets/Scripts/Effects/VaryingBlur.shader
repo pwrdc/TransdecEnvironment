@@ -1,4 +1,4 @@
-﻿// source: https://forum.unity.com/threads/legacy-blur-for-post-processing-stack-v2.488222/
+﻿// blur source: https://forum.unity.com/threads/legacy-blur-for-post-processing-stack-v2.488222/
 
 Shader "Hidden/Legacy/VaryingBlur"
 {
