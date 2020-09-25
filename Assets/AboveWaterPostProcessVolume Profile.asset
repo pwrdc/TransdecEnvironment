@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AboveWaterPostProcessVolume Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 2458624321599396569}
---- !u!114 &2458624321599396569
+  - {fileID: 2274193641363813216}
+--- !u!114 &2274193641363813216
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,8 +23,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15729d99364feed4cbd500889bf4972b, type: 3}
-  m_Name: Blur
+  m_Script: {fileID: 11500000, guid: 3b20f348b05ae074983d7bd436f27a19, type: 3}
+  m_Name: VaryingBlur
   m_EditorClassIdentifier: 
   active: 1
   enabled:
@@ -40,5 +40,20 @@ MonoBehaviour:
     overrideState: 1
     value: 4
   BlurSize:
+    overrideState: 1
+    value: 1
+  NoiseScale:
+    overrideState: 1
+    value: 0.5
+  NoiseChangeRate:
+    overrideState: 1
+    value: 0
+  Color:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
+  ColorIntensity:
+    overrideState: 1
+    value: 0
+  BlurredPart:
     overrideState: 1
     value: 1

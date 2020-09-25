@@ -16,6 +16,8 @@ namespace UnityEngine.Rendering.PostProcessing
         public ColorParameter Color = new ColorParameter { value = UnityEngine.Color.black };
         [Range(0, 1)]
         public FloatParameter ColorIntensity = new FloatParameter { value = 0f };
+        [Range(0, 1)]
+        public FloatParameter BlurredPart = new FloatParameter { value = 0.5f };
     }
 
     [Serializable]
@@ -61,6 +63,7 @@ namespace UnityEngine.Rendering.PostProcessing
             sheet.properties.SetFloat("_NoiseChangeRate", settings.NoiseChangeRate);
             sheet.properties.SetColor("_Color", settings.Color);
             sheet.properties.SetFloat("_ColorIntensity", settings.ColorIntensity);
+            sheet.properties.SetFloat("_BlurredPart", settings.BlurredPart);
 
             int blurId = Shader.PropertyToID("_BlurPostProcessEffect");
             command.GetTemporaryRT(blurId, rtW, rtH, 0, FilterMode.Bilinear);

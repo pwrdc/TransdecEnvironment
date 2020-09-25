@@ -113,26 +113,32 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   Mode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   Downsample:
-    overrideState: 0
+    overrideState: 1
     value: 1
   BlurIterations:
-    overrideState: 0
+    overrideState: 1
     value: 1
   BlurSize:
     overrideState: 1
-    value: 4
-  NoiseColor:
-    overrideState: 1
-    value: {r: 0.023529414, g: 0.227451, b: 0.227451, a: 1}
+    value: 3
   NoiseScale:
     overrideState: 1
     value: 2
   NoiseChangeRate:
     overrideState: 1
-    value: 2
+    value: 10
+  Color:
+    overrideState: 1
+    value: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 1}
+  ColorIntensity:
+    overrideState: 1
+    value: 0.1
+  BlurredPart:
+    overrideState: 1
+    value: 0.4
 --- !u!114 &-171328452762449647
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -177,7 +183,6 @@ MonoBehaviour:
   - {fileID: 8493261731072966750}
   - {fileID: -171328452762449647}
   - {fileID: 3558088746121376456}
-  - {fileID: 2682484056270709580}
   - {fileID: -4716941706110369674}
   - {fileID: -6383538822207847091}
   - {fileID: -1787771297504053464}
@@ -218,34 +223,6 @@ MonoBehaviour:
   vignette:
     overrideState: 0
     value: 0.5
---- !u!114 &2682484056270709580
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15729d99364feed4cbd500889bf4972b, type: 3}
-  m_Name: Blur
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 0
-  Mode:
-    overrideState: 0
-    value: 0
-  Downsample:
-    overrideState: 0
-    value: 0
-  BlurIterations:
-    overrideState: 0
-    value: 0
-  BlurSize:
-    overrideState: 0
-    value: 0
 --- !u!114 &3558088746121376456
 MonoBehaviour:
   m_ObjectHideFlags: 3
