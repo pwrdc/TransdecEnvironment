@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6910363282876685732
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba2c84a02f755c489a8320f0ac31fdb, type: 3}
+  m_Name: Wobbling
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  Intensity:
+    overrideState: 1
+    value: 1.5
+  Scale:
+    overrideState: 1
+    value: 2
+  Speed:
+    overrideState: 1
+    value: 3
 --- !u!114 &-6383538822207847091
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -186,6 +211,7 @@ MonoBehaviour:
   - {fileID: -4716941706110369674}
   - {fileID: -6383538822207847091}
   - {fileID: -1787771297504053464}
+  - {fileID: -6910363282876685732}
 --- !u!114 &1272614395257349740
 MonoBehaviour:
   m_ObjectHideFlags: 3

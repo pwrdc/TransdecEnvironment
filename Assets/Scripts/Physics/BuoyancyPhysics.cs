@@ -204,8 +204,6 @@ public abstract class BuoyancyPhysics : MonoBehaviour
         return transform.TransformPoint(offset + bounds.center);
     }
 
-    float VolumePerForcePosition => Volume / VoxelsCount;
-
     protected void UpdateBuoyancyForces()
     {
         VerticalBounds verticalBounds = GetVerticalBounds();
@@ -214,6 +212,8 @@ public abstract class BuoyancyPhysics : MonoBehaviour
             AddBuoyancyForce(offset, VolumePerForcePosition, verticalBounds);
         }
     }
+
+    float VolumePerForcePosition => Volume / VoxelsCount;
 
     protected virtual void FixedUpdate()
     {

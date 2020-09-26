@@ -39,8 +39,6 @@ namespace Environment
         }
         public ExponentialFogMode fogMode=ExponentialFogMode.ExponentialSquared;
 
-        WobbleEffect[] wobbleEffects;
-
         public override void Start()
         {
             base.Start();
@@ -48,8 +46,6 @@ namespace Environment
             parameters.Add(fogColor);
             parameters.Add(fogDensity);
             parameters.Add(volumetricDensity);
-            // wobble effects must be attached directly to each camera
-            wobbleEffects = FindObjectsOfType<WobbleEffect>();
         }
 
         void OnDisable()
@@ -82,13 +78,6 @@ namespace Environment
         {
             float activeThreshold = 0.1f;
             bool active = weight > activeThreshold;
-            if (wobbleEffects != null)
-            {
-                foreach (var wobbleEffect in wobbleEffects)
-                {
-                    wobbleEffect.enabled = active;
-                }
-            }
             if (postProcessVolume != null)
             {
                 // Unity's implementation of PostProcessVolume is buggy

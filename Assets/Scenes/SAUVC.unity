@@ -804,6 +804,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3210798633288746139}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &736544544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7870206062101644984, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &780569864
 Material:
   serializedVersion: 6
@@ -2016,12 +2022,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1568292018 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9153791787606317636, guid: 43af792d632711a79a7b7f029cbcd5fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 7134980805273521817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607031181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1017653973085402736, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -3016,6 +3016,11 @@ PrefabInstance:
       propertyPath: frustumSettings.qualitySettings
       value: 
       objectReference: {fileID: 467609276}
+    - target: {fileID: 128274322474526282, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6185550624271084111, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: waterSurface
@@ -3148,7 +3153,12 @@ PrefabInstance:
         type: 3}
       propertyPath: volumeTrigger
       value: 
-      objectReference: {fileID: 1568292018}
+      objectReference: {fileID: 736544544}
+    - target: {fileID: 1468051917485083300, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 542129641, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3281,7 +3291,7 @@ PrefabInstance:
     - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_AfterStackBundles.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3300,10 +3310,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[3].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.Wobbling, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 736544544}
+    - target: {fileID: 5814863677417955605, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_AfterStackBundles.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3316,6 +3342,17 @@ PrefabInstance:
       propertyPath: m_AfterStackBundles.Array.data[2].assemblyQualifiedName
       value: UnityEngine.Rendering.PostProcessing.VaryingBlur, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[3].assemblyQualifiedName
+      value: UnityEngine.Rendering.PostProcessing.Wobbling, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792621798682918377, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -3343,6 +3380,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 01c39d444e07bea49931bfabb7c1c845,
         type: 2}
+    - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9153791786499386264, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_IsActive
@@ -3599,6 +3641,11 @@ PrefabInstance:
       propertyPath: priority
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 9153791787606317638, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8745976425692413371, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
@@ -3660,6 +3707,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8336468423368361525, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153791787606317633, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870206062101644986, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
       value: 1
