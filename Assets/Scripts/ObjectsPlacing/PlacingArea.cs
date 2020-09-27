@@ -22,6 +22,12 @@ public abstract class PlacingArea : MonoBehaviour
     /// will affect its transform rotation and transform position
     /// </summary>
     public abstract void Place(Placeable placeable);
+    /// <summary>
+    /// tries placing placeable inside of the placing area vertically
+    /// will affect its transform rotation and transform position y
+    /// </summary>
+    /// <returns>true if placing was possible and succeded</returns>
+    public abstract bool TryPlacingVertically(Placeable placeable);
     // returns true if placeable is inside of the placing area in its current state
     public abstract bool Contains(Placeable placeable);
 

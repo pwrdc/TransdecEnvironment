@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// function taking placeable and returning true if its state is incorrect
+using Restriction = System.Func<Placeable, bool>;
+
 /// <summary>
 /// Places objects in the placing area so that they don't collide with each other.
 /// Its Place_ methods can also be provided with additional restriction that returns true 
@@ -38,15 +41,19 @@ public class Placer : MonoBehaviour
         toPlace.OnPlaced?.Invoke();
     }
 
-    public bool Place(Placeable toPlace, System.Func<Placeable, bool> restriction=null, int? maxTries = null)
+    bool RestrictionSatisified(Restriction restriction, Placeable toPlace)
+    {
+        return restriction == null || !restriction(toPlace);
+    }
+
+    public bool Place(Placeable toPlace, Restriction restriction = null, int? maxTries = null)
     {
         placed.Remove(toPlace);
         toPlace.RotateRandomly();
         return Utils.Try(maxTries.GetValueOrDefault(this.maxTries), () =>
         {
             placingArea.Place(toPlace);
-            bool restrictionSatisifed = restriction == null || !restriction(toPlace);
-            if (restrictionSatisifed && !OverlapsWithAnother(toPlace))
+            if (RestrictionSatisified(restriction, toPlace) && !OverlapsWithAnother(toPlace))
             {
                 FinalizePlacing(toPlace);
                 return true;
@@ -63,19 +70,18 @@ public class Placer : MonoBehaviour
     /// <param name="range">How close they can be</param>
     /// <param name="restriction">Additional restriction, if it returns true the placement is not acepted</param>
     /// <param name="maxTries">How many tries can be made, by default this.maxTries</param>
-    /// <remarks>
-    /// toPlace's horizontal and vertical placement will be ignored.
-    /// The only thing checked is if it's inside of placing area and doesn't collide with anything.
-    /// </remarks>
     /// <returns>True on success.</returns>
-    public bool PlaceNear(Placeable toPlace, Placeable other, FloatRange range, System.Func<Placeable, bool> restriction = null, int? maxTries = null)
+    public bool PlaceNear(Placeable toPlace, Placeable other, FloatRange range, Restriction restriction = null, int? maxTries = null)
     {
         placed.Remove(toPlace);
         toPlace.RotateRandomly();
         return Utils.Try(maxTries.GetValueOrDefault(this.maxTries), () =>
         {
-            toPlace.transform.position = other.transform.position + Random.onUnitSphere*range.GetRandom();
-            if ((restriction == null || !restriction(toPlace)) && !OverlapsWithAnother(toPlace) && placingArea.Contains(toPlace))
+            Vector3 onCircle = Random.insideUnitCircle;
+            onCircle.z = onCircle.y;
+            onCircle.Normalize();
+            toPlace.transform.position = other.transform.position + onCircle * range.GetRandom();
+            if (placingArea.TryPlacingVertically(toPlace) && RestrictionSatisified(restriction, toPlace) && !OverlapsWithAnother(toPlace))
             {
                 FinalizePlacing(toPlace);
                 return true;
@@ -90,7 +96,7 @@ public class Placer : MonoBehaviour
     /// <param name="placeables">Placeables that need to be placed</param>
     /// <param name="restriction">Additional restriction, if it returns true the placement is not acepted</param>
     /// <param name="maxTries">How many tries can be made, by default this.maxTries</param>
-    public void PlaceAll(Placeable[] placeables, System.Func<Placeable, bool> restriction=null, int? maxTries=null)
+    public void PlaceAll(Placeable[] placeables, Restriction restriction=null, int? maxTries=null)
     {
         foreach(var placeable in placeables)
         {

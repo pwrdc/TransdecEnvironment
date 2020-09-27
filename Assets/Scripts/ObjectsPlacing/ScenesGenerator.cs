@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 /// <summary>
 /// Used to read object placing related options from Academy
@@ -140,12 +141,12 @@ public class ScenesGenerator : MonoBehaviour
     {
         placer.Clear();
         placer.Place(robot);
-        // place targets in close range to the agent so that they can be found using the camera
-        System.Func<Placeable, bool> inRange = placable => 
-            Vector3.Distance(robot.transform.position, placable.position) > targetsRange;
+        // Place targets in close range to the agent so that they can be found using the camera
         // Here we give the placer more tries because the restriction will reject a lot of placements
         // and also the object placing will be usually done only once per run as oposed to data collection mode.
-        placer.PlaceAll(targets, inRange, targetsMaxTries);
+        foreach (var target in targets) {
+            placer.PlaceNear(target, robot, new FloatRange(robot.radius, targetsRange), null, targetsMaxTries);
+        }
         if (enableNoise)
             placer.PlaceAll(noise);
     }

@@ -11,7 +11,7 @@ public static class Utils
         result.Encapsulate(point2);
         return result;
     }
-    
+
     // Finds instance of component in instances list closest to position.
     public static T FindClosest<T>(IEnumerable<T> instances, Vector3 position) where T : MonoBehaviour
     {
@@ -40,6 +40,11 @@ public static class Utils
          && position.x + placeable.RadiusInDirection(-Vector3.left) <= bounds.max.x
          && position.y + placeable.RadiusInDirection(-Vector3.up) <= bounds.max.y
          && position.z + placeable.RadiusInDirection(-Vector3.forward) <= bounds.max.z;
+    }
+
+    public static Vector3 WithY(this Vector3 original, float y)
+    {
+        return new Vector3(original.x, y, original.z);
     }
 
     // https://en.wikibooks.org/wiki/Linear_Algebra/Orthogonal_Projection_Onto_a_Line
