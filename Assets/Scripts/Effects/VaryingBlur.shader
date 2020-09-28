@@ -9,6 +9,7 @@ Shader "Hidden/Legacy/VaryingBlur"
 
 	TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
 	TEXTURE2D_SAMPLER2D(_BlurTex, sampler_BlurTex);
+	TEXTURE2D_SAMPLER2D(_CameraDepthTexture, sampler_CameraDepthTexture);
 
 	uniform half4 _Parameter;
 	uniform half4 _MainTex_TexelSize;
@@ -19,6 +20,8 @@ Shader "Hidden/Legacy/VaryingBlur"
 	float4 _Color;
 	float _ColorIntensity;
 	float _BlurredPart;
+	bool _Visualise;
+	float _DepthBlur;
 
 	// Weight Curves..
 	static const half curve[7] = { 0.0205, 0.0855, 0.232, 0.324, 0.232, 0.0855, 0.0205 };
@@ -62,13 +65,20 @@ Shader "Hidden/Legacy/VaryingBlur"
 		float4 originalColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
 		float noiseValue = SimplexNoise(float3(uv.x*_NoiseScale, uv.y*_NoiseScale, _Time[0] * _NoiseChangeRate));
 
+		float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, uv);
+		depth = Linear01Depth(depth);
+		depth = depth / _DepthBlur;
+		
 		// transform blurred part from range <0, 1> to range <-1, 1> and add it to the noise
-		float transformedNoiseValue=noiseValue + (_BlurredPart-0.5)*2;
+		float transformedNoiseValue=max(noiseValue, depth + (_BlurredPart-0.5)*2);
 		// smoothly limit noise value between 0 and 1
-		transformedNoiseValue = smoothstep(0, 1, noiseValue);
-
+		transformedNoiseValue = smoothstep(0, 1, transformedNoiseValue);
+		
+		// comment out code line below to visualise noise value
+		// (using if expression or ifdef here slows down the shader by about 30%)
+		// return float4(transformedNoiseValue.xxx, 1);
 		float4 originalAndBlurred = lerp(originalColor, blurredColor, transformedNoiseValue);
-		float4 originalBlurredAndColor = lerp(originalAndBlurred, _Color, noiseValue*_ColorIntensity);
+		float4 originalBlurredAndColor = lerp(originalAndBlurred, _Color, clamp(noiseValue, 0, 1)*_ColorIntensity);
 
 		return originalBlurredAndColor;
 	}

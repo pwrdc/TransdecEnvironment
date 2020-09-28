@@ -21,9 +21,9 @@
 		return float4(value.xxx, 1);
 	}
 
-		ENDHLSL
+	ENDHLSL
 
-		SubShader
+	SubShader
 	{
 		Cull Off ZWrite Off ZTest Always
 

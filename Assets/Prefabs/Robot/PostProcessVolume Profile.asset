@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba2c84a02f755c489a8320f0ac31fdb, type: 3}
   m_Name: Wobbling
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -163,35 +163,13 @@ MonoBehaviour:
     value: 0.1
   BlurredPart:
     overrideState: 1
-    value: 0.45
---- !u!114 &-171328452762449647
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
+    value: 0.03
+  Visualise:
+    overrideState: 0
     value: 1
-  focusDistance:
+  MaxDepth:
     overrideState: 1
-    value: 2
-  aperture:
-    overrideState: 1
-    value: 7.5
-  focalLength:
-    overrideState: 1
-    value: 43
-  kernelSize:
-    overrideState: 1
-    value: 2
+    value: 0.01
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 8493261731072966750}
-  - {fileID: -171328452762449647}
   - {fileID: 3558088746121376456}
   - {fileID: -4716941706110369674}
   - {fileID: -6383538822207847091}

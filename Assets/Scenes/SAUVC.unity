@@ -1250,8 +1250,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915012531}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 28.48, y: 4.322, z: -4.355}
+  m_LocalRotation: {x: 0.018543137, y: -0.15561, z: 0.003702799, w: 0.9876376}
+  m_LocalPosition: {x: 34.981632, y: 5.070665, z: -20.201984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3720,6 +3720,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 916301332521001134, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7528270623378851394, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -45.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092521681417790529, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147157365067138515, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413416887845753309, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offset.y
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742629434579866449, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offset.y
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318170600112759317, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: offset.y
+      value: 0.27
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
