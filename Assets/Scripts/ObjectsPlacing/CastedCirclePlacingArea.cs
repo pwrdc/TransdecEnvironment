@@ -51,9 +51,9 @@ public class CastedCirclePlacingArea : PlacingArea
     void PlaceVerticallyUnchecked(Placeable placeable)
     {
         placeable.transform.rotation = placeable.initialRotation;
-        float placeableHeight = placeable.RadiusInDirection(transform.up);
+        float placeableHeight = placeable.RadiusInDirection(transform.up) - placeable.offset.y;
 
-        Vector3 position=placeable.transform.position;
+        Vector3 position=placeable.position;
         position.y = transform.position.y - placeableHeight;
 
         if (placeable.verticalPlacement != Placeable.VerticalPlacement.UnderSurface)
@@ -70,13 +70,12 @@ public class CastedCirclePlacingArea : PlacingArea
                     placeable.transform.rotation = Quaternion.LookRotation(bottom.normal) * Quaternion.Euler(90, 0, 0) * placeable.transform.rotation;
                     break;
                 case Placeable.VerticalPlacement.UnderSurface:
-                    position.y = -placeableHeight;
                     break;
                 default:
                     throw new InvalidEnumValueException(placeable.verticalPlacement);
             }
         }
-        placeable.transform.position = position;
+        placeable.position = position;
     }
 
     public override void Place(Placeable placeable)
@@ -88,17 +87,14 @@ public class CastedCirclePlacingArea : PlacingArea
             case Placeable.HorizontalPlacement.Inside:
                 // choose random point on a sphere
                 Vector3 unitSpherePoint= Random.insideUnitSphere;
-                position.x = unitSpherePoint.x * bounds.x + transform.position.x - placeable.offset.x;
-                position.z = unitSpherePoint.z * bounds.z + transform.position.z - placeable.offset.z;
-                // ignore the y component and simply place the placeable under the surface
+                position = new Vector3(unitSpherePoint.x * bounds.x, position.y, unitSpherePoint.z * bounds.z) + PlanarOffset(placeable);
                 break;
             case Placeable.HorizontalPlacement.OnWall:
                 // choose random angle
                 float angle = Random.Range(0, 2 * Mathf.PI);
                 Vector3 unitCircleCoordinates = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
                 // get a point on the circle at this angle
-                position.x = bounds.x * unitCircleCoordinates.x + transform.position.x - placeable.offset.x;
-                position.z = bounds.z * unitCircleCoordinates.z + transform.position.z - placeable.offset.z;
+                position=new Vector3(bounds.x * unitCircleCoordinates.x, 0, bounds.z * unitCircleCoordinates.z) + PlanarOffset(placeable);
                 placeable.transform.rotation = Quaternion.LookRotation(unitCircleCoordinates) * placeable.transform.rotation;
                 break;
             default:
@@ -120,14 +116,16 @@ public class CastedCirclePlacingArea : PlacingArea
     public override bool Contains(Placeable placeable)
     {
         Vector3 bounds = CalculateBoundsSize(placeable);
-        Vector3 position = placeable.transform.position-placeable.offset;
-        float placeableHeight = placeable.RadiusInDirection(transform.up);
+        Vector3 position = placeable.transform.position+placeable.offset;
+        float placeableHeight = placeable.RadiusInDirection(transform.up)-placeable.offset.y;
         if (position.y>transform.position.y+bounds.y || position.y <Bottom(position.x, position.z, placeableHeight).height)
         {
             return false;
         }
         return IsInsideCircle(placeable);
     }
+
+    #region Gizmos
 
     void DrawCircle(float scaleX, float scaleZ)
     {
@@ -150,4 +148,6 @@ public class CastedCirclePlacingArea : PlacingArea
         Vector3 radius = new Vector3(placeable.RadiusInDirection(transform.right), 0, placeable.RadiusInDirection(transform.forward));
         DrawCircle(transform.lossyScale.x-radius.x, transform.lossyScale.z-radius.z);
     }
+
+    #endregion
 }

@@ -47,6 +47,11 @@ public static class Utils
         return new Vector3(original.x, y, original.z);
     }
 
+    public static Vector3 XZ(this Vector3 original)
+    {
+        return new Vector3(original.x, 0, original.z);
+    }
+
     // https://en.wikibooks.org/wiki/Linear_Algebra/Orthogonal_Projection_Onto_a_Line
     public static Vector3 ProjectPointOnLine(Vector3 linePoint1, Vector3 linePoint2, Vector3 point)
     {

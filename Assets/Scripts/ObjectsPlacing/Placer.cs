@@ -107,6 +107,7 @@ public class Placer : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     /// Stop remembering previously placed objects for new placements.
     /// </summary>
