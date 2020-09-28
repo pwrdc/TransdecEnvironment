@@ -139,7 +139,7 @@ MonoBehaviour:
     value: 1
   Mode:
     overrideState: 1
-    value: 0
+    value: 1
   Downsample:
     overrideState: 1
     value: 1
@@ -160,16 +160,13 @@ MonoBehaviour:
     value: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 1}
   ColorIntensity:
     overrideState: 1
-    value: 0.1
+    value: 0.086
   BlurredPart:
     overrideState: 1
-    value: 0.03
-  Visualise:
-    overrideState: 0
-    value: 1
-  MaxDepth:
+    value: 0.329
+  DepthBlur:
     overrideState: 1
-    value: 0.01
+    value: 0.02
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
