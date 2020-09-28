@@ -42,6 +42,6 @@ public abstract class PlacingArea : MonoBehaviour
 
     protected Vector3 PlanarOffset(Placeable placeable)
     {
-        return transform.position.XZ() - placeable.offset.XZ();
+        return transform.position.XZ();
     }
 }

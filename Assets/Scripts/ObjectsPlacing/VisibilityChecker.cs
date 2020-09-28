@@ -23,7 +23,7 @@ public class VisibilityChecker : MonoBehaviour
     {
         Vector3 observerPosition = transform.position;
 
-        Vector3 placeablePosition = placeable.transform.position;
+        Vector3 placeablePosition = placeable.position;
 
         // create the smallest cuboid containing observer and target and check if placeable lies within it
         Bounds bounds = Utils.PointsToBounds(observerPosition, point);

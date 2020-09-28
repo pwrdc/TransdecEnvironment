@@ -29,29 +29,6 @@ public static class Utils
         return closest;
     }
 
-    // extendsion method for Bounds
-    public static bool Contains(this Bounds bounds, Placeable placeable)
-    {
-        Vector3 position = placeable.position;
-        return
-            position.x + placeable.RadiusInDirection(-Vector3.left) >= bounds.min.x
-         && position.y + placeable.RadiusInDirection(-Vector3.up) >= bounds.min.y
-         && position.z + placeable.RadiusInDirection(-Vector3.forward) >= bounds.min.z
-         && position.x + placeable.RadiusInDirection(-Vector3.left) <= bounds.max.x
-         && position.y + placeable.RadiusInDirection(-Vector3.up) <= bounds.max.y
-         && position.z + placeable.RadiusInDirection(-Vector3.forward) <= bounds.max.z;
-    }
-
-    public static Vector3 WithY(this Vector3 original, float y)
-    {
-        return new Vector3(original.x, y, original.z);
-    }
-
-    public static Vector3 XZ(this Vector3 original)
-    {
-        return new Vector3(original.x, 0, original.z);
-    }
-
     // https://en.wikibooks.org/wiki/Linear_Algebra/Orthogonal_Projection_Onto_a_Line
     public static Vector3 ProjectPointOnLine(Vector3 linePoint1, Vector3 linePoint2, Vector3 point)
     {

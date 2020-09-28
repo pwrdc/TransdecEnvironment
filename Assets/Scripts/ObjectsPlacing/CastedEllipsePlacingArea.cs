@@ -4,12 +4,12 @@ using UnityEngine;
 
 /// <summary>
 /// Represents a shape created by connecting two surfaces:
-/// one is a horizontal circle scaled according to transform scale
-/// and the other one is that circle casted down on all colliders belonging to layerMask.
+/// one is a horizontal ellipse scaled according to transform scale
+/// and the other one is that ellipse casted down on all colliders belonging to layerMask.
 /// In addition all placeables that are placed on the bottom 
 /// are rotated to be parallel to the lower surface.
 /// </summary>
-public class CastedCirclePlacingArea : PlacingArea
+public class CastedEllipsePlacingArea : PlacingArea
 {
     public LayerMask layerMask;
 
@@ -38,9 +38,9 @@ public class CastedCirclePlacingArea : PlacingArea
 
     public override bool TryPlacingVertically(Placeable placeable)
     {
-        if (IsInsideCircle(placeable))
+        if (IsInsideEllipse(placeable))
         {
-            PlaceVerticallyUnchecked(placeable);
+            PlaceVertically(placeable);
             return true;
         } else
         {
@@ -48,7 +48,7 @@ public class CastedCirclePlacingArea : PlacingArea
         }
     }
 
-    void PlaceVerticallyUnchecked(Placeable placeable)
+    void PlaceVertically(Placeable placeable)
     {
         placeable.transform.rotation = placeable.initialRotation;
         float placeableHeight = placeable.RadiusInDirection(transform.up) - placeable.offset.y;
@@ -78,10 +78,19 @@ public class CastedCirclePlacingArea : PlacingArea
         placeable.position = position;
     }
 
+    bool IsInsideEllipse(Placeable placeable)
+    {
+        Vector3 bounds = CalculateBoundsSize(placeable);
+        Vector3 relativePosition = placeable.position - transform.position;
+        Vector3 normalizedPosition = Utils.DivideVectorsFields(relativePosition, bounds);
+        normalizedPosition.y = 0;
+        return normalizedPosition.sqrMagnitude < 1;
+    }
+
     public override void Place(Placeable placeable)
     {
         Vector3 bounds = CalculateBoundsSize(placeable);
-        Vector3 position= placeable.transform.position;
+        Vector3 position = placeable.position;
         switch (placeable.horizontalPlacement)
         {
             case Placeable.HorizontalPlacement.Inside:
@@ -93,36 +102,27 @@ public class CastedCirclePlacingArea : PlacingArea
                 // choose random angle
                 float angle = Random.Range(0, 2 * Mathf.PI);
                 Vector3 unitCircleCoordinates = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
-                // get a point on the circle at this angle
+                // get a point on the elilipse at this angle
                 position=new Vector3(bounds.x * unitCircleCoordinates.x, 0, bounds.z * unitCircleCoordinates.z) + PlanarOffset(placeable);
                 placeable.transform.rotation = Quaternion.LookRotation(unitCircleCoordinates) * placeable.transform.rotation;
                 break;
             default:
                 throw new InvalidEnumValueException(placeable.horizontalPlacement);
         }
-        placeable.transform.position=position;
-        PlaceVerticallyUnchecked(placeable);
-    }
-
-    bool IsInsideCircle(Placeable placeable)
-    {
-        Vector3 bounds = CalculateBoundsSize(placeable);
-        Vector3 relativePosition = placeable.transform.position - transform.position;
-        Vector3 normalizedPosition = Utils.DivideVectorsFields(relativePosition, bounds);
-        normalizedPosition.y = 0;
-        return normalizedPosition.sqrMagnitude < 1;
+        placeable.position=position;
+        PlaceVertically(placeable);
     }
 
     public override bool Contains(Placeable placeable)
     {
         Vector3 bounds = CalculateBoundsSize(placeable);
-        Vector3 position = placeable.transform.position+placeable.offset;
-        float placeableHeight = placeable.RadiusInDirection(transform.up)-placeable.offset.y;
+        Vector3 position = placeable.position;
+        float placeableHeight = placeable.RadiusInDirection(transform.up);
         if (position.y>transform.position.y+bounds.y || position.y <Bottom(position.x, position.z, placeableHeight).height)
         {
             return false;
         }
-        return IsInsideCircle(placeable);
+        return IsInsideEllipse(placeable);
     }
 
     #region Gizmos

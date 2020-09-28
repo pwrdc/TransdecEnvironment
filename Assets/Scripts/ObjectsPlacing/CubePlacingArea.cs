@@ -10,7 +10,7 @@ public class CubePlacingArea : PlacingArea
         switch (placeable.horizontalPlacement)
         {
             case Placeable.HorizontalPlacement.Inside:
-                placeable.transform.position = PlanarOffset(placeable) + new Vector3(Random.Range(-bounds.x, bounds.x), 0, Random.Range(-bounds.z, bounds.z));
+                placeable.position = PlanarOffset(placeable) + new Vector3(Random.Range(-bounds.x, bounds.x), 0, Random.Range(-bounds.z, bounds.z));
                 break;
             case Placeable.HorizontalPlacement.OnWall:
                 PlaceOnWall(placeable, bounds);
@@ -18,7 +18,7 @@ public class CubePlacingArea : PlacingArea
             default:
                 throw new InvalidEnumValueException(placeable.horizontalPlacement);
         }
-        PlaceVerticallyUnchecked(placeable, bounds);
+        PlaceVertically(placeable, bounds);
     }
 
     void PlaceOnWall(Placeable placeable, Vector3 bounds)
@@ -49,10 +49,10 @@ public class CubePlacingArea : PlacingArea
         }
     }
 
-    void PlaceVerticallyUnchecked(Placeable placeable, Vector3 bounds)
+    void PlaceVertically(Placeable placeable, Vector3 bounds)
     {
-        Vector3 position = placeable.transform.position;
-        position.y = transform.position.y - placeable.offset.y;
+        Vector3 position = placeable.position;
+        position.y = transform.position.y;
         switch (placeable.verticalPlacement)
         {
             case Placeable.VerticalPlacement.UnderSurface:
@@ -67,25 +67,24 @@ public class CubePlacingArea : PlacingArea
             default:
                 throw new InvalidEnumValueException(placeable.horizontalPlacement);
         }
-        placeable.transform.position = position;
+        placeable.position = position;
     }
 
     public override bool Contains(Placeable placeable)
     {
         Vector3 boundsSize = CalculateBoundsSize(placeable);
         Bounds bounds = new Bounds(transform.position, boundsSize*2);
-        return bounds.Contains(placeable.transform.position+placeable.offset);
+        return bounds.Contains(placeable.position);
     }
 
     public override bool TryPlacingVertically(Placeable placeable)
     {
         // place placeable in the middle and check if it is inside
-        
-        placeable.position = placeable.position.WithY(transform.position.y - placeable.offset.y);
+        placeable.position = placeable.position.WithY(transform.position.y);
         if (Contains(placeable))
         {
             Vector3 bounds = CalculateBoundsSize(placeable);
-            PlaceVerticallyUnchecked(placeable, bounds);
+            PlaceVertically(placeable, bounds);
             return true;
         } else
         {

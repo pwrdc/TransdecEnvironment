@@ -71,11 +71,11 @@ public class Placeable : MonoBehaviour
     {
         get
         {
-            return transform.position;
+            return transform.position + transform.rotation * offset;
         }
         set
         {
-            transform.position=value;
+            transform.position = value - transform.rotation * offset;
         }
     }
 
@@ -146,15 +146,6 @@ public class Placeable : MonoBehaviour
         return leadingVector;
     }
 
-    // returns rotation around an axis taking the asisLimit into consideration if it is enabled
-    private float RotateAroundAxis(Limit axisLimit)
-    {
-        if (randomRotation.xLimit.enabled)
-            return Random.Range(axisLimit.min, axisLimit.max);
-        else
-            return Random.Range(0, 360);
-    }
-
     // rotates placeable according to its randomRotation field
     public void RotateRandomly()
     {
@@ -162,9 +153,18 @@ public class Placeable : MonoBehaviour
         // id doesn't make sense to rotate the object horizontally for some options
         bool rotateHorizontally = verticalPlacement != VerticalPlacement.OnBottom && verticalPlacement != VerticalPlacement.UnderSurface && shape != Shape.InfiniteCyllinder;
         if (rotateHorizontally && randomRotation.x) rotation.x = RotateAroundAxis(randomRotation.xLimit);
-        if (randomRotation.y)                       rotation.y = RotateAroundAxis(randomRotation.yLimit);
+        if (randomRotation.y) rotation.y = RotateAroundAxis(randomRotation.yLimit);
         if (rotateHorizontally && randomRotation.z) rotation.z = RotateAroundAxis(randomRotation.zLimit);
         transform.rotation = initialRotation * Quaternion.Euler(rotation);
+    }
+
+    // returns rotation around an axis taking the asisLimit into consideration if it is enabled
+    private float RotateAroundAxis(Limit axisLimit)
+    {
+        if (randomRotation.xLimit.enabled)
+            return Random.Range(axisLimit.min, axisLimit.max);
+        else
+            return Random.Range(0, 360);
     }
 
     // draws the area of Placeable and placing area bounds for placing this placeable
@@ -188,7 +188,7 @@ public class Placeable : MonoBehaviour
         Matrix4x4 saved = Gizmos.matrix;
         if (shape==Shape.Sphere)
         {
-            Gizmos.matrix *= Matrix4x4.Translate(transform.position + offset);
+            Gizmos.matrix *= Matrix4x4.Translate(position);
             Gizmos.matrix *= Matrix4x4.Rotate(transform.rotation);
             Gizmos.matrix *= Matrix4x4.Scale(scale);
             Gizmos.DrawWireSphere(Vector3.zero, radius);
@@ -209,8 +209,8 @@ public class Placeable : MonoBehaviour
     void DrawProbingVector()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawRay(transform.position + offset, probingVector);
+        Gizmos.DrawRay(position, probingVector);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position + offset, transform.rotation * LeadingVector(probingVector));
+        Gizmos.DrawRay(position, transform.rotation * LeadingVector(probingVector));
     }
 }
