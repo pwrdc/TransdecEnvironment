@@ -26,7 +26,7 @@ Shader "Projector/Alpha Blended" {
 				#pragma multi_compile_fog
 				#include "UnityCG.cginc"
 				#ifdef HAVE_AURA_2
-					#include "../Aura 2/Core/Code/Shaders/Aura.cginc"
+					#include "../Aura 2/Core/Code/Shaders/Includes/AuraUsage.cginc"
 				#endif
 
 				struct v2f {

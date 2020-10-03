@@ -50,7 +50,7 @@ CGINCLUDE
 	#include "UnityCG.cginc"
 	#include "WaterInclude.cginc"
 	#ifdef HAVE_AURA_2
-		#include "../../../../../Aura 2/Core/Code/Shaders/Aura.cginc"
+		#include "../../../../../Aura 2/Core/Code/Shaders/Includes/AuraUsage.cginc"
 	#endif
 
 	struct appdata
