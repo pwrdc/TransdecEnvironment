@@ -58,7 +58,7 @@ MonoBehaviour:
   visibilityChecker: {fileID: 0}
   cameraRange:
     min: 3
-    max: 10
+    max: 15
   cameraRotationRange: {x: 20, y: 20, z: 20}
   targetAlwaysVisible: 1
   targetsRange: 10

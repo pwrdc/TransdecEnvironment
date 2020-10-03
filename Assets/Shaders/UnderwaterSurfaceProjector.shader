@@ -1,4 +1,6 @@
-﻿Shader "Effects/Underwater Surface Projector" {
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+Shader "Effects/Underwater Surface Projector" {
 	Properties{
 		_Color("Color", Color) = (1,1,1,1)
 		_Opacity("Opacity", Range(0, 1)) = .5
@@ -41,7 +43,8 @@
 				float4 worldPosition : TEXCOORD2;
 				UNITY_FOG_COORDS(3)
 				float cameraDistance : TEXCOORD4;
-				float3 frustrumSpacePosition : TEXCOORD5;
+				// float3 frustrumSpacePosition : TEXCOORD5;
+				float3 normal : TEXCOORD6;
 				float4 pos : SV_POSITION;
 			};
 
@@ -62,6 +65,7 @@
 				v2f o;
 				o.worldPosition = mul(unity_ObjectToWorld, v.vertex);
 				o.pos = UnityObjectToClipPos(v.vertex);
+				o.normal = mul(unity_ObjectToWorld, float4(v.normal, 0.0)).xyz;
 				o.uvShadow = mul(unity_Projector, v.vertex);
 				o.uvFalloff = mul(unity_ProjectorClip, v.vertex);
 				o.cameraDistance = length(_WorldSpaceCameraPos - o.worldPosition);
@@ -79,6 +83,19 @@
 			float distanceFading(float x) {
 				float result = x / _OpacityByDistance;
 				return 1 / result;
+			}
+
+#define PI 3.14
+
+			float angleFading(float3 normal) {
+				// angle is <0, pi>
+				// where 0 is parallel
+				// you want it to ooutput 0 starting from pi/2
+				float angle = acos(dot(normal, float3(0, 1, 0)) / length(normal));
+				float opacity = angle/PI;
+				opacity = 1 - opacity;
+				opacity = smoothstep(0.5, 1, opacity);
+				return opacity;
 			}
 
 			bool isValidUv(float4 uv) {
@@ -117,7 +134,7 @@
 					// this adds the voronoi noise texture
 					float surfaceTexture = underwater_surface(float3(_Time[0] * _Speed, noisePosition*_Scale), _Sharpness);
 					// mix all of the values in alpha channel
-					result.a = surfaceTexture * _Opacity * depthFading(i.uvFalloff.x) * lightness * distanceFading(i.cameraDistance);
+					result.a = surfaceTexture * _Opacity * depthFading(i.uvFalloff.x) * lightness * distanceFading(i.cameraDistance) * angleFading(i.normal);
 					result.a = clamp(result.a, 0, 1);
 
 					UNITY_APPLY_FOG_COLOR(i.fogCoord, result, fixed4(0, 0, 0, 0));

@@ -5304,12 +5304,12 @@ MonoBehaviour:
   brain: {fileID: 11400000, guid: 68314a13d73b6adf69b76fd0b4e7b599, type: 2}
   agentParameters:
     agentCameras:
-    - {fileID: 6693106762273889356}
-    - {fileID: 5679860144947708080}
+    - {fileID: 0}
+    - {fileID: 0}
     maxStep: 0
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 20
+    numberOfActionsBetweenDecisions: 10
   OnDataCollection:
     m_PersistentCalls:
       m_Calls: []
@@ -5327,7 +5327,7 @@ MonoBehaviour:
     dataCollection: 0
     positiveExamples: 1
     forceToSaveAsNegative: 0
-    sendAllData: 0
+    sendAllData: 1
     targetReset: 1
     collectObservations: 0
     randomizeTargetObjectPositionOnEachStep: 1
@@ -5449,8 +5449,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buoyancyForceMode: 1
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
   boundsFillLevel: 1
   fluctuationsMagnitude: 0.2
+  voxelsPerDimension: 3
   waterCurrentEnabled: 1
   deduceMassFromVolume: 0
   density: 1175

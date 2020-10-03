@@ -537,7 +537,7 @@ MonoBehaviour:
     - key: EnableNoise
       value: 1
     - key: Positive
-      value: 0
+      value: 1
     - key: AgentMaxSteps
       value: 0
     - key: FocusedCamera
@@ -3434,21 +3434,6 @@ PrefabInstance:
         type: 3}
       propertyPath: boundingBox
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720795853025857661, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: agentSettings.sendAllData
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720795853025857661, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: agentSettings.randomizeTargetObjectPositionOnEachStep
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720795853025857661, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: agentParameters.numberOfActionsBetweenDecisions
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3424594566828438024, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
