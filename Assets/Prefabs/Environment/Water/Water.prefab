@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3210798632583240540}
   - component: {fileID: 3210798632583240530}
+  - component: {fileID: 9124205013268388663}
   m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
@@ -56,6 +57,18 @@ MonoBehaviour:
   refractLayers:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &9124205013268388663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3210798632583240541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e40e98b3ffba3740a591addeda2a68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5181255185150298247
 PrefabInstance:
   m_ObjectHideFlags: 0

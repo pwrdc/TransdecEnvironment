@@ -17,8 +17,6 @@ namespace Robot
         public float maxForceLateral = 50;
         public float maxTorqueYaw = 0.5f;
 
-        bool isUnderwater = true;
-
         void Start()
         {
             rbody = transform.parent.GetComponent<Rigidbody>();
@@ -26,7 +24,6 @@ namespace Robot
 
         void Update()
         {
-            isUnderwater = Environment.Environment.Instance.IsUnderWater(transform.position.y);
             LevelSelf();
             if (rbody.drag != drag)
                 rbody.drag = drag;
@@ -36,7 +33,7 @@ namespace Robot
 
         public void Move(float Longitudinal, float Lateral, float Vertical, float Yaw)
         {
-            if (isUnderwater)
+            if (WaterSurface.IsAbove(transform.position.y))
             {
                 rbody.AddRelativeForce(maxForceLateral * Lateral, maxForceVertical * Vertical, maxForceLongitudinal * Longitudinal);
                 rbody.AddRelativeTorque(0, maxTorqueYaw * Yaw, 0);

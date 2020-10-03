@@ -8,30 +8,12 @@ namespace Environment
         //Singleton
         private static Environment instance = null;
         public static Environment Instance => Singleton.GetInstance(ref instance);
-
-        public Transform waterSurface;
         
         public bool randomized = false;
         public bool initOnEachStep = false;
 
         public event Action OnNormalInit;
         public event Action OnRandomizedInit;
-
-        public float GetWaterY()
-        {
-            if (waterSurface == null)
-            {
-                return Mathf.Infinity;
-            } else
-            {
-                return waterSurface.transform.position.y;
-            }
-        }
-
-        public bool IsUnderWater(float y)
-        {
-            return waterSurface != null && y < waterSurface.position.y;
-        }
 
         void Start()
         {
