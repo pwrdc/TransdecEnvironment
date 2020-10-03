@@ -151,7 +151,7 @@ MonoBehaviour:
     value: 3
   NoiseScale:
     overrideState: 1
-    value: 2
+    value: 400
   NoiseChangeRate:
     overrideState: 1
     value: 10
@@ -163,7 +163,7 @@ MonoBehaviour:
     value: 0.086
   BlurredPart:
     overrideState: 1
-    value: 0.329
+    value: 0.4
   DepthBlur:
     overrideState: 1
     value: 0.02

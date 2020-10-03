@@ -63,7 +63,9 @@ Shader "Hidden/Legacy/VaryingBlur"
 
 	float4 AddVariation(float2 uv, float4 blurredColor) {
 		float4 originalColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
-		float noiseValue = SimplexNoise(float3(uv.x*_NoiseScale, uv.y*_NoiseScale, _Time[0] * _NoiseChangeRate));
+		float screenHeight = _ScreenParams.y;
+		float ratio = _ScreenParams.x/ _ScreenParams.y;
+		float noiseValue = SimplexNoise(float3(uv.x / screenHeight *ratio* _NoiseScale, uv.y / screenHeight * _NoiseScale, _Time[0] * _NoiseChangeRate));
 
 		float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, uv);
 		depth = Linear01Depth(depth);
