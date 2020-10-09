@@ -3,11 +3,8 @@ using System;
 
 namespace Environment
 {
-    public class Environment : MonoBehaviour
+    public class Environment : Singleton<Environment>
     {
-        //Singleton
-        private static Environment instance = null;
-        public static Environment Instance => Singleton.GetInstance(ref instance);
         
         public bool randomized = false;
         public bool initOnEachStep = false;
@@ -15,9 +12,9 @@ namespace Environment
         public event Action OnNormalInit;
         public event Action OnRandomizedInit;
 
-        void Start()
+        protected override void Start()
         {
-            Singleton.Initialize(this, ref instance);
+            base.Start();
             RobotAgent.Instance.OnDataCollection.AddListener(OnDataCollection);
             RobotAgent.Instance.OnReset.AddListener(OnReset);
         }

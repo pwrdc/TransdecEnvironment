@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuoyancyForce : MonoBehaviour
+public class BuoyancyForce : Singleton<BuoyancyForce>
 {
-    static BuoyancyForce instance;
-    public static BuoyancyForce Instance => Singleton.GetInstance(ref instance);
 
     public float positionStep = 1f;
     public float timeStep = 1f;
@@ -20,11 +18,6 @@ public class BuoyancyForce : MonoBehaviour
         public float referenceVolume = 0.01f;
     }
     public Visualisation visualisation;
-
-    void Start()
-    {
-        Singleton.Initialize(this, ref instance);
-    }
 
     /// <summary>
     /// Returns buoyancy force fluctuations at given postion.

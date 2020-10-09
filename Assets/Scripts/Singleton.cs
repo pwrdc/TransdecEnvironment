@@ -87,4 +87,12 @@ public static class Singleton
             throw new MultipleSingletonInstancesException(typeof(T));
         }
     }
+
+    public static void Deinitialize<T>(T @this, ref T instanceField) where T : MonoBehaviour
+    {
+        if (instanceField == @this)
+        {
+            instanceField = null;
+        }
+    }
 }
