@@ -81,3 +81,8 @@ Feel free to add tests here or edit them according to your judgement, just remem
 - Set EnableNoise to zero, there shouldn't be any objects from the noise folder on the scene.
 - Set EnableNoise to one, the objects from noise folder should be placed on the scene. 
 - Test if rest of the options work according to description in *README->Essential Academy parameters->Reset Parameters*
+
+## Optional functionality
+- Remove *Aura 2* folder 
+- Follow the instructions for working without *Aura 2* in README.md 
+- All scripts and shaders should compile and work properly
