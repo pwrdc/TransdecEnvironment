@@ -33,7 +33,7 @@ namespace Robot
 
         public void Move(float Longitudinal, float Lateral, float Vertical, float Yaw)
         {
-            if (WaterSurface.IsAbove(transform.position.y))
+            if (WaterLevel.IsAbove(transform.position.y))
             {
                 rbody.AddRelativeForce(maxForceLateral * Lateral, maxForceVertical * Vertical, maxForceLongitudinal * Longitudinal);
                 rbody.AddRelativeTorque(0, maxTorqueYaw * Yaw, 0);

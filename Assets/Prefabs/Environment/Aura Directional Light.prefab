@@ -81,7 +81,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8192
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -89,7 +89,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.5e-43, y: 0, z: 0, w: 1e-44}
+  m_BoundingSphereOverride: {x: 3.0092666e-36, y: 1.009742e-28, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -138,9 +138,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e32fa964cd4466098c981fd0f975bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalLightAngle: 80
-  normalLightIntensivity: 1.2
-  minLightAngle: 60
-  maxLightAngle: 120
-  minIntensivity: 0.3
-  maxIntensivity: 1
+  xAngle:
+    value: 0
+    normal: 80
+    min: 60
+    max: 120
+    previewMode: 0
+    previewPercentage: 0
+  intensity:
+    value: 0
+    normal: 1.2
+    min: 0.5
+    max: 2
+    previewMode: 0
+    previewPercentage: 0

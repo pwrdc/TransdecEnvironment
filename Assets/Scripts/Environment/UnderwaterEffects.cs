@@ -71,7 +71,7 @@ namespace Environment
                 return 1f;
             Vector3 screenBottom = camera.ViewportToWorldPoint(new Vector3(0.5f, 0, camera.nearClipPlane));
             Vector3 screenTop = camera.ViewportToWorldPoint(new Vector3(0.5f, 1, camera.nearClipPlane));
-            return Cube(Mathf.InverseLerp(screenBottom.y, screenTop.y, WaterSurface.Y + waterLevelOffset));
+            return Cube(Mathf.InverseLerp(screenBottom.y, screenTop.y, WaterLevel.Y + waterLevelOffset));
         }
 
         void UpdateEffects(float weight)
@@ -113,7 +113,7 @@ namespace Environment
         public override void Update()
         {
             base.Update();
-            bool underwater = target != null && WaterSurface.IsAbove(target.position.y);
+            bool underwater = target != null && WaterLevel.IsAbove(target.position.y);
             UpdateEffects(CalculateEffectsWeight());
         }
     }

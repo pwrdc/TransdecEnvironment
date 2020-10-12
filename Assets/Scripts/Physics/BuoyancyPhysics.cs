@@ -133,7 +133,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
     {
         Vector3 lower = point + Vector3.up * verticalBounds.lower;
         Vector3 upper = point - Vector3.up * verticalBounds.higher;
-        return 1f - Mathf.InverseLerp(lower.y, upper.y, WaterSurface.Y);
+        return 1f - Mathf.InverseLerp(lower.y, upper.y, WaterLevel.Y);
     }
 
     float CalculateBuoyancyForce(Vector3 position, float volumePart, VerticalBounds verticalBounds)
@@ -166,7 +166,7 @@ public abstract class BuoyancyPhysics : MonoBehaviour
         }
     }
 
-    protected bool IsUnderWater(Vector3 position) => WaterSurface.IsAbove(position.y);
+    protected bool IsUnderWater(Vector3 position) => WaterLevel.IsAbove(position.y);
 
     Vector3[] cachedPoints;
     int lastVoxelsPerDimension;

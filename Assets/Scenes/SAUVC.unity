@@ -2376,7 +2376,7 @@ PrefabInstance:
     - target: {fileID: 3210798632583240540, guid: 4c6bb41a6b67ae4429ac55d995539f57,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.53
+      value: -13.537
       objectReference: {fileID: 0}
     - target: {fileID: 3210798632583240540, guid: 4c6bb41a6b67ae4429ac55d995539f57,
         type: 3}
@@ -2421,12 +2421,12 @@ PrefabInstance:
     - target: {fileID: 3210798632583240540, guid: 4c6bb41a6b67ae4429ac55d995539f57,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.502
+      value: 0.495
       objectReference: {fileID: 0}
     - target: {fileID: 3210798632583240540, guid: 4c6bb41a6b67ae4429ac55d995539f57,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.255
+      value: 0.265
       objectReference: {fileID: 0}
     - target: {fileID: 3210798631874036938, guid: 4c6bb41a6b67ae4429ac55d995539f57,
         type: 3}
@@ -2477,11 +2477,6 @@ PrefabInstance:
         type: 3}
       propertyPath: specularLight
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3689522874582822087, guid: 4c6bb41a6b67ae4429ac55d995539f57,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2906429976127470737, guid: 4c6bb41a6b67ae4429ac55d995539f57,
         type: 3}
@@ -2619,7 +2614,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4535662907293792624}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -2657,7 +2652,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4536110523511847250}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -2695,7 +2690,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4535597306209761912}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -2733,7 +2728,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4535509659822791828}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -2771,7 +2766,7 @@ MeshRenderer:
   m_GameObject: {fileID: 4535326356512284898}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -2841,7 +2836,7 @@ GameObject:
   - component: {fileID: 4475875089098495740}
   - component: {fileID: 4514813741316512756}
   - component: {fileID: 4535326356512284899}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: GroundCube
   m_TagString: PoolSurface
   m_Icon: {fileID: 0}
@@ -3394,26 +3389,6 @@ PrefabInstance:
       propertyPath: m_ShowCustomSorter
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.x
-      value: 3.0092666e-36
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.y
-      value: 1.009742e-28
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: m_BoundingSphereOverride.w
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1438868504219335350, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: frustumSettings.qualitySettings
@@ -3676,6 +3651,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8745976425692413371, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2639304700508741602, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Enabled
@@ -3780,6 +3760,31 @@ PrefabInstance:
         type: 3}
       propertyPath: offset.y
       value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770395651252489324, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087292101023600476, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253169932834227159, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: densityInjection.strength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253169932834227159, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: scatteringInjection.strength
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}

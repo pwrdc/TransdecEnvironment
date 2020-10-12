@@ -23,7 +23,7 @@ namespace Environment
         {
             base.Update();
             light.intensity = intensity.value;
-            light.transform.rotation = Quaternion.Euler(xAngle.value, yAngle.value, 0);
+            transform.rotation = Quaternion.Euler(xAngle.value, yAngle.value, 0);
         }
     }
 }

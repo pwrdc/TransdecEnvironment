@@ -7,7 +7,7 @@ namespace Environment
     {
         
         public bool randomized = false;
-        public bool initOnEachStep = false;
+        public bool randomizeForEachScreenshot = false;
 
         public event Action OnNormalInit;
         public event Action OnRandomizedInit;
@@ -34,7 +34,7 @@ namespace Environment
 
         public void OnDataCollection(){
             //Randomize environment (Water color and light)
-            if(randomized && initOnEachStep){
+            if(randomized && randomizeForEachScreenshot){
                 EnvironmentRandomizedInit();
             }
         }
