@@ -19,9 +19,4 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
         Singleton.Initialize((T)this, ref instance);
     }
-
-    protected virtual void Destroy()
-    {
-        Singleton.Deinitialize((T)this, ref instance);
-    }
 }
