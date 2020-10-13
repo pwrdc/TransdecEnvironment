@@ -343,7 +343,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.55
+    m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -396,6 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   copied: {fileID: 8649493824596090407}
+  intensityMultiplier: 0.2
 --- !u!1 &1093948667760828152
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,16 +868,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 53.514004
       objectReference: {fileID: 0}
-    - target: {fileID: 5537146887801356785, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.9904618
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537146887801356785, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.9481132
-      objectReference: {fileID: 0}
     - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
         type: 3}
       propertyPath: angle.value
@@ -956,6 +947,16 @@ PrefabInstance:
         type: 3}
       propertyPath: outOfPhaseColor.b
       value: 0.936593
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537146887801356785, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9904618
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537146887801356785, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.9481132
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a137918b7786b4c904b9d12b29360e, type: 3}

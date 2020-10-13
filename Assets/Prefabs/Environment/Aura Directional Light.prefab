@@ -81,7 +81,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 8208
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 1
   useScattering: 0
-  overrideScattering: 0
+  overrideScattering: 1
   overridingScattering: 0.5
   scatteringBias: 0
   useColorTemperatureTint: 0

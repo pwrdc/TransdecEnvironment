@@ -9,6 +9,7 @@ namespace Environment
     {
         new Light light;
         public Light copied;
+        public float intensityMultiplier = 0.5f;
 
         void Start()
         {
@@ -19,7 +20,7 @@ namespace Environment
         {
             if (light != null)
             {
-                light.intensity = copied.intensity;
+                light.intensity = copied.intensity * intensityMultiplier;
                 transform.rotation = copied.transform.rotation;
             }
         }
