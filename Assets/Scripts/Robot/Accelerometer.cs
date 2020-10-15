@@ -6,62 +6,53 @@ namespace Robot
 {
     public class Accelerometer : MonoBehaviour
     {
-        private Rigidbody rbody;
-        private Vector3 lastVelocity;
-        private Vector3 acceleration;
-        private Vector3 lastAngularVelocity;
-        private Vector3 angularAcceleration;
-        private Vector3 startRotation;
+        new Rigidbody rigidbody;
+        Vector3 lastVelocity;
+        public Vector3 acceleration;
+        Vector3 lastAngularVelocity;
+        public Vector3 angularAcceleration;
+        Quaternion startRotation;
+        public Vector3 rotation;
 
         void Start()
         {
-            rbody = this.transform.parent.gameObject.GetComponent<Rigidbody>();
-            lastVelocity = transform.InverseTransformDirection(rbody.velocity);
-            lastAngularVelocity = transform.InverseTransformDirection(rbody.angularVelocity);
-            startRotation = rbody.rotation.eulerAngles;
+            rigidbody = GetComponentInParent<Rigidbody>();
+            lastVelocity = transform.InverseTransformDirection(rigidbody.velocity);
+            lastAngularVelocity = transform.InverseTransformDirection(rigidbody.angularVelocity);
+            startRotation = rigidbody.rotation;
         }
 
         void Update()
         {
-            Vector3 localVelocity = transform.InverseTransformDirection(rbody.velocity);
+            Vector3 localVelocity = transform.InverseTransformDirection(rigidbody.velocity);
             acceleration = (localVelocity - lastVelocity) / Time.fixedDeltaTime;
-            Vector3 localAngularVelocity = transform.InverseTransformDirection(rbody.angularVelocity);
+            Vector3 localAngularVelocity = transform.InverseTransformDirection(rigidbody.angularVelocity);
             angularAcceleration = (localAngularVelocity - lastAngularVelocity) / Time.fixedDeltaTime;
             lastVelocity = localVelocity;
             lastAngularVelocity = localAngularVelocity;
+            // source: https://forum.unity.com/threads/get-the-difference-between-two-quaternions-and-add-it-to-another-quaternion.513187/
+            // current=start*difference
+            // difference=current/start
+            // difference=current*(1/start)
+            rotation = (rigidbody.rotation * Quaternion.Inverse(startRotation)).eulerAngles.Select(NormalizeRotation);
         }
 
-        public float[] GetAcceleration()
+        // turns an angle from range (0, 360) to (-180, 180)
+        float SignedAngleFromZero(float x)
         {
-            float[] ret = new float[3];
-            ret[0] = acceleration.x;
-            ret[1] = acceleration.y;
-            ret[2] = acceleration.z;
-            return ret;
+            if (x > 180)
+            {
+                return -(360 + x);
+            }
+            else
+            {
+                return x;
+            }
         }
 
-        public float[] GetAngularAcceleration()
+        private float NormalizeRotation(float current)
         {
-            float[] ret = new float[3];
-            ret[0] = angularAcceleration.x;
-            ret[1] = angularAcceleration.y;
-            ret[2] = angularAcceleration.z;
-            return ret;
-        }
-
-        public float[] GetRotation()
-        {
-            float[] ret = new float[3];
-            Vector3 rotation = rbody.rotation.eulerAngles;
-            ret[0] = NormalizeRotation(rotation.x, startRotation.x);
-            ret[1] = NormalizeRotation(rotation.y, startRotation.y);
-            ret[2] = NormalizeRotation(rotation.z, startRotation.z);
-            return ret;
-        }
-
-        private float NormalizeRotation(float current, float start)
-        {
-            float result = (current - start) % 360;
+            float result = current;
             if (result < 0)
                 result += 360;
             result = (result + 180) % 360 - 180;

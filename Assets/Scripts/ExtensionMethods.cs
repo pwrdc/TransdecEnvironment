@@ -25,4 +25,20 @@ public static class ExtensionMethods
     {
         return new Vector3(original.x, 0, original.z);
     }
+
+    public static Vector3 Select(this Vector3 original, System.Func<float, float> selector)
+    {
+        return new Vector3(selector(original.x), selector(original.y), selector(original.z));
+    }
+
+    public static float[] ToArray(this Vector3 vector)
+    {
+        return new float[] {
+            vector.x,
+            vector.y,
+            vector.z
+        };
+    }
+
+    public static int ToInt(this bool value) => value ? 1 : 0;
 }

@@ -236,9 +236,9 @@ public class RobotAgent : Agent
     {
         Observations observations=new Observations();
 
-        observations.Acceleration = accelerometer.GetAcceleration();
-        observations.AngularAcceleration = accelerometer.GetAngularAcceleration();
-        observations.Rotation = accelerometer.GetRotation();
+        observations.Acceleration = accelerometer.acceleration.ToArray();
+        observations.AngularAcceleration = accelerometer.angularAcceleration.ToArray();
+        observations.Rotation = accelerometer.rotation.ToArray();
         observations.Depth = depthSensor.GetDistance();
         observations.FrontDistance = frontDistanceSensor.GetDistance();
 
@@ -248,7 +248,7 @@ public class RobotAgent : Agent
         if (((agentSettings.dataCollection && agentSettings.positiveExamples) || agentSettings.sendAllData) && targetLocator.Visible)
             observations.BoundingBox=EncodeBoundingBox(targetLocator.ScreenRect);
         if ((agentSettings.positiveExamples && !agentSettings.forceToSaveAsNegative) || agentSettings.sendAllData)
-            observations.PositiveNegative = targetLocator.Visible ? 1 : 0;
+            observations.PositiveNegative = targetLocator.Visible.ToInt();
         observations.HydrophoneAngle = hydrophone.GetAngle();
 
         Vector3 relativePosition = targetLocator.RelativePosition;
@@ -261,8 +261,8 @@ public class RobotAgent : Agent
             };
 
         observations.GrabbingState = (int)ballGrapper.GetState();
-        observations.TorpedoHit = torpedo.lastTorpedoHit ? 1 : 0;
-        observations.TorpedoReady= torpedo.ready ? 1 : 0;
+        observations.TorpedoHit = torpedo.lastTorpedoHit.ToInt();
+        observations.TorpedoReady= torpedo.ready.ToInt();
 
         lastObservations = observations;
         return observations;
@@ -291,7 +291,7 @@ public class RobotAgent : Agent
                         CalculateSingleReward(relativePosition.y, startRelativePosition.y) +
                         CalculateSingleReward(relativePosition.z, startRelativePosition.z) +
                         CalculateSingleReward(targetLocator.RelativeAngle, startRelativeAngle)) / 4 -
-                        collided - (WaterLevel.IsAbove(transform.position.y) ? 1:0);
+                        collided - (WaterLevel.IsAbove(transform.position.y).ToInt());
         return reward;
     }
 

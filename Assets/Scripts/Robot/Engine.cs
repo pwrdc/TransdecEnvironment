@@ -8,7 +8,7 @@ namespace Robot
 {
     public class Engine : MonoBehaviour
     {
-        private Rigidbody rbody;
+        new Rigidbody rigidbody;
 
         public float drag = 2.0f;
         public float angularDrag = 2.0f;
@@ -19,32 +19,32 @@ namespace Robot
 
         void Start()
         {
-            rbody = transform.parent.GetComponent<Rigidbody>();
+            rigidbody = GetComponentInParent<Rigidbody>();
         }
 
         void Update()
         {
             LevelSelf();
-            if (rbody.drag != drag)
-                rbody.drag = drag;
-            if (rbody.angularDrag != angularDrag)
-                rbody.angularDrag = angularDrag;
+            if (rigidbody.drag != drag)
+                rigidbody.drag = drag;
+            if (rigidbody.angularDrag != angularDrag)
+                rigidbody.angularDrag = angularDrag;
         }
 
         public void Move(float Longitudinal, float Lateral, float Vertical, float Yaw)
         {
             if (WaterLevel.IsAbove(transform.position.y))
             {
-                rbody.AddRelativeForce(maxForceLateral * Lateral, maxForceVertical * Vertical, maxForceLongitudinal * Longitudinal);
-                rbody.AddRelativeTorque(0, maxTorqueYaw * Yaw, 0);
+                rigidbody.AddRelativeForce(maxForceLateral * Lateral, maxForceVertical * Vertical, maxForceLongitudinal * Longitudinal);
+                rigidbody.AddRelativeTorque(0, maxTorqueYaw * Yaw, 0);
             }
         }
 
         void LevelSelf()
         {
-            rbody.AddRelativeTorque((float)(-Math.Sin(rbody.rotation.eulerAngles.x * (Math.PI / 180))),
+            rigidbody.AddRelativeTorque((float)(-Math.Sin(rigidbody.rotation.eulerAngles.x * (Math.PI / 180))),
                                     0,
-                                    (float)(-Math.Sin(rbody.rotation.eulerAngles.z * (Math.PI / 180))));
+                                    (float)(-Math.Sin(rigidbody.rotation.eulerAngles.z * (Math.PI / 180))));
         }
     }
 }

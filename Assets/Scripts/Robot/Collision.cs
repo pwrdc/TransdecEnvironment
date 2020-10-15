@@ -1,54 +1,47 @@
-﻿using System.Collections;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class Collision : MonoBehaviour
 {
-
-    public float dis;
-
-    public GameObject mainObject;
     List<Collider> colliders = new List<Collider>();
-    Collider min;
+    [ReadOnly]
+    public float closestDistance;
+    Collider closestCollider;
 
-    void Update()
+    void OnTriggerEnter(Collider collider)
     {
-        float minDis = 100;
-
-        if (colliders.Count != 0)
+        if (!colliders.Contains(collider))
         {
-            foreach (Collider element in colliders)
-            {
-
-                float distance = Vector3.Distance(element.transform.position, mainObject.transform.position);
-
-
-                if (distance < minDis)
-                {
-                    minDis = distance;
-                    min = element;
-                }
-                dis = minDis;
-
+            colliders.Add(collider);
+            float distance = Vector3.Distance(collider.transform.position, transform.position);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestCollider = collider;
             }
-            colliders.Clear();
-        }
-
-    }
-
-    void OnTriggerEnter(Collider co)
-    {
-        if (!colliders.Contains(co))
-        {
-            colliders.Add(co);
         }
         EventsLogger.Log("Collision with an object.");
     }
 
-    public float getDistance()
+    void OnTriggerExit(Collider collider)
     {
-        return dis;
+        colliders.Remove(collider);
+        if (closestCollider == collider)
+        {
+            FindClosestCollider();
+        }
     }
 
+    void FindClosestCollider()
+    {
+        foreach (Collider collider in colliders)
+        {
+            float distance = Vector3.Distance(collider.transform.position, transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closestCollider = collider;
+            }
+        }
+    }
 }
