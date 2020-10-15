@@ -1,6 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
+using System.Linq;
 
 [RequireComponent(typeof(ScenesGenerator))]
 public class Targets : MonoBehaviour
@@ -9,7 +10,22 @@ public class Targets : MonoBehaviour
     public static Targets Instance=> Singleton.GetInstance(ref instance, instance => instance.Initialize());
 
     public GameObject[] targetsFolders;
-    public int selected;
+    // used to create a dropdown in the inspector
+    DropdownList<int> TargetFoldersNames()
+    {
+        DropdownList<int> result = new DropdownList<int>();
+        if (targetsFolders != null)
+        {
+            for (int i = 0; i < targetsFolders.Length; i++)
+            {
+                result.Add(targetsFolders[i].name, i);
+            }
+        }
+        return result;
+    }
+    [Dropdown("TargetFoldersNames")]
+    public int selectedFolder;
+    
     public bool useSettings = true;
     
     [ResetParameter] bool collectData = false;
@@ -27,10 +43,10 @@ public class Targets : MonoBehaviour
     {
         ResetParameterAttribute.InitializeAll(this);
         if (Settings.Used)
-            selected = Settings.TargetsFolderIndex;
+            selectedFolder = Settings.TargetsFolderIndex;
         SetFoldersActivation();
 
-        Transform folder = targetsFolders[selected].transform;
+        Transform folder = targetsFolders[selectedFolder].transform;
         GetComponent<ScenesGenerator>().targetsFolder = folder;
         ListTargets(folder);
     }
@@ -39,7 +55,7 @@ public class Targets : MonoBehaviour
     {
         for (int i = 0; i < targetsFolders.Length; i++)
         {
-            targetsFolders[i].SetActive(i == selected);
+            targetsFolders[i].SetActive(i == selectedFolder);
         }
     }
 
