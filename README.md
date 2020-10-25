@@ -120,3 +120,9 @@ but this is not guaranteed to be working. If you do not need your changes execut
 ``` git stash drop```
 
 Please **do not** push your changes to `master` branch. If you find your changes useful please create another branch and create a **Pull Request**
+
+## Screenshots
+![image7](https://user-images.githubusercontent.com/16499460/96162624-0b1d4a00-0f19-11eb-8499-74e0868f0bae.png)
+![image9](https://user-images.githubusercontent.com/16499460/96162648-12445800-0f19-11eb-8139-bfdf3aa8bdc6.png)
+![image17](https://user-images.githubusercontent.com/16499460/96162674-196b6600-0f19-11eb-85df-6e91b94ef77a.png)
+![image19](https://user-images.githubusercontent.com/16499460/96162687-1ec8b080-0f19-11eb-9c69-a60646bafad4.png)
