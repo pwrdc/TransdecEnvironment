@@ -61,6 +61,8 @@ Shader "Hidden/Legacy/VaryingBlur"
 		return (snoise(pos)+1) / 2;
 	}
 
+	// There was an attempt to only generate the blur for parts that needed it using expression like if (blurAmount>0.1)
+	// but it stopped the compiler from unrolling the loops and made the shader slower than before on average.
 	float4 AddVariation(float2 uv, float4 blurredColor) {
 		float4 originalColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
 		float screenHeight = _ScreenParams.y;
@@ -78,7 +80,7 @@ Shader "Hidden/Legacy/VaryingBlur"
 		
 		// comment out code line below to visualise noise value
 		// (using if expression or ifdef here slows down the shader by about 30%)
-		// return float4(transformedNoiseValue.xxx, 1);
+		return float4(transformedNoiseValue.xxx, 1);
 		float4 originalAndBlurred = lerp(originalColor, blurredColor, transformedNoiseValue);
 		float4 originalBlurredAndColor = lerp(originalAndBlurred, _Color, clamp(noiseValue, 0, 1)*_ColorIntensity);
 

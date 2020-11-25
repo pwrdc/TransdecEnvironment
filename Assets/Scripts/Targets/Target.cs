@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using NaughtyAttributes;
 
 public class Target : MonoBehaviour
 {
     public CameraType cameraType;
     public GameObject annotation;
-    [Header("This variable is set by Targets class")]
+    [ReadOnly]
     public int index;
 
     private void Start()

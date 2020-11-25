@@ -598,7 +598,7 @@ MonoBehaviour:
   horizontalPlacement: 0
   radius: 0.5429268
   scale: {x: 0.5893103, y: 0.5525606, z: 0.589398}
-  offset: {x: 0, y: -0.29999998, z: 0}
+  offset: {x: 0, y: 0.27, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
@@ -669,7 +669,7 @@ MonoBehaviour:
   horizontalPlacement: 0
   radius: 0.5429268
   scale: {x: 0.5893103, y: 0.5525606, z: 0.589398}
-  offset: {x: 0, y: -0.29999998, z: 0}
+  offset: {x: 0, y: 0.27, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
@@ -753,7 +753,7 @@ MonoBehaviour:
   horizontalPlacement: 0
   radius: 0.5429268
   scale: {x: 0.5893103, y: 0.5525606, z: 0.589398}
-  offset: {x: 0, y: -0.29999998, z: 0}
+  offset: {x: 0, y: 0.27, z: 0}
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   randomRotation:
     x: 0
@@ -788,7 +788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7255747839929104840}
   m_Layer: 0
-  m_Name: AUV_Targets
+  m_Name: AUVTargets
   m_TagString: TasksFolder
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
