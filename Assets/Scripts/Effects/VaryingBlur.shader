@@ -80,7 +80,7 @@ Shader "Hidden/Legacy/VaryingBlur"
 		
 		// comment out code line below to visualise noise value
 		// (using if expression or ifdef here slows down the shader by about 30%)
-		return float4(transformedNoiseValue.xxx, 1);
+		// return float4(transformedNoiseValue.xxx, 1);
 		float4 originalAndBlurred = lerp(originalColor, blurredColor, transformedNoiseValue);
 		float4 originalBlurredAndColor = lerp(originalAndBlurred, _Color, clamp(noiseValue, 0, 1)*_ColorIntensity);
 
