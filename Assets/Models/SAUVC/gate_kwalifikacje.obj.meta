@@ -3,7 +3,12 @@ guid: 4486ff900b2a8f945978f60606018421
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Solid1Mat
+    second: {fileID: 2100000, guid: a62fbbf75b81ac24eac7dff0172db0b6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -31,7 +36,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1

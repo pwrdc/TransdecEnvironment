@@ -121,6 +121,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &50907497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4245771769521590973, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &50907502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50907497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 0
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 1
+--- !u!1 &144855326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8336468423210263160, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &144855329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144855326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.02
+    vertexSelectionType: 2
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.02
+    vertexSelectionType: 1
 --- !u!1 &279968931
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +832,87 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551428640}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &574991932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4245771768614508980, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &574991936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574991932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 2
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 1
+--- !u!1 &615506665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4245771768575529263, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &615506670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615506665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 0
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 1
+--- !u!1 &630520655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3141091311049127872, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &630520660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630520655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 0
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 1
 --- !u!21 &635046402
 Material:
   serializedVersion: 6
@@ -880,6 +1015,33 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &641185595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4245771767792701530, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &641185600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641185595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 0
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 1
 --- !u!21 &662432017
 Material:
   serializedVersion: 6
@@ -1372,6 +1534,33 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &914579744 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4245771768736275544, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &914579748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914579744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 2
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 1
 --- !u!1 &915012531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,6 +1803,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1078478307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2067576423397135954, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1078478313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078478307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 0
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 1
 --- !u!1 &1084200022 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8215860736981092358, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -1904,10 +2120,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsPercentage: 0.05
-  particlePrefabs:
-  - {fileID: 5639931482307560741, guid: 6514bc9f39efd1440b47da1cce31b6f8, type: 3}
-  - {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4, type: 3}
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.02
+    vertexSelectionType: 2
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.02
+    vertexSelectionType: 1
 --- !u!1 &1364244376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,6 +2455,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1537353786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5317562946572286398, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1537353790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537353786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 2
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 1
+--- !u!1 &1601139949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8336468423813507641, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1601139952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601139949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.02
+    vertexSelectionType: 2
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.02
+    vertexSelectionType: 1
 --- !u!1 &1607031181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1017653973085402736, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -2508,6 +2783,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790120002}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1820289775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5317562948323714776, guid: 43af792d632711a79a7b7f029cbcd5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7134980805273521817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1820289779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820289775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles:
+  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 2
+  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 1
 --- !u!1 &1829554557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1138413516037101796, guid: 43af792d632711a79a7b7f029cbcd5fc,

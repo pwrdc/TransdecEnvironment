@@ -3,7 +3,14 @@ using UnityEngine;
 
 public static class Utils
 {
-    private static System.Random rnd = new System.Random();
+    public static IEnumerable<T> ForEach<T>(this IEnumerable<T> source, System.Action<T> action)
+    {
+        foreach(T element in source)
+        {
+            action(element);
+        }
+        return source;
+    }
 
     public static Bounds PointsToBounds(Vector3 point1, Vector3 point2)
     {
