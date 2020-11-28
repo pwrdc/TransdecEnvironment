@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public static class Utils
 {
@@ -10,6 +11,13 @@ public static class Utils
             action(element);
         }
         return source;
+    }
+
+    // Python's enumarate reimplemented using Linq
+    public static IEnumerable<System.ValueTuple<int, T>> Enumerate<T>(this IEnumerable<T> source)
+    {
+        int index = 0;
+        return source.Select(element => new System.ValueTuple<int, T>(index++, element));
     }
 
     public static Bounds PointsToBounds(Vector3 point1, Vector3 point2)

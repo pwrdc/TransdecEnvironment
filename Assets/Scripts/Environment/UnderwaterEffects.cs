@@ -71,7 +71,10 @@ namespace Environment
                 return 1f;
             Vector3 screenBottom = camera.ViewportToWorldPoint(new Vector3(0.5f, 0, camera.nearClipPlane));
             Vector3 screenTop = camera.ViewportToWorldPoint(new Vector3(0.5f, 1, camera.nearClipPlane));
-            return Cube(Mathf.InverseLerp(screenBottom.y, screenTop.y, WaterLevel.Y + waterLevelOffset));
+            // in case the camera is flipped upside down
+            float minY = Mathf.Min(screenBottom.y, screenTop.y);
+            float maxY = Mathf.Max(screenBottom.y, screenTop.y);
+            return Cube(Mathf.InverseLerp(minY, maxY, WaterLevel.Y + waterLevelOffset));
         }
 
         void UpdateEffects(float weight)

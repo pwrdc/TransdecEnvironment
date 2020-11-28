@@ -140,14 +140,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.0001
     vertexSelectionType: 0
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.0001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &144855326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8336468423210263160, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -167,14 +173,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.02
     vertexSelectionType: 2
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.02
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &279968931
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,14 +863,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.001
     vertexSelectionType: 2
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &615506665 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4245771768575529263, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -878,14 +896,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
-    percentage: 0.001
-    vertexSelectionType: 0
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &630520655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3141091311049127872, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -905,14 +925,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.0001
     vertexSelectionType: 0
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.0001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!21 &635046402
 Material:
   serializedVersion: 6
@@ -1034,14 +1060,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
-    percentage: 0.001
-    vertexSelectionType: 0
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!21 &662432017
 Material:
   serializedVersion: 6
@@ -1553,14 +1581,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.001
     vertexSelectionType: 2
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &915012531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,14 +1856,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.0001
     vertexSelectionType: 0
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.0001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &1084200022 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8215860736981092358, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -2121,14 +2161,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.02
     vertexSelectionType: 2
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.02
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &1364244376
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,14 +2520,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.001
     vertexSelectionType: 2
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &1601139949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8336468423813507641, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -2501,14 +2553,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.02
     vertexSelectionType: 2
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.02
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &1607031181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1017653973085402736, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -2802,14 +2860,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles:
-  - prefab: {fileID: 5639931482307560741, guid: a0fc2df6cdb977c4d8461ce975df86af,
-      type: 3}
+  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
     percentage: 0.001
     vertexSelectionType: 2
-  - prefab: {fileID: 8435556509949038012, guid: 91f835b8995523347960d84a21963ea4,
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
       type: 3}
     percentage: 0.001
     vertexSelectionType: 1
+    useColor: 0
+  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
+      type: 3}
+    percentage: 0.0001
+    vertexSelectionType: 3
+    useColor: 1
 --- !u!1 &1829554557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1138413516037101796, guid: 43af792d632711a79a7b7f029cbcd5fc,
@@ -3723,6 +3787,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 2.4611916e-38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: -6.9e-44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -6.9e-44
+      objectReference: {fileID: 0}
     - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: placingArea
@@ -4095,6 +4179,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 6e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 8.1e-44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7870206062101644986, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -4482,6 +4581,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153791788086511115, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: maxTorqueYaw
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
