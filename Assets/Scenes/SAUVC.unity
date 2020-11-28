@@ -903,40 +903,7 @@ MonoBehaviour:
     useColor: 0
   - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
       type: 3}
-    percentage: 0.001
-    vertexSelectionType: 3
-    useColor: 1
---- !u!1 &630520655 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3141091311049127872, guid: 43af792d632711a79a7b7f029cbcd5fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 7134980805273521817}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &630520660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 630520655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a25bd7e913d645d48889561a25ca4c65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particles:
-  - prefab: {fileID: 1927128227, guid: a0fc2df6cdb977c4d8461ce975df86af, type: 3}
-    percentage: 0.0001
-    vertexSelectionType: 0
-    useColor: 0
-  - prefab: {fileID: 8209055907629026742, guid: 91f835b8995523347960d84a21963ea4,
-      type: 3}
-    percentage: 0.0001
-    vertexSelectionType: 1
-    useColor: 0
-  - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
-      type: 3}
-    percentage: 0.0001
+    percentage: 0.0005
     vertexSelectionType: 3
     useColor: 1
 --- !u!21 &635046402
@@ -1067,7 +1034,7 @@ MonoBehaviour:
     useColor: 0
   - prefab: {fileID: 8209055907629026742, guid: e1d11a1a1f7554046be9bd80936eeb7c,
       type: 3}
-    percentage: 0.001
+    percentage: 0.0005
     vertexSelectionType: 3
     useColor: 1
 --- !u!21 &662432017
@@ -3220,6 +3187,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 3210798633288746141, guid: 4c6bb41a6b67ae4429ac55d995539f57,
+        type: 3}
+      propertyPath: m_OrthographicSize
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3210798631874036939, guid: 4c6bb41a6b67ae4429ac55d995539f57,
         type: 3}
       propertyPath: m_IsActive
@@ -3795,17 +3767,17 @@ PrefabInstance:
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 2.4611916e-38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: -6.9e-44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -6.9e-44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1696120367845300761, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -4183,17 +4155,22 @@ PrefabInstance:
     - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 6e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 8.1e-44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 4.1867803e-36
       objectReference: {fileID: 0}
     - target: {fileID: 7870206062101644986, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -4261,6 +4238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153791788086511115, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: maxTorqueYaw
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9153791788269740630, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -4581,11 +4563,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9153791788086511115, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: maxTorqueYaw
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43af792d632711a79a7b7f029cbcd5fc, type: 3}
