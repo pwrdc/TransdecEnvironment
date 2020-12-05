@@ -286,11 +286,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   note: 'The shape of the volume affects the way the
 
-    light travels, so it should only cover the water.
+    light travels, so it should
+    only cover the water.
 
     Otherwise the scene will be darker and the skybox
 
-    will be invisible.'
+    will
+    be invisible.'
 --- !u!1 &1086098077351443723
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,8 +333,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086098077351443723}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 0.9904618, g: 1, b: 0.9481132, a: 1}
   m_Intensity: 1.2
   m_Range: 10
@@ -396,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   copied: {fileID: 8649493824596090407}
-  intensityMultiplier: 0.8
+  intensityMultiplier: 0.75
 --- !u!1 &1093948667760828152
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,14 +581,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  note: "Varyingly translucent surfaces can't cast varyingly translucent shadows in
-    Unity,\nso the light patterns on the bottom are created by a projector \nand the
-    bottom surface is set so it doesn't receive harsh shadows from the sieve.\n\nThere
-    are two directional lights:\n- one used to create light rays using aura that only
-    interacts with the upper sieve\n- and the other one that interacts with everything
-    but the sieve and creates shadows.\n\nIf you want your object to not cast shadows
-    on the bottom but to create light rays \n(for example if it's big and close to
-    the water surface) set its layer to \"Aura\".\n"
+  note: "Varyingly translucent surfaces can't cast varyingly translucent shadows
+    in Unity,\nso the light patterns on the bottom are created by a projector \nand
+    the bottom surface is set so it doesn't receive harsh shadows from the sieve.\n\nThere
+    are two directional lights:\n- one used to create light rays using aura that
+    only interacts with the upper sieve\n- and the other one that interacts with
+    everything but the sieve and creates shadows.\n\nIf you want your object to not
+    cast shadows on the bottom but to create light rays \n(for example if it's big
+    and close to the water surface) set its layer to \"Aura\".\n"
 --- !u!1 &4086602655649962728
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +639,8 @@ MonoBehaviour:
   note: 'This object controls environment parameters like lighting and water quality
     through its children.
 
-    You can disable their randomization in the component below.'
+    You can disable their randomization in the component
+    below.'
 --- !u!114 &8715284777462405288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,7 +718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   note: 'To disable effects disable UnderwaterEffects script.
 
-    It also disables them if robot is above water surface.'
+    It also disables
+    them if robot is above water surface.'
 --- !u!1 &7485516083926059147
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,6 +818,96 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aura Directional Light
       objectReference: {fileID: 0}
+    - target: {fileID: 5537146887801356785, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9904618
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537146887801356785, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.9481132
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: overridingColor.r
+      value: 0.984808
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: overridingColor.g
+      value: 0.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: overridingColor.b
+      value: 0.96961707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: useCookie
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: outOfPhaseColor.r
+      value: 0.8064306
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: outOfPhaseColor.g
+      value: 0.999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: outOfPhaseColor.b
+      value: 0.936593
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: angle.value
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: angle.normal
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: angle.min
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: angle.max
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: angle.previewMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: intensity.value
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: intensity.min
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: intensity.previewMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
+        type: 3}
+      propertyPath: xAngle.value
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 8613969033633872914, guid: 28a137918b7786b4c904b9d12b29360e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -867,96 +962,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 53.514004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537146887801356785, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.9904618
-      objectReference: {fileID: 0}
-    - target: {fileID: 5537146887801356785, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.9481132
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: angle.value
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: angle.normal
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: angle.min
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: angle.max
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: angle.previewMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: intensity.value
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: intensity.min
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: intensity.previewMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8227689981050478941, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: xAngle.value
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: overridingColor.r
-      value: 0.984808
-      objectReference: {fileID: 0}
-    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: overridingColor.g
-      value: 0.999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: overridingColor.b
-      value: 0.96961707
-      objectReference: {fileID: 0}
-    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: useCookie
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: outOfPhaseColor.r
-      value: 0.8064306
-      objectReference: {fileID: 0}
-    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: outOfPhaseColor.g
-      value: 0.999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7032685673829613397, guid: 28a137918b7786b4c904b9d12b29360e,
-        type: 3}
-      propertyPath: outOfPhaseColor.b
-      value: 0.936593
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a137918b7786b4c904b9d12b29360e, type: 3}

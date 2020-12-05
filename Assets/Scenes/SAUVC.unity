@@ -1704,8 +1704,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915012531}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
-  m_LocalPosition: {x: 28.48, y: 4.322, z: -4.355}
+  m_LocalRotation: {x: 0.09280766, y: 0.5588287, z: 0.063162215, w: -0.82164943}
+  m_LocalPosition: {x: 19.722467, y: 3.5078425, z: -4.436319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4107,7 +4107,7 @@ PrefabInstance:
     - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: m_Intensity
-      value: 0.90000004
+      value: 0.97499996
       objectReference: {fileID: 0}
     - target: {fileID: 4731130047088304285, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -4197,11 +4197,6 @@ PrefabInstance:
         type: 3}
       propertyPath: selected
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5309111143260719580, guid: 43af792d632711a79a7b7f029cbcd5fc,
-        type: 3}
-      propertyPath: intensityMultiplier
-      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5423876953090339029, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -4346,6 +4341,11 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.w
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6137482835938225344, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6185550624271084111, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: waterSurface
@@ -4359,7 +4359,7 @@ PrefabInstance:
     - target: {fileID: 7039879321461899118, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
       propertyPath: volumetricDensity.value
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7075817934722209456, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
@@ -4400,6 +4400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770395651252489324, guid: 43af792d632711a79a7b7f029cbcd5fc,
+        type: 3}
+      propertyPath: intensity.value
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7870206062101644986, guid: 43af792d632711a79a7b7f029cbcd5fc,
         type: 3}
