@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5980440947784456060
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b20f348b05ae074983d7bd436f27a19, type: 3}
+  m_Name: VaryingBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  Mode:
+    overrideState: 0
+    value: 0
+  Downsample:
+    overrideState: 0
+    value: 1
+  BlurIterations:
+    overrideState: 0
+    value: 1
+  BlurSize:
+    overrideState: 0
+    value: 3
+  NoiseScale:
+    overrideState: 0
+    value: 5
+  NoiseChangeRate:
+    overrideState: 0
+    value: 2
+  Color:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
+  ColorIntensity:
+    overrideState: 0
+    value: 0
+  BlurredPart:
+    overrideState: 0
+    value: 0.5
+  DepthBlur:
+    overrideState: 0
+    value: 0.01
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +59,7 @@ MonoBehaviour:
   m_Name: AboveWaterPostProcessVolume Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 2274193641363813216}
+  - {fileID: -5980440947784456060}
 --- !u!114 &2274193641363813216
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -57,3 +103,6 @@ MonoBehaviour:
   BlurredPart:
     overrideState: 1
     value: 1
+  DepthBlur:
+    overrideState: 0
+    value: 0.01
