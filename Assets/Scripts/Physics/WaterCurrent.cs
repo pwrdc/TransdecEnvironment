@@ -47,7 +47,7 @@ namespace Environment
         public override void ApplyParameters()
         {
             base.ApplyParameters();
-            radius = forceRange.value;
+            radius = forceRange.Value;
         }
 
         public override void Update()
@@ -56,8 +56,8 @@ namespace Environment
             if (ActuallyEnabled)
             {
                 // using delta time here ensures that the speed of change will be the same for different frame rates
-                radius += Random.Range(-velocityChange.value, velocityChange.value) * Time.deltaTime;
-                angle += Random.Range(-angleChange.value, angleChange.value) * Time.deltaTime;
+                radius += Random.Range(-velocityChange.Value, velocityChange.Value) * Time.deltaTime;
+                angle += Random.Range(-angleChange.Value, angleChange.Value) * Time.deltaTime;
                 
                 if (radius > forceRange.max)
                     radius = forceRange.max;

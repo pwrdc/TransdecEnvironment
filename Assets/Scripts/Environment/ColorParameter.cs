@@ -6,31 +6,46 @@ using NaughtyAttributes;
 namespace Environment
 {
     [System.Serializable]
-    public class ColorParameter : RandomizedParameter
+    public class ColorParameter : RandomizedParameter<Color>
     {
-        [HideInInspector]
-        public Color value;
+        protected Color randomValue;
         public Color normal;
         public Color[] colorPoints;
 
         public enum PreviewMode
         {
             Normal,
-            ColorPointIndex
+            ColorPointIndex,
+            Randomized
         }
         
         public PreviewMode previewMode;
         bool ShowPreviewIndex => previewMode == PreviewMode.ColorPointIndex;
+
+        public override Color Value
+        {
+            get
+            {
+                switch (previewMode)
+                {
+                    case PreviewMode.ColorPointIndex:
+                        if (colorPoints.Length > 0)
+                            return colorPoints[Mathf.Clamp(previewIndex, 0, colorPoints.Length - 1)];
+                        else
+                            return normal;
+                    case PreviewMode.Normal:
+                        return normal;
+                    case PreviewMode.Randomized:
+                        return randomValue;
+                    default:
+                        throw new InvalidEnumValueException(previewMode);
+                }
+                
+            }
+        }
+
         [AllowNesting, ShowIf("ShowPreviewIndex")]
         public int previewIndex = 0;
-
-        public override void Preview()
-        {
-            if (colorPoints.Length > 0 && previewMode == PreviewMode.ColorPointIndex)
-                value = colorPoints[Mathf.Clamp(previewIndex, 0, colorPoints.Length - 1)];
-            else
-                value = normal;
-        }
 
         public override void Randomize()
         {
@@ -53,12 +68,13 @@ namespace Environment
             r = Mathf.Pow(r, weightsSumInverted);
             g = Mathf.Pow(g, weightsSumInverted);
             b = Mathf.Pow(b, weightsSumInverted);
-            value = new Color(r, g, b);
+            randomValue = new Color(r, g, b);
+            previewMode = PreviewMode.Randomized;
         }
 
         public override void SetAsNormal()
         {
-            value = normal;
+            randomValue = normal;
         }
     }
 }

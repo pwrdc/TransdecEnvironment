@@ -1235,11 +1235,6 @@ PrefabInstance:
       propertyPath: robotLight
       value: 
       objectReference: {fileID: 2464539755930589609}
-    - target: {fileID: 7244133071925295931, guid: 4515cee7c0bc5b662a1ce31ceecd4c9e,
-        type: 3}
-      propertyPath: intensityMultiplier
-      value: 0.65
-      objectReference: {fileID: 0}
     - target: {fileID: 8745976425692413371, guid: 4515cee7c0bc5b662a1ce31ceecd4c9e,
         type: 3}
       propertyPath: weight

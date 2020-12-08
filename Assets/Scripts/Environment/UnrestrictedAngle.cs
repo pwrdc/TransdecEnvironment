@@ -4,13 +4,11 @@ using UnityEngine;
 
 namespace Environment
 {
-    public class UnrestrictedAngle : RandomizedParameter
+    public class UnrestrictedAngle : RandomizedParameter<float>
     {
-        public float value;
-        public override void Preview()
-        {
-            value = 0f;
-        }
+        float value;
+
+        public override float Value => value;
 
         public override void Randomize()
         {

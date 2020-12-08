@@ -9,6 +9,11 @@ namespace Environment
     {
         public abstract void Randomize();
         public abstract void SetAsNormal();
-        public abstract void Preview();
+    }
+
+    [System.Serializable]
+    public abstract class RandomizedParameter<T> : RandomizedParameter
+    {
+        public abstract T Value { get; }
     }
 }

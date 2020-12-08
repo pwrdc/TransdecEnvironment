@@ -23,15 +23,6 @@ namespace Environment
             ApplyParameters();
         }
 
-        public virtual void Preview()
-        {
-            foreach (var parameter in parameters)
-            {
-                parameter.Preview();
-            }
-            ApplyParameters();
-        }
-
         public virtual void ApplyParameters()
         {
 
@@ -45,8 +36,7 @@ namespace Environment
         
         public virtual void Update()
         {
-            if (!Application.isPlaying)
-                Preview();
+            ApplyParameters();
         }
     }
 }

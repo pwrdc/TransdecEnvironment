@@ -6,11 +6,30 @@ using NaughtyAttributes;
 namespace Environment
 {
     [System.Serializable]
-    public abstract class LinearParameter<T> : RandomizedParameter
+    public abstract class LinearParameter<T> : RandomizedParameter<T>
     {
-        [HideInInspector]
-        public T value;
-        
+        protected T randomValue;
+
+        public override T Value {
+            get {
+                switch (previewMode)
+                {
+                    case PreviewMode.Min:
+                        return min;
+                    case PreviewMode.Max:
+                        return max;
+                    case PreviewMode.Normal:
+                        return normal;
+                    case PreviewMode.Percentage:
+                        return Blend((float)previewPercentage / 100);
+                    case PreviewMode.Randomized:
+                        return randomValue;
+                    default:
+                        throw new InvalidEnumValueException(previewMode);
+                }
+            }
+        }
+
         public T normal;
         public T min;
         public T max;
@@ -28,7 +47,8 @@ namespace Environment
             Min,
             Normal,
             Max,
-            Percentage
+            Percentage,
+            Randomized
         }
         
         public PreviewMode previewMode;
@@ -38,36 +58,16 @@ namespace Environment
 
         public override void Randomize()
         {
-            value = Blend(Random.value);
+            randomValue = Blend(Random.value);
+            previewMode = PreviewMode.Randomized;
         }
 
         public override void SetAsNormal()
         {
-            value = normal;
+            previewMode = PreviewMode.Normal;
         }
 
         public abstract T Blend(float percentage);
-
-        public override void Preview()
-        {
-            switch (previewMode)
-            {
-                case PreviewMode.Min:
-                    value = min;
-                    break;
-                case PreviewMode.Max:
-                    value = max;
-                    break;
-                case PreviewMode.Normal:
-                    value = normal;
-                    break;
-                case PreviewMode.Percentage:
-                    value = Blend((float)previewPercentage/100);
-                    break;
-                default:
-                    throw new InvalidEnumValueException(previewMode);
-            }
-        }
     }
 
     [System.Serializable]

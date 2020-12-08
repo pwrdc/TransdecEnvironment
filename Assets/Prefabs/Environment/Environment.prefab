@@ -213,8 +213,8 @@ MonoBehaviour:
         saturateOutputValues: 0
     color: {r: 0.00000031328904, g: 0.0000005879647, b: 0.000001, a: 1}
   ambientInjection:
-    enable: 0
-    strength: 0
+    enable: 1
+    strength: 0.3
     useNoiseMask: 0
     useNoiseMaskLevels: 0
     noiseMaskLevelParameters:
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 6327803303661072281}
   - component: {fileID: 7822133972162024058}
   - component: {fileID: 7244133071925295931}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Shadows Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filterColor:
-    value: {r: 0.37254903, g: 0.9568628, b: 1, a: 1}
     normal: {r: 0.37254903, g: 0.9568628, b: 1, a: 1}
     colorPoints:
     - {r: 0.37254903, g: 0.9568628, b: 1, a: 1}
@@ -458,7 +457,6 @@ MonoBehaviour:
     previewMode: 0
     previewIndex: 5
   fogColor:
-    value: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 1}
     normal: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 1}
     colorPoints:
     - {r: 0.24759701, g: 0.44453073, b: 0.49056602, a: 1}
@@ -468,18 +466,16 @@ MonoBehaviour:
     previewMode: 0
     previewIndex: 3
   fogDensity:
-    value: 0.085
     normal: 0.085
     min: 0.05
     max: 0.1
     previewMode: 1
     previewPercentage: 0
   volumetricDensity:
-    value: 2
     normal: 2
     min: 1
     max: 5
-    previewMode: 0
+    previewMode: 1
     previewPercentage: 0
   auraVolume: {fileID: 239825200}
   postProcessVolume: {fileID: 8745976425692413371}
@@ -665,7 +661,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7213751949230074877}
   - component: {fileID: 2639304700508741602}
-  - component: {fileID: 3487370751864555722}
   m_Layer: 8
   m_Name: AboveWaterPostProcessVolume
   m_TagString: Untagged
@@ -704,22 +699,6 @@ MonoBehaviour:
   blendDistance: 10
   weight: 1
   priority: -1
---- !u!114 &3487370751864555722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6318986921663315468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1b91ef0fe6831428f962b93d0c06a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  note: 'To disable effects disable UnderwaterEffects script.
-
-    It also disables
-    them if robot is above water surface.'
 --- !u!1 &7485516083926059147
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,21 +764,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceRange:
-    value: 0
     normal: 20
     min: 10
     max: 40
     previewMode: 0
     previewPercentage: 0
   velocityChange:
-    value: 0
     normal: 2
     min: 1
     max: 5
     previewMode: 0
     previewPercentage: 0
   angleChange:
-    value: 0
     normal: 2
     min: 1
     max: 5

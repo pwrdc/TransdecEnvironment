@@ -48,17 +48,6 @@ namespace Environment
             parameters.Add(volumetricDensity);
         }
 
-        void OnDisable()
-        {
-            UpdateEffects(0f);
-        }
-
-        void OnEnable()
-        {
-            Start();
-            UpdateEffects(1f);
-        }
-
         float Cube(float x)
         {
             return x * x *x;
@@ -89,27 +78,21 @@ namespace Environment
             }
             if (robotLight != null) robotLight.enabled = active;
             RenderSettings.fog = active;
-            RenderSettings.fogColor = fogColor.value;
-            RenderSettings.fogDensity = fogDensity.value;
+            RenderSettings.fogColor = fogColor.Value;
+            RenderSettings.fogDensity = fogDensity.Value;
             RenderSettings.fogMode = ExponentailFogModeToFogMode(fogMode);
             if (auraVolume != null)
             {
-                auraVolume.densityInjection.strength = volumetricDensity.value;
-                auraVolume.scatteringInjection.strength = volumetricDensity.value / 10;
+                auraVolume.densityInjection.strength = volumetricDensity.Value;
+                auraVolume.scatteringInjection.strength = volumetricDensity.Value / 10;
             }
             if (postProcessVolume != null)
             {
                 ColorGrading colorGrading = postProcessVolume.sharedProfile.GetSetting<ColorGrading>();
-                colorGrading.colorFilter.value = filterColor.value;
+                colorGrading.colorFilter.value = filterColor.Value;
 
                 VaryingBlur varyingBlur = postProcessVolume.sharedProfile.GetSetting<VaryingBlur>();
-                varyingBlur.Color.value = fogColor.value;
-            }
-
-            // preview water opacity in the edit mode
-            if (Application.isEditor && !Application.isPlaying)
-            {
-                InitializeNormal();
+                varyingBlur.Color.value = fogColor.Value;
             }
         }
 

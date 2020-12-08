@@ -36,11 +36,11 @@ namespace Environment {
 
             // update emission rate inside of the particle system
             ParticleSystem.EmissionModule emission=particleSystem.emission;
-            emission.rateOverTime = emissionRate.value;
+            emission.rateOverTime = emissionRate.Value;
             // bursts count is same as main emission rate
             for(int i=0; i<emission.burstCount; i++) {
                 ParticleSystem.Burst burst=emission.GetBurst(i);
-                burst.count = emissionRate.value;
+                burst.count = emissionRate.Value;
                 emission.SetBurst(i, burst);
             }
             base.Update();

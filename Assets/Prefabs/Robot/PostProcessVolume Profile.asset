@@ -138,34 +138,34 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   Mode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   Downsample:
-    overrideState: 0
+    overrideState: 1
     value: 1
   BlurIterations:
-    overrideState: 0
+    overrideState: 1
     value: 1
   BlurSize:
-    overrideState: 0
+    overrideState: 1
     value: 3
   NoiseScale:
-    overrideState: 0
+    overrideState: 1
     value: 5
   NoiseChangeRate:
-    overrideState: 0
+    overrideState: 1
     value: 2
   Color:
-    overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 1}
+    overrideState: 1
+    value: {r: 0.11213955, g: 0.2264151, b: 0.2061404, a: 1}
   ColorIntensity:
-    overrideState: 0
+    overrideState: 1
     value: 0
   BlurredPart:
-    overrideState: 0
+    overrideState: 1
     value: 0.5
   DepthBlur:
-    overrideState: 0
+    overrideState: 1
     value: 0.01
 --- !u!114 &-1787771297504053464
 MonoBehaviour:

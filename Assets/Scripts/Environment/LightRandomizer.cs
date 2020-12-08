@@ -22,8 +22,8 @@ namespace Environment
         public override void Update()
         {
             base.Update();
-            light.intensity = intensity.value;
-            transform.rotation = Quaternion.Euler(xAngle.value, yAngle.value, 0);
+            light.intensity = intensity.Value;
+            transform.rotation = Quaternion.Euler(xAngle.Value, yAngle.Value, 0);
         }
     }
 }

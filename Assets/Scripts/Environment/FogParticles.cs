@@ -34,7 +34,7 @@ namespace Environment
         {
             if (underwaterEffect != null && particleSystem != null)
             {
-                Color color = underwaterEffect.fogColor.value;
+                Color color = underwaterEffect.fogColor.Value;
                 color.a = opacity;
                 if(particleSystemRenderer.sharedMaterial!=null)
                     particleSystemRenderer.sharedMaterial.color= ToGrayscale(color);
