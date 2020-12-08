@@ -21,8 +21,9 @@ public class PlaceableEditor : Editor
         if (GUILayout.Button("Auto Adjust")) {
             foreach (Object target in targets)
             {
-                Undo.RegisterCompleteObjectUndo(target, "Auto adjustment of " + target.name);
+                Undo.RecordObject(target, "Auto adjustment of " + target.name);
                 ((Placeable)target).AutoAdjust();
+                PrefabUtility.RecordPrefabInstancePropertyModifications(target);
             }
         }
         
