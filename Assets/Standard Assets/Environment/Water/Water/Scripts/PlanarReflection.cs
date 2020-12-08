@@ -29,12 +29,13 @@ namespace UnityStandardAssets.Water
 
         Camera CreateReflectionCameraFor(Camera cam)
         {
-            String reflName = gameObject.name + "Reflection" + cam.name;
+            string reflName = gameObject.name + "Reflection" + cam.name;
             GameObject go = GameObject.Find(reflName);
 
             if (!go)
             {
                 go = new GameObject(reflName, typeof(Camera));
+                go.hideFlags = HideFlags.HideAndDontSave;
             }
             if (!go.GetComponent(typeof(Camera)))
             {
