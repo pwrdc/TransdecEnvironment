@@ -53,8 +53,14 @@ namespace MLAgents
         public void SendState(Agent agent, AgentInfo info)
         {
             LazyInitialize();
-            agentInfos.Add(agent, info);
 
+            // lack of this check caused a dictionary exception when changing the scene
+            if (agentInfos.ContainsKey(agent))
+            {
+                agentInfos.Remove(agent);
+            }
+            // end of my edit
+            agentInfos.Add(agent, info);
         }
 
         /// <summary>
@@ -65,10 +71,11 @@ namespace MLAgents
         {
             if (!_isInitialized)
             {
-                FindObjectOfType<Academy>().BrainDecideAction += BrainDecideAction;
                 Initialize();
                 _isInitialized = true;
             }
+            // moved this line from preceding if because the robot was inert after changing the scene
+            FindObjectOfType<Academy>().BrainDecideAction += BrainDecideAction;
         }
         
         /// <summary>
