@@ -18,7 +18,7 @@ Feel free to add tests here or edit them according to your judgement, just remem
 - Set mode to *player* and simulation mode to *free swim* in settings.
 - Go back and click *start*.
 - A scene should open.
-- Check if you're inside of the pool, you can see upper water surface and you can recognise that you're under water by camera effects.
+- Check if you're inside of the pool, you can see upper water surface and you can recognize that you're under water by camera effects.
 - Check if following controls work:
 - Basic controls:
 	- `wasd` to move forwards, left, backwards and right
@@ -37,7 +37,7 @@ Feel free to add tests here or edit them according to your judgement, just remem
 	- Go to an object on layer *GrabberTargets*\*
 	- If there is no such object in this targets folder skip the next step.
 	- Press and hold `g`, the object should follow the AUV.
-- Torpedos:
+- Torpedoes:
 	- Open the debug screen.
 	- Press `t` while aiming at an empty wall.
 	- There should be an information about missing the target on the debug screen.
@@ -63,7 +63,7 @@ Feel free to add tests here or edit them according to your judgement, just remem
 - You should see quickly changing scene views.
 - Press `b` button
 	- It should pause the simulation and display debug screen.
-	- Check if you're inside of the pool, you can see upper water surface and you can recognise that you're under water by camera effects.
+	- Check if you're inside of the pool, you can see upper water surface and you can recognize that you're under water by camera effects.
 	- You should see a green rectangle around an object.
 	- Verify that the rectangle approximates the area covered by the object on screen. 
 	- Judge if the 4 floating point values on debug screen after "bounding box" represent rectangle's minX, minY, maxX and maxY
@@ -81,6 +81,15 @@ Feel free to add tests here or edit them according to your judgement, just remem
 - Set EnableNoise to zero, there shouldn't be any objects from the noise folder on the scene.
 - Set EnableNoise to one, the objects from noise folder should be placed on the scene. 
 - Test if rest of the options work according to description in *README->Essential Academy parameters->Reset Parameters*
+
+## Escape button
+- Open one of the simulation scenes in *Scenes* folder.
+- Press `escape` button.
+- The main menu scene should open.
+- Go to *settings* and select a different scene.
+- Press *start*.
+- The scene should open.
+- Test `wasd` controls.
 
 ## Optional functionality
 - Remove *Aura 2* folder 
