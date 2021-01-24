@@ -121,6 +121,31 @@ MonoBehaviour:
   dirtIntensity:
     overrideState: 0
     value: 0
+--- !u!114 &-4008267893386985899
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a91bc5b2802bf47a381d97862a45b3, type: 3}
+  m_Name: Distortions
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  Intensity:
+    overrideState: 1
+    value: 0.01
+  Scale:
+    overrideState: 1
+    value: 3000
+  Speed:
+    overrideState: 1
+    value: 10
 --- !u!114 &-2123227442551492032
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -231,6 +256,7 @@ MonoBehaviour:
   - {fileID: -4716941706110369674}
   - {fileID: -6383538822207847091}
   - {fileID: -2123227442551492032}
+  - {fileID: -4008267893386985899}
 --- !u!114 &1272614395257349740
 MonoBehaviour:
   m_ObjectHideFlags: 3
