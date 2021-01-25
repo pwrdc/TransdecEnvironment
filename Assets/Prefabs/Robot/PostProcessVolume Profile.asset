@@ -139,13 +139,13 @@ MonoBehaviour:
     value: 1
   Intensity:
     overrideState: 1
-    value: 0.01
+    value: 0.007
   Scale:
     overrideState: 1
-    value: 3000
+    value: 30
   Speed:
     overrideState: 1
-    value: 10
+    value: 0.2
 --- !u!114 &-2123227442551492032
 MonoBehaviour:
   m_ObjectHideFlags: 3

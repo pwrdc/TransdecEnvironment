@@ -90,7 +90,7 @@ MonoBehaviour:
       scale: {x: 10, y: 10, z: 10}
   densityInjection:
     enable: 1
-    strength: 1
+    strength: 2
     useNoiseMask: 0
     useNoiseMaskLevels: 0
     noiseMaskLevelParameters:
@@ -120,7 +120,7 @@ MonoBehaviour:
       saturateOutputValues: 0
   scatteringInjection:
     enable: 1
-    strength: 0.1
+    strength: 0.2
     useNoiseMask: 0
     useNoiseMaskLevels: 0
     noiseMaskLevelParameters:
@@ -337,7 +337,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.9904618, g: 1, b: 0.9481132, a: 1}
-  m_Intensity: 1.2
+  m_Intensity: 0.90000004
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

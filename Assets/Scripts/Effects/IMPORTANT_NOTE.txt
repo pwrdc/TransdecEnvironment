@@ -1,0 +1,2 @@
+Each effect shader file needs to be manually added in Project Settings / Graphics / Always Included Shaders.
+Else the build will have all of the camera effects disabled.
