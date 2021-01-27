@@ -75,7 +75,11 @@ namespace MLAgents
                 _isInitialized = true;
             }
             // moved this line from preceding if because the robot was inert after changing the scene
-            FindObjectOfType<Academy>().BrainDecideAction += BrainDecideAction;
+            Academy academy=FindObjectOfType<Academy>();
+            // -= operator removes delegate only if it is in the delegate list, else does nothing
+            // the line below ensures that the callback is not invoked multiple times
+            academy.BrainDecideAction -= BrainDecideAction;
+            academy.BrainDecideAction += BrainDecideAction;
         }
         
         /// <summary>
