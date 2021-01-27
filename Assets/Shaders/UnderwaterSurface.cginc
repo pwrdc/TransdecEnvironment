@@ -1,3 +1,6 @@
+#ifndef UNDERWATER_SURFACE
+#define UNDERWATER_SURFACE
+
 //get a scalar random value from a 3d value
 float rand3dTo1d(float3 value, float3 dotDir = float3(12.9898, 78.233, 37.719)) {
 	//make value smaller to avoid artefacts
@@ -76,3 +79,5 @@ float underwater_surface(float3 position, float sharpness) {
 	float noiseValue = voronoiNoise(position);
 	return pow(noiseValue, sharpness);
 }
+
+#endif

@@ -67,12 +67,14 @@ namespace UnityEngine.Rendering.PostProcessing
             sheet.properties.SetFloat("_BlurredPart", settings.BlurredPart);
             sheet.properties.SetFloat("_DepthBlur", settings.DepthBlur);
 
+            // downsampling step of the shader 
             int blurId = Shader.PropertyToID("_BlurPostProcessEffect");
             command.GetTemporaryRT(blurId, rtW, rtH, 0, FilterMode.Bilinear);
             command.BlitFullscreenTriangle(context.source, blurId, sheet, (int)Pass.Downsample);
 
             int pass = settings.Mode.value == Mode.SgxGaussian ? 2 : 0;
 
+            // blur is applied in iterations
             int rtIndex = 0;
             for (int i = 0; i < blurIterations; i++)
             {

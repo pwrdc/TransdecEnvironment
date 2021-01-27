@@ -88,16 +88,17 @@ Shader "Effects/Underwater Surface Projector" {
 #define PI 3.14
 
 			float angleFading(float3 normal) {
-				// angle is <0, pi>
-				// where 0 is parallel
-				// you want it to ooutput 0 starting from pi/2
+				// angle is in range <0, pi>, where 0 is parallel to the horizon
 				float angle = acos(dot(normal, float3(0, 1, 0)) / length(normal));
+				// the function output will be 0 when angle is in range <pi/2, pi>
+				// which will make the effect disappear for surfaces not facing the sun
 				float opacity = angle/PI;
 				opacity = 1 - opacity;
 				opacity = smoothstep(0.5, 1, opacity);
 				return opacity;
 			}
 
+			// checks if uv.xy is in (0, 0, 1, 1) rect
 			bool isValidUv(float4 uv) {
 				return uv.x >= 0 && uv.x <= 1 && uv.y >= 0 && uv.y <= 1;
 			}
@@ -135,8 +136,10 @@ Shader "Effects/Underwater Surface Projector" {
 					float surfaceTexture = underwater_surface(float3(_Time[0] * _Speed, noisePosition*_Scale), _Sharpness);
 					// mix all of the values in alpha channel
 					result.a = surfaceTexture * _Opacity * depthFading(i.uvFalloff.x) * lightness * distanceFading(i.cameraDistance) * angleFading(i.normal);
+					// make sure that it is in <0, 1> range
 					result.a = clamp(result.a, 0, 1);
-
+					
+					// apply fog color to the result color
 					UNITY_APPLY_FOG_COLOR(i.fogCoord, result, fixed4(0, 0, 0, 0));
 					return result;
 				}

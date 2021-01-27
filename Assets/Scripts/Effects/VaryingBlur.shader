@@ -6,6 +6,7 @@ Shader "Hidden/Legacy/VaryingBlur"
 
 #include "Packages/com.unity.postprocessing/PostProcessing/Shaders/StdLib.hlsl"
 #include "NoiseSimplex.cginc"
+#include "Utils.cginc"
 
 	TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
 	TEXTURE2D_SAMPLER2D(_BlurTex, sampler_BlurTex);
@@ -65,9 +66,8 @@ Shader "Hidden/Legacy/VaryingBlur"
 	// but it stopped the compiler from unrolling the loops and made the shader slower than before on average.
 	float4 AddVariation(float2 uv, float4 blurredColor) {
 		float4 originalColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);
-		float screenHeight = _ScreenParams.y;
-		float ratio = _ScreenParams.x/ _ScreenParams.y;
-		float noiseValue = SimplexNoise(float3(uv.x / screenHeight *ratio* _NoiseScale, uv.y / screenHeight * _NoiseScale, _Time[0] * _NoiseChangeRate));
+
+		float noiseValue = SimplexNoise(float3(stretch_screen_uv_coordinates(uv) * _NoiseScale, _Time[0] * _NoiseChangeRate));
 
 		float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, uv);
 		depth = Linear01Depth(depth);

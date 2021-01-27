@@ -1,7 +1,9 @@
-﻿
-// source: https://forum.unity.com/threads/legacy-blur-for-post-processing-stack-v2.488222/
+﻿using System;
 
-using System;
+/*
+ * This effect can be used to train depth guessing
+ * neural networks.
+ */
 
 namespace UnityEngine.Rendering.PostProcessing
 {
