@@ -26,10 +26,10 @@
 		float x_to_edge = pow(min(uv.x, 1 - uv.x), 2);
 		float y_to_edge = pow(min(uv.y, 1 - uv.y), 2);
 		// pow function makes the transition less harsh 
-		float delta_x = min(snoise(noise_coordinates * _Scale) *  _Intensity, pow(x_to_edge, 2));
+		float delta_x = min(snoise(noise_coordinates) *  _Intensity, pow(x_to_edge, 2));
 		// 0.5 is used as an offset here because the interval of noise function is one 
 		float3 offset = float3(0.5, 0.5, 0.5);
-		float delta_y = min(snoise(noise_coordinates * _Scale + offset) *  _Intensity, pow(y_to_edge, 2));
+		float delta_y = min(snoise(noise_coordinates + offset) *  _Intensity, pow(y_to_edge, 2));
 		uv.x += delta_x;
 		uv.y += delta_y;
 		float4 result = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, uv);

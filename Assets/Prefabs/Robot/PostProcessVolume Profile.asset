@@ -142,10 +142,10 @@ MonoBehaviour:
     value: 0.007
   Scale:
     overrideState: 1
-    value: 30
+    value: 900
   Speed:
     overrideState: 1
-    value: 0.2
+    value: 6
 --- !u!114 &-2123227442551492032
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -257,6 +257,38 @@ MonoBehaviour:
   - {fileID: -6383538822207847091}
   - {fileID: -2123227442551492032}
   - {fileID: -4008267893386985899}
+  - {fileID: 1262325012971673380}
+--- !u!114 &1262325012971673380
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8ad1a0580c84744bf6e698232e74c9, type: 3}
+  m_Name: Particles
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  Scale:
+    overrideState: 1
+    value: 220000
+  Scale2:
+    overrideState: 1
+    value: 60000
+  Speed:
+    overrideState: 1
+    value: 200
+  Cutout:
+    overrideState: 1
+    value: 0.9
+  Color:
+    overrideState: 1
+    value: {r: 0.11764707, g: 0.3254902, b: 0.34509805, a: 1}
 --- !u!114 &1272614395257349740
 MonoBehaviour:
   m_ObjectHideFlags: 3
